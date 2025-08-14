@@ -128,7 +128,7 @@ a:hover {
   background-color: var(--background-color);
   border-bottom: 1px solid var(--border-color);
   padding: var(--spacing-sm) 0;
-  z-index: 1000;
+  z-index: 1002; /* Increased z-index */
 }
 
 .navbar_container {
@@ -139,6 +139,7 @@ a:hover {
 
 .navbar_logo-link {
   display: block;
+  padding-left: var(--spacing-md);
 }
 
 .desktop-logo {
@@ -282,7 +283,7 @@ a:hover {
     text-align: center;
 }
 
-/* Attorney Card */
+/* Attorney Card & Gallery */
 .card_attorney {
   text-align: center;
 }
@@ -294,6 +295,13 @@ a:hover {
   object-fit: cover;
   border-radius: 8px;
   margin: 0 auto var(--spacing-sm);
+}
+
+.gallery-image {
+    width: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+    aspect-ratio: 1 / 1;
 }
 
 .attorney_name {
@@ -477,12 +485,15 @@ textarea.form_field {
 /* 6. MOBILE NAVIGATION */
 /* ------------------- */
 .navbar_hamburger-button {
-    display: none;
+    display: none; /* Hidden by default */
     background: none;
     border: none;
     padding: 0;
     cursor: pointer;
-    z-index: 1010;
+    position: fixed; /* Keep it fixed to the viewport */
+    top: 28px; /* Adjust vertical position */
+    right: var(--spacing-md); /* Align to the right edge with padding */
+    z-index: 1010; /* Ensure it's on top of everything */
 }
 
 .navbar_hamburger-button .icon-line {
@@ -543,7 +554,7 @@ textarea.form_field {
 /* ------------------- */
 /* 7. RESPONSIVE DESIGN */
 /* ------------------- */
-@media (max-width: 991px) { /* Tablet */
+@media (max-width: 991px) { /* Tablet and below */
   .grid_2-col, .grid_3-col, .grid_4-col, .footer_grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -563,6 +574,10 @@ textarea.form_field {
       display: block;
   }
 
+  .navbar_logo-link {
+    padding-left: var(--spacing-sm);
+  }
+
   h1 { font-size: 3rem; }
   h2 { font-size: 2.25rem; }
 }
@@ -578,6 +593,9 @@ textarea.form_field {
   .container-large {
       padding-left: var(--spacing-sm);
       padding-right: var(--spacing-sm);
+  }
+  .navbar_hamburger-button {
+      right: var(--spacing-sm); /* Adjust position for smaller screens */
   }
   h1 { font-size: 2.5rem; }
   h2 { font-size: 2rem; }
