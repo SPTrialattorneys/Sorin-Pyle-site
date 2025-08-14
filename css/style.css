@@ -1,0 +1,584 @@
+/* FONT IMPORTS FROM GOOGLE FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:wght@400;700&display=swap');
+
+/* ------------------- */
+/* 1. GLOBAL STYLES & VARIABLES */
+/* ------------------- */
+:root {
+  /* Color Palette */
+  --primary-blue: #4076B4;
+  --accent-orange: #FF8A28;
+  --background-color: #FDFBF6;
+  --text-color: #212529;
+  --white: #FFFFFF;
+  --gray-light: #f8f9fa;
+  --border-color: #dee2e6;
+
+  /* Typography */
+  --font-headings: 'Lora', serif;
+  --font-body: 'Inter', sans-serif;
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;   /* 8px */
+  --spacing-sm: 1rem;     /* 16px */
+  --spacing-md: 2rem;     /* 32px */
+  --spacing-lg: 4rem;     /* 64px */
+  --spacing-xl: 6rem;     /* 96px */
+}
+
+/* Base & Typography */
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-headings);
+  color: var(--primary-blue);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-top: 0;
+  margin-bottom: var(--spacing-sm);
+}
+
+h1 { font-size: 3.5rem; } /* 56px */
+h2 { font-size: 2.5rem; } /* 40px */
+h3 { font-size: 1.75rem; } /* 28px */
+
+p {
+  margin-bottom: var(--spacing-sm);
+}
+
+a {
+  color: var(--accent-orange);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--primary-blue);
+}
+
+/* ------------------- */
+/* 2. LAYOUT & UTILITY CLASSES */
+/* ------------------- */
+.container-large {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--spacing-md);
+  padding-right: var(--spacing-md);
+}
+
+.section {
+  padding-top: var(--spacing-xl);
+  padding-bottom: var(--spacing-xl);
+}
+
+.grid_2-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-lg);
+}
+
+.grid_3-col {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-md);
+}
+
+.grid_4-col {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-md);
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.margin-bottom-md {
+    margin-bottom: var(--spacing-md);
+}
+
+.hr-divider {
+  border: 0;
+  height: 1px;
+  background-color: var(--border-color);
+  margin: var(--spacing-xl) auto;
+  width: 100%;
+}
+
+/* ------------------- */
+/* 3. GLOBAL COMPONENTS */
+/* ------------------- */
+
+/* Navbar Component */
+.navbar_component {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--background-color);
+  border-bottom: 1px solid var(--border-color);
+  padding: var(--spacing-sm) 0;
+  z-index: 1000;
+}
+
+.navbar_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar_logo-link {
+  display: block;
+}
+
+.desktop-logo {
+    display: block;
+    height: 60px;
+    width: auto;
+    max-width: 100%; /* Prevents overflow */
+}
+.mobile-logo {
+    display: none;
+    height: 80px;
+    width: auto;
+    max-width: 100%; /* Prevents overflow */
+}
+
+
+.navbar_menu {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar_item {
+  margin-left: var(--spacing-md);
+}
+
+.navbar_link {
+  font-family: var(--font-body);
+  font-weight: 500;
+  color: var(--text-color);
+  font-size: 1rem;
+}
+
+/* Footer Component */
+.footer_component {
+  background-color: var(--primary-blue);
+  color: var(--background-color);
+  padding: var(--spacing-lg) 0;
+}
+
+.footer_component a {
+    color: var(--background-color);
+    opacity: 0.8;
+}
+
+.footer_component a:hover {
+    opacity: 1;
+}
+
+.footer_component h3 {
+    color: var(--background-color);
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.footer_grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1.5fr;
+  gap: var(--spacing-lg);
+}
+
+.footer_logo {
+  height: 80px;
+  width: auto;
+  margin-bottom: var(--spacing-sm);
+}
+
+.footer_list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer_list li {
+  margin-bottom: var(--spacing-xs);
+}
+
+.footer_disclaimer {
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+.footer_bottom-bar {
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  margin-top: var(--spacing-lg);
+  padding-top: var(--spacing-md);
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* Button Component */
+.button-primary {
+  display: inline-block;
+  background-color: var(--accent-orange);
+  color: var(--white);
+  padding: 1rem 2rem;
+  border-radius: 4px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.button-primary:hover {
+  background-color: #e67a1e; /* 10% darker */
+  color: var(--white);
+}
+
+/* ------------------- */
+/* 4. PAGE-SPECIFIC COMPONENTS */
+/* ------------------- */
+
+/* Hero Section */
+.section_home-hero {
+  text-align: center;
+  padding: var(--spacing-xl) 0;
+}
+
+.section_home-hero .sub-headline {
+  font-family: var(--font-body);
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--text-color);
+  max-width: 600px;
+  margin: 0 auto var(--spacing-md);
+}
+
+/* Beliefs Section */
+.section_our-beliefs {
+    background-color: var(--white);
+}
+
+.beliefs-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Attorney Card */
+.card_attorney {
+  text-align: center;
+}
+
+.attorney_photo {
+  width: 100%;
+  max-width: 300px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 8px;
+  margin: 0 auto var(--spacing-sm);
+}
+
+.attorney_name {
+  font-family: var(--font-headings);
+  font-size: 1.5rem;
+  color: var(--primary-blue);
+  margin-bottom: var(--spacing-xs);
+}
+
+.attorney_snippet {
+  margin-bottom: var(--spacing-sm);
+}
+
+/* Results Card */
+.card_results {
+  background-color: var(--white);
+  padding: var(--spacing-md);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  text-align: center;
+}
+
+.card_results .charge {
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.card_results .result {
+    font-weight: 700;
+    color: var(--primary-blue);
+}
+
+/* Location Card */
+.card_location {
+  background-color: var(--white);
+  padding: var(--spacing-md) var(--spacing-sm);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  text-align: center;
+  font-family: var(--font-headings);
+  font-size: 1.25rem;
+  color: var(--primary-blue);
+  font-weight: 700;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+a.card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+a.card-link:hover .card_location {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* Form Styling */
+.form_block {
+    display: grid;
+    gap: var(--spacing-sm);
+}
+
+.form_field {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+}
+
+.form_field:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+}
+
+textarea.form_field {
+    min-height: 150px;
+    resize: vertical;
+}
+
+/* Practice Area Card */
+.card_practice-area {
+    background: var(--white);
+    padding: var(--spacing-md);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+}
+
+/* Styles for the expandable practice area section */
+.more-areas-container {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.8s ease-in-out;
+}
+.more-areas-container.is-expanded {
+    max-height: 1500px; /* Large enough to show all content */
+}
+
+/* FAQ Accordion (Structure & Basic Styles) */
+.faq_item {
+    border-bottom: 1px solid var(--border-color);
+    padding: var(--spacing-sm) 0;
+}
+.faq_question {
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+    padding-right: 30px; /* Space for the icon */
+}
+.faq_question::after { /* Plus icon */
+    content: '+';
+    position: absolute;
+    right: 0;
+    font-size: 1.5rem;
+    color: var(--primary-blue);
+    transition: transform 0.4s ease;
+}
+.faq_item.is-open .faq_question::after { /* Minus icon */
+    transform: rotate(45deg);
+}
+.faq_answer {
+    padding-top: var(--spacing-sm);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+}
+
+/* Tab navigation for Resources page */
+.tabs_nav {
+    display: flex;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: var(--spacing-md);
+    justify-content: center;
+}
+.tab_button {
+    padding: var(--spacing-sm) var(--spacing-md);
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    font-family: var(--font-headings);
+    font-size: 1.25rem;
+    color: var(--text-color);
+    opacity: 0.7;
+    position: relative;
+    bottom: -1px;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+.tab_button:hover {
+    opacity: 1;
+    color: var(--primary-blue);
+}
+.tab_button.is-active {
+    color: var(--primary-blue);
+    border-bottom: 2px solid var(--primary-blue);
+    opacity: 1;
+}
+.tab_content {
+    display: none;
+}
+.tab_content.is-active {
+    display: block;
+}
+
+/* ------------------- */
+/* 5. ANIMATIONS */
+/* ------------------- */
+.fade-up-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-up-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ------------------- */
+/* 6. MOBILE NAVIGATION */
+/* ------------------- */
+.navbar_hamburger-button {
+    display: none;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    z-index: 1010;
+}
+
+.navbar_hamburger-button .icon-line {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-color);
+    margin: 5px 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.mobile-nav_menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--background-color);
+    z-index: 1001;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.mobile-nav_menu.is-open {
+    display: flex;
+}
+
+.mobile-nav_list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.mobile-nav_item {
+    margin: var(--spacing-md) 0;
+}
+
+.mobile-nav_link {
+    font-family: var(--font-headings);
+    font-size: 2rem;
+    color: var(--primary-blue);
+    font-weight: 700;
+}
+
+.navbar_hamburger-button.is-active .icon-line:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+.navbar_hamburger-button.is-active .icon-line:nth-child(2) {
+    opacity: 0;
+}
+.navbar_hamburger-button.is-active .icon-line:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ------------------- */
+/* 7. RESPONSIVE DESIGN */
+/* ------------------- */
+@media (max-width: 991px) { /* Tablet */
+  .grid_2-col, .grid_3-col, .grid_4-col, .footer_grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .navbar_menu {
+    display: none;
+  }
+
+  .navbar_hamburger-button {
+    display: block; 
+  }
+
+  .desktop-logo {
+      display: none;
+  }
+  .mobile-logo {
+      display: block;
+  }
+
+  h1 { font-size: 3rem; }
+  h2 { font-size: 2.25rem; }
+}
+
+@media (max-width: 767px) { /* Mobile */
+  .grid_2-col, .grid_3-col, .grid_4-col, .footer_grid {
+    grid-template-columns: 1fr;
+  }
+  .section {
+      padding-top: var(--spacing-lg);
+      padding-bottom: var(--spacing-lg);
+  }
+  .container-large {
+      padding-left: var(--spacing-sm);
+      padding-right: var(--spacing-sm);
+  }
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 2rem; }
+}
