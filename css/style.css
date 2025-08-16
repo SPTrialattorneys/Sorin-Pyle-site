@@ -1,5 +1,5 @@
 /* FONT IMPORTS FROM GOOGLE FONTS */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:wght@400;700&family=Libre+Baskerville:wght@700&display=swap');
 
 /* ------------------- */
 /* 1. GLOBAL STYLES & VARIABLES */
@@ -17,6 +17,7 @@
   /* Typography */
   --font-headings: 'Lora', serif;
   --font-body: 'Inter', sans-serif;
+  --font-logo: 'Libre Baskerville', serif;
 
   /* Spacing */
   --spacing-xs: 0.5rem;   /* 8px */
@@ -128,7 +129,7 @@ a:hover {
   background-color: var(--background-color);
   border-bottom: 1px solid var(--border-color);
   padding: var(--spacing-sm) 0;
-  z-index: 1002; /* Increased z-index */
+  z-index: 1002;
 }
 
 .navbar_container {
@@ -138,21 +139,36 @@ a:hover {
 }
 
 .navbar_logo-link {
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
   padding-left: var(--spacing-md);
 }
 
-.desktop-logo {
-    display: block;
-    height: 60px;
+.logo-icon {
+    height: 70px;
     width: auto;
-    max-width: 100%; /* Prevents overflow */
 }
-.mobile-logo {
-    display: none;
-    height: 80px;
-    width: auto;
-    max-width: 100%; /* Prevents overflow */
+
+.logo-text-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-text-main {
+    font-family: var(--font-logo);
+    font-size: 2rem;
+    color: var(--accent-orange);
+    line-height: 1;
+}
+
+.logo-text-sub {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--primary-blue);
+    letter-spacing: 0.1em;
+    margin-top: 0.25rem;
 }
 
 
@@ -173,6 +189,31 @@ a:hover {
   font-weight: 500;
   color: var(--text-color);
   font-size: 1rem;
+}
+
+/* Home Page Header Styles */
+.header-home_initial {
+    padding: var(--spacing-md) 0;
+    border-bottom: 1px solid var(--border-color);
+}
+.home-hero_logo-container {
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+}
+.home-hero_logo {
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+}
+.home-hero_nav {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+}
+
+/* Hide mobile-only header on desktop */
+.header-home_mobile {
+    display: none;
 }
 
 /* Footer Component */
@@ -260,7 +301,8 @@ a:hover {
 /* Hero Section */
 .section_home-hero {
   text-align: center;
-  padding: var(--spacing-xl) 0;
+  padding-top: var(--spacing-lg); /* Reduced padding */
+  padding-bottom: var(--spacing-xl);
 }
 
 .section_home-hero .sub-headline {
@@ -390,16 +432,23 @@ textarea.form_field {
     border: 1px solid var(--border-color);
     border-radius: 8px;
 }
+.card_practice-area h3 {
+    text-align: center;
+}
+.card_practice-area p {
+    font-style: italic;
+    margin-bottom: 1.5rem;
+}
+.practice-area-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+.practice-area-list li {
+    margin-bottom: var(--spacing-xs);
+}
 
-/* Styles for the expandable practice area section */
-.more-areas-container {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.8s ease-in-out;
-}
-.more-areas-container.is-expanded {
-    max-height: 1500px; /* Large enough to show all content */
-}
 
 /* FAQ Accordion (Structure & Basic Styles) */
 .faq_item {
@@ -559,19 +608,26 @@ textarea.form_field {
     grid-template-columns: repeat(2, 1fr);
   }
   
-  .navbar_menu {
+  .navbar_menu, .home-hero_nav, .header-home_initial {
     display: none;
+  }
+
+  .header-home_mobile {
+      display: block;
   }
 
   .navbar_hamburger-button {
     display: block; 
   }
 
-  .desktop-logo {
-      display: none;
+  .logo-icon {
+      height: 50px;
   }
-  .mobile-logo {
-      display: block;
+  .logo-text-main {
+      font-size: 1.5rem;
+  }
+  .logo-text-sub {
+      font-size: 0.7rem;
   }
 
   .navbar_logo-link {
