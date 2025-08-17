@@ -376,8 +376,8 @@ a:hover {
     color: var(--primary-blue);
 }
 
-/* Location Card */
-.card_location {
+/* Feature Card (Used for Locations and Homepage Services) */
+.feature-card {
   background-color: var(--white);
   padding: var(--spacing-md) var(--spacing-sm);
   border: 1px solid var(--border-color);
@@ -390,12 +390,7 @@ a:hover {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-a.card-link {
-    text-decoration: none;
-    color: inherit;
-}
-
-a.card-link:hover .card_location {
+a.card-link:hover .feature-card {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
