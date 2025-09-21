@@ -6,12 +6,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (hamburgerButton && mobileNav) {
         hamburgerButton.addEventListener('click', function() {
+            const isExpanded = hamburgerButton.getAttribute('aria-expanded') === 'true';
+
+            // Toggle ARIA attribute for accessibility
+            hamburgerButton.setAttribute('aria-expanded', !isExpanded);
+
             // Toggle classes to show/hide menu and animate button
             mobileNav.classList.toggle('is-open');
             hamburgerButton.classList.toggle('is-active');
 
+            // Update aria-hidden for screen readers
+            mobileNav.setAttribute('aria-hidden', isExpanded ? 'true' : 'false');
+
             // Lock body scroll when the mobile menu is open
             if (mobileNav.classList.contains('is-open')) {
+                // When menu is open
                 document.body.style.overflow = 'hidden';
             } else {
                 document.body.style.overflow = '';
@@ -32,14 +41,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 // Close all other open FAQ items first for a cleaner accordion
                 faqItems.forEach(otherItem => {
+                    const otherQuestion = otherItem.querySelector('.faq_question');
+                    const otherAnswer = otherItem.querySelector('.faq_answer');
+
                     otherItem.classList.remove('is-open');
-                    otherItem.querySelector('.faq_answer').style.maxHeight = 0;
+                    otherAnswer.style.maxHeight = 0;
+
+                    // Update ARIA attributes for closed items
+                    otherQuestion.setAttribute('aria-expanded', 'false');
+                    otherAnswer.setAttribute('aria-hidden', 'true');
                 });
 
                 // If the clicked item was not already open, open it
                 if (!isOpen) {
                     item.classList.add('is-open');
                     answer.style.maxHeight = answer.scrollHeight + 'px';
+
+                    // Update ARIA attributes for opened item
+                    question.setAttribute('aria-expanded', 'true');
+                    answer.setAttribute('aria-hidden', 'false');
                 }
             });
         }
@@ -95,7 +115,7 @@ document.addEventListener('DOMContentLoaded', function() {
         tabButtons.forEach(button => {
             button.addEventListener('click', () => {
                 const targetId = button.getAttribute('data-tab');
-                
+
                 // Update buttons
                 tabButtons.forEach(btn => btn.classList.remove('is-active'));
                 button.classList.add('is-active');
@@ -111,4 +131,72 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
+
+    // --- MOBILE STICKY CTA BUTTON ---
+    const mobileCTA = document.getElementById('mobile-cta-sticky');
+
+    if (mobileCTA) {
+        let isVisible = false;
+        const showThreshold = 300; // Show after scrolling 300px past hero
+
+        function isMobileDevice() {
+            return window.innerWidth <= 768;
+        }
+
+        function handleScroll() {
+            // Only run on mobile devices
+            if (!isMobileDevice()) {
+                // Ensure button is hidden on desktop
+                if (isVisible) {
+                    mobileCTA.classList.remove('is-visible');
+                    mobileCTA.setAttribute('aria-hidden', 'true');
+                    mobileCTA.style.display = 'none';
+                    isVisible = false;
+                }
+                return;
+            }
+
+            const scrollY = window.scrollY;
+            const shouldShow = scrollY > showThreshold;
+
+            if (shouldShow && !isVisible) {
+                // Show the button
+                mobileCTA.style.display = 'block';
+                mobileCTA.setAttribute('aria-hidden', 'false');
+                // Trigger reflow to ensure display:block is applied before adding class
+                mobileCTA.offsetHeight;
+                mobileCTA.classList.add('is-visible');
+                isVisible = true;
+            } else if (!shouldShow && isVisible) {
+                // Hide the button
+                mobileCTA.classList.remove('is-visible');
+                mobileCTA.setAttribute('aria-hidden', 'true');
+                isVisible = false;
+                // Hide completely after animation
+                setTimeout(() => {
+                    if (!isVisible) {
+                        mobileCTA.style.display = 'none';
+                    }
+                }, 300);
+            }
+        }
+
+        // Throttle scroll events for better performance
+        let scrollTimeout;
+        window.addEventListener('scroll', () => {
+            if (scrollTimeout) {
+                clearTimeout(scrollTimeout);
+            }
+            scrollTimeout = setTimeout(handleScroll, 10);
+        });
+
+        // Handle window resize to hide/show based on screen size
+        window.addEventListener('resize', () => {
+            handleScroll();
+        });
+
+        // Initial check
+        handleScroll();
+    }
+
 });

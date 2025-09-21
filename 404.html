@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found | Sorin & Pyle, PC</title>
+    <meta name="description" content="The page you're looking for cannot be found. Contact Sorin & Pyle Criminal Defense Attorneys for assistance.">
+
+    <!-- Local fonts loaded via CSS -->
+
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="preload" href="/css/style.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/css/style.min.css"></noscript>
+
+    <style>
+        .error-page {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .error-content {
+            max-width: 600px;
+            padding: 2rem;
+        }
+        .error-code {
+            font-size: 6rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin: 0;
+            line-height: 1;
+        }
+        .error-message {
+            font-size: 1.5rem;
+            color: var(--text-color);
+            margin: 1rem 0 2rem;
+        }
+        .error-suggestions {
+            text-align: left;
+            margin: 2rem 0;
+        }
+        .error-suggestions ul {
+            list-style: none;
+            padding: 0;
+        }
+        .error-suggestions li {
+            margin: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        .error-suggestions li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent-orange);
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar_component">
+        <div class="container-large navbar_container">
+            <a href="/index.html" class="navbar_logo-link">
+                <img src="/images/logo-icon.svg" alt="Sorin & Pyle Ship Icon" class="logo-icon" width="70" height="70">
+                <div class="logo-text-container">
+                    <span class="logo-text-main">Sorin & Pyle</span>
+                    <span class="logo-text-sub">TRIAL LAWYERS</span>
+                </div>
+            </a>
+        </div>
+    </header>
+
+    <main class="error-page">
+        <div class="error-content">
+            <h1 class="error-code">404</h1>
+            <p class="error-message">Page Not Found</p>
+            <p>We're sorry, but the page you're looking for doesn't exist or may have been moved.</p>
+
+            <div class="error-suggestions">
+                <h3>What you can do:</h3>
+                <ul>
+                    <li><a href="/index.html">Return to our homepage</a></li>
+                    <li><a href="/contact.html">Contact us for immediate help</a></li>
+                    <li><a href="/attorneys.html">Meet our attorneys</a></li>
+                    <li><a href="/practice-areas.html">View our practice areas</a></li>
+                    <li><a href="tel:6162273303">Call us at (616) 227-3303</a></li>
+                </ul>
+            </div>
+
+            <div style="margin-top: 2rem;">
+                <a href="/contact.html" class="button-primary">Get Legal Help Now</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer_component">
+        <div class="container-large">
+            <div class="footer_grid">
+                <div class="footer_column">
+                    <h3>Sorin & Pyle, PC</h3>
+                    <p>217 E 24th St Ste 107<br>Holland, MI 49423</p>
+                    <p>
+                        <a href="tel:6162273303">(616) 227-3303</a><br>
+                        <a href="mailto:justice@callsbp.com">justice@callsbp.com</a>
+                    </p>
+                </div>
+                <div class="footer_column">
+                    <h3>Hours</h3>
+                    <p>
+                        Monday - Friday: 9 AM - 5 PM<br>
+                        Saturday & Sunday: By Appointment
+                    </p>
+                </div>
+                <div class="footer_column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer_list">
+                        <li><a href="/index.html">About</a></li>
+                        <li><a href="/attorneys.html">Attorneys</a></li>
+                        <li><a href="/practice-areas.html">Practice Areas</a></li>
+                        <li><a href="/locations.html">Locations</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer_column">
+                    <h3>Emergency Contact</h3>
+                    <p><strong>Need immediate legal help?</strong></p>
+                    <p><a href="tel:6162273303" style="font-size: 1.2rem; font-weight: bold;">(616) 227-3303</a></p>
+                </div>
+            </div>
+            <div class="footer_bottom-bar">
+                © 2025 Sorin & Pyle, PC. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Track 404 errors in analytics
+        if (typeof gtag !== 'undefined') {
+            gtag('event', '404_error', {
+                event_category: 'Error',
+                event_label: window.location.pathname,
+                page_title: document.title,
+                non_interaction: true
+            });
+        }
+    </script>
+
+    <!-- SEO: Enhanced Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "LegalService",
+          "@id": "https://www.sorinpyle.com/#organization",
+          "name": "Sorin & Pyle, PC",
+          "alternateName": "Sorin & Pyle Trial Lawyers",
+          "url": "https://www.sorinpyle.com/",
+          "logo": "https://www.sorinpyle.com/images/logo-icon.svg",
+          "image": "https://www.sorinpyle.com/images/Ottawa-County-Courthouse.jpg",
+          "description": "Aggressive, empathetic trial lawyers in Holland, MI, defending clients against DUI, assault, and other criminal charges.",
+          "telephone": "+1-616-227-3303",
+          "email": "justice@callsbp.com",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "217 E 24th St Ste 107",
+            "addressLocality": "Holland",
+            "addressRegion": "MI",
+            "postalCode": "49423",
+            "addressCountry": "US"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 42.7726949,
+            "longitude": -86.0959496
+          },
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "09:00",
+            "closes": "17:00"
+          },
+          "areaServed": [
+            {
+              "@type": "State",
+              "name": "Michigan"
+            },
+            {
+              "@type": "AdministrativeArea",
+              "name": "Ottawa County",
+              "containsPlace": [
+                {"@type": "City", "name": "Holland"},
+                {"@type": "City", "name": "Grand Haven"},
+                {"@type": "City", "name": "Hudsonville"},
+                {"@type": "City", "name": "Zeeland"},
+                {"@type": "City", "name": "Coopersville"}
+              ]
+            },
+            {
+              "@type": "AdministrativeArea",
+              "name": "Kent County",
+              "containsPlace": [
+                {"@type": "City", "name": "Grand Rapids"},
+                {"@type": "City", "name": "Wyoming"},
+                {"@type": "City", "name": "Kentwood"},
+                {"@type": "City", "name": "Walker"},
+                {"@type": "City", "name": "Grandville"}
+              ]
+            },
+            {
+              "@type": "AdministrativeArea",
+              "name": "Allegan County",
+              "containsPlace": [
+                {"@type": "City", "name": "Allegan"},
+                {"@type": "City", "name": "Plainwell"},
+                {"@type": "City", "name": "Otsego"},
+                {"@type": "City", "name": "Saugatuck"}
+              ]
+            },
+            {
+              "@type": "AdministrativeArea",
+              "name": "Muskegon County",
+              "containsPlace": [
+                {"@type": "City", "name": "Muskegon"},
+                {"@type": "City", "name": "Norton Shores"},
+                {"@type": "City", "name": "Muskegon Heights"}
+              ]
+            },
+            {
+              "@type": "AdministrativeArea",
+              "name": "Kalamazoo County",
+              "containsPlace": [
+                {"@type": "City", "name": "Kalamazoo"},
+                {"@type": "City", "name": "Portage"},
+                {"@type": "City", "name": "Parchment"}
+              ]
+            },
+            {
+              "@type": "AdministrativeArea",
+              "name": "Van Buren County",
+              "containsPlace": [
+                {"@type": "City", "name": "Paw Paw"},
+                {"@type": "City", "name": "South Haven"},
+                {"@type": "City", "name": "Bangor"}
+              ]
+            },
+            {
+              "@type": "AdministrativeArea",
+              "name": "Newaygo County",
+              "containsPlace": [
+                {"@type": "City", "name": "White Cloud"},
+                {"@type": "City", "name": "Fremont"},
+                {"@type": "City", "name": "Newaygo"}
+              ]
+            }
+          ],
+          "attorney": [
+            {
+              "@id": "https://www.sorinpyle.com/sorin-panainte.html#attorney"
+            },
+            {
+              "@id": "https://www.sorinpyle.com/jonathan-pyle.html#attorney"
+            }
+          ],
+          "serviceType": [
+            "Criminal Defense",
+            "DUI Defense",
+            "Felony Defense",
+            "Misdemeanor Defense",
+            "Trial Representation",
+            "Legal Consultation"
+          ],
+          "priceRange": "Free Consultation",
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Legal Services",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Criminal Defense Consultation",
+                  "description": "Free consultation for criminal defense cases"
+                },
+                "price": "0",
+                "priceCurrency": "USD"
+              }
+            ]
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.sorinpyle.com/#website",
+          "url": "https://www.sorinpyle.com/",
+          "name": "Sorin & Pyle Criminal Defense Attorneys",
+          "description": "West Michigan Criminal Defense Lawyers",
+          "publisher": {
+            "@id": "https://www.sorinpyle.com/#organization"
+          },
+          "potentialAction": [
+            {
+              "@type": "SearchAction",
+              "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://www.sorinpyle.com/practice-areas.html?q={search_term_string}"
+              },
+              "query-input": "required name=search_term_string"
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+</body>
+</html>

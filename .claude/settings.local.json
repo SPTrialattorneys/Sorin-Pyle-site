@@ -1,0 +1,34 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(while read file)",
+      "Bash(do echo -n \"$file: \")",
+      "Bash(if grep -q \"Enhanced Schema\" \"$file\")",
+      "Bash(then echo \"ENHANCED\")",
+      "Bash(elif grep -q \"application/ld\" \"$file\")",
+      "Bash(then echo \"BASIC\")",
+      "Bash(else echo \"NONE\")",
+      "Bash(fi)",
+      "Bash(done)",
+      "Read(//c/Users/jonpy/OneDrive/Desktop/**)",
+      "Bash(magick identify:*)",
+      "Bash(\"C:\\Program Files\\ImageMagick-7.1.2-Q16-HDRI\\magick.exe\" identify \"images/Sorin&Pyle-Stacked-Color.png\")",
+      "Bash(\"C:\\Program Files\\ImageMagick-7.1.2-Q16-HDRI\\magick.exe\" \"images/Sorin & Pyle Business Card Front.png\" -quality 90 \"images/sorin-pyle-business-card-front.avif\")",
+      "Bash(\"C:\\Program Files\\ImageMagick-7.1.2-Q16-HDRI\\magick.exe\" \"images/Sorin&Pyle-Primary-Color.png\" -quality 90 \"images/sorin-pyle-primary-color.avif\")",
+      "Bash(\"C:\\Program Files\\ImageMagick-7.1.2-Q16-HDRI\\magick.exe\" \"images/Sorin&Pyle-Stacked-Color.png\" -quality 90 \"images/sorin-pyle-stacked-color.avif\")",
+      "Bash(for:*)",
+      "Bash(do ls:*)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(python:*)",
+      "WebFetch(domain:localhost)",
+      "WebFetch(domain:www.google.com)",
+      "Bash(find:*)",
+      "WebFetch(domain:www.michigan.gov)",
+      "Bash(dir)",
+      "Bash(git add:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

@@ -4,34 +4,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Attorneys | Sorin & Pyle | Trial Lawyers</title>
-    <meta name="description" content="Meet Sorin Panainte and Jonathan Pyle, dedicated criminal defense attorneys serving West Michigan with passion and experience.">
+    <title>Criminal Defense Attorneys in Holland, MI | Sorin & Pyle</title>
+    <meta name="description" content="Meet Sorin Panainte and Jonathan Pyle, experienced criminal defense trial attorneys specializing in DUI, felonies, and misdemeanors in Holland and West Michigan.">
+    <meta name="keywords" content="Sorin Panainte attorney, Jonathan Pyle lawyer, Holland MI criminal defense attorneys, experienced trial lawyers, former public defender, West Michigan legal team">
+
+    <!-- SEO & Social Meta -->
+    <link rel="canonical" href="https://www.sorinpyle.com/attorneys.html">
+    <meta property="og:title" content="Criminal Defense Attorneys in Holland, MI | Sorin & Pyle">
+    <meta property="og:description" content="Meet Sorin Panainte and Jonathan Pyle, experienced criminal defense trial attorneys specializing in DUI, felonies, and misdemeanors in Holland and West Michigan.">
+    <meta property="og:url" content="https://www.sorinpyle.com/attorneys.html">
+    <meta property="og:image" content="https://www.sorinpyle.com/images/Ottawa-County-Courthouse.jpg">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Sorin & Pyle, PC">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Local fonts loaded via CSS -->
+
     <link rel="icon" type="image/png" href="images/favicon.png">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="preload" href="css/style.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="css/style.min.css"></noscript>
 </head>
 <body>
+
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <!-- ▼▼▼ NAVBAR (Identical on all pages) ▼▼▼ -->
     <header class="navbar_component">
         <div class="container-large navbar_container">
             <a href="index.html" class="navbar_logo-link">
-                <img src="images/logo-icon.svg" alt="Sorin & Pyle Ship Icon" class="logo-icon">
+                <img src="images/logo-icon.svg" alt="Sorin & Pyle Ship Icon" class="logo-icon" width="70" height="70">
                 <div class="logo-text-container">
                     <span class="logo-text-main">Sorin & Pyle</span>
                     <span class="logo-text-sub">TRIAL LAWYERS</span>
                 </div>
             </a>
-            <nav class="navbar_desktop-nav">
-                <ul class="navbar_menu">
-                    <li class="navbar_item"><a href="index.html" class="navbar_link">About</a></li>
-                    <li class="navbar_item"><a href="attorneys.html" class="navbar_link">Attorneys</a></li>
-                    <li class="navbar_item"><a href="practice-areas.html" class="navbar_link">Practice Areas</a></li>
-                    <li class="navbar_item"><a href="locations.html" class="navbar_link">Locations</a></li>
-                    <li class="navbar_item"><a href="resources.html" class="navbar_link">Firm Updates & Resources</a></li>
-                    <li class="navbar_item"><a href="contact.html" class="navbar_link">Contact</a></li>
+            <nav class="navbar_desktop-nav" role="navigation" aria-label="Main navigation">
+                <ul class="navbar_menu" role="menubar">
+                    <li class="navbar_item" role="none"><a href="index.html" class="navbar_link" role="menuitem">About</a></li>
+                    <li class="navbar_item" role="none"><a href="attorneys.html" class="navbar_link" role="menuitem" aria-current="page">Attorneys</a></li>
+                    <li class="navbar_item" role="none"><a href="practice-areas.html" class="navbar_link" role="menuitem">Practice Areas</a></li>
+                    <li class="navbar_item" role="none"><a href="locations.html" class="navbar_link" role="menuitem">Locations</a></li>
+                    <li class="navbar_item" role="none"><a href="resources.html" class="navbar_link" role="menuitem">Firm Updates & Resources</a></li>
+                    <li class="navbar_item" role="none"><a href="contact.html" class="navbar_link" role="menuitem">Contact</a></li>
                 </ul>
             </nav>
-            <button class="navbar_hamburger-button" id="hamburger-button" aria-label="Open Menu">
+            <button class="navbar_hamburger-button" id="hamburger-button" aria-label="Open Menu" aria-controls="mobile-nav" aria-expanded="false">
                 <span class="icon-line"></span>
                 <span class="icon-line"></span>
                 <span class="icon-line"></span>
@@ -40,77 +57,45 @@
     </header>
 
     <!-- ▼▼▼ MOBILE NAVIGATION MENU (Identical on all pages) ▼▼▼ -->
-    <div class="mobile-nav_menu" id="mobile-nav">
-        <ul class="mobile-nav_list">
-            <li class="mobile-nav_item"><a href="index.html" class="mobile-nav_link">About</a></li>
-            <li class="mobile-nav_item"><a href="attorneys.html" class="mobile-nav_link">Attorneys</a></li>
-            <li class="mobile-nav_item"><a href="practice-areas.html" class="mobile-nav_link">Practice Areas</a></li>
-            <li class="mobile-nav_item"><a href="locations.html" class="mobile-nav_link">Locations</a></li>
-            <li class="mobile-nav_item"><a href="resources.html" class="mobile-nav_link">Firm Updates & Resources</a></li>
-            <li class="mobile-nav_item"><a href="contact.html" class="mobile-nav_link">Contact</a></li>
+    <div class="mobile-nav_menu" id="mobile-nav" role="dialog" aria-label="Mobile navigation menu" aria-hidden="true">
+        <ul class="mobile-nav_list" role="menu">
+            <li class="mobile-nav_item" role="none"><a href="index.html" class="mobile-nav_link" role="menuitem">About</a></li>
+            <li class="mobile-nav_item" role="none"><a href="attorneys.html" class="mobile-nav_link" role="menuitem" aria-current="page">Attorneys</a></li>
+            <li class="mobile-nav_item" role="none"><a href="practice-areas.html" class="mobile-nav_link" role="menuitem">Practice Areas</a></li>
+            <li class="mobile-nav_item" role="none"><a href="locations.html" class="mobile-nav_link" role="menuitem">Locations</a></li>
+            <li class="mobile-nav_item" role="none"><a href="resources.html" class="mobile-nav_link" role="menuitem">Firm Updates & Resources</a></li>
+            <li class="mobile-nav_item" role="none"><a href="contact.html" class="mobile-nav_link" role="menuitem">Contact</a></li>
         </ul>
     </div>
 
-    <main>
+    <main id="main-content">
         <section class="section">
             <div class="container-large fade-up-on-scroll">
-                <h1 class="text-align-center margin-bottom-md">Meet Your Advocates</h1>
+                <h1 class="text-align-center margin-bottom-md">Meet Your West Michigan Advocates</h1>
                 
                 <!-- Sorin Panainte Bio -->
-                <div class="grid_2-col" style="align-items: flex-start;">
-                    <div>
-                        <img src="images/Sorin 3.avif" alt="Headshot of Sorin Panainte" style="width: 100%; border-radius: 8px;">
+                <div class="grid_2-col grid-align-center">
+                    <div class="attorney-bio-image">
+                        <a href="sorin-panainte.html"><img src="images/sorin-3.avif" alt="Sorin Panainte - Criminal Defense Attorney and Former Public Defender in Holland, Michigan" loading="lazy" class="attorney_photo-sorin"></a>
                     </div>
                     <div>
                         <h2>Sorin Panainte</h2>
-                        <p>As a first-generation immigrant, I learned early on what it means to fight for a place in the world. That fighting spirit is what I bring to every single case. After years serving as a Public Defender, I saw firsthand how good people can get trapped in a system that is often overwhelming and unforgiving.</p>
-                        <p>I founded this firm on the principle that every client deserves more than just a lawyer; they deserve a dedicated advocate who will listen to their story, believe in them, and tirelessly defend their future. I am committed to standing by your side and being your champion in the courtroom.</p>
-                        
-                        <h3 style="margin-top: 2rem;">Education</h3>
-                        <p>University of Michigan, BA '16<br>Case Western Reserve University School of Law, JD cum laude, '19</p>
-                        
-                        <h3 style="margin-top: 2rem;">Recent Case Results</h3>
-                        <ul style="padding-left: 20px;">
-                            <li>Felonious Assault: Dismissed</li>
-                            <li>Aggravated Assault: Not Guilty</li>
-                            <li>Domestic Violence: Not Guilty</li>
-                            <li>Domestic Violence: Not Guilty</li>
-                            <li>Domestic Violence: Not Guilty</li>
-                            <li>Resisting and Opposing a Police Officer: Not Guilty</li>
-                            <li>Attempt CSC 4th: Dismissed</li>
-                            <li>Operating While Intoxicated: Dismissed</li>
-                            <li>Disturbing the Peace: Dismissed</li>
-                            <li>Retail Fraud: Dismissed</li>
-                        </ul>
+                        <p>A former Public Defender and first-generation immigrant, Sorin brings a tenacious fighting spirit to every case. He founded the firm on the principle that every client deserves a dedicated advocate who will listen to their story and tirelessly defend their future.</p>
+                        <a href="sorin-panainte.html" class="button-primary margin-top-sm">Learn More About Sorin</a>
                     </div>
                 </div>
 
                 <hr class="hr-divider">
 
                 <!-- Jonathan Pyle Bio -->
-                <div class="grid_2-col" style="align-items: flex-start;">
-                    <div>
-                        <img src="images/Jonathan 2.avif" alt="Headshot of Jonathan Pyle" style="width: 100%; border-radius: 8px;">
-                    </div>
-                    <div>
+                <div class="attorney-bio-grid-reversed grid-align-center">
+                    <div class="grid-area-text">
                         <h2>Jonathan Pyle</h2>
-                        <p>I grew up right here in West Michigan, and after pursuing my education across the country, I knew I had to come back home to serve the community that raised me. My time at the University of Georgia gave me a world-class legal education, but my work here, defending my neighbors, gives me purpose.</p>
-                        <p>I believe a good defense is built on relentless preparation and a genuine connection with my client. I will take the time to understand your situation, and I will be the steady hand you need to navigate the storm.</p>
-                        
-                        <h3 style="margin-top: 2rem;">Education</h3>
-                        <p>Western Michigan University, BA '09<br>University of Georgia School of Law, JD, '15</p>
-                        
-                        <h3 style="margin-top: 2rem;">Recent Case Results</h3>
-                        <ul style="padding-left: 20px;">
-                            <li>CCW (carrying a concealed weapon): Dismissed</li>
-                            <li>Hindering & Oppose a Police Officer: Dismissed</li>
-                            <li>Domestic Violence: Not Guilty</li>
-                            <li>Domestic Violence: Not Guilty</li>
-                            <li>Domestic Violence: Not Guilty</li>
-                            <li>Assault and Battery: Not Guilty</li>
-                            <li>Resist and Oppose a Police Officer: Not Guilty</li>
-                            <li>Assault and Battery: Not Guilty</li>
-                        </ul>
+                        <p>Raised in West Michigan, Jonathan returned home to serve the community that raised him. He believes a strong defense is built on relentless preparation and a genuine connection with his clients, providing a steady hand to navigate the legal system.</p>
+                        <a href="jonathan-pyle.html" class="button-primary margin-top-sm">Learn More About Jonathan</a>
+                    </div>
+                    <div class="attorney-bio-image grid-area-image">
+                        <a href="jonathan-pyle.html"><img src="images/jonathan-2.avif" alt="Jonathan Pyle - Experienced Trial Attorney and Criminal Defense Lawyer in West Michigan" loading="lazy"></a>
                     </div>
                 </div>
             </div>
@@ -122,12 +107,11 @@
         <div class="container-large">
             <div class="footer_grid">
                 <div class="footer_column">
-                    <img src="images/Sorin&Pyle-Icon-Inverted.svg" alt="Sorin & Pyle Submark Logo" class="footer_logo">
-                    <h3>Sorin & Pyle, PLLC</h3>
-                    <p>217 E. 24th St. Suite 107<br>Holland, MI 49423</p>
+                    <h3>Sorin & Pyle, PC</h3>
+                    <p>217 E 24th St Ste 107<br>Holland, MI 49423</p>
                     <p>
                         <a href="tel:6162273303">(616) 227-3303</a><br>
-                        <a href="mailto:Justice@SorinPyle.com">Justice@SorinPyle.com</a>
+                        <a href="mailto:justice@callsbp.com">justice@callsbp.com</a>
                     </p>
                 </div>
                 <div class="footer_column">
@@ -151,19 +135,200 @@
                 <div class="footer_column">
                     <h3>Client Portal</h3>
                     <ul class="footer_list">
-                        <li><a href="https://www.clio.com/clients/" target="_blank">Clio Client Portal</a></li>
-                        <li><a href="https://app.clio.com/link/v2/2/2/81d5d84d1d449d617bc5b8d5ff9658fb?hmac=e9a2a8e1fbd96a550ff5212173791d674bb93c42d08b7eb7564e8cee53e54ab9" target="_blank">Pay Engagement Fee</a></li>
-                        <li><a href="https://app.clio.com/link/v2/2/2/81d5d84d1d449d617bc5b8d5ff9658fb?hmac=e9a2a8e1fbd96a550ff5212173791d674bb93c42d08b7eb7564e8cee53e54ab9" target="_blank">Pay Outstanding Invoice</a></li>
+                        <li><a href="https://www.clio.com/clients/" target="_blank" rel="noopener noreferrer">Clio Client Portal</a></li>
+                        <li><a href="https://app.clio.com/link/v2/2/2/81d5d84d1d449d617bc5b8d5ff9658fb?hmac=e9a2a8e1fbd96a550ff5212173791d674bb93c42d08b7eb7564e8cee53e54ab9" target="_blank" rel="noopener noreferrer">Pay Engagement Fee</a></li>
+                        <li><a href="https://app.clio.com/clients/" target="_blank" rel="noopener noreferrer">Pay Outstanding Invoice</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer_bottom-bar">
-                © 2025 Sorin & Pyle, PLLC. All Rights Reserved.
+                © 2025 Sorin & Pyle, PC. All Rights Reserved.
             </div>
         </div>
     </footer>
     
-    <script src="js/main.js"></script>
+    <!-- SEO: Enhanced Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "LegalService",
+          "@id": "https://www.sorinpyle.com/#organization",
+          "name": "Sorin & Pyle, PC",
+          "alternateName": "Sorin & Pyle Trial Lawyers",
+          "url": "https://www.sorinpyle.com/",
+          "logo": "https://www.sorinpyle.com/images/logo-icon.svg",
+          "image": "https://www.sorinpyle.com/images/Ottawa-County-Courthouse.jpg",
+          "description": "Aggressive, empathetic trial lawyers in Holland, MI, defending clients against DUI, assault, and other criminal charges.",
+          "telephone": "+1-616-227-3303",
+          "email": "justice@callsbp.com",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "217 E 24th St Ste 107",
+            "addressLocality": "Holland",
+            "addressRegion": "MI",
+            "postalCode": "49423",
+            "addressCountry": "US"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 42.7726949,
+            "longitude": -86.0959496
+          },
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "09:00",
+            "closes": "17:00"
+          },
+          "areaServed": [
+            {
+              "@type": "State",
+              "name": "Michigan"
+            },
+            {
+              "@type": "AdministrativeArea",
+              "name": "Ottawa County",
+              "containsPlace": [
+                {"@type": "City", "name": "Holland"},
+                {"@type": "City", "name": "Grand Haven"},
+                {"@type": "City", "name": "Hudsonville"},
+                {"@type": "City", "name": "Zeeland"},
+                {"@type": "City", "name": "Coopersville"}
+              ]
+            },
+            {
+              "@type": "AdministrativeArea",
+              "name": "Kent County",
+              "containsPlace": [
+                {"@type": "City", "name": "Grand Rapids"},
+                {"@type": "City", "name": "Wyoming"},
+                {"@type": "City", "name": "Kentwood"},
+                {"@type": "City", "name": "Walker"},
+                {"@type": "City", "name": "Grandville"}
+              ]
+            },
+            {
+              "@type": "AdministrativeArea",
+              "name": "Allegan County",
+              "containsPlace": [
+                {"@type": "City", "name": "Allegan"},
+                {"@type": "City", "name": "Plainwell"},
+                {"@type": "City", "name": "Otsego"},
+                {"@type": "City", "name": "Saugatuck"}
+              ]
+            },
+            {
+              "@type": "AdministrativeArea",
+              "name": "Muskegon County",
+              "containsPlace": [
+                {"@type": "City", "name": "Muskegon"},
+                {"@type": "City", "name": "Norton Shores"},
+                {"@type": "City", "name": "Muskegon Heights"}
+              ]
+            },
+            {
+              "@type": "AdministrativeArea",
+              "name": "Kalamazoo County",
+              "containsPlace": [
+                {"@type": "City", "name": "Kalamazoo"},
+                {"@type": "City", "name": "Portage"},
+                {"@type": "City", "name": "Parchment"}
+              ]
+            },
+            {
+              "@type": "AdministrativeArea",
+              "name": "Van Buren County",
+              "containsPlace": [
+                {"@type": "City", "name": "Paw Paw"},
+                {"@type": "City", "name": "South Haven"},
+                {"@type": "City", "name": "Bangor"}
+              ]
+            },
+            {
+              "@type": "AdministrativeArea",
+              "name": "Newaygo County",
+              "containsPlace": [
+                {"@type": "City", "name": "White Cloud"},
+                {"@type": "City", "name": "Fremont"},
+                {"@type": "City", "name": "Newaygo"}
+              ]
+            }
+          ],
+          "attorney": [
+            {
+              "@id": "https://www.sorinpyle.com/sorin-panainte.html#attorney"
+            },
+            {
+              "@id": "https://www.sorinpyle.com/jonathan-pyle.html#attorney"
+            }
+          ],
+          "serviceType": [
+            "Criminal Defense",
+            "DUI Defense",
+            "Felony Defense",
+            "Misdemeanor Defense",
+            "Trial Representation",
+            "Legal Consultation"
+          ],
+          "priceRange": "Free Consultation",
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Legal Services",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Criminal Defense Consultation",
+                  "description": "Free consultation for criminal defense cases"
+                },
+                "price": "0",
+                "priceCurrency": "USD"
+              }
+            ]
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.sorinpyle.com/#website",
+          "url": "https://www.sorinpyle.com/",
+          "name": "Sorin & Pyle Criminal Defense Attorneys",
+          "description": "West Michigan Criminal Defense Lawyers",
+          "publisher": {
+            "@id": "https://www.sorinpyle.com/#organization"
+          },
+          "potentialAction": [
+            {
+              "@type": "SearchAction",
+              "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://www.sorinpyle.com/practice-areas.html?q={search_term_string}"
+              },
+              "query-input": "required name=search_term_string"
+            }
+          ]
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.sorinpyle.com/"
+          },{
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Attorneys",
+            "item": "https://www.sorinpyle.com/attorneys.html"
+          }]
+        }
+      ]
+    }
+    </script>
+
+    <script src="js/main.js" defer></script>
 </body>
 </html>
 
