@@ -1178,11 +1178,31 @@ textarea.form_field {
   }
   .grid-area-text { grid-area: text; }
   .grid-area-image { grid-area: image; }
+
+  /* Reverse column order for alternating layout */
+  .attorney-bio-reversed {
+    grid-template-areas: "image text";
+  }
+  .attorney-bio-reversed > div:first-child {
+    grid-area: text;
+  }
+  .attorney-bio-reversed > div:last-child {
+    grid-area: image;
+  }
 }
 
 @media (max-width: 767px) { /* Mobile */
   .grid_2-col, .grid_3-col, .grid_4-col, .footer_grid {
     grid-template-columns: 1fr;
+  }
+
+  /* Reset grid areas on mobile for consistent stacking */
+  .attorney-bio-reversed {
+    grid-template-areas: none;
+  }
+  .attorney-bio-reversed > div:first-child,
+  .attorney-bio-reversed > div:last-child {
+    grid-area: auto;
   }
   .section {
       padding-top: var(--spacing-lg);

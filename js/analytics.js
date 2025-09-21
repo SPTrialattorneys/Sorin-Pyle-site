@@ -6,7 +6,7 @@
 // Analytics Configuration
 const ANALYTICS_CONFIG = {
     // Replace with actual Google Analytics 4 Measurement ID
-    GA_ID: 'GA_MEASUREMENT_ID',
+    GA_ID: 'G-LV7PKRF2YT',
     // Replace with actual Google Tag Manager ID if using GTM
     GTM_ID: 'GTM_CONTAINER_ID'
 };
