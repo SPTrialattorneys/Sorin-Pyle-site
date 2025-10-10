@@ -2556,6 +2556,168 @@ textarea.form_field {
 }
 
 /* ===============================================
+   TIER 3: BENTO GRID LAYOUT SYSTEM
+   ===============================================
+   Asymmetrical grid layout for modern digital cards
+   Inspired by Japanese bento boxes
+   Desktop only (1024px+), reverts to linear on mobile
+   =============================================== */
+
+@media (min-width: 1024px) {
+  /* Bento Grid Container */
+  .card-page .card-container {
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto auto auto auto;
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+
+  /* Default grid areas (firm card with Services) */
+  .card-page .card-container {
+    grid-template-areas:
+      "header contact"
+      "services form"
+      "about about"
+      "footer footer";
+  }
+
+  /* Attorney card variation (no Services, has About) */
+  .card-page-attorney .card-container {
+    grid-template-areas:
+      "header contact"
+      "about form"
+      "info info"
+      "footer footer";
+  }
+
+  /* Grid Area Assignments */
+  .card-page .card-header,
+  .card-page .card-header-enhanced,
+  .card-page .card-header-attorney {
+    grid-area: header;
+  }
+
+  .card-page .card-contact-actions {
+    grid-area: contact;
+  }
+
+  .card-page .card-services,
+  .card-page .card-services-enhanced {
+    grid-area: services;
+  }
+
+  .card-page .card-form-section,
+  .card-page .card-form-enhanced {
+    grid-area: form;
+  }
+
+  /* About section - spans both columns on firm card, left column on attorney card */
+  .card-page .card-about {
+    grid-area: about;
+  }
+
+  /* Info section - spans both columns (footer info for all cards) */
+  .card-page .card-info-clean {
+    grid-area: about;  /* Default for firm card */
+  }
+
+  /* Attorney card: Info gets its own row */
+  .card-page-attorney .card-info-clean {
+    grid-area: info;
+  }
+
+  .card-page .card-footer {
+    grid-area: footer;
+  }
+
+  /* Bento Grid Card Styling */
+  .card-page .card-header,
+  .card-page .card-header-enhanced,
+  .card-page .card-header-attorney,
+  .card-page .card-contact-actions,
+  .card-page .card-services,
+  .card-page .card-services-enhanced,
+  .card-page .card-form-section,
+  .card-page .card-form-enhanced,
+  .card-page .card-about,
+  .card-page .card-info-clean {
+    background: var(--white);
+    border-radius: var(--border-radius-card);
+    box-shadow: var(--shadow-layered);
+    padding: 2rem 1.5rem;
+    margin-top: 0;
+    margin-bottom: 0;
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+  }
+
+  /* Remove individual section gaps - grid handles spacing */
+  .card-page .card-header,
+  .card-page .card-header-enhanced,
+  .card-page .card-header-attorney {
+    margin-top: 0;
+    border-radius: var(--border-radius-card-lg) var(--border-radius-card-lg) var(--border-radius-card) var(--border-radius-card);
+  }
+
+  .card-page .card-footer {
+    background: var(--white);
+    border-radius: var(--border-radius-card) var(--border-radius-card) var(--border-radius-card-lg) var(--border-radius-card-lg);
+    box-shadow: var(--shadow-layered);
+    margin-bottom: 1.5rem;
+  }
+
+  /* Hover Effects on Interactive Cards */
+  .card-page .card-contact-actions:hover,
+  .card-page .card-services:hover,
+  .card-page .card-services-enhanced:hover,
+  .card-page .card-form-section:hover,
+  .card-page .card-form-enhanced:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+  }
+
+  /* Header and Footer don't lift (non-interactive) */
+  .card-page .card-header:hover,
+  .card-page .card-header-enhanced:hover,
+  .card-page .card-header-attorney:hover,
+  .card-page .card-footer:hover {
+    transform: none;
+  }
+}
+
+/* Mobile/Tablet: Linear Layout (default behavior) */
+@media (max-width: 1023px) {
+  .card-page .card-container {
+    display: block; /* Override grid */
+    max-width: 600px;
+  }
+
+  /* Maintain vertical spacing on mobile */
+  .card-page .card-header,
+  .card-page .card-header-enhanced,
+  .card-page .card-header-attorney,
+  .card-page .card-contact-actions,
+  .card-page .card-services,
+  .card-page .card-services-enhanced,
+  .card-page .card-form-section,
+  .card-page .card-form-enhanced,
+  .card-page .card-about,
+  .card-page .card-info-clean {
+    background: var(--white);
+    box-shadow: var(--shadow-layered);
+    margin-bottom: 1rem;
+    border-radius: var(--border-radius-card);
+  }
+
+  .card-page .card-footer {
+    background: var(--white);
+    box-shadow: var(--shadow-layered);
+    border-radius: var(--border-radius-card);
+  }
+}
+
+/* ===============================================
    ENHANCED DIGITAL BUSINESS CARD STYLES
    ===============================================
    All new card enhancements scoped with .card-page
