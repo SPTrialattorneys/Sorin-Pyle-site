@@ -2564,6 +2564,13 @@ textarea.form_field {
   margin-bottom: var(--spacing-lg);
 }
 
+/* TIER 3: Footer Gradient Border */
+.card-page .card-footer {
+  border-top: 3px solid;
+  border-image: linear-gradient(90deg, var(--primary-blue), var(--accent-orange)) 1;
+  padding-top: calc(var(--spacing-md) + 0.5rem);
+}
+
 .card-footer p {
   margin-bottom: var(--spacing-xs);
 }
@@ -2576,11 +2583,31 @@ textarea.form_field {
   color: var(--primary-blue);
   text-decoration: none;
   transition: color 0.3s ease;
+  font-weight: 500;
 }
 
 .card-footer a:hover {
   color: var(--accent-orange);
   text-decoration: underline;
+}
+
+/* TIER 3: Primary footer link (View Profile/Website) */
+.card-footer .footer-primary-link {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--primary-blue);
+  border-radius: 50px;
+  color: var(--primary-blue);
+  text-decoration: none;
+  transition: all var(--transition-base);
+  margin: 0.5rem 0.25rem;
+}
+
+.card-footer .footer-primary-link:hover {
+  background: var(--primary-blue);
+  color: var(--white);
+  text-decoration: none;
+  transform: translateY(-1px);
 }
 
 .card-footer .copyright {
