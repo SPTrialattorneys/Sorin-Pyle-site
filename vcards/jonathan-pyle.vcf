@@ -1,0 +1,15 @@
+BEGIN:VCARD
+VERSION:4.0
+FN:Jonathan Pyle
+N:Pyle;Jonathan;;;
+ORG:Sorin & Pyle\, PC
+TITLE:Trial Lawyer
+TEL;TYPE=work,voice;VALUE=uri:tel:+1-616-227-3303
+EMAIL:Jonathan@callsbp.com
+URL:https://www.sorinpyle.com/jonathan-pyle.html
+ADR;TYPE=work:;;217 E 24th St Ste 107;Holland;MI;49423;United States
+GEO:geo:42.7726949,-86.0959496
+PHOTO;MEDIATYPE=image/avif:https://www.sorinpyle.com/images/jonathan-2.avif
+CATEGORIES:Legal Services,Criminal Defense,Attorney,Trial Lawyer
+NOTE:Founding Partner at Sorin & Pyle. West Michigan native and seasoned trial attorney. University of Georgia School of Law\, JD '15. Western Michigan University\, BA '09. Licensed Attorney - State Bar of Michigan P81692. Committed to defending the community that raised me.
+END:VCARD

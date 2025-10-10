@@ -8,6 +8,11 @@
     <meta name="description" content="Meet Sorin Panainte and Jonathan Pyle, experienced criminal defense trial attorneys specializing in DUI, felonies, and misdemeanors in Holland and West Michigan.">
     <meta name="keywords" content="Sorin Panainte attorney, Jonathan Pyle lawyer, Holland MI criminal defense attorneys, experienced trial lawyers, former public defender, West Michigan legal team">
 
+    <!-- AI Search Optimization -->
+    <meta name="AI-content-summary" content="Meet Sorin Panainte (Case Western JD cum laude) and Jonathan Pyle (UGA JD), experienced trial attorneys with public defender backgrounds defending criminal cases in Michigan.">
+    <meta name="expertise" content="criminal trial law, DUI defense, felony defense, public defender experience, trial advocacy, legal education">
+    <meta name="jurisdiction" content="Michigan, Ottawa County, Kent County, Allegan County, Kalamazoo County, Muskegon County, Van Buren County, Newaygo County">
+
     <!-- SEO & Social Meta -->
     <link rel="canonical" href="https://www.sorinpyle.com/attorneys.html">
     <meta property="og:title" content="Criminal Defense Attorneys in Holland, MI | Sorin & Pyle">
@@ -21,12 +26,13 @@
     <!-- Local fonts loaded via CSS -->
 
     <link rel="icon" type="image/png" href="images/favicon.png">
-    <link rel="preload" href="css/style.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="css/style.min.css"></noscript>
+    <link rel="preload" href="css/core-brand.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="css/core-brand.css"><link rel="stylesheet" href="css/style.css"></noscript>
 </head>
 <body>
 
-    <a href="#main-content" class="skip-link">Skip to main content</a>
+                    <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <!-- ▼▼▼ NAVBAR (Identical on all pages) ▼▼▼ -->
     <header class="navbar_component">
@@ -41,10 +47,11 @@
             <nav class="navbar_desktop-nav" role="navigation" aria-label="Main navigation">
                 <ul class="navbar_menu" role="menubar">
                     <li class="navbar_item" role="none"><a href="index.html" class="navbar_link" role="menuitem">About</a></li>
-                    <li class="navbar_item" role="none"><a href="attorneys.html" class="navbar_link" role="menuitem" aria-current="page">Attorneys</a></li>
+                    <li class="navbar_item" role="none"><a href="attorneys.html" class="navbar_link" role="menuitem">Attorneys</a></li>
                     <li class="navbar_item" role="none"><a href="practice-areas.html" class="navbar_link" role="menuitem">Practice Areas</a></li>
                     <li class="navbar_item" role="none"><a href="locations.html" class="navbar_link" role="menuitem">Locations</a></li>
-                    <li class="navbar_item" role="none"><a href="resources.html" class="navbar_link" role="menuitem">Firm Updates & Resources</a></li>
+                    <li class="navbar_item" role="none"><a href="resources.html" class="navbar_link" role="menuitem">Firm News & FAQs</a></li>
+                    <li class="navbar_item" role="none"><a href="local-resources.html" class="navbar_link" role="menuitem">Local Resources</a></li>
                     <li class="navbar_item" role="none"><a href="contact.html" class="navbar_link" role="menuitem">Contact</a></li>
                 </ul>
             </nav>
@@ -60,13 +67,15 @@
     <div class="mobile-nav_menu" id="mobile-nav" role="dialog" aria-label="Mobile navigation menu" aria-hidden="true">
         <ul class="mobile-nav_list" role="menu">
             <li class="mobile-nav_item" role="none"><a href="index.html" class="mobile-nav_link" role="menuitem">About</a></li>
-            <li class="mobile-nav_item" role="none"><a href="attorneys.html" class="mobile-nav_link" role="menuitem" aria-current="page">Attorneys</a></li>
+            <li class="mobile-nav_item" role="none"><a href="attorneys.html" class="mobile-nav_link" role="menuitem">Attorneys</a></li>
             <li class="mobile-nav_item" role="none"><a href="practice-areas.html" class="mobile-nav_link" role="menuitem">Practice Areas</a></li>
             <li class="mobile-nav_item" role="none"><a href="locations.html" class="mobile-nav_link" role="menuitem">Locations</a></li>
-            <li class="mobile-nav_item" role="none"><a href="resources.html" class="mobile-nav_link" role="menuitem">Firm Updates & Resources</a></li>
+            <li class="mobile-nav_item" role="none"><a href="resources.html" class="mobile-nav_link" role="menuitem">Firm News & FAQs</a></li>
+            <li class="mobile-nav_item" role="none"><a href="local-resources.html" class="mobile-nav_link" role="menuitem">Local Resources</a></li>
             <li class="mobile-nav_item" role="none"><a href="contact.html" class="mobile-nav_link" role="menuitem">Contact</a></li>
         </ul>
     </div>
+
 
     <main id="main-content">
         <section class="section">
@@ -120,24 +129,25 @@
         </section>
     </main>
 
-    <!-- ▼▼▼ FOOTER (Identical on all pages) ▼▼▼ -->
+                    <!-- ▼▼▼ FOOTER (Identical on all pages) ▼▼▼ -->
     <footer class="footer_component">
         <div class="container-large">
             <div class="footer_grid">
                 <div class="footer_column">
-                    <h3>Sorin & Pyle, PC</h3>
-                    <p>217 E 24th St Ste 107<br>Holland, MI 49423</p>
-                    <p>
+                    <h3 class="footer_firm-name">Sorin & Pyle, PC</h3>
+                    <p class="footer_address">
+                        217 E 24th St Ste 107<br>
+                        Holland, MI 49423
+                    </p>
+                    <p class="footer_contact">
                         <a href="tel:6162273303">(616) 227-3303</a><br>
                         <a href="mailto:justice@callsbp.com">justice@callsbp.com</a>
                     </p>
                 </div>
                 <div class="footer_column">
                     <h3>Hours</h3>
-                    <p>
-                        Monday - Friday: 9 AM - 5 PM<br>
-                        Saturday & Sunday: By Appointment
-                    </p>
+                    <p class="footer_hours-weekday">Monday - Friday: 9 AM - 5 PM</p>
+                    <p class="footer_hours-weekend">Saturday & Sunday: By Appointment</p>
                 </div>
                 <div class="footer_column">
                     <h3>Quick Links</h3>
@@ -146,7 +156,8 @@
                         <li><a href="attorneys.html">Attorneys</a></li>
                         <li><a href="practice-areas.html">Practice Areas</a></li>
                         <li><a href="locations.html">Locations</a></li>
-                        <li><a href="resources.html">Firm Updates & Resources</a></li>
+                        <li><a href="resources.html">Firm News & FAQs</a></li>
+                        <li><a href="local-resources.html">Local Resources</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
@@ -164,187 +175,14 @@
             </div>
         </div>
     </footer>
-    
-    <!-- SEO: Enhanced Schema Markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "LegalService",
-          "@id": "https://www.sorinpyle.com/#organization",
-          "name": "Sorin & Pyle, PC",
-          "alternateName": "Sorin & Pyle Trial Lawyers",
-          "url": "https://www.sorinpyle.com/",
-          "logo": "https://www.sorinpyle.com/images/logo-icon.svg",
-          "image": "https://www.sorinpyle.com/images/Ottawa-County-Courthouse.jpg",
-          "description": "Aggressive, empathetic trial lawyers in Holland, MI, defending clients against DUI, assault, and other criminal charges.",
-          "telephone": "+1-616-227-3303",
-          "email": "justice@callsbp.com",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "217 E 24th St Ste 107",
-            "addressLocality": "Holland",
-            "addressRegion": "MI",
-            "postalCode": "49423",
-            "addressCountry": "US"
-          },
-          "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": 42.7726949,
-            "longitude": -86.0959496
-          },
-          "openingHoursSpecification": {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-            "opens": "09:00",
-            "closes": "17:00"
-          },
-          "areaServed": [
-            {
-              "@type": "State",
-              "name": "Michigan"
-            },
-            {
-              "@type": "AdministrativeArea",
-              "name": "Ottawa County",
-              "containsPlace": [
-                {"@type": "City", "name": "Holland"},
-                {"@type": "City", "name": "Grand Haven"},
-                {"@type": "City", "name": "Hudsonville"},
-                {"@type": "City", "name": "Zeeland"},
-                {"@type": "City", "name": "Coopersville"}
-              ]
-            },
-            {
-              "@type": "AdministrativeArea",
-              "name": "Kent County",
-              "containsPlace": [
-                {"@type": "City", "name": "Grand Rapids"},
-                {"@type": "City", "name": "Wyoming"},
-                {"@type": "City", "name": "Kentwood"},
-                {"@type": "City", "name": "Walker"},
-                {"@type": "City", "name": "Grandville"}
-              ]
-            },
-            {
-              "@type": "AdministrativeArea",
-              "name": "Allegan County",
-              "containsPlace": [
-                {"@type": "City", "name": "Allegan"},
-                {"@type": "City", "name": "Plainwell"},
-                {"@type": "City", "name": "Otsego"},
-                {"@type": "City", "name": "Saugatuck"}
-              ]
-            },
-            {
-              "@type": "AdministrativeArea",
-              "name": "Muskegon County",
-              "containsPlace": [
-                {"@type": "City", "name": "Muskegon"},
-                {"@type": "City", "name": "Norton Shores"},
-                {"@type": "City", "name": "Muskegon Heights"}
-              ]
-            },
-            {
-              "@type": "AdministrativeArea",
-              "name": "Kalamazoo County",
-              "containsPlace": [
-                {"@type": "City", "name": "Kalamazoo"},
-                {"@type": "City", "name": "Portage"},
-                {"@type": "City", "name": "Parchment"}
-              ]
-            },
-            {
-              "@type": "AdministrativeArea",
-              "name": "Van Buren County",
-              "containsPlace": [
-                {"@type": "City", "name": "Paw Paw"},
-                {"@type": "City", "name": "South Haven"},
-                {"@type": "City", "name": "Bangor"}
-              ]
-            },
-            {
-              "@type": "AdministrativeArea",
-              "name": "Newaygo County",
-              "containsPlace": [
-                {"@type": "City", "name": "White Cloud"},
-                {"@type": "City", "name": "Fremont"},
-                {"@type": "City", "name": "Newaygo"}
-              ]
-            }
-          ],
-          "attorney": [
-            {
-              "@id": "https://www.sorinpyle.com/sorin-panainte.html#attorney"
-            },
-            {
-              "@id": "https://www.sorinpyle.com/jonathan-pyle.html#attorney"
-            }
-          ],
-          "serviceType": [
-            "Criminal Defense",
-            "DUI Defense",
-            "Felony Defense",
-            "Misdemeanor Defense",
-            "Trial Representation",
-            "Legal Consultation"
-          ],
-          "priceRange": "Free Consultation",
-          "hasOfferCatalog": {
-            "@type": "OfferCatalog",
-            "name": "Legal Services",
-            "itemListElement": [
-              {
-                "@type": "Offer",
-                "itemOffered": {
-                  "@type": "Service",
-                  "name": "Criminal Defense Consultation",
-                  "description": "Free consultation for criminal defense cases"
-                },
-                "price": "0",
-                "priceCurrency": "USD"
-              }
-            ]
-          }
-        },
-        {
-          "@type": "WebSite",
-          "@id": "https://www.sorinpyle.com/#website",
-          "url": "https://www.sorinpyle.com/",
-          "name": "Sorin & Pyle Criminal Defense Attorneys",
-          "description": "West Michigan Criminal Defense Lawyers",
-          "publisher": {
-            "@id": "https://www.sorinpyle.com/#organization"
-          },
-          "potentialAction": [
-            {
-              "@type": "SearchAction",
-              "target": {
-                "@type": "EntryPoint",
-                "urlTemplate": "https://www.sorinpyle.com/practice-areas.html?q={search_term_string}"
-              },
-              "query-input": "required name=search_term_string"
-            }
-          ]
-        },
-        {
-          "@type": "BreadcrumbList",
-          "itemListElement": [{
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://www.sorinpyle.com/"
-          },{
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Attorneys",
-            "item": "https://www.sorinpyle.com/attorneys.html"
-          }]
-        }
-      ]
-    }
-    </script>
+
+    <script src="js/main.js" defer></script>
+
+    <<script src="js/main.js" defer></script>
+
+    <<script src="js/main.js" defer></script>
+
+    <<script src="js/main.js" defer></script>
 
     <script src="js/main.js" defer></script>
 </body>

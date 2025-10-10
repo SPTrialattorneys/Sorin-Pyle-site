@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} | Sorin & Pyle Legal Blog</title>
+    <meta name="description" content="{{ description }}">
+
+    <!-- AI Search Optimization -->
+    <meta name="AI-content-summary" content="{{ description }}">
+    <meta name="expertise" content="criminal defense, Michigan criminal law, legal rights, court procedures, criminal charges">
+    <meta name="jurisdiction" content="Michigan, West Michigan, Ottawa County, Kent County">
+
+    <!-- SEO & Social Meta -->
+    <link rel="canonical" href="https://www.sorinpyle.com/blog{{ page.url }}">
+    <meta property="og:title" content="{{ title }} | Sorin & Pyle">
+    <meta property="og:description" content="{{ description }}">
+    <meta property="og:url" content="https://www.sorinpyle.com/blog{{ page.url }}">
+    <meta property="og:image" content="https://www.sorinpyle.com/images/ottawa-county-courthouse.avif">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Sorin & Pyle, PC">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Article Schema.org markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "{{ title }}",
+      "description": "{{ description }}",
+      "author": {
+        "@type": "{% if author == 'Sorin & Pyle, Trial Lawyers' %}Organization{% else %}Person{% endif %}",
+        "name": "{{ author }}"
+      },
+      "datePublished": "{{ date | htmlDateString }}",
+      "publisher": {
+        "@type": "LegalService",
+        "name": "Sorin & Pyle, PC",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.sorinpyle.com/images/logo-icon.svg"
+        }
+      }
+    }
+    </script>
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV7PKRF2YT"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-LV7PKRF2YT');
+    </script>
+
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/style.min.css">
+</head>
+<body>
+
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- ▼▼▼ NAVBAR (Identical to main site) ▼▼▼ -->
+    <header class="navbar_component">
+        <div class="container-large navbar_container">
+            <a href="/index.html" class="navbar_logo-link">
+                <img src="/images/logo-icon.svg" alt="Sorin & Pyle Ship Icon" class="logo-icon" width="70" height="70">
+                <div class="logo-text-container">
+                    <span class="logo-text-main">Sorin & Pyle</span>
+                    <span class="logo-text-sub">TRIAL LAWYERS</span>
+                </div>
+            </a>
+            <nav class="navbar_desktop-nav" role="navigation" aria-label="Main navigation">
+                <ul class="navbar_menu" role="menubar">
+                    <li class="navbar_item" role="none"><a href="/index.html" class="navbar_link" role="menuitem">About</a></li>
+                    <li class="navbar_item" role="none"><a href="/attorneys.html" class="navbar_link" role="menuitem">Attorneys</a></li>
+                    <li class="navbar_item" role="none"><a href="/practice-areas.html" class="navbar_link" role="menuitem">Practice Areas</a></li>
+                    <li class="navbar_item" role="none"><a href="/locations.html" class="navbar_link" role="menuitem">Locations</a></li>
+                    <li class="navbar_item" role="none"><a href="/resources.html" class="navbar_link" role="menuitem">Firm News & FAQs</a></li>
+                    <li class="navbar_item" role="none"><a href="/local-resources.html" class="navbar_link" role="menuitem">Local Resources</a></li>
+                    <li class="navbar_item" role="none"><a href="/contact.html" class="navbar_link" role="menuitem">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="navbar_hamburger-button" id="hamburger-button" aria-label="Open Menu" aria-controls="mobile-nav" aria-expanded="false">
+                <span class="icon-line"></span>
+                <span class="icon-line"></span>
+                <span class="icon-line"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ▼▼▼ MOBILE NAVIGATION MENU ▼▼▼ -->
+    <div class="mobile-nav_menu" id="mobile-nav" role="dialog" aria-label="Mobile navigation menu" aria-hidden="true">
+        <ul class="mobile-nav_list" role="menu">
+            <li class="mobile-nav_item" role="none"><a href="/index.html" class="mobile-nav_link" role="menuitem">About</a></li>
+            <li class="mobile-nav_item" role="none"><a href="/attorneys.html" class="mobile-nav_link" role="menuitem">Attorneys</a></li>
+            <li class="mobile-nav_item" role="none"><a href="/practice-areas.html" class="mobile-nav_link" role="menuitem">Practice Areas</a></li>
+            <li class="mobile-nav_item" role="none"><a href="/locations.html" class="mobile-nav_link" role="menuitem">Locations</a></li>
+            <li class="mobile-nav_item" role="none"><a href="/resources.html" class="mobile-nav_link" role="menuitem">Firm News & FAQs</a></li>
+            <li class="mobile-nav_item" role="none"><a href="/local-resources.html" class="mobile-nav_link" role="menuitem">Local Resources</a></li>
+            <li class="mobile-nav_item" role="none"><a href="/contact.html" class="mobile-nav_link" role="menuitem">Contact</a></li>
+        </ul>
+    </div>
+
+    <main id="main-content">
+        <article class="section">
+            <div class="container-large">
+                <div class="blog-post-header text-align-center margin-bottom-lg">
+                    <h1>{{ title }}</h1>
+                    <p class="blog-post-meta">
+                        By {{ author }} | <time datetime="{{ date | htmlDateString }}">{{ date | readableDate }}</time>
+                    </p>
+                </div>
+
+                <div class="blog-post-content">
+                    {{ content | safe }}
+                </div>
+
+                <div class="blog-post-footer margin-top-xl">
+                    <hr class="hr-divider">
+                    <p class="text-align-center margin-top-md">
+                        <a href="/blog/" class="button-secondary">← Back to Blog</a>
+                        <a href="/contact.html" class="button-primary margin-left-md">Contact Us</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <!-- ▼▼▼ FOOTER (Identical to main site) ▼▼▼ -->
+    <footer class="footer_component">
+        <div class="container-large">
+            <div class="footer_grid">
+                <div class="footer_column">
+                    <h3>Sorin & Pyle, PC</h3>
+                    <p>217 E 24th St Ste 107<br>Holland, MI 49423</p>
+                    <p>
+                        <a href="tel:6162273303">(616) 227-3303</a><br>
+                        <a href="mailto:justice@callsbp.com">justice@callsbp.com</a>
+                    </p>
+                </div>
+                <div class="footer_column">
+                    <h3>Hours</h3>
+                    <p>
+                        Monday - Friday: 9 AM - 5 PM<br>
+                        Saturday & Sunday: By Appointment
+                    </p>
+                </div>
+                <div class="footer_column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer_list">
+                        <li><a href="/index.html">About</a></li>
+                        <li><a href="/attorneys.html">Attorneys</a></li>
+                        <li><a href="/practice-areas.html">Practice Areas</a></li>
+                        <li><a href="/locations.html">Locations</a></li>
+                        <li><a href="/resources.html">Firm News & FAQs</a></li>
+                        <li><a href="/local-resources.html">Local Resources</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer_column">
+                    <h3>Client Portal</h3>
+                    <ul class="footer_list">
+                        <li><a href="https://www.clio.com/clients/" target="_blank" rel="noopener noreferrer">Clio Client Portal</a></li>
+                        <li><a href="https://app.clio.com/link/v2/2/2/81d5d84d1d449d617bc5b8d5ff9658fb?hmac=e9a2a8e1fbd96a550ff5212173791d674bb93c42d08b7eb7564e8cee53e54ab9" target="_blank" rel="noopener noreferrer">Pay Engagement Fee</a></li>
+                        <li><a href="https://app.clio.com/clients/" target="_blank" rel="noopener noreferrer">Pay Outstanding Invoice</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer_bottom-bar">
+                © 2025 Sorin & Pyle, PC. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/main.js" defer></script>
+</body>
+</html>

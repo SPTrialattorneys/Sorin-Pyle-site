@@ -1,0 +1,15 @@
+BEGIN:VCARD
+VERSION:4.0
+FN:Sorin Panainte
+N:Panainte;Sorin;;;
+ORG:Sorin & Pyle\, PC
+TITLE:Trial Lawyer
+TEL;TYPE=work,voice;VALUE=uri:tel:+1-616-227-3303
+EMAIL:Sorin@callsbp.com
+URL:https://www.sorinpyle.com/sorin-panainte.html
+ADR;TYPE=work:;;217 E 24th St Ste 107;Holland;MI;49423;United States
+GEO:geo:42.7726949,-86.0959496
+PHOTO;MEDIATYPE=image/avif:https://www.sorinpyle.com/images/sorin-3.avif
+CATEGORIES:Legal Services,Criminal Defense,Attorney,Trial Lawyer
+NOTE:Founding Partner at Sorin & Pyle. First-generation immigrant and former Public Defender. Case Western Reserve University School of Law\, JD cum laude '19. University of Michigan\, BA '16. Licensed Attorney - State Bar of Michigan P85326. Tireless advocate for clients facing criminal charges.
+END:VCARD

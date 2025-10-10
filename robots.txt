@@ -1,4 +1,36 @@
 User-agent: *
 Allow: /
+Disallow: /blog/_site/
+Disallow: /blog/node_modules/
+Disallow: /_includes/
+
+# AI Crawlers - Explicitly Allow
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
 
 Sitemap: https://www.sorinpyle.com/sitemap.xml
+Sitemap: https://www.sorinpyle.com/blog/feed.xml

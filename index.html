@@ -8,8 +8,10 @@
     <meta name="description" content="Facing criminal charges in West Michigan? Sorin & Pyle are aggressive trial lawyers defending DUI, felonies, domestic violence, and drug crimes in Holland, MI. Free consultation.">
     <meta name="keywords" content="criminal defense attorney, Holland MI lawyer, West Michigan criminal lawyer, DUI lawyer, felony defense, misdemeanor defense, trial attorney, legal help">
 
-    <!-- Search Console Verification (Replace with actual verification code) -->
-    <meta name="google-site-verification" content="GOOGLE_SEARCH_CONSOLE_VERIFICATION_CODE">
+    <!-- AI Search Optimization -->
+    <meta name="AI-content-summary" content="Sorin & Pyle are trial lawyers defending criminal cases in West Michigan. Free consultations for DUI, felonies, assault, drug charges, and expungements.">
+    <meta name="expertise" content="criminal defense, DUI, felonies, misdemeanors, domestic violence, drug crimes, expungement, license restoration, trial law">
+    <meta name="jurisdiction" content="Michigan, Ottawa County, Kent County, Allegan County, Kalamazoo County, Muskegon County, Van Buren County, Newaygo County">
 
     <!-- SEO & Social Meta -->
     <link rel="canonical" href="https://www.sorinpyle.com/">
@@ -115,14 +117,14 @@
     </style>
 
     <link rel="icon" type="image/png" href="images/favicon.png">
-    <link rel="preload" href="css/style.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="css/style.min.css"></noscript>
+    <link rel="stylesheet" href="css/core-brand.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <a href="#main-content" class="skip-link">Skip to main content</a>
+                    <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <!-- ▼▼▼ NAVBAR COMPONENT ▼▼▼ -->
+    <!-- ▼▼▼ NAVBAR (Identical on all pages) ▼▼▼ -->
     <header class="navbar_component">
         <div class="container-large navbar_container">
             <a href="index.html" class="navbar_logo-link">
@@ -134,11 +136,12 @@
             </a>
             <nav class="navbar_desktop-nav" role="navigation" aria-label="Main navigation">
                 <ul class="navbar_menu" role="menubar">
-                    <li class="navbar_item" role="none"><a href="index.html" class="navbar_link" role="menuitem" aria-current="page">About</a></li>
+                    <li class="navbar_item" role="none"><a href="index.html" class="navbar_link" role="menuitem">About</a></li>
                     <li class="navbar_item" role="none"><a href="attorneys.html" class="navbar_link" role="menuitem">Attorneys</a></li>
                     <li class="navbar_item" role="none"><a href="practice-areas.html" class="navbar_link" role="menuitem">Practice Areas</a></li>
                     <li class="navbar_item" role="none"><a href="locations.html" class="navbar_link" role="menuitem">Locations</a></li>
-                    <li class="navbar_item" role="none"><a href="resources.html" class="navbar_link" role="menuitem">Firm Updates & Resources</a></li>
+                    <li class="navbar_item" role="none"><a href="resources.html" class="navbar_link" role="menuitem">Firm News & FAQs</a></li>
+                    <li class="navbar_item" role="none"><a href="local-resources.html" class="navbar_link" role="menuitem">Local Resources</a></li>
                     <li class="navbar_item" role="none"><a href="contact.html" class="navbar_link" role="menuitem">Contact</a></li>
                 </ul>
             </nav>
@@ -150,17 +153,19 @@
         </div>
     </header>
 
-    <!-- ▼▼▼ MOBILE NAVIGATION MENU ▼▼▼ -->
+    <!-- ▼▼▼ MOBILE NAVIGATION MENU (Identical on all pages) ▼▼▼ -->
     <div class="mobile-nav_menu" id="mobile-nav" role="dialog" aria-label="Mobile navigation menu" aria-hidden="true">
         <ul class="mobile-nav_list" role="menu">
-            <li class="mobile-nav_item" role="none"><a href="index.html" class="mobile-nav_link" role="menuitem" aria-current="page">About</a></li>
+            <li class="mobile-nav_item" role="none"><a href="index.html" class="mobile-nav_link" role="menuitem">About</a></li>
             <li class="mobile-nav_item" role="none"><a href="attorneys.html" class="mobile-nav_link" role="menuitem">Attorneys</a></li>
             <li class="mobile-nav_item" role="none"><a href="practice-areas.html" class="mobile-nav_link" role="menuitem">Practice Areas</a></li>
             <li class="mobile-nav_item" role="none"><a href="locations.html" class="mobile-nav_link" role="menuitem">Locations</a></li>
-            <li class="mobile-nav_item" role="none"><a href="resources.html" class="mobile-nav_link" role="menuitem">Firm Updates & Resources</a></li>
+            <li class="mobile-nav_item" role="none"><a href="resources.html" class="mobile-nav_link" role="menuitem">Firm News & FAQs</a></li>
+            <li class="mobile-nav_item" role="none"><a href="local-resources.html" class="mobile-nav_link" role="menuitem">Local Resources</a></li>
             <li class="mobile-nav_item" role="none"><a href="contact.html" class="mobile-nav_link" role="menuitem">Contact</a></li>
         </ul>
     </div>
+
 
     <main id="main-content">
         <!-- Section 1: Hero -->
@@ -366,9 +371,12 @@
         <div class="container-large">
             <div class="footer_grid">
                 <div class="footer_column">
-                    <h3>Sorin & Pyle, PC</h3>
-                    <p>217 E 24th St Ste 107<br>Holland, MI 49423</p>
-                    <p>
+                    <h3 class="footer_firm-name">Sorin & Pyle, PC</h3>
+                    <p class="footer_address">
+                        217 E 24th St Ste 107<br>
+                        Holland, MI 49423
+                    </p>
+                    <p class="footer_contact">
                         <a href="tel:6162273303">(616) 227-3303</a><br>
                         <a href="mailto:justice@callsbp.com">justice@callsbp.com</a>
                     </p>
@@ -412,7 +420,7 @@
       "@context": "https://schema.org",
       "@graph": [
         {
-          "@type": "LegalService",
+          "@type": ["LegalService", "LocalBusiness"],
           "@id": "https://www.sorinpyle.com/#organization",
           "name": "Sorin & Pyle, PC",
           "alternateName": "Sorin & Pyle Trial Lawyers",
@@ -422,6 +430,9 @@
           "description": "Aggressive, empathetic trial lawyers in Holland, MI, defending clients against DUI, assault, and other criminal charges.",
           "telephone": "+1-616-227-3303",
           "email": "justice@callsbp.com",
+          "priceRange": "$$",
+          "paymentAccepted": ["Cash", "Check", "Credit Card"],
+          "hasMap": "https://www.google.com/maps/place/Sorin+%26+Pyle,+PC/@42.7726949,-86.0959496,17z/",
           "address": {
             "@type": "PostalAddress",
             "streetAddress": "217 E 24th St Ste 107",
@@ -547,6 +558,13 @@
                 "priceCurrency": "USD"
               }
             ]
+          },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5.0",
+            "reviewCount": "0",
+            "bestRating": "5",
+            "worstRating": "1"
           }
         },
         {

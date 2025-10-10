@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Know Your Rights During Police Stops | Sorin & Pyle</title>
+    <meta name="description" content="Free guide to your constitutional rights during police stops in Michigan. Save our contact for 24/7 legal help.">
+
+    <!-- Mobile Optimization -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=yes">
+
+    <!-- Open Graph for Social Sharing -->
+    <meta property="og:title" content="Your Rights During Police Stops">
+    <meta property="og:description" content="Know your constitutional rights. Free guide from Sorin & Pyle Criminal Defense.">
+    <meta property="og:image" content="https://www.sorinpyle.com/images/police-stops-card.jpg">
+    <meta property="og:url" content="https://www.sorinpyle.com/go/police-stops">
+
+    <link rel="canonical" href="https://www.sorinpyle.com/go/police-stops">
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+
+    <!-- Sorin & Pyle Brand Stylesheets -->
+    <link rel="stylesheet" href="../css/core-brand.css">
+    <link rel="stylesheet" href="qr-campaigns.css">
+
+    <!-- Shared Campaign JavaScript -->
+    <script src="qr-shared.js"></script>
+
+    <!-- Page-Specific Styles -->
+    <style>
+        /* Intro box styling */
+        .intro-box h1 {
+            color: var(--white);
+        }
+
+        /* vCard button with icon */
+        .btn svg {
+            width: 24px;
+            height: 24px;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 0.5rem;
+        }
+
+        /* Rights accordion specific styles */
+        .right-item {
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-md);
+            margin-bottom: var(--spacing-md);
+            overflow: hidden;
+        }
+
+        .right-header {
+            padding: var(--spacing-md);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--white);
+            transition: background 0.3s;
+        }
+
+        .right-header:hover {
+            background: var(--gray-light);
+        }
+
+        .right-header h3 {
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        .right-icon {
+            transition: transform 0.3s;
+            color: var(--accent-orange);
+        }
+
+        .right-item.active .right-icon {
+            transform: rotate(180deg);
+        }
+
+        .right-content {
+            padding: 0 var(--spacing-md);
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            background: var(--white);
+        }
+
+        .right-item.active .right-content {
+            max-height: 500px;
+            padding: 0 var(--spacing-md) var(--spacing-md);
+        }
+
+        .right-content ul {
+            padding-left: 1.5rem;
+        }
+
+        .right-content li {
+            margin: 0.5rem 0;
+        }
+
+        /* Quick contact buttons */
+        .quick-call {
+            display: flex;
+            gap: var(--spacing-sm);
+            margin: var(--spacing-lg) 0;
+        }
+
+        .call-btn, .text-btn {
+            flex: 1;
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius-md);
+            text-align: center;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+            color: var(--white);
+        }
+
+        .call-btn {
+            background: var(--accent-orange);
+        }
+
+        .call-btn:hover {
+            background: var(--accent-orange-dark);
+            transform: translateY(-2px);
+        }
+
+        .text-btn {
+            background: var(--primary-blue);
+        }
+
+        .text-btn:hover {
+            background: var(--primary-blue-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Form section styling */
+        .form-section {
+            background: var(--gray-light);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius-md);
+            margin: var(--spacing-lg) 0;
+        }
+
+        .form-title {
+            font-size: 1.2rem;
+            margin-bottom: var(--spacing-md);
+            text-align: center;
+        }
+
+        .submit-btn {
+            background: var(--primary-blue);
+            color: var(--white);
+            padding: var(--spacing-md) var(--spacing-lg);
+            border: none;
+            border-radius: var(--border-radius-sm);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s;
+            min-height: 44px;
+        }
+
+        .submit-btn:hover {
+            background: var(--primary-blue-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Resources */
+        .resources {
+            background: var(--white);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius-md);
+            margin: var(--spacing-lg) 0;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .resource-link {
+            display: block;
+            padding: var(--spacing-sm);
+            background: var(--gray-light);
+            border-radius: var(--border-radius-sm);
+            margin-bottom: var(--spacing-sm);
+            text-decoration: none;
+            color: var(--text-color);
+            transition: all 0.3s;
+            border-left: 3px solid var(--accent-orange);
+        }
+
+        .resource-link:hover {
+            background: var(--gray-medium);
+            transform: translateX(5px);
+        }
+
+        /* Loading state */
+        .loading {
+            pointer-events: none;
+            opacity: 0.6;
+        }
+
+        .spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: var(--white);
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Animation */
+        .fade-in {
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">
+                <img src="../images/logo-icon.svg" alt="Sorin & Pyle">
+                <span class="logo-text">Sorin & Pyle</span>
+            </div>
+            <p class="tagline">Criminal Defense Trial Lawyers</p>
+        </div>
+
+        <!-- Main Content -->
+        <div class="content-card">
+            <div class="intro-box">
+                <h1>Your Rights During Police Stops</h1>
+                <p><strong style="color: var(--accent-orange);">Keep this information saved.</strong> You have constitutional rights during any police encounter in Michigan. Understanding these rights can protect you from self-incrimination and ensure fair treatment under the law.</p>
+            </div>
+
+            <!-- Primary CTA -->
+            <button onclick="downloadVCard('Police Stops')" class="btn btn-primary btn-block">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
+                </svg>
+                Save Sorin & Pyle to Your Contacts
+            </button>
+
+            <!-- Rights Accordion -->
+            <div class="rights-section">
+                <h2 class="rights-title">Know Your Constitutional Rights</h2>
+
+                <div class="right-item">
+                    <div class="right-header" onclick="toggleRight(this)">
+                        <h3>🚦 During Traffic Stops</h3>
+                        <span class="right-icon">▼</span>
+                    </div>
+                    <div class="right-content">
+                        <p>Michigan law requires specific conditions for a valid traffic stop:</p>
+                        <ul>
+                            <li>You must provide license, registration, and proof of insurance</li>
+                            <li>You are NOT required to answer questions about where you're going or coming from</li>
+                            <li>You can refuse consent to search your vehicle</li>
+                            <li>Record the interaction if you feel unsafe</li>
+                        </ul>
+                        <p><strong>Say clearly:</strong> "Officer, I prefer to exercise my right to remain silent."</p>
+                    </div>
+                </div>
+
+                <div class="right-item">
+                    <div class="right-header" onclick="toggleRight(this)">
+                        <h3>🔍 If Police Want to Search</h3>
+                        <span class="right-icon">▼</span>
+                    </div>
+                    <div class="right-content">
+                        <p>The Fourth Amendment protects you from unreasonable searches:</p>
+                        <ul>
+                            <li>You can refuse consent to any search</li>
+                            <li>Police need probable cause or a warrant for most searches</li>
+                            <li>Never physically resist - state your refusal clearly</li>
+                            <li>If they search anyway, your lawyer can challenge it later</li>
+                        </ul>
+                        <p><strong>Say clearly:</strong> "Officer, I do not consent to any searches."</p>
+                    </div>
+                </div>
+
+                <div class="right-item">
+                    <div class="right-header" onclick="toggleRight(this)">
+                        <h3>🚔 If You're Arrested</h3>
+                        <span class="right-icon">▼</span>
+                    </div>
+                    <div class="right-content">
+                        <p>Remember these critical points if arrested:</p>
+                        <ul>
+                            <li>Remain silent except to request an attorney</li>
+                            <li>Do not resist, even if you believe the arrest is wrong</li>
+                            <li>Do not sign anything without your lawyer present</li>
+                            <li>Remember badge numbers and patrol car numbers</li>
+                            <li>Request a phone call as soon as possible</li>
+                        </ul>
+                        <p><strong>Say only:</strong> "I am exercising my right to remain silent. I want to speak to my lawyer."</p>
+                    </div>
+                </div>
+
+                <div class="right-item">
+                    <div class="right-header" onclick="toggleRight(this)">
+                        <h3>📱 Your Right to Record</h3>
+                        <span class="right-icon">▼</span>
+                    </div>
+                    <div class="right-content">
+                        <p>In Michigan, you have the right to record police interactions:</p>
+                        <ul>
+                            <li>You can openly record police in public spaces</li>
+                            <li>Inform the officer you are recording for everyone's safety</li>
+                            <li>Do not interfere with their duties while recording</li>
+                            <li>Save recordings to the cloud immediately if possible</li>
+                        </ul>
+                        <p><strong>Note:</strong> Recording protects both you and the officer by creating an accurate record.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Contact Options -->
+            <div class="quick-call">
+                <a href="tel:6162273303" class="call-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+                    </svg>
+                    Call Now
+                </a>
+                <a href="sms:6162273303" class="text-btn">
+                    Send Text
+                </a>
+            </div>
+
+            <!-- Consultation Form -->
+            <div class="form-section">
+                <h2 class="form-title">Request Confidential Consultation</h2>
+                <form id="consultationForm" action="/submit-consultation" method="POST">
+                    <input type="hidden" name="source" value="qr_police_stops">
+                    <input type="hidden" name="utm_source" id="utm_source">
+                    <input type="hidden" name="utm_medium" id="utm_medium">
+                    <input type="hidden" name="utm_campaign" id="utm_campaign">
+
+                    <div class="form-group">
+                        <label for="name">Your Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email (Optional)</label>
+                        <input type="email" id="email" name="email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="issue">Brief Description *</label>
+                        <textarea id="issue" name="issue" placeholder="Briefly describe your situation (this is confidential)" required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        Submit Consultation Request
+                    </button>
+                </form>
+            </div>
+
+            <!-- Resources -->
+            <div class="resources">
+                <h2>Next Steps & Resources</h2>
+                <a href="../practice-areas.html" class="resource-link">
+                    📚 View All Practice Areas
+                </a>
+                <a href="../resources.html#faq" class="resource-link">
+                    ❓ Frequently Asked Questions
+                </a>
+                <a href="../attorneys.html" class="resource-link">
+                    👥 Meet Your Defense Team
+                </a>
+                <a href="../locations.html" class="resource-link">
+                    📍 Counties We Serve
+                </a>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p><strong>Sorin & Pyle, PC</strong></p>
+            <p>217 E 24th St Ste 107, Holland, MI 49423</p>
+            <p><a href="tel:6162273303">(616) 227-3303</a> | Available 24/7 for Emergencies</p>
+            <p><a href="https://www.sorinpyle.com">www.sorinpyle.com</a></p>
+        </div>
+    </div>
+
+    <!-- Initialize Campaign (all functionality in qr-shared.js) -->
+    <script>
+        initQRCampaign('police_stops');
+    </script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR-GA-ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'YOUR-GA-ID');
+    </script>
+</body>
+</html>

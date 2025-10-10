@@ -1,135 +1,15 @@
-/* ------------------- */
-/* 1. GLOBAL STYLES & VARIABLES */
-/* ------------------- */
+/* ===============================================
+   SORIN & PYLE - MAIN SITE STYLESHEET
+   ===============================================
+   Main website specific components
+   Requires: core-brand.css (loaded first)
+   =============================================== */
 
-/*
- * FONT FACES
- * -----------------
- */
-
-/* Inter */
-@font-face {
-  font-display: swap;
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 400;
-  src: url('../fonts/inter-v20-latin-regular.woff2') format('woff2');
-}
-@font-face {
-  font-display: swap;
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 500;
-  src: url('../fonts/inter-v20-latin-500.woff2') format('woff2');
-}
-@font-face {
-  font-display: swap;
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 600;
-  src: url('../fonts/inter-v20-latin-600.woff2') format('woff2');
-}
-
-/* Lora */
-@font-face {
-  font-display: swap;
-  font-family: 'Lora';
-  font-style: normal;
-  font-weight: 400;
-  src: url('../fonts/lora-v37-latin-regular.woff2') format('woff2');
-}
-@font-face {
-  font-display: swap;
-  font-family: 'Lora';
-  font-style: normal;
-  font-weight: 700;
-  src: url('../fonts/lora-v37-latin-700.woff2') format('woff2');
-}
-
-/* Libre Baskerville */
-@font-face {
-  font-display: swap;
-  font-family: 'Libre Baskerville';
-  font-style: normal;
-  font-weight: 700;
-  src: url('../fonts/libre-baskerville-v17-latin-700.woff2') format('woff2');
-}
-
-:root {
-  /* Color Palette */
-  --primary-blue: #4076B4;
-  --primary-blue-light: #5a8bc7;
-  --primary-blue-dark: #2d5a92;
-  --accent-orange: #FF8A28;
-  --accent-orange-light: #ffad5c;
-  --accent-orange-dark: #e67a1e;
-  --background-color: #FDFBF6;
-  --text-color: #212529;
-  --white: #FFFFFF;
-  --gray-light: #f8f9fa;
-  --gray-medium: #e9ecef;
-  --border-color: #dee2e6;
-
-  /* Shadows */
-  --shadow-subtle: 0 2px 4px rgba(0, 0, 0, 0.05);
-  --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.08);
-  --shadow-medium: 0 8px 24px rgba(0, 0, 0, 0.12);
-  --shadow-strong: 0 16px 40px rgba(0, 0, 0, 0.15);
-
-  /* Typography */
-  --font-headings: 'Lora', serif;
-  --font-body: 'Inter', sans-serif;
-  --font-logo: 'Libre Baskerville', serif;
-
-  /* Spacing */
-  --spacing-xs: 0.5rem;   /* 8px */
-  --spacing-sm: 1rem;     /* 16px */
-  --spacing-md: 2rem;     /* 32px */
-  --spacing-lg: 4rem;     /* 64px */
-  --spacing-xl: 6rem;     /* 96px */
-}
-
-/* Base & Typography */
-body {
-  background-color: var(--background-color);
-  color: var(--text-color);
-  font-family: var(--font-body);
-  font-size: 16px;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-headings);
-  color: var(--primary-blue);
-  font-weight: 700;
-  line-height: 1.2;
-  margin-top: 0;
-  margin-bottom: var(--spacing-sm);
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-h1 { font-size: 3.5rem; } /* 56px */
-h2 { font-size: 2.5rem; } /* 40px */
-h3 { font-size: 1.75rem; } /* 28px */
-
-p {
-  margin-bottom: var(--spacing-sm);
-}
-
-a {
-  color: var(--accent-orange);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-a:hover {
-  color: var(--primary-blue);
-}
+/* NOTE: Core brand styles (fonts, variables, base typography)
+   are now in core-brand.css and must be loaded before this file */
 
 /* ------------------- */
-/* 2. LAYOUT & UTILITY CLASSES */
+/* LAYOUT & UTILITY CLASSES */
 /* ------------------- */
 .container-large {
   width: 100%;
@@ -167,53 +47,7 @@ a:hover {
   gap: var(--spacing-md);
 }
 
-.text-align-center {
-  text-align: center;
-}
-
-.padding-top-none {
-  padding-top: 0;
-}
-
-.margin-top-sm {
-    margin-top: var(--spacing-sm);
-}
-
-.margin-bottom-md {
-    margin-bottom: var(--spacing-md);
-}
-
-.margin-top-md {
-    margin-top: var(--spacing-md);
-}
-
-.margin-top-lg {
-    margin-top: var(--spacing-lg);
-}
-
-.margin-bottom-lg {
-    margin-bottom: var(--spacing-lg);
-}
-
-.margin-top-xl {
-    margin-top: var(--spacing-xl);
-}
-
-.margin-bottom-xl {
-    margin-bottom: var(--spacing-xl);
-}
-
-.padding-top-sm {
-    padding-top: var(--spacing-sm);
-}
-
-.padding-bottom-sm {
-    padding-bottom: var(--spacing-sm);
-}
-
-.line-height-relaxed {
-    line-height: 1.8;
-}
+/* Note: Utility classes (text-align, margins, padding) moved to core-brand.css */
 
 .hr-divider {
   border: 0;
@@ -229,6 +63,8 @@ a:hover {
     margin-left: auto;
     margin-right: auto;
 }
+
+/* Section headings - removed underline accent per user request */
 
 /* Skip to Content Link (Accessibility) */
 .skip-link {
@@ -376,7 +212,59 @@ button:focus-visible,
 }
 
 .footer_list li {
-  margin-bottom: var(--spacing-xs);
+  margin-bottom: 0.625rem; /* Increased from 8px to 10px for better readability */
+}
+
+/* Footer Hours Column - Weekday/Weekend Spacing */
+.footer_component .footer_hours-weekday {
+  margin-bottom: 0.5rem;
+}
+
+.footer_component .footer_hours-weekend {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Footer Address Block - Tight Spacing with slight breathing room */
+.footer_component .footer_firm-name {
+  margin-bottom: 0.125rem !important; /* 2px - very tight connection to address */
+}
+
+.footer_component .footer_address {
+  margin-bottom: 0.5rem !important;
+  line-height: 1.5; /* Increased from 1.4 for slightly better readability */
+}
+
+.footer_component .footer_contact {
+  margin-top: 0 !important;
+  margin-bottom: var(--spacing-sm);
+  line-height: 1.8; /* Increased from 1.7 for slight improvement */
+}
+
+/* Footer Column Heading Underlines */
+.footer_component h3 {
+  position: relative;
+  padding-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.footer_component h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Remove underline from firm name (it's part of address block) */
+.footer_component .footer_firm-name {
+  display: block;
+}
+
+.footer_component .footer_firm-name::after {
+  display: none;
 }
 
 .footer_disclaimer {
@@ -387,8 +275,8 @@ button:focus-visible,
 .footer_bottom-bar {
   text-align: center;
   border-top: 1px solid rgba(255, 255, 255, 0.2);
-  margin-top: var(--spacing-lg);
-  padding-top: var(--spacing-md);
+  margin-top: var(--spacing-lg); /* 64px */
+  padding-top: var(--spacing-lg); /* Increased from 32px to 64px for balance */
   font-size: 0.9rem;
   opacity: 0.8;
 }
@@ -594,24 +482,47 @@ button:focus-visible,
 /* Attorney Card & Gallery */
 .card_attorney {
   text-align: center;
-  padding: var(--spacing-md);
-  border-radius: 8px;
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-card);
   background: var(--white);
-  box-shadow: var(--shadow-subtle);
-  transition: box-shadow 0.3s ease;
+  box-shadow: var(--shadow-layered);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle top accent bar */
+.card_attorney::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-blue-header);
 }
 
 .card_attorney:hover {
-  box-shadow: var(--shadow-soft);
+  transform: scale(1.02);
+  box-shadow: var(--shadow-hover);
 }
 
 .attorney_photo {
-  width: 100%;
-  max-width: 300px;
+  width: 220px;
+  height: 220px;
   aspect-ratio: 1 / 1;
   object-fit: cover;
-  border-radius: 8px;
-  margin: 0 auto var(--spacing-sm);
+  border-radius: 50%; /* Circular photo */
+  margin: var(--spacing-sm) auto var(--spacing-md);
+  border: var(--photo-ring-width) solid var(--white);
+  box-shadow: var(--shadow-deep);
+  transition: all 0.3s ease;
+  display: block;
+}
+
+.card_attorney:hover .attorney_photo {
+  transform: scale(1.05);
+  box-shadow: var(--shadow-hover);
 }
 
 .attorney_photo-sorin {
@@ -624,10 +535,17 @@ button:focus-visible,
 
 .attorney-bio-image img {
     width: 100%;
-    border-radius: 8px;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-    display: block; /* Prevents extra space below image */
+    max-width: 400px;
+    height: auto;
+    border-radius: var(--border-radius-card);
+    box-shadow: var(--shadow-layered);
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.attorney-bio-image img:hover {
+    transform: scale(1.02);
+    box-shadow: var(--shadow-hover);
 }
 
 .gallery-image {
@@ -639,13 +557,31 @@ button:focus-visible,
 
 .attorney_name {
   font-family: var(--font-headings);
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   color: var(--primary-blue);
   margin-bottom: var(--spacing-xs);
+  font-weight: 700;
 }
 
 .attorney_snippet {
-  margin-bottom: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+  color: var(--text-color);
+  line-height: 1.7;
+  font-size: 1.05rem;
+  max-width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Enhanced button styling for attorney cards */
+.card_attorney .button-primary {
+  margin-top: var(--spacing-sm);
+  padding: 0.9rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  min-width: 220px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 
@@ -777,27 +713,45 @@ textarea.form_field {
 
 .card_practice-area-enhanced {
     background: var(--white);
-    padding: var(--spacing-lg);
+    padding: 0;
     border: 1px solid var(--border-color);
-    border-radius: 12px;
-    box-shadow: var(--shadow-subtle);
-    transition: all 0.3s ease;
+    border-radius: var(--border-radius-card);
+    box-shadow: var(--shadow-layered);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 }
 
 .card_practice-area-enhanced:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-medium);
+    transform: scale(1.01);
+    box-shadow: var(--shadow-hover);
     border-color: var(--primary-blue-light);
 }
 
 .card_practice-area-enhanced h3 {
-    color: var(--primary-blue);
+    color: var(--white);
     font-family: var(--font-headings);
-    font-size: 1.5rem;
-    margin-bottom: var(--spacing-sm);
+    font-size: 1.65rem;
+    margin-bottom: 0;
     text-align: center;
+    background: var(--gradient-blue-header);
+    padding: var(--spacing-md) var(--spacing-lg);
+    font-weight: 700;
+}
+
+/* Add padding back to content areas */
+.card_practice-area-enhanced > *:not(h3) {
+    padding-left: var(--spacing-lg);
+    padding-right: var(--spacing-lg);
+}
+
+.card_practice-area-enhanced > *:first-of-type:not(h3) {
+    padding-top: var(--spacing-md);
+}
+
+.card_practice-area-enhanced > *:last-child {
+    padding-bottom: var(--spacing-lg);
 }
 
 .practice-area-intro {
@@ -835,11 +789,29 @@ textarea.form_field {
 }
 
 .charge-list li {
-    padding: 0.25rem 0;
+    padding: 0.5rem 0 0.5rem 1.5rem;
     color: var(--text-primary);
-    font-size: 0.95rem;
+    font-size: 0.98rem;
     text-align: left;
     border-bottom: 1px solid rgba(64, 118, 180, 0.1);
+    position: relative;
+    transition: all 0.2s ease;
+    line-height: 1.6;
+}
+
+/* Modern checkmark for list items */
+.charge-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--accent-orange);
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.charge-list li:hover {
+    padding-left: 2rem;
+    color: var(--primary-blue);
 }
 
 .charge-list li:last-child {
@@ -853,22 +825,30 @@ textarea.form_field {
 
 .service-item {
     background: rgba(255, 138, 40, 0.03);
-    padding: var(--spacing-sm);
-    border-radius: 8px;
-    border-left: 3px solid var(--accent-orange);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-md);
+    border-left: 4px solid var(--accent-orange);
+    transition: all 0.3s ease;
+}
+
+.service-item:hover {
+    background: rgba(255, 138, 40, 0.06);
+    border-left-width: 6px;
+    padding-left: calc(var(--spacing-md) + 4px);
 }
 
 .service-item h4 {
     color: var(--primary-blue);
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     font-weight: 600;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.5rem;
 }
 
 .service-item p {
     color: var(--text-secondary);
-    font-size: 0.9rem;
+    font-size: 1rem;
     margin: 0;
+    line-height: 1.7;
 }
 
 /* Practice Areas Heading Link */
@@ -1945,5 +1925,1098 @@ textarea.form_field {
 @supports (padding-bottom: env(safe-area-inset-bottom)) {
   .mobile-cta-sticky {
     padding-bottom: calc(12px + env(safe-area-inset-bottom));
+  }
+}
+
+/* =============================================== */
+/* DIGITAL BUSINESS CARD PAGES */
+/* =============================================== */
+
+/* Card Page Layout */
+.card-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--background-color) 0%, rgba(248, 249, 250, 0.9) 100%);
+  padding: var(--spacing-sm) 0 var(--spacing-lg);
+}
+
+.card-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-sm);
+}
+
+/* Card Header */
+.card-header {
+  background: var(--white);
+  padding: var(--spacing-lg) var(--spacing-md);
+  border-radius: var(--border-radius-card-lg) var(--border-radius-card-lg) 0 0;
+  box-shadow: var(--shadow-layered);
+  text-align: center;
+  margin-top: var(--spacing-sm);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle gradient overlay for modern look */
+.card-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: var(--gradient-blue-subtle);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.card-header > * {
+  position: relative;
+  z-index: 1;
+}
+
+.card-logo {
+  max-width: 200px;
+  height: auto;
+  margin: 0 auto var(--spacing-md);
+  display: block;
+}
+
+.card-firm-name {
+  font-family: var(--font-headings);
+  font-size: 2rem;
+  color: var(--primary-blue);
+  margin-bottom: var(--spacing-xs);
+}
+
+.card-tagline {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--spacing-md);
+}
+
+.card-message {
+  color: var(--text-color);
+  line-height: 1.7;
+  margin-bottom: 0;
+  font-size: 1rem;
+}
+
+/* Attorney Card Header Variant */
+.card-header-attorney {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-attorney-photo {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: var(--spacing-md);
+  box-shadow: var(--shadow-deep);
+  border: var(--photo-ring-width) solid var(--white);
+  transition: all 0.4s ease;
+}
+
+/* Add subtle animation on hover for profile photos */
+.card-attorney-photo:hover {
+  transform: scale(1.05);
+  box-shadow: var(--shadow-hover);
+}
+
+.card-attorney-name {
+  font-family: var(--font-headings);
+  font-size: 2rem;
+  color: var(--primary-blue);
+  margin-bottom: var(--spacing-xs);
+}
+
+.card-attorney-title {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  color: var(--text-color);
+  font-weight: 600;
+  margin-bottom: var(--spacing-xs);
+}
+
+.card-firm-link {
+  margin-bottom: var(--spacing-md);
+}
+
+.card-firm-link a {
+  color: var(--accent-orange);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.card-firm-link a:hover {
+  color: var(--accent-orange-dark);
+  text-decoration: underline;
+}
+
+/* Primary CTA - Save to Contacts */
+.card-cta-primary {
+  background: var(--white);
+  padding: var(--spacing-md);
+  box-shadow: var(--shadow-layered);
+  display: flex;
+  justify-content: center;
+}
+
+.btn-save-contact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 400px;
+  padding: 1.25rem 2rem;
+  background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-orange-dark) 100%);
+  color: var(--white);
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-weight: 700;
+  border-radius: 50px; /* Modern pill shape */
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(255, 138, 40, 0.3);
+  min-height: 56px;
+}
+
+.btn-save-contact:hover {
+  background: linear-gradient(135deg, var(--accent-orange-light) 0%, var(--accent-orange) 100%);
+  transform: scale(1.03);
+  box-shadow: 0 8px 24px rgba(255, 138, 40, 0.45);
+  color: var(--white);
+}
+
+.btn-save-contact svg {
+  flex-shrink: 0;
+}
+
+/* Action Buttons */
+.card-actions {
+  background: var(--white);
+  padding: var(--spacing-md);
+  box-shadow: var(--shadow-layered);
+  display: flex;
+  gap: var(--spacing-sm);
+  flex-direction: column;
+  align-items: center;
+}
+
+.btn-action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 400px;
+  padding: 1rem 1.5rem;
+  background: transparent;
+  color: var(--primary-blue);
+  border: 2px solid var(--primary-blue);
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 50px; /* Modern pill shape */
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  min-height: 48px;
+}
+
+.btn-action:hover {
+  background: var(--primary-blue);
+  color: var(--white);
+  transform: scale(1.02);
+  box-shadow: var(--shadow-deep);
+}
+
+.btn-action svg {
+  flex-shrink: 0;
+}
+
+/* Primary CTA Enhancement - Phone Button */
+.card-page .btn-action-phone {
+  background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-orange-dark) 100%);
+  color: var(--white);
+  border: 2px solid var(--accent-orange);
+  box-shadow: 0 4px 12px rgba(255, 138, 40, 0.3);
+  font-weight: 700;
+}
+
+.card-page .btn-action-phone:hover {
+  background: linear-gradient(135deg, var(--accent-orange-dark) 0%, var(--accent-orange) 100%);
+  border-color: var(--accent-orange-dark);
+  transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(255, 138, 40, 0.4);
+}
+
+/* Consultation Form Section */
+.card-form-section {
+  background: var(--white);
+  padding: var(--spacing-lg) var(--spacing-md);
+  box-shadow: var(--shadow-soft);
+}
+
+.card-form-section h2 {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: var(--spacing-md);
+  color: var(--primary-blue);
+}
+
+.card-consultation-form {
+  max-width: 100%;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+}
+
+.form-group {
+  margin-bottom: var(--spacing-sm);
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  color: var(--primary-blue);
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.form-group .required {
+  color: var(--accent-orange);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.875rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  border: 2px solid var(--border-color);
+  border-radius: 6px;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 3px rgba(64, 118, 180, 0.1);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 1rem 2rem;
+  background: var(--primary-blue);
+  color: var(--white);
+  border: none;
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-height: 56px;
+  box-shadow: 0 4px 12px rgba(64, 118, 180, 0.3);
+}
+
+.btn-submit:hover {
+  background: var(--primary-blue-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(64, 118, 180, 0.4);
+}
+
+.form-note {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-light);
+  margin-top: var(--spacing-sm);
+  margin-bottom: 0;
+  font-style: italic;
+}
+
+.form-success {
+  text-align: center;
+  padding: var(--spacing-lg);
+}
+
+.form-success svg {
+  margin: 0 auto var(--spacing-md);
+  display: block;
+}
+
+.form-success h3 {
+  color: var(--success-green);
+  margin-bottom: var(--spacing-sm);
+}
+
+.form-success p {
+  color: var(--text-color);
+  margin-bottom: 0;
+}
+
+/* Core Services Section */
+.card-services {
+  background: var(--white);
+  padding: var(--spacing-lg) var(--spacing-md);
+  box-shadow: var(--shadow-layered);
+}
+
+.card-services h2 {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: var(--spacing-md);
+  color: var(--primary-blue);
+}
+
+.services-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.services-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--gray-medium);
+  color: var(--text-color);
+  line-height: 1.7;
+  font-size: 1.05rem;
+  transition: all 0.2s ease;
+}
+
+.services-list li:last-child {
+  border-bottom: none;
+}
+
+.services-list li:hover {
+  padding-left: 8px;
+  color: var(--primary-blue);
+}
+
+.services-list li svg {
+  color: var(--accent-orange);
+  flex-shrink: 0;
+  margin-top: 4px;
+  stroke-width: 3; /* Bolder checkmarks */
+}
+
+/* Contact Information Section */
+.card-info {
+  background: var(--white);
+  padding: var(--spacing-lg) var(--spacing-md);
+  box-shadow: var(--shadow-soft);
+}
+
+.card-info h2 {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: var(--spacing-md);
+  color: var(--primary-blue);
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-md);
+}
+
+.info-item {
+  text-align: center;
+}
+
+.info-item strong {
+  display: block;
+  color: var(--primary-blue);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.info-item p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--accent-orange);
+}
+
+.info-item a {
+  color: var(--accent-orange);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.info-item a:hover {
+  color: var(--accent-orange-dark);
+  text-decoration: underline;
+}
+
+/* Social Media Section */
+.card-social {
+  background: var(--white);
+  padding: var(--spacing-lg) var(--spacing-md);
+  box-shadow: var(--shadow-soft);
+  text-align: center;
+}
+
+.card-social h3 {
+  font-size: 1.25rem;
+  margin-bottom: var(--spacing-md);
+  color: var(--primary-blue);
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--primary-blue);
+  color: var(--white);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.social-link:hover {
+  background: var(--primary-blue-dark);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-medium);
+}
+
+.social-link.social-disabled {
+  background: var(--gray-medium);
+  color: var(--text-light);
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.social-link.social-disabled:hover {
+  background: var(--gray-medium);
+  transform: none;
+  box-shadow: none;
+}
+
+.social-note {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  margin: 0;
+  font-style: italic;
+}
+
+/* About Section (Attorney Cards) */
+.card-about {
+  background: var(--white);
+  padding: var(--spacing-lg) var(--spacing-md);
+  box-shadow: var(--shadow-soft);
+}
+
+.card-about h2 {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: var(--spacing-md);
+  color: var(--primary-blue);
+}
+
+.about-content h3 {
+  font-size: 1.125rem;
+  color: var(--primary-blue);
+  margin-top: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
+}
+
+.about-content h3:first-child {
+  margin-top: 0;
+}
+
+.about-content p {
+  margin-bottom: var(--spacing-sm);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+.about-content ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+  margin-bottom: var(--spacing-md);
+}
+
+.about-content ul li {
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+  line-height: 1.5;
+}
+
+.results-list {
+  list-style: none;
+  padding: 0;
+}
+
+.results-list li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--gray-medium);
+  color: var(--text-color);
+}
+
+.results-list li:last-child {
+  border-bottom: none;
+}
+
+.results-list strong {
+  color: var(--primary-blue);
+}
+
+/* Card Footer */
+.card-footer {
+  background: var(--white);
+  padding: var(--spacing-md);
+  border-radius: 0 0 12px 12px;
+  box-shadow: var(--shadow-soft);
+  text-align: center;
+  color: var(--text-light);
+  font-size: 0.9rem;
+  margin-bottom: var(--spacing-lg);
+}
+
+.card-footer p {
+  margin-bottom: var(--spacing-xs);
+}
+
+.card-footer p:last-child {
+  margin-bottom: 0;
+}
+
+.card-footer a {
+  color: var(--primary-blue);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.card-footer a:hover {
+  color: var(--accent-orange);
+  text-decoration: underline;
+}
+
+.card-footer .copyright {
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+/* Mobile Responsiveness for Cards */
+@media (max-width: 600px) {
+  .card-firm-name,
+  .card-attorney-name {
+    font-size: 1.75rem;
+  }
+
+  .card-attorney-photo {
+    width: 150px;
+    height: 150px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+}
+
+/* Desktop: Side-by-side button layout */
+@media (min-width: 768px) {
+  .card-actions {
+    flex-direction: row;
+    justify-content: center;
+    gap: var(--spacing-md);
+  }
+
+  .btn-action {
+    flex: 1 1 auto;
+    max-width: 280px;
+  }
+
+  .btn-save-contact {
+    max-width: 450px;
+  }
+
+  .card-logo {
+    max-width: 280px;
+  }
+}
+
+/* Tablet optimizations */
+@media (min-width: 601px) and (max-width: 768px) {
+  .card-container {
+    padding: 0 var(--spacing-md);
+  }
+}
+
+/* Wide Screen Footer Optimization */
+@media (min-width: 1600px) {
+  .footer_grid {
+    gap: 5rem; /* Increased from 4rem (64px) to 5rem (80px) for better spacing on ultra-wide displays */
+  }
+}
+
+/* ===============================================
+   ENHANCED DIGITAL BUSINESS CARD STYLES
+   ===============================================
+   All new card enhancements scoped with .card-page
+   to prevent main site impact
+   =============================================== */
+
+/* Enhanced Card Header */
+.card-page .card-header-enhanced {
+  background: linear-gradient(135deg, rgba(64, 118, 180, 0.03) 0%, rgba(255, 255, 255, 1) 50%);
+  position: relative;
+  overflow: hidden;
+}
+
+.card-page .card-header-enhanced::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(64, 118, 180, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.card-page .card-header-content {
+  position: relative;
+  z-index: 1;
+}
+
+.card-page .card-logo-enhanced {
+  max-width: 280px;
+  margin-bottom: var(--spacing-md);
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.08));
+  transition: transform 0.3s ease;
+}
+
+.card-page .card-logo-enhanced:hover {
+  transform: scale(1.02);
+}
+
+.card-page .card-firm-name {
+  font-family: var(--font-headings);
+  font-size: 2rem;
+  color: var(--primary-blue);
+  margin: var(--spacing-sm) 0 var(--spacing-xs);
+  font-weight: 700;
+}
+
+.card-page .card-tagline {
+  font-size: 0.9rem;
+  color: var(--text-color);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--spacing-md);
+  opacity: 0.8;
+}
+
+.card-page .card-business-hours {
+  display: inline-flex;
+  align-items: center;
+  background: var(--gray-light);
+  padding: 0.75rem 1.25rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  color: var(--text-color);
+  margin-top: var(--spacing-sm);
+  border: 1px solid var(--border-color);
+}
+
+.card-page .card-business-hours svg {
+  color: var(--primary-blue);
+}
+
+/* Enhanced CTA Sections */
+.card-page .card-cta-enhanced {
+  background: linear-gradient(135deg, rgba(255, 138, 40, 0.03) 0%, rgba(255, 255, 255, 1) 100%);
+}
+
+.card-page .cta-step-indicator {
+  text-align: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.card-page .step-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-orange-dark) 100%);
+  color: var(--white);
+  padding: 0.5rem 1.25rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: 0 4px 12px rgba(255, 138, 40, 0.3);
+  margin-bottom: 0.5rem;
+}
+
+.card-page .step-description {
+  font-size: 0.95rem;
+  color: var(--text-color);
+  margin: 0.5rem 0 0;
+  opacity: 0.9;
+}
+
+.card-page .cta-social-proof {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-color);
+  margin-top: var(--spacing-md);
+  margin-bottom: 0;
+  padding: 0.75rem 1rem;
+  background: rgba(64, 118, 180, 0.05);
+  border-radius: 8px;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+.card-page .cta-social-proof svg {
+  color: var(--primary-blue);
+}
+
+/* Enhanced Action Buttons */
+.card-page .card-actions-enhanced {
+  background: var(--white);
+}
+
+.card-page .action-buttons-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  align-items: center;
+}
+
+.card-page .btn-action .btn-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+}
+
+.card-page .btn-action .btn-text strong {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.card-page .btn-action .btn-text small {
+  font-size: 0.85rem;
+  opacity: 0.8;
+  font-weight: 400;
+}
+
+/* Enhanced Services Section */
+.card-page .card-services-enhanced {
+  background: var(--white);
+}
+
+.card-page .services-intro {
+  text-align: center;
+  color: var(--text-color);
+  margin-bottom: var(--spacing-md);
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+.card-page .card-services-enhanced .services-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-width: 100%;
+}
+
+.card-page .card-services-enhanced .services-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--gray-medium);
+  transition: all 0.3s ease;
+}
+
+.card-page .card-services-enhanced .services-list li:last-child {
+  border-bottom: none;
+}
+
+.card-page .card-services-enhanced .services-list li:hover {
+  padding-left: 0.5rem;
+  background: rgba(64, 118, 180, 0.02);
+  margin-left: -0.5rem;
+  margin-right: -0.5rem;
+  padding-right: 0.5rem;
+  border-radius: 8px;
+}
+
+.card-page .service-icon {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, rgba(255, 138, 40, 0.1) 0%, rgba(255, 138, 40, 0.05) 100%);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-orange);
+  transition: all 0.3s ease;
+}
+
+.card-page .service-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.card-page .card-services-enhanced .services-list li:hover .service-icon {
+  background: linear-gradient(135deg, rgba(255, 138, 40, 0.2) 0%, rgba(255, 138, 40, 0.1) 100%);
+  transform: scale(1.05);
+}
+
+.card-page .service-content {
+  flex: 1;
+}
+
+.card-page .service-content strong {
+  display: block;
+  color: var(--primary-blue);
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.card-page .service-content p {
+  color: var(--text-color);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+  opacity: 0.9;
+}
+
+/* Enhanced Form Section */
+.card-page .card-form-enhanced {
+  background: linear-gradient(135deg, rgba(64, 118, 180, 0.02) 0%, rgba(255, 255, 255, 1) 100%);
+}
+
+.card-page .form-subtitle {
+  text-align: center;
+  color: var(--text-color);
+  font-size: 0.95rem;
+  margin-bottom: var(--spacing-md);
+  opacity: 0.9;
+}
+
+.card-page .form-privacy-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: rgba(40, 167, 69, 0.1);
+  color: var(--success-green);
+  padding: 0.75rem 1.25rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin: 0 auto var(--spacing-md);
+  border: 1px solid rgba(40, 167, 69, 0.2);
+  text-align: center;
+  width: fit-content;
+}
+
+.card-page .form-privacy-badge svg {
+  flex-shrink: 0;
+}
+
+.card-page .card-consultation-form select {
+  width: 100%;
+  padding: 0.875rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  border: 2px solid var(--border-color);
+  border-radius: 6px;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+  background-color: var(--white);
+  cursor: pointer;
+}
+
+.card-page .card-consultation-form select:focus {
+  outline: none;
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 3px rgba(64, 118, 180, 0.1);
+}
+
+/* Attorney Badge (for attorney cards) */
+.card-page .attorney-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, rgba(64, 118, 180, 0.1) 0%, rgba(64, 118, 180, 0.05) 100%);
+  color: var(--primary-blue);
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin: 0.5rem 0 var(--spacing-sm);
+  border: 1px solid rgba(64, 118, 180, 0.2);
+}
+
+/* Enhanced Attorney Photo */
+.card-page .card-attorney-photo-enhanced {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: var(--spacing-md);
+  box-shadow: var(--shadow-deep);
+  border: var(--photo-ring-width) solid var(--white);
+  transition: all 0.4s ease;
+  animation: photoFadeIn 0.8s ease-out;
+}
+
+@keyframes photoFadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.card-page .card-attorney-photo-enhanced:hover {
+  transform: scale(1.03);
+  box-shadow: var(--shadow-hover);
+}
+
+/* Responsive Enhancements */
+@media (min-width: 768px) {
+  .card-page .action-buttons-grid {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .card-page .btn-action {
+    flex: 1 1 auto;
+    max-width: 280px;
+  }
+
+  .card-page .card-firm-name {
+    font-size: 2.25rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .card-page .card-firm-name {
+    font-size: 1.75rem;
+  }
+
+  .card-page .card-business-hours {
+    font-size: 0.75rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .card-page .service-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .card-page .service-content strong {
+    font-size: 1rem;
+  }
+
+  .card-page .service-content p {
+    font-size: 0.9rem;
+  }
+}
+
+/* Extra Small Mobile Devices (360px and below) */
+@media (max-width: 360px) {
+  .card-page .card-logo-enhanced {
+    max-width: 200px;
+  }
+
+  .card-page .card-firm-name {
+    font-size: 1.5rem;
+  }
+
+  .card-page .card-attorney-name {
+    font-size: 1.75rem;
+  }
+
+  .card-page .card-business-hours {
+    font-size: 0.7rem;
+    padding: 0.5rem 0.75rem;
+  }
+
+  .card-page .btn-action {
+    padding: 0.875rem 1.25rem;
+    font-size: 0.95rem;
+  }
+
+  .card-page .btn-action .btn-text strong {
+    font-size: 0.95rem;
+  }
+
+  .card-page .btn-action .btn-text small {
+    font-size: 0.8rem;
+  }
+
+  .card-page .step-badge {
+    font-size: 0.75rem;
+    padding: 0.4rem 1rem;
+  }
+
+  .card-page .attorney-badge {
+    font-size: 0.75rem;
+    padding: 0.4rem 1rem;
+  }
+
+  .card-page .service-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .card-page .card-attorney-photo-enhanced {
+    width: 180px;
+    height: 180px;
   }
 }

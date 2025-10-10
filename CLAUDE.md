@@ -316,6 +316,82 @@ Based on git status and SITE_INVENTORY.md:
 
 This is a well-optimized, professional legal website with strong technical foundations, mobile conversion optimization, complete accessibility compliance, and now a completely redesigned expungement page that provides an excellent user experience.
 
+### October 9, 2025 - Modern Card Design System & Footer Refinements
+**Major Feature**: Complete modernization of card designs across the entire website
+
+**Files Modified**:
+- `css/core-brand.css`: Added modern CSS variables for shadows, gradients, border radius
+- `css/style.css`: Comprehensive card styling updates (homepage, attorneys, practice areas, digital business cards)
+- `_includes/footer.html`: Added spacing classes and separated hours into paragraphs
+- `index.html`: Fixed CSS loading (removed async preload)
+- 20 HTML files: Updated via `node update-includes.cjs`
+
+**Key Changes**:
+
+1. **Modern Card Design System**:
+   - Added CSS variables: `--shadow-layered`, `--shadow-deep`, `--shadow-hover`
+   - Border radius increased: 8px → 16px (20px for digital cards)
+   - Photo rings: 10px white borders with deep shadows
+   - Pill-shaped buttons: 50px border-radius with scale hover effects
+   - Gradient headers: Blue gradients on practice area cards
+
+2. **Circular Attorney Photos**:
+   - Homepage attorney cards: 220px circular photos with white ring borders
+   - Digital business cards: 200px circular photos with gradient overlays
+   - attorneys.html: Fixed photo cropping issue (removed aspect-ratio constraint)
+   - Added modern hover effects (scale 1.02-1.03)
+
+3. **Enhanced Card Components**:
+   - **Homepage attorney cards**: 4px blue gradient top accent bar, 64px padding, layered shadows
+   - **Practice area cards**: Gradient headers with white text, orange checkmarks, enhanced hover
+   - **Digital business cards**: Gradient overlay backgrounds, deep shadows, modern spacing
+   - **CTA buttons**: Pill shapes (50px radius), gradient backgrounds, scale hover
+
+4. **Footer Spacing Refinements** (Professional critique implementation):
+   - Hours column: Split weekday/weekend into separate paragraphs (8px gap)
+   - Footer lists: Increased spacing from 8px to 10px
+   - Address block: Tight cohesive spacing (4px after firm name, 8px after address)
+   - Line heights: Improved readability (1.5 for address, 1.8 for contact)
+   - Footer divider: Balanced spacing (64px top and bottom)
+   - Wide screen optimization: 80px column gap on screens >1600px
+
+5. **Footer Heading Underlines**:
+   - Added white underlines (2px, 30% opacity) to footer column headings
+   - Underlines match text width using `display: inline-block`
+   - Firm name excluded from underline treatment
+   - Visual hierarchy improvement for footer navigation
+
+6. **CSS Variables Added** (`core-brand.css`):
+   ```css
+   --shadow-layered: 0 2px 4px rgba(0,0,0,0.05), 0 8px 16px rgba(0,0,0,0.1), 0 16px 32px rgba(0,0,0,0.08);
+   --shadow-deep: 0 4px 8px rgba(0,0,0,0.08), 0 12px 24px rgba(0,0,0,0.12);
+   --shadow-hover: 0 8px 16px rgba(0,0,0,0.12), 0 16px 32px rgba(0,0,0,0.15);
+   --border-radius-card: 16px;
+   --border-radius-card-lg: 20px;
+   --gradient-blue-subtle: linear-gradient(135deg, rgba(64, 118, 180, 0.05) 0%, rgba(64, 118, 180, 0.02) 100%);
+   --gradient-blue-header: linear-gradient(135deg, #5a8bc7 0%, #4076B4 100%);
+   --photo-ring-width: 10px;
+   ```
+
+**Technical Fixes**:
+- Fixed photo cropping on attorneys.html (removed aspect-ratio, added height: auto)
+- Fixed CSS loading issues (changed from preload to standard link tags)
+- Fixed CSS specificity for footer spacing (added !important declarations)
+- Fixed include system workflow (updated `_includes/` then ran update-includes.cjs)
+
+**Design Research**:
+- Analyzed modern card platforms: Bitly, CardPage, Linktree, Royal Primary
+- Implemented layered shadows, pill buttons, circular photos, gradient headers
+- Maintained legal industry professionalism while modernizing aesthetic
+
+**Impact**:
+- Modern, professional card design consistent across all 4 card types
+- Improved visual hierarchy and user experience
+- Enhanced footer readability and spacing consistency
+- Better mobile and desktop responsive behavior
+- Stronger trust signals through polished, contemporary design
+- Maintained accessibility while improving aesthetics
+
 ## Design Review System
 
 ### Design Principles for Legal Website

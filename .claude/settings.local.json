@@ -27,7 +27,22 @@
       "WebFetch(domain:www.michigan.gov)",
       "Bash(dir)",
       "Bash(git add:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(node:*)",
+      "Bash(npm --version)",
+      "Bash(npm init:*)",
+      "Bash(npm install:*)",
+      "Bash(npm run build:*)",
+      "Bash(npx eleventy:*)",
+      "Bash(npm start)",
+      "Bash(npx @11ty/eleventy:*)",
+      "Bash(git restore:*)",
+      "Bash(do sed -i 's/<<script/<script/g' \"$file\")",
+      "Bash(rm:*)",
+      "Bash(do if ! grep -q \"rel=\"\"canonical\"\"\" \"$file\")",
+      "Bash(then echo \"$file - MISSING canonical\")",
+      "Bash(else echo \"$file - has canonical\")",
+      "Bash(curl:*)"
     ],
     "deny": [],
     "ask": []

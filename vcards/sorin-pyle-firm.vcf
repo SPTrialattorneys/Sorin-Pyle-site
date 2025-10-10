@@ -1,0 +1,14 @@
+BEGIN:VCARD
+VERSION:4.0
+FN:Sorin & Pyle\, Trial Lawyers
+ORG:Sorin & Pyle\, PC
+TITLE:Criminal Defense Attorneys
+TEL;TYPE=work,voice;VALUE=uri:tel:+1-616-227-3303
+EMAIL:justice@callsbp.com
+URL:https://www.sorinpyle.com
+ADR;TYPE=work:;;217 E 24th St Ste 107;Holland;MI;49423;United States
+GEO:geo:42.7726949,-86.0959496
+PHOTO;MEDIATYPE=image/svg:https://www.sorinpyle.com/images/logo-icon.svg
+CATEGORIES:Legal Services,Criminal Defense,Law Firm
+NOTE:Criminal defense law firm in West Michigan. We give a damn about your case. Judgment-free representation specializing in second chances\, juvenile defense\, and cases involving mental health and substance abuse. Free consultation available.
+END:VCARD
