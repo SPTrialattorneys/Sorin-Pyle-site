@@ -140,6 +140,18 @@
                 </div>
             </section>
 
+            <!-- Form Reveal CTA -->
+            <div class="form-reveal-cta">
+                <h3>Work with Sorin</h3>
+                <p>Request a free consultation with Sorin Panainte</p>
+                <button id="revealFormBtn" class="btn-reveal-form">
+                    Get Free Consultation
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"></path>
+                    </svg>
+                </button>
+            </div>
+
             <!-- Enhanced Consultation Form -->
             <section class="card-form-section card-form-enhanced">
                 <h2>Request a Free Consultation with Sorin</h2>
@@ -339,6 +351,42 @@
 
             // In production, send form data to backend (e.g., via fetch API)
         });
+
+        // TIER 3: Progressive Form Disclosure
+        (function() {
+            const formSection = document.querySelector('.card-form-section');
+            const revealBtn = document.getElementById('revealFormBtn');
+            if (!formSection) return;
+            formSection.classList.add('hidden');
+            function checkScroll() {
+                const scrolled = window.pageYOffset;
+                const pageHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const scrollPercent = (scrolled / pageHeight) * 100;
+                if (scrollPercent > 50 && formSection.classList.contains('hidden')) {
+                    revealForm();
+                }
+            }
+            if (revealBtn) {
+                revealBtn.addEventListener('click', revealForm);
+            }
+            function revealForm() {
+                formSection.classList.remove('hidden');
+                formSection.classList.add('revealing');
+                if (revealBtn) revealBtn.parentElement.style.display = 'none';
+                window.removeEventListener('scroll', throttledScroll);
+            }
+            let ticking = false;
+            function throttledScroll() {
+                if (!ticking) {
+                    window.requestAnimationFrame(() => {
+                        checkScroll();
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            }
+            window.addEventListener('scroll', throttledScroll);
+        })();
 
         // TIER 3: Floating Action Button (FAB) - Mobile Call Button
         (function() {
