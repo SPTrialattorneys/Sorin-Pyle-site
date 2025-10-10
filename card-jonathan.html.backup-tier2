@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Sorin Panainte Digital Business Card | Criminal Defense Attorney</title>
-    <meta name="description" content="Save Sorin Panainte's contact information. Trial lawyer and former public defender in Holland, MI. First-generation immigrant fighting for your rights.">
+    <title>Jonathan Pyle Digital Business Card | Criminal Defense Attorney</title>
+    <meta name="description" content="Save Jonathan Pyle's contact information. Trial lawyer and West Michigan native in Holland, MI. Committed to defending the community that raised me.">
     <meta name="robots" content="noindex, nofollow">
 
     <!-- Mobile Optimization -->
@@ -13,13 +13,13 @@
     <meta name="format-detection" content="telephone=yes">
 
     <!-- Open Graph for Social Sharing -->
-    <meta property="og:title" content="Sorin Panainte - Trial Lawyer">
-    <meta property="og:description" content="First-generation immigrant and former public defender. Save my contact for immediate legal help.">
-    <meta property="og:image" content="https://www.sorinpyle.com/images/sorin-3.avif">
-    <meta property="og:url" content="https://www.sorinpyle.com/card/sorin.html">
+    <meta property="og:title" content="Jonathan Pyle - Trial Lawyer">
+    <meta property="og:description" content="West Michigan native and seasoned trial attorney. Save my contact for immediate legal help.">
+    <meta property="og:image" content="https://www.sorinpyle.com/images/jonathan-2.avif">
+    <meta property="og:url" content="https://www.sorinpyle.com/card/jonathan.html">
     <meta property="og:type" content="profile">
 
-    <link rel="canonical" href="https://www.sorinpyle.com/card/sorin.html">
+    <link rel="canonical" href="https://www.sorinpyle.com/card/jonathan.html">
     <link rel="icon" type="image/png" href="../images/favicon.png">
 
     <!-- Fonts & Styles -->
@@ -39,7 +39,7 @@
         function trackVCardDownload() {
             gtag('event', 'vcard_download', {
                 event_category: 'Digital Business Card',
-                event_label: 'Sorin Panainte',
+                event_label: 'Jonathan Pyle',
                 card_type: 'attorney'
             });
         }
@@ -50,13 +50,13 @@
     {
       "@context": "https://schema.org",
       "@type": "Person",
-      "name": "Sorin Panainte",
+      "name": "Jonathan Pyle",
       "jobTitle": "Trial Lawyer",
-      "description": "First-generation immigrant and former public defender. Tireless advocate for clients facing criminal charges in West Michigan.",
-      "url": "https://www.sorinpyle.com/card/sorin.html",
-      "image": "https://www.sorinpyle.com/images/sorin-3.avif",
+      "description": "West Michigan native and seasoned trial attorney. Committed to defending the community that raised me with relentless preparation.",
+      "url": "https://www.sorinpyle.com/card/jonathan.html",
+      "image": "https://www.sorinpyle.com/images/jonathan-2.avif",
       "telephone": "+1-616-227-3303",
-      "email": "Sorin@callsbp.com",
+      "email": "Jonathan@callsbp.com",
       "worksFor": {
         "@type": "LegalService",
         "name": "Sorin & Pyle, PC"
@@ -81,17 +81,17 @@
             <!-- Header Section -->
             <header class="card-header card-header-attorney card-header-enhanced">
                 <div class="card-header-content">
-                    <img src="../images/sorin-3.avif"
-                         alt="Sorin Panainte - Trial Lawyer"
+                    <img src="../images/jonathan-2.avif"
+                         alt="Jonathan Pyle - Trial Lawyer"
                          class="card-attorney-photo card-attorney-photo-enhanced"
                          width="220"
                          height="220"
                          loading="eager">
-                    <h1 class="card-attorney-name">Sorin Panainte</h1>
+                    <h1 class="card-attorney-name">Jonathan Pyle</h1>
                     <p class="card-attorney-title">Attorney</p>
                     <p class="card-firm-link"><a href="../index.html">Sorin & Pyle, Trial Lawyers</a></p>
-                    <span class="attorney-badge">Former Public Defender</span>
-                    <p class="card-message">As a first-generation immigrant and former public defender, I fight tirelessly for every client. Your story matters, and I'm here to defend your future with dedication and compassion.</p>
+                    <span class="attorney-badge">West Michigan Native</span>
+                    <p class="card-message">A West Michigan native committed to defending my neighbors. I bring relentless preparation and genuine connection to every case. Your fight is my fight.</p>
                     <div class="card-business-hours">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: inline-block; vertical-align: middle; margin-right: 6px;">
                             <circle cx="12" cy="12" r="10"></circle>
@@ -102,12 +102,15 @@
                 </div>
             </header>
 
-            <!-- Contact Actions -->
-            <section class="card-contact-actions">
-                <h2 class="visually-hidden">Contact Actions</h2>
-                <a href="../vcards/sorin-panainte.vcf"
+            <!-- Primary CTA with Enhanced Hierarchy -->
+            <div class="card-cta-primary card-cta-enhanced">
+                <div class="cta-step-indicator">
+                    <span class="step-badge">Step 1</span>
+                    <p class="step-description">Save Jonathan's contact for immediate access</p>
+                </div>
+                <a href="../vcards/jonathan-pyle.vcf"
                    class="btn-save-contact"
-                   download="Sorin-Panainte.vcf"
+                   download="Jonathan-Pyle.vcf"
                    onclick="trackVCardDownload()">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
@@ -115,10 +118,27 @@
                         <line x1="20" y1="8" x2="20" y2="14"></line>
                         <line x1="23" y1="11" x2="17" y2="11"></line>
                     </svg>
-                    Save Sorin to Contacts
+                    Save Jonathan to Contacts
                 </a>
-                <div class="contact-buttons">
-                    <a href="tel:6162273303" class="btn-contact btn-contact-phone" onclick="gtag('event', 'click', {event_category: 'Business Card', event_label: 'Call Sorin', event_action: 'call'});">
+                <p class="cta-social-proof">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: inline-block; vertical-align: middle; margin-right: 4px;">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                    West Michigan native defending my neighbors
+                </p>
+            </div>
+
+            <!-- Action Buttons with Enhanced Hierarchy -->
+            <div class="card-actions card-actions-enhanced">
+                <div class="cta-step-indicator">
+                    <span class="step-badge">Step 2</span>
+                    <p class="step-description">Get in touch for a free consultation</p>
+                </div>
+                <div class="action-buttons-grid">
+                    <a href="tel:6162273303" class="btn-action btn-action-call" onclick="gtag('event', 'click', {event_category: 'Business Card', event_label: 'Call Jonathan', event_action: 'call'});">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                         </svg>
@@ -127,22 +147,22 @@
                             <small>(616) 227-3303</small>
                         </span>
                     </a>
-                    <a href="mailto:sorin@callsbp.com" class="btn-contact btn-contact-email" onclick="gtag('event', 'click', {event_category: 'Business Card', event_label: 'Email Sorin', event_action: 'email'});">
+                    <a href="mailto:jonathan@callsbp.com" class="btn-action btn-action-email" onclick="gtag('event', 'click', {event_category: 'Business Card', event_label: 'Email Jonathan', event_action: 'email'});">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                             <polyline points="22,6 12,13 2,6"></polyline>
                         </svg>
                         <span class="btn-text">
-                            <strong>Email Sorin</strong>
-                            <small>sorin@callsbp.com</small>
+                            <strong>Email Jonathan</strong>
+                            <small>jonathan@callsbp.com</small>
                         </span>
                     </a>
                 </div>
-            </section>
+            </div>
 
             <!-- Enhanced Consultation Form -->
             <section class="card-form-section card-form-enhanced">
-                <h2>Request a Free Consultation with Sorin</h2>
+                <h2>Request a Free Consultation with Jonathan</h2>
                 <p class="form-subtitle">We'll respond within 1 business day • All information is confidential</p>
                 <div class="form-privacy-badge">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -188,7 +208,7 @@
                         <label for="message">Brief Message</label>
                         <textarea id="message" name="message" rows="3" placeholder="Optional: Tell us briefly about your situation"></textarea>
                     </div>
-                    <button type="submit" class="btn-submit" onclick="gtag('event', 'form_submit', {event_category: 'Business Card', event_label: 'Sorin Consultation Form', event_action: 'submit'});">
+                    <button type="submit" class="btn-submit" onclick="gtag('event', 'form_submit', {event_category: 'Business Card', event_label: 'Jonathan Consultation Form', event_action: 'submit'});">
                         Request Free Consultation
                     </button>
                     <p class="form-note">
@@ -205,57 +225,50 @@
                         <polyline points="22 4 12 14.01 9 11.01"></polyline>
                     </svg>
                     <h3>Thank you!</h3>
-                    <p>Sorin will be in touch soon to schedule your free consultation.</p>
+                    <p>Jonathan will be in touch soon to schedule your free consultation.</p>
                 </div>
             </section>
 
             <!-- About Section -->
             <section class="card-about">
-                <h2>About Sorin</h2>
+                <h2>About Jonathan</h2>
                 <div class="about-content">
-                    <p><strong>Education:</strong> JD cum laude, Case Western Reserve University School of Law '19 • BA, University of Michigan '16</p>
-                    <p><strong>Bar Admission:</strong> State Bar of Michigan (P85326)</p>
+                    <p><strong>Education:</strong> JD, University of Georgia School of Law '15 • BA, Western Michigan University '09</p>
+                    <p><strong>Bar Admission:</strong> State Bar of Michigan (P81692)</p>
                     <p><strong>Experience:</strong> Former Public Defender (2019-2025) • Member, Criminal Defense Attorneys of Michigan (CDAM)</p>
                 </div>
             </section>
 
-            <!-- Firm Information -->
-            <section class="card-info-clean">
-                <h2>Firm Information</h2>
-                <div class="info-list">
-                    <a href="https://www.google.com/maps/place/Sorin+%26+Pyle,+PC/@42.7726949,-86.0959496,17z/" target="_blank" rel="noopener noreferrer" class="info-row">
-                        <svg class="info-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                            <circle cx="12" cy="10" r="3"></circle>
-                        </svg>
-                        <span class="info-text">217 E 24th St Ste 107, Holland, MI 49423</span>
-                    </a>
-                    <a href="tel:6162273303" class="info-row">
-                        <svg class="info-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                        </svg>
-                        <span class="info-text">(616) 227-3303</span>
-                    </a>
-                    <a href="mailto:sorin@callsbp.com" class="info-row">
-                        <svg class="info-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                            <polyline points="22,6 12,13 2,6"></polyline>
-                        </svg>
-                        <span class="info-text">sorin@callsbp.com</span>
-                    </a>
-                    <div class="info-row">
-                        <svg class="info-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <polyline points="12 6 12 12 16 14"></polyline>
-                        </svg>
-                        <span class="info-text">Mon-Fri 9 AM - 5 PM • Weekends by appointment</span>
+            <!-- Contact Information -->
+            <section class="card-info">
+                <h2>Contact Information</h2>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <strong>Address</strong>
+                        <p><a href="https://www.google.com/maps/place/Sorin+%26+Pyle,+PC/@42.7726949,-86.0959496,17z/" target="_blank" rel="noopener noreferrer">
+                            217 E 24th St Ste 107<br>
+                            Holland, MI 49423
+                        </a></p>
+                    </div>
+                    <div class="info-item">
+                        <strong>Phone</strong>
+                        <p><a href="tel:6162273303">(616) 227-3303</a></p>
+                    </div>
+                    <div class="info-item">
+                        <strong>Email</strong>
+                        <p><a href="mailto:Jonathan@callsbp.com">Jonathan@callsbp.com</a></p>
+                    </div>
+                    <div class="info-item">
+                        <strong>Hours</strong>
+                        <p>Monday - Friday: 9 AM - 5 PM<br>
+                        Saturday & Sunday: By Appointment</p>
                     </div>
                 </div>
             </section>
 
             <!-- Footer -->
             <footer class="card-footer">
-                <p><a href="../sorin-panainte.html">View Full Profile</a> • <a href="../index.html">Firm Website</a> • <a href="../privacy-policy.html">Privacy Policy</a></p>
+                <p><a href="../jonathan-pyle.html">View Full Profile</a> • <a href="../index.html">Firm Website</a> • <a href="../privacy-policy.html">Privacy Policy</a></p>
                 <p class="copyright">© 2025 Sorin & Pyle, PC. All Rights Reserved.</p>
             </footer>
 
@@ -296,7 +309,7 @@
             // Track form submission in analytics
             gtag('event', 'form_submit', {
                 event_category: 'Business Card',
-                event_label: 'Sorin Consultation Form - ' + appointmentType,
+                event_label: 'Jonathan Consultation Form - ' + appointmentType,
                 event_action: 'submit'
             });
 

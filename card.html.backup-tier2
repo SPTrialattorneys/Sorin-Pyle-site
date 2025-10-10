@@ -99,9 +99,12 @@
                 </div>
             </header>
 
-            <!-- Contact Actions -->
-            <section class="card-contact-actions">
-                <h2 class="visually-hidden">Contact Actions</h2>
+            <!-- Primary CTA with Enhanced Hierarchy -->
+            <div class="card-cta-primary card-cta-enhanced">
+                <div class="cta-step-indicator">
+                    <span class="step-badge">Step 1</span>
+                    <p class="step-description">Save our contact for immediate access</p>
+                </div>
                 <a href="vcards/sorin-pyle-firm.vcf"
                    class="btn-save-contact"
                    download="Sorin-Pyle-Firm.vcf"
@@ -114,8 +117,25 @@
                     </svg>
                     Save Firm to Contacts
                 </a>
-                <div class="contact-buttons">
-                    <a href="tel:6162273303" class="btn-contact btn-contact-phone" onclick="gtag('event', 'click', {event_category: 'Business Card', event_label: 'Call Button', event_action: 'call'});">
+                <p class="cta-social-proof">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: inline-block; vertical-align: middle; margin-right: 4px;">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                    Join 200+ clients who chose Sorin & Pyle for their defense
+                </p>
+            </div>
+
+            <!-- Action Buttons with Enhanced Hierarchy -->
+            <div class="card-actions card-actions-enhanced">
+                <div class="cta-step-indicator">
+                    <span class="step-badge">Step 2</span>
+                    <p class="step-description">Get in touch for a free consultation</p>
+                </div>
+                <div class="action-buttons-grid">
+                    <a href="tel:6162273303" class="btn-action btn-action-call" onclick="gtag('event', 'click', {event_category: 'Business Card', event_label: 'Call Button', event_action: 'call'});">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                         </svg>
@@ -124,7 +144,7 @@
                             <small>(616) 227-3303</small>
                         </span>
                     </a>
-                    <a href="mailto:justice@callsbp.com" class="btn-contact btn-contact-email" onclick="gtag('event', 'click', {event_category: 'Business Card', event_label: 'Email Button', event_action: 'email'});">
+                    <a href="mailto:justice@callsbp.com" class="btn-action btn-action-email" onclick="gtag('event', 'click', {event_category: 'Business Card', event_label: 'Email Button', event_action: 'email'});">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                             <polyline points="22,6 12,13 2,6"></polyline>
@@ -135,7 +155,7 @@
                         </span>
                     </a>
                 </div>
-            </section>
+            </div>
 
             <!-- Core Services with Icons -->
             <section class="card-services card-services-enhanced">
@@ -275,36 +295,29 @@
                 </div>
             </section>
 
-            <!-- Firm Information -->
-            <section class="card-info-clean">
-                <h2>Firm Information</h2>
-                <div class="info-list">
-                    <a href="https://www.google.com/maps/place/Sorin+%26+Pyle,+PC/@42.7726949,-86.0959496,17z/" target="_blank" rel="noopener noreferrer" class="info-row">
-                        <svg class="info-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                            <circle cx="12" cy="10" r="3"></circle>
-                        </svg>
-                        <span class="info-text">217 E 24th St Ste 107, Holland, MI 49423</span>
-                    </a>
-                    <a href="tel:6162273303" class="info-row">
-                        <svg class="info-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                        </svg>
-                        <span class="info-text">(616) 227-3303</span>
-                    </a>
-                    <a href="mailto:justice@callsbp.com" class="info-row">
-                        <svg class="info-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                            <polyline points="22,6 12,13 2,6"></polyline>
-                        </svg>
-                        <span class="info-text">justice@callsbp.com</span>
-                    </a>
-                    <div class="info-row">
-                        <svg class="info-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <polyline points="12 6 12 12 16 14"></polyline>
-                        </svg>
-                        <span class="info-text">Mon-Fri 9 AM - 5 PM • Weekends by appointment</span>
+            <!-- Contact Information -->
+            <section class="card-info">
+                <h2>Contact Information</h2>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <strong>Address</strong>
+                        <p><a href="https://www.google.com/maps/place/Sorin+%26+Pyle,+PC/@42.7726949,-86.0959496,17z/" target="_blank" rel="noopener noreferrer">
+                            217 E 24th St Ste 107<br>
+                            Holland, MI 49423
+                        </a></p>
+                    </div>
+                    <div class="info-item">
+                        <strong>Phone</strong>
+                        <p><a href="tel:6162273303">(616) 227-3303</a></p>
+                    </div>
+                    <div class="info-item">
+                        <strong>Email</strong>
+                        <p><a href="mailto:justice@callsbp.com">justice@callsbp.com</a></p>
+                    </div>
+                    <div class="info-item">
+                        <strong>Hours</strong>
+                        <p>Monday - Friday: 9 AM - 5 PM<br>
+                        Saturday & Sunday: By Appointment</p>
                     </div>
                 </div>
             </section>
