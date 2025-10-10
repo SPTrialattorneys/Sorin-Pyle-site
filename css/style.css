@@ -2603,26 +2603,12 @@ textarea.form_field {
 
 /* Enhanced Card Header */
 .card-page .card-header-enhanced {
-  background: linear-gradient(135deg, rgba(64, 118, 180, 0.03) 0%, rgba(255, 255, 255, 1) 50%);
+  background: var(--white);
   position: relative;
-  overflow: hidden;
-}
-
-.card-page .card-header-enhanced::after {
-  content: '';
-  position: absolute;
-  top: -50%;
-  right: -20%;
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, rgba(64, 118, 180, 0.08) 0%, transparent 70%);
-  pointer-events: none;
-  z-index: 0;
 }
 
 .card-page .card-header-content {
   position: relative;
-  z-index: 1;
 }
 
 .card-page .card-logo-enhanced {
@@ -2669,10 +2655,7 @@ textarea.form_field {
   color: var(--primary-blue);
 }
 
-/* Enhanced CTA Sections */
-.card-page .card-cta-enhanced {
-  background: linear-gradient(135deg, rgba(255, 138, 40, 0.03) 0%, rgba(255, 255, 255, 1) 100%);
-}
+/* Enhanced CTA Sections - Removed, now using .card-contact-actions */
 
 .card-page .cta-step-indicator {
   text-align: center;
@@ -2834,7 +2817,7 @@ textarea.form_field {
 
 /* Enhanced Form Section */
 .card-page .card-form-enhanced {
-  background: linear-gradient(135deg, rgba(64, 118, 180, 0.02) 0%, rgba(255, 255, 255, 1) 100%);
+  background: var(--white);
 }
 
 .card-page .form-subtitle {
@@ -3036,6 +3019,29 @@ textarea.form_field {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+/* Section Dividers - Replace Shadow Boxes */
+.card-page section:not(:last-of-type):not(.card-header-enhanced) {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.card-page .card-header-enhanced {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* Standardized Section Padding */
+.card-page .card-header,
+.card-page .card-header-enhanced {
+  padding: 2rem 1rem;
+}
+
+.card-page .card-services,
+.card-page .card-services-enhanced,
+.card-page .card-form-section,
+.card-page .card-form-enhanced,
+.card-page .card-about {
+  padding: 2rem 1rem;
 }
 
 /* Unified Contact Actions Section */
