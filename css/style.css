@@ -2866,6 +2866,122 @@ textarea.form_field {
   opacity: 0.9;
 }
 
+/* TIER 3: Visual Hierarchy - Service Number Badges */
+.card-page .service-number {
+  width: 32px;
+  height: 32px;
+  background: var(--gradient-blue-header);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-weight: 700;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(64, 118, 180, 0.25);
+  transition: all var(--transition-base);
+}
+
+.card-page .card-services-enhanced .services-list li:hover .service-number {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 4px 12px rgba(64, 118, 180, 0.35);
+}
+
+/* TIER 3: Visual Hierarchy - Credential Icons (About Section) */
+.card-page .credential-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.card-page .credential-icon {
+  width: 40px;
+  height: 40px;
+  background: var(--primary-blue-50);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-blue);
+  flex-shrink: 0;
+  transition: all var(--transition-base);
+}
+
+.card-page .credential-item:hover .credential-icon {
+  background: var(--primary-blue-100);
+  transform: translateY(-2px);
+}
+
+.card-page .credential-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.card-page .credential-text strong {
+  color: var(--primary-blue);
+  font-weight: 600;
+  font-size: 0.9rem;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.card-page .credential-text {
+  flex: 1;
+  color: var(--text-color);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* TIER 3: Visual Hierarchy - Enhanced Business Hours Badge */
+.card-page .business-hours-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--accent-orange);
+  color: var(--white);
+  padding: 0.625rem 1.25rem;
+  border-radius: 50px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(255, 138, 40, 0.3);
+  transition: all var(--transition-base);
+}
+
+.card-page .business-hours-badge:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(255, 138, 40, 0.4);
+}
+
+.card-page .business-hours-badge svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+/* Mobile: Sticky hours badge after header scroll */
+@media (max-width: 767px) {
+  .card-page .business-hours-sticky {
+    position: sticky;
+    top: 1rem;
+    z-index: var(--z-sticky);
+    margin: -0.5rem auto 1rem;
+    animation: slideDown 0.3s ease-out;
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
 /* Enhanced Form Section */
 .card-page .card-form-enhanced {
   background: var(--white);
