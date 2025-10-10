@@ -2255,6 +2255,72 @@ textarea.form_field {
   box-shadow: var(--shadow-soft);
 }
 
+/* TIER 3: Progressive Form Disclosure */
+.card-form-section.hidden {
+  display: none;
+}
+
+.card-form-section.revealing {
+  animation: slideInUp 0.4s ease-out forwards;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Form reveal CTA button */
+.form-reveal-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+  background: var(--white);
+  border-radius: var(--border-radius-card);
+  box-shadow: var(--shadow-layered);
+  text-align: center;
+}
+
+.form-reveal-cta h3 {
+  color: var(--primary-blue);
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.form-reveal-cta p {
+  color: var(--text-color);
+  margin: 0;
+  font-size: 1rem;
+}
+
+.btn-reveal-form {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, var(--accent-orange), var(--accent-orange-dark));
+  color: var(--white);
+  border: none;
+  border-radius: 50px;
+  font-size: 1.125rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  box-shadow: 0 4px 12px rgba(255, 138, 40, 0.3);
+}
+
+.btn-reveal-form:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(255, 138, 40, 0.45);
+}
+
 .card-form-section h2 {
   font-size: 1.5rem;
   text-align: center;

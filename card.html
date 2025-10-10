@@ -374,6 +374,56 @@
             // });
         });
 
+        // TIER 3: Progressive Form Disclosure
+        (function() {
+            const formSection = document.querySelector('.card-form-section');
+            const revealBtn = document.getElementById('revealFormBtn');
+
+            if (!formSection) return;
+
+            // Initially hide form
+            formSection.classList.add('hidden');
+
+            // Scroll-based reveal (50% down page)
+            function checkScroll() {
+                const scrolled = window.pageYOffset;
+                const pageHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const scrollPercent = (scrolled / pageHeight) * 100;
+
+                if (scrollPercent > 50 && formSection.classList.contains('hidden')) {
+                    revealForm();
+                }
+            }
+
+            // Button-based reveal
+            if (revealBtn) {
+                revealBtn.addEventListener('click', revealForm);
+            }
+
+            function revealForm() {
+                formSection.classList.remove('hidden');
+                formSection.classList.add('revealing');
+                if (revealBtn) {
+                    revealBtn.parentElement.style.display = 'none';
+                }
+                window.removeEventListener('scroll', throttledScroll);
+            }
+
+            // Throttled scroll
+            let ticking = false;
+            function throttledScroll() {
+                if (!ticking) {
+                    window.requestAnimationFrame(() => {
+                        checkScroll();
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            }
+
+            window.addEventListener('scroll', throttledScroll);
+        })();
+
         // TIER 3: Floating Action Button (FAB) - Mobile Call Button
         (function() {
             const fab = document.getElementById('cardFab');
