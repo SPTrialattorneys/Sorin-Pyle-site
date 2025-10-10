@@ -1928,6 +1928,93 @@ textarea.form_field {
   }
 }
 
+/* ===============================================
+   TIER 3: FLOATING ACTION BUTTON (FAB)
+   ===============================================
+   Mobile-only call button for digital business cards
+   Always accessible, appears after scroll
+   =============================================== */
+
+.card-fab {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-orange-dark) 100%);
+  border-radius: 50%;
+  display: none; /* Hidden by default */
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-deep);
+  z-index: var(--z-fixed);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all var(--transition-base);
+  opacity: 0;
+  transform: scale(0);
+}
+
+.card-fab.visible {
+  opacity: 1;
+  transform: scale(1);
+  animation: fabBounceIn 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.card-fab svg {
+  width: 24px;
+  height: 24px;
+  color: var(--white);
+  flex-shrink: 0;
+}
+
+.card-fab:hover,
+.card-fab:focus {
+  transform: scale(1.1);
+  box-shadow: var(--shadow-hover);
+  background: linear-gradient(135deg, var(--accent-orange-dark) 0%, var(--accent-orange) 100%);
+}
+
+.card-fab:active {
+  transform: scale(0.95);
+}
+
+/* FAB Bounce Animation */
+@keyframes fabBounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Mobile Only - Hide on Desktop */
+@media (max-width: 767px) {
+  .card-fab {
+    display: flex;
+  }
+}
+
+/* Safe Area Support for Notched Devices */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .card-fab {
+    bottom: calc(1.5rem + env(safe-area-inset-bottom));
+  }
+}
+
+/* Accessibility: Respect motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .card-fab.visible {
+    animation: none;
+  }
+}
+
 /* =============================================== */
 /* DIGITAL BUSINESS CARD PAGES */
 /* =============================================== */
