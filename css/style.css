@@ -3625,3 +3625,78 @@ textarea.form_field {
 .card-page .info-row:not(a) {
   cursor: default;
 }
+
+/* ===============================================
+   TIER 3: MICRO-INTERACTIONS & ANIMATIONS
+   =============================================== */
+
+/* Service items hover effect */
+.card-page .card-services-enhanced .services-list li {
+  transition: all var(--transition-base);
+}
+
+.card-page .card-services-enhanced .services-list li:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* Contact button scale on hover */
+.card-page .btn-contact {
+  transition: all var(--transition-base);
+}
+
+.card-page .btn-contact:hover {
+  transform: scale(1.05);
+}
+
+.card-page .btn-contact:active {
+  transform: scale(0.98);
+}
+
+/* Info row subtle hover */
+.card-page .info-row {
+  transition: background-color var(--transition-fast);
+}
+
+.card-page .info-row:hover {
+  background: rgba(64, 118, 180, 0.04);
+}
+
+/* Scroll-triggered fade in for sections */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card-page .card-section-animate {
+  animation: fadeInUp 0.6s ease-out forwards;
+  animation-delay: 0.1s;
+  opacity: 0;
+}
+
+.card-page .card-section-animate:nth-child(2) { animation-delay: 0.2s; }
+.card-page .card-section-animate:nth-child(3) { animation-delay: 0.3s; }
+.card-page .card-section-animate:nth-child(4) { animation-delay: 0.4s; }
+
+/* Icon bounce on credential hover */
+.card-page .credential-icon svg {
+  transition: transform var(--transition-bounce);
+}
+
+.card-page .credential-item:hover .credential-icon svg {
+  transform: scale(1.2) rotate(5deg);
+}
+
+/* Form input focus glow */
+.card-page input:focus,
+.card-page textarea:focus,
+.card-page select:focus {
+  box-shadow: 0 0 0 3px rgba(64, 118, 180, 0.15);
+  border-color: var(--primary-blue);
+}
