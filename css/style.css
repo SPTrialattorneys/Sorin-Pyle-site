@@ -2200,53 +2200,11 @@ textarea.form_field {
   align-items: center;
 }
 
-.btn-action {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  width: 100%;
-  max-width: 400px;
-  padding: 1rem 1.5rem;
-  background: transparent;
-  color: var(--primary-blue);
-  border: 2px solid var(--primary-blue);
-  text-decoration: none;
-  font-family: var(--font-body);
-  font-size: 1rem;
-  font-weight: 600;
-  border-radius: 50px; /* Modern pill shape */
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  min-height: 48px;
-}
 
-.btn-action:hover {
-  background: var(--primary-blue);
-  color: var(--white);
-  transform: scale(1.02);
-  box-shadow: var(--shadow-deep);
-}
 
-.btn-action svg {
-  flex-shrink: 0;
-}
 
 /* Primary CTA Enhancement - Phone Button */
-.card-page .btn-action-phone {
-  background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-orange-dark) 100%);
-  color: var(--white);
-  border: 2px solid var(--accent-orange);
-  box-shadow: 0 4px 12px rgba(255, 138, 40, 0.3);
-  font-weight: 700;
-}
 
-.card-page .btn-action-phone:hover {
-  background: linear-gradient(135deg, var(--accent-orange-dark) 0%, var(--accent-orange) 100%);
-  border-color: var(--accent-orange-dark);
-  transform: scale(1.03);
-  box-shadow: 0 8px 20px rgba(255, 138, 40, 0.4);
-}
 
 /* Consultation Form Section */
 .card-form-section {
@@ -3264,15 +3222,6 @@ textarea.form_field {
     justify-content: center;
   }
 
-  .card-page .btn-action {
-    flex: 1 1 auto;
-    max-width: 280px;
-  }
-
-  .card-page .card-firm-name {
-    font-size: 2.25rem;
-  }
-}
 
 @media (max-width: 600px) {
   .card-page .card-firm-name {
@@ -3317,35 +3266,6 @@ textarea.form_field {
     padding: 0.5rem 0.75rem;
   }
 
-  .card-page .btn-action {
-    padding: 0.875rem 1.25rem;
-    font-size: 0.95rem;
-  }
-
-  .card-page .btn-action .btn-text strong {
-    font-size: 0.95rem;
-  }
-
-  .card-page .btn-action .btn-text small {
-    font-size: 0.8rem;
-  }
-
-
-  .card-page .attorney-badge {
-    font-size: 0.75rem;
-    padding: 0.4rem 1rem;
-  }
-
-  .card-page .service-icon {
-    width: 40px;
-    height: 40px;
-  }
-
-  .card-page .card-attorney-photo-enhanced {
-    width: 180px;
-    height: 180px;
-  }
-}
 
 /* ===============================================
    TIER 2 REDESIGN - DE-CLUTTERED CTA SECTIONS
