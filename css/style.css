@@ -2342,41 +2342,6 @@ textarea.form_field {
   color: var(--primary-blue);
 }
 
-.info-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--spacing-md);
-}
-
-.info-item {
-  text-align: center;
-}
-
-.info-item strong {
-  display: block;
-  color: var(--primary-blue);
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-  font-size: 0.9rem;
-}
-
-.info-item p {
-  margin: 0;
-  font-size: 0.95rem;
-  line-height: 1.5;
-  color: var(--accent-orange);
-}
-
-.info-item a {
-  color: var(--accent-orange);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.info-item a:hover {
-  color: var(--accent-orange-dark);
-  text-decoration: underline;
-}
 
 /* Social Media Section */
 .card-social {
@@ -2552,10 +2517,6 @@ textarea.form_field {
     grid-template-columns: 1fr;
   }
 
-  .info-grid {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-md);
-  }
 }
 
 /* Desktop: Side-by-side button layout */
@@ -2657,78 +2618,6 @@ textarea.form_field {
 
 /* Enhanced CTA Sections - Removed, now using .card-contact-actions */
 
-.card-page .cta-step-indicator {
-  text-align: center;
-  margin-bottom: var(--spacing-md);
-}
-
-.card-page .step-badge {
-  display: inline-block;
-  background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-orange-dark) 100%);
-  color: var(--white);
-  padding: 0.5rem 1.25rem;
-  border-radius: 50px;
-  font-size: 0.85rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  box-shadow: 0 4px 12px rgba(255, 138, 40, 0.3);
-  margin-bottom: 0.5rem;
-}
-
-.card-page .step-description {
-  font-size: 0.95rem;
-  color: var(--text-color);
-  margin: 0.5rem 0 0;
-  opacity: 0.9;
-}
-
-.card-page .cta-social-proof {
-  text-align: center;
-  font-size: 0.85rem;
-  color: var(--text-color);
-  margin-top: var(--spacing-md);
-  margin-bottom: 0;
-  padding: 0.75rem 1rem;
-  background: rgba(64, 118, 180, 0.05);
-  border-radius: 8px;
-  opacity: 0.9;
-  line-height: 1.6;
-}
-
-.card-page .cta-social-proof svg {
-  color: var(--primary-blue);
-}
-
-/* Enhanced Action Buttons */
-.card-page .card-actions-enhanced {
-  background: var(--white);
-}
-
-.card-page .action-buttons-grid {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-sm);
-  align-items: center;
-}
-
-.card-page .btn-action .btn-text {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.25rem;
-}
-
-.card-page .btn-action .btn-text strong {
-  font-size: 1rem;
-  font-weight: 600;
-}
-
-.card-page .btn-action .btn-text small {
-  font-size: 0.85rem;
-  opacity: 0.8;
-  font-weight: 400;
-}
 
 /* Enhanced Services Section */
 .card-page .card-services-enhanced {
@@ -2983,10 +2872,6 @@ textarea.form_field {
     font-size: 0.8rem;
   }
 
-  .card-page .step-badge {
-    font-size: 0.75rem;
-    padding: 0.4rem 1rem;
-  }
 
   .card-page .attorney-badge {
     font-size: 0.75rem;
