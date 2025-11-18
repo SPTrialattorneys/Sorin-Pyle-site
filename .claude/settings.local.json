@@ -42,7 +42,21 @@
       "Bash(do if ! grep -q \"rel=\"\"canonical\"\"\" \"$file\")",
       "Bash(then echo \"$file - MISSING canonical\")",
       "Bash(else echo \"$file - has canonical\")",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "Bash([ -f \"blog/feed.xml\" ])",
+      "Bash(powershell.exe:*)",
+      "Bash(do sed -i 's|<li><a href=\"\"resources\\.html\"\">Firm News \\& FAQs</a></li>\\n                        <li><a href=\"\"local-resources\\.html\"\">Local Resources</a></li>|<li><a href=\"\"resources.html\"\">Client Resources</a></li>|g' \"$file\")",
+      "Bash(echo:*)",
+      "Bash(sed:*)",
+      "Bash(cat:*)",
+      "Bash(if grep -q \"LegalService\" \"$file\")",
+      "Bash(then echo \"HAS LegalService\")",
+      "Bash(else echo \"MISSING LegalService\")",
+      "Bash(do echo \"=== $file ===\")",
+      "Bash(sort:*)",
+      "Bash(ls:*)",
+      "Bash(dir /b /s index.html)",
+      "Bash(findstr:*)"
     ],
     "deny": [],
     "ask": []

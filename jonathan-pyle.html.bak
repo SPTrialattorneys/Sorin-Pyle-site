@@ -1,0 +1,277 @@
+<!-- ======================================================================= -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jonathan Pyle | Criminal Defense Attorney in Holland, MI</title>
+    <meta name="description" content="Meet Jonathan Pyle, a founding partner at Sorin & Pyle. As a seasoned trial lawyer, he is dedicated to defending the rights of individuals in West Michigan.">
+
+    <!-- AI Search Optimization -->
+    <meta name="AI-content-summary" content="Jonathan Pyle - Criminal defense attorney, University of Georgia JD 2015, West Michigan native, dedicated trial lawyer defending criminal cases since 2015. Western Michigan University BA 2009.">
+    <meta name="expertise" content="criminal defense, trial law, DUI defense, University of Georgia Law, felony defense, West Michigan legal practice">
+    <meta name="jurisdiction" content="Michigan, Ottawa County, Kent County, Allegan County, Kalamazoo County, Muskegon County, Van Buren County, Newaygo County">
+
+    <!-- SEO & Social Meta -->
+    <link rel="canonical" href="https://www.sorinpyle.com/jonathan-pyle.html">
+    <meta property="og:title" content="Jonathan Pyle | Criminal Defense Attorney in Holland, MI">
+    <meta property="og:description" content="Meet Jonathan Pyle, a founding partner at Sorin & Pyle. As a seasoned trial lawyer, he is dedicated to defending the rights of individuals in West Michigan.">
+    <meta property="og:url" content="https://www.sorinpyle.com/jonathan-pyle.html">
+    <meta property="og:image" content="https://www.sorinpyle.com/images/jonathan-2.avif">
+    <meta property="og:type" content="profile">
+    <meta property="og:site_name" content="Sorin & Pyle, PC">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Local fonts loaded via CSS -->
+
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="preload" href="css/core-brand.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="css/core-brand.css"><link rel="stylesheet" href="css/style.css"></noscript>
+
+    <!-- Attorney Person Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "@id": "https://www.sorinpyle.com/jonathan-pyle.html#attorney",
+      "name": "Jonathan Pyle",
+      "jobTitle": "Criminal Defense Attorney",
+      "description": "Founding partner at Sorin & Pyle, PC. Former public defender and seasoned trial lawyer dedicated to defending the rights of individuals in West Michigan.",
+      "url": "https://www.sorinpyle.com/jonathan-pyle.html",
+      "image": "https://www.sorinpyle.com/images/jonathan-2.avif",
+      "worksFor": {
+        "@type": "LegalService",
+        "@id": "https://www.sorinpyle.com/#organization",
+        "name": "Sorin & Pyle, PC"
+      },
+      "alumniOf": [
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "Western Michigan University"
+        },
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "University of Georgia School of Law"
+        }
+      ],
+      "hasCredential": [
+        {
+          "@type": "EducationalOccupationalCredential",
+          "credentialCategory": "degree",
+          "educationalLevel": "Bachelor of Arts",
+          "recognizedBy": {
+            "@type": "CollegeOrUniversity",
+            "name": "Western Michigan University"
+          },
+          "dateCreated": "2009"
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "credentialCategory": "degree",
+          "educationalLevel": "Juris Doctor",
+          "recognizedBy": {
+            "@type": "EducationalOrganization",
+            "name": "University of Georgia School of Law"
+          },
+          "dateCreated": "2015"
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "credentialCategory": "professional",
+          "name": "Licensed Attorney - State Bar of Michigan",
+          "identifier": "P81692",
+          "recognizedBy": {
+            "@type": "Organization",
+            "name": "State Bar of Michigan"
+          },
+          "dateCreated": "2017-06-26"
+        }
+      ],
+      "workHistory": [
+        {
+          "@type": "OrganizationRole",
+          "roleName": "Public Defender",
+          "startDate": "2019",
+          "endDate": "2025",
+          "description": "Represented indigent clients in criminal defense matters"
+        }
+      ],
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Criminal Defense Attorneys of Michigan",
+        "alternateName": "CDAM"
+      },
+      "yearsOfExperience": "8",
+      "knowsAbout": [
+        "Criminal Defense",
+        "DUI Defense",
+        "Trial Law",
+        "Felony Defense",
+        "Misdemeanor Defense"
+      ],
+      "memberOf": {
+        "@type": "Organization",
+        "name": "State Bar of Michigan"
+      },
+      "email": "justice@callsbp.com",
+      "telephone": "+1-616-227-3303",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "217 E 24th St Ste 107",
+        "addressLocality": "Holland",
+        "addressRegion": "MI",
+        "postalCode": "49423",
+        "addressCountry": "US"
+      }
+    }
+    </script>
+</head>
+<body>
+    
+                    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- ▼▼▼ NAVBAR (Identical on all pages) ▼▼▼ -->
+    <header class="navbar_component">
+        <div class="container-large navbar_container">
+            <a href="index.html" class="navbar_logo-link">
+                <img src="images/logo-icon.svg" alt="Sorin & Pyle Ship Icon" class="logo-icon" width="70" height="70">
+                <div class="logo-text-container">
+                    <span class="logo-text-main">Sorin & Pyle</span>
+                    <span class="logo-text-sub">TRIAL LAWYERS</span>
+                </div>
+            </a>
+            <nav class="navbar_desktop-nav" role="navigation" aria-label="Main navigation">
+                <ul class="navbar_menu" role="menubar">
+                    <li class="navbar_item" role="none"><a href="index.html" class="navbar_link" role="menuitem">About</a></li>
+                    <li class="navbar_item" role="none"><a href="attorneys.html" class="navbar_link" role="menuitem">Attorneys</a></li>
+                    <li class="navbar_item" role="none"><a href="practice-areas.html" class="navbar_link" role="menuitem">Practice Areas</a></li>
+                    <li class="navbar_item" role="none"><a href="locations.html" class="navbar_link" role="menuitem">Locations</a></li>
+                    <li class="navbar_item" role="none"><a href="resources.html" class="navbar_link" role="menuitem">Firm News & FAQs</a></li>
+                    <li class="navbar_item" role="none"><a href="local-resources.html" class="navbar_link" role="menuitem">Local Resources</a></li>
+                    <li class="navbar_item" role="none"><a href="contact.html" class="navbar_link" role="menuitem">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="navbar_hamburger-button" id="hamburger-button" aria-label="Open Menu" aria-controls="mobile-nav" aria-expanded="false">
+                <span class="icon-line"></span>
+                <span class="icon-line"></span>
+                <span class="icon-line"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ▼▼▼ MOBILE NAVIGATION MENU (Identical on all pages) ▼▼▼ -->
+    <div class="mobile-nav_menu" id="mobile-nav" role="dialog" aria-label="Mobile navigation menu" aria-hidden="true">
+        <ul class="mobile-nav_list" role="menu">
+            <li class="mobile-nav_item" role="none"><a href="index.html" class="mobile-nav_link" role="menuitem">About</a></li>
+            <li class="mobile-nav_item" role="none"><a href="attorneys.html" class="mobile-nav_link" role="menuitem">Attorneys</a></li>
+            <li class="mobile-nav_item" role="none"><a href="practice-areas.html" class="mobile-nav_link" role="menuitem">Practice Areas</a></li>
+            <li class="mobile-nav_item" role="none"><a href="locations.html" class="mobile-nav_link" role="menuitem">Locations</a></li>
+            <li class="mobile-nav_item" role="none"><a href="resources.html" class="mobile-nav_link" role="menuitem">Firm News & FAQs</a></li>
+            <li class="mobile-nav_item" role="none"><a href="local-resources.html" class="mobile-nav_link" role="menuitem">Local Resources</a></li>
+            <li class="mobile-nav_item" role="none"><a href="contact.html" class="mobile-nav_link" role="menuitem">Contact</a></li>
+        </ul>
+    </div>
+
+
+    <main id="main-content">
+        <section class="section">
+            <div class="container-large fade-up-on-scroll">
+                <div class="grid_2-col attorney-bio-grid">
+                    <div class="attorney-bio-image">
+                        <img src="images/jonathan-2.avif" alt="Jonathan Pyle - Founding Partner and Trial Attorney at Sorin & Pyle in Holland, Michigan" loading="lazy">
+                    </div>
+                    <div>
+                        <h1>Jonathan Pyle</h1>
+                        <p>I grew up right here in West Michigan, and after pursuing my education across the country, I knew I had to come back home to serve the community that raised me. My time at the University of Georgia gave me a world-class legal education, but my work here, defending my neighbors, gives me purpose.</p>
+                        <p>I believe a good defense is built on relentless preparation and a genuine connection with my client. I will take the time to understand your situation, and I will be the steady hand you need to navigate the storm.</p>
+                        
+                        <h3 class="margin-top-md">Education</h3>
+                        <p>Western Michigan University, BA '09<br>University of Georgia School of Law, JD, '15</p>
+                        
+                        <h3 class="margin-top-md">Recent Case Results</h3>
+                        <ul class="list-styled-disk">
+                            <li>CCW (carrying a concealed weapon): Dismissed</li>
+                            <li>Hindering & Oppose a Police Officer: Dismissed</li>
+                            <li>Domestic Violence: Not Guilty</li>
+                            <li>Domestic Violence: Not Guilty</li>
+                            <li>Domestic Violence: Not Guilty</li>
+                            <li>Assault and Battery: Not Guilty</li>
+                            <li>Resist and Oppose a Police Officer: Not Guilty</li>
+                            <li>Assault and Battery: Not Guilty</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <hr class="hr-divider">
+
+                <div class="grid_3-col photo-gallery">
+                    <img src="images/jonathan-1.avif" alt="Jonathan Pyle - West Michigan Native and Criminal Defense Lawyer in His Holland Office" class="gallery-image" loading="lazy">
+                    <img src="images/jonathan-3.avif" alt="Professional Portrait of Jonathan Pyle - Experienced Criminal Defense Attorney in West Michigan" class="gallery-image" loading="lazy">
+                    <img src="images/jonathan-4.avif" alt="Jonathan Pyle - Dedicated Trial Lawyer Serving Criminal Defense Clients in Holland, MI" class="gallery-image" loading="lazy">
+                </div>
+            </div>
+        </section>
+    </main>
+
+                    <!-- ▼▼▼ FOOTER (Identical on all pages) ▼▼▼ -->
+    <footer class="footer_component">
+        <div class="container-large">
+            <div class="footer_grid">
+                <div class="footer_column">
+                    <h3 class="footer_firm-name">Sorin & Pyle, PC</h3>
+                    <p class="footer_address">
+                        217 E 24th St Ste 107<br>
+                        Holland, MI 49423
+                    </p>
+                    <p class="footer_contact">
+                        <a href="tel:6162273303">(616) 227-3303</a><br>
+                        <a href="mailto:justice@callsbp.com">justice@callsbp.com</a>
+                    </p>
+                </div>
+                <div class="footer_column">
+                    <h3>Hours</h3>
+                    <p class="footer_hours-weekday">Monday - Friday: 9 AM - 5 PM</p>
+                    <p class="footer_hours-weekend">Saturday & Sunday: By Appointment</p>
+                </div>
+                <div class="footer_column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer_list">
+                        <li><a href="index.html">About</a></li>
+                        <li><a href="attorneys.html">Attorneys</a></li>
+                        <li><a href="practice-areas.html">Practice Areas</a></li>
+                        <li><a href="locations.html">Locations</a></li>
+                        <li><a href="resources.html">Firm News & FAQs</a></li>
+                        <li><a href="local-resources.html">Local Resources</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer_column">
+                    <h3>Client Portal</h3>
+                    <ul class="footer_list">
+                        <li><a href="https://www.clio.com/clients/" target="_blank" rel="noopener noreferrer">Clio Client Portal</a></li>
+                        <li><a href="https://app.clio.com/link/v2/2/2/81d5d84d1d449d617bc5b8d5ff9658fb?hmac=e9a2a8e1fbd96a550ff5212173791d674bb93c42d08b7eb7564e8cee53e54ab9" target="_blank" rel="noopener noreferrer">Pay Engagement Fee</a></li>
+                        <li><a href="https://app.clio.com/clients/" target="_blank" rel="noopener noreferrer">Pay Outstanding Invoice</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer_bottom-bar">
+                © 2025 Sorin & Pyle, PC. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js" defer></script>
+
+    <<script src="js/main.js" defer></script>
+
+    <<script src="js/main.js" defer></script>
+
+    <<script src="js/main.js" defer></script>
+
+    <script src="js/main.js" defer></script>
+</body>
+</html>
+
+
+<!-- ======================================================================= -->

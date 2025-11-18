@@ -168,6 +168,153 @@ button:focus-visible,
   font-weight: 500;
   color: var(--text-color);
   font-size: 1rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.navbar_link:hover {
+  color: var(--primary-blue);
+}
+
+/* Dropdown Navigation Styles */
+.navbar_dropdown {
+  position: relative;
+}
+
+.navbar_dropdown-toggle {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.navbar_dropdown-toggle:focus {
+  outline: 2px solid var(--primary-blue);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.navbar_dropdown-toggle::after {
+  content: '▼';
+  font-size: 0.7rem;
+  transition: transform 0.3s ease;
+}
+
+.navbar_dropdown.is-open .navbar_dropdown-toggle::after {
+  transform: rotate(180deg);
+}
+
+.navbar_dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  box-shadow: var(--shadow-layered);
+  list-style: none;
+  margin: 0.5rem 0 0 0;
+  padding: 0.5rem 0;
+  min-width: 250px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+  z-index: 1003;
+}
+
+.navbar_dropdown.is-open .navbar_dropdown-menu,
+.navbar_dropdown:hover .navbar_dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.navbar_dropdown-menu li {
+  margin: 0;
+  padding: 0;
+}
+
+.navbar_dropdown-menu a {
+  display: block;
+  padding: 0.75rem 1.25rem;
+  color: var(--text-color);
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.navbar_dropdown-menu a:hover {
+  background-color: rgba(64, 118, 180, 0.08);
+  color: var(--primary-blue);
+}
+
+/* Mobile Dropdown Styles */
+.mobile-nav_dropdown {
+  margin: var(--spacing-md) 0;
+}
+
+.mobile-nav_dropdown-toggle {
+  font-family: var(--font-headings);
+  font-size: 2rem;
+  color: var(--primary-blue);
+  font-weight: 700;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: color 0.2s ease;
+}
+
+.mobile-nav_dropdown-toggle:focus {
+  outline: 3px solid var(--primary-blue);
+  outline-offset: 4px;
+}
+
+.mobile-nav_dropdown-toggle::after {
+  content: '▼';
+  font-size: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.mobile-nav_dropdown.is-open .mobile-nav_dropdown-toggle::after {
+  transform: rotate(180deg);
+}
+
+.mobile-nav_dropdown-menu {
+  list-style: none;
+  padding: 0;
+  margin: var(--spacing-sm) 0 0 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.mobile-nav_dropdown.is-open .mobile-nav_dropdown-menu {
+  max-height: 500px;
+}
+
+.mobile-nav_dropdown-menu li {
+  margin: var(--spacing-xs) 0;
+}
+
+.mobile-nav_dropdown-menu a {
+  font-family: var(--font-body);
+  font-size: 1.25rem;
+  color: var(--text-color);
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.mobile-nav_dropdown-menu a:hover {
+  color: var(--primary-blue);
 }
 
 
@@ -1204,6 +1351,127 @@ textarea.form_field {
 
 }
 
+/* Extra Small Mobile Devices (iPhone SE, small Android phones - 374px and below) */
+@media (max-width: 374px) {
+  /* Typography adjustments to prevent clipping */
+  h1 {
+    font-size: 2rem; /* Reduced from 2.5rem */
+    line-height: 1.1;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  h2 {
+    font-size: 1.75rem; /* Reduced from 2rem */
+    line-height: 1.2;
+  }
+
+  h3 {
+    font-size: 1.35rem;
+  }
+
+  /* Container padding reduction for tiny screens */
+  .container-large {
+    padding-left: var(--spacing-xs); /* Extra tight padding */
+    padding-right: var(--spacing-xs);
+  }
+
+  /* Hero section adjustments */
+  .section_home-hero {
+    padding-top: var(--spacing-md); /* Reduced from --spacing-lg */
+    padding-bottom: var(--spacing-lg); /* Reduced from --spacing-xl */
+  }
+
+  /* Button adjustments to prevent text clipping */
+  .button-primary,
+  .button-secondary {
+    padding: 0.75rem 1.25rem; /* Reduced from 0.875rem 2rem */
+    font-size: 0.9rem; /* Slightly smaller text */
+    min-height: 44px; /* Maintain touch target, reduced from 48px */
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Ensure buttons don't overflow containers */
+  .button-primary,
+  .button-secondary,
+  .button {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Mobile navigation adjustments */
+  .mobile-nav_link {
+    font-size: 1.75rem; /* Reduced from 2rem */
+  }
+
+  .mobile-nav_dropdown-toggle {
+    font-size: 1.75rem; /* Reduced from 2rem */
+  }
+
+  .mobile-nav_dropdown-toggle::after {
+    font-size: 1.25rem; /* Reduced from 1.5rem */
+  }
+
+  .mobile-nav_dropdown-menu a {
+    font-size: 1.1rem; /* Reduced from 1.25rem */
+  }
+
+  /* Logo adjustments */
+  .logo-icon {
+    height: 60px; /* Reduced from 70px */
+  }
+
+  .logo-text-main {
+    font-size: 1.75rem; /* Reduced from 2rem */
+  }
+
+  .logo-text-sub {
+    font-size: 0.8rem; /* Reduced from 0.9rem */
+  }
+
+  /* Footer adjustments */
+  .footer_component h3 {
+    font-size: 1.1rem; /* Reduced from 1.25rem */
+  }
+
+  .footer_list li {
+    font-size: 0.9rem;
+  }
+
+  /* Section padding reduction */
+  .section {
+    padding-top: var(--spacing-md); /* Reduced from --spacing-lg */
+    padding-bottom: var(--spacing-md);
+  }
+
+  /* Practice area cards */
+  .card_practice-area-enhanced h3 {
+    font-size: 1.1rem;
+  }
+
+  /* Attorney cards */
+  .card_attorney h3 {
+    font-size: 1.25rem;
+  }
+
+  /* Contact phone prominent display */
+  .contact-prominent .contact-phone {
+    font-size: 1.1rem; /* Reduced from 1.25rem */
+  }
+
+  /* Hamburger button positioning */
+  .navbar_hamburger-button {
+    right: var(--spacing-xs); /* Tighter positioning */
+  }
+
+  /* Hero list items */
+  .hero-list li {
+    font-size: 0.95rem;
+  }
+}
+
 /* ------------------- */
 /* 8. BREADCRUMB NAVIGATION */
 /* ------------------- */
@@ -1267,7 +1535,7 @@ textarea.form_field {
     text-decoration: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .quick-nav-links {
         gap: 0.5rem;
     }
@@ -1365,6 +1633,11 @@ textarea.form_field {
 
 .expandable-section summary:hover {
     background: #e9ecef;
+}
+
+.expandable-section summary:focus {
+    outline: 3px solid var(--primary-blue);
+    outline-offset: 2px;
 }
 
 .expandable-section summary::marker {
@@ -1559,7 +1832,7 @@ textarea.form_field {
     margin-top: 2rem;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .advantages-list {
         grid-template-columns: 1fr;
         gap: 1.5rem;
@@ -1588,7 +1861,7 @@ textarea.form_field {
     border-bottom: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .advantage-item:nth-child(2) {
         border-bottom: 1px solid #e9ecef;
     }
@@ -1646,6 +1919,11 @@ textarea.form_field {
     color: var(--primary-blue-dark);
 }
 
+.faq-item-expandable summary:focus {
+    outline: 3px solid var(--primary-blue);
+    outline-offset: 2px;
+}
+
 .faq-item-expandable summary::marker {
     display: none;
 }
@@ -1673,7 +1951,7 @@ textarea.form_field {
 }
 
 /* Mobile Responsiveness */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .single-column-content {
         max-width: 100%;
         margin: 0 1rem;
@@ -1872,12 +2150,17 @@ textarea.form_field {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
   transform: translateY(100%);
-  transition: transform 0.3s ease-in-out;
-  display: none; /* Hidden by default, shown via JavaScript */
+  visibility: hidden;
+  opacity: 0;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, visibility 0s linear 0.3s;
+  /* No display:none - element always takes up space to prevent CLS */
 }
 
 .mobile-cta-sticky.is-visible {
   transform: translateY(0);
+  visibility: visible;
+  opacity: 1;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, visibility 0s linear 0s;
 }
 
 .mobile-cta-button {
@@ -1915,9 +2198,10 @@ textarea.form_field {
 }
 
 /* Only show on mobile devices */
-@media (max-width: 768px) {
+/* Mobile CTA is visible on mobile devices only - controlled by JavaScript */
+@media (min-width: 768px) {
   .mobile-cta-sticky {
-    display: block;
+    display: none; /* Completely hidden on desktop to save rendering */
   }
 }
 
@@ -3221,7 +3505,7 @@ textarea.form_field {
     flex-direction: row;
     justify-content: center;
   }
-
+}
 
 @media (max-width: 600px) {
   .card-page .card-firm-name {
@@ -3265,7 +3549,7 @@ textarea.form_field {
     font-size: 0.7rem;
     padding: 0.5rem 0.75rem;
   }
-
+}
 
 /* ===============================================
    TIER 2 REDESIGN - DE-CLUTTERED CTA SECTIONS

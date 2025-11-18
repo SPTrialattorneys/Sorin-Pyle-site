@@ -14,12 +14,86 @@
     <!-- SEO Meta -->
     <link rel="canonical" href="https://www.sorinpyle.com/500.html">
 
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV7PKRF2YT"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-LV7PKRF2YT', {
+            // Enhanced tracking for legal websites
+            page_title: document.title,
+            page_location: window.location.href,
+            // Core Web Vitals tracking
+            custom_map: {
+                'custom_parameter_1': 'page_type',
+                'custom_parameter_2': 'practice_area'
+            }
+        });
+
+        // Track Core Web Vitals
+        function trackWebVitals() {
+            function sendToGoogleAnalytics({name, delta, value, id}) {
+                gtag('event', name, {
+                    event_category: 'Web Vitals',
+                    event_label: id,
+                    value: Math.round(name === 'CLS' ? delta * 1000 : delta),
+                    non_interaction: true,
+                });
+            }
+
+            // Load web-vitals library
+            import('https://unpkg.com/web-vitals@3/dist/web-vitals.js').then(({onCLS, onFID, onFCP, onLCP, onTTFB}) => {
+                onCLS(sendToGoogleAnalytics);
+                onFID(sendToGoogleAnalytics);
+                onFCP(sendToGoogleAnalytics);
+                onLCP(sendToGoogleAnalytics);
+                onTTFB(sendToGoogleAnalytics);
+            });
+        }
+
+        // Track page engagement for legal sites
+        function trackEngagement() {
+            let engagementTime = 0;
+            let lastActiveTime = Date.now();
+
+            const trackTime = () => {
+                const now = Date.now();
+                engagementTime += now - lastActiveTime;
+                lastActiveTime = now;
+            };
+
+            ['mousedown', 'touchstart', 'keydown', 'scroll'].forEach(event => {
+                document.addEventListener(event, trackTime, {passive: true});
+            });
+
+            // Send engagement data on page unload
+            window.addEventListener('beforeunload', () => {
+                gtag('event', 'engagement_time', {
+                    event_category: 'User Engagement',
+                    value: Math.round(engagementTime / 1000),
+                    non_interaction: true
+                });
+            });
+        }
+
+        // Initialize tracking when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => {
+                trackWebVitals();
+                trackEngagement();
+            });
+        } else {
+            trackWebVitals();
+            trackEngagement();
+        }
+    </script>
+
     <!-- Local fonts loaded via CSS -->
 
     <link rel="icon" type="image/png" href="/images/favicon.png">
-    <link rel="preload" href="/css/core-brand.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="/css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="/css/core-brand.css"><link rel="stylesheet" href="/css/style.css"></noscript>
+    <link rel="stylesheet" href="/css/core-brand.css">
+    <link rel="stylesheet" href="/css/style.css">
 
     <style>
         .error-page {
@@ -66,6 +140,8 @@
             font-weight: bold;
         }
     </style>
+    <!-- Cookie Consent Banner -->
+    <link rel="stylesheet" href="css/cookie-consent.css">
 </head>
 <body>
     <header class="navbar_component">
@@ -91,7 +167,7 @@
                 <ul>
                     <li><a href="/index.html">Return to our homepage</a></li>
                     <li><a href="/contact.html">Contact us for immediate help</a></li>
-                    <li><a href="tel:6162273303">Call us directly at (616) 227-3303</a></li>
+                    <li><a href="tel:+16162273303">Call us directly at (616) 227-3303</a></li>
                     <li>Try refreshing the page in a few minutes</li>
                     <li><a href="/attorneys.html">Meet our attorneys</a></li>
                 </ul>
@@ -110,7 +186,7 @@
                     <h3>Sorin & Pyle, PC</h3>
                     <p>217 E 24th St Ste 107<br>Holland, MI 49423</p>
                     <p>
-                        <a href="tel:6162273303">(616) 227-3303</a><br>
+                        <a href="tel:+16162273303">(616) 227-3303</a><br>
                         <a href="mailto:justice@callsbp.com">justice@callsbp.com</a>
                     </p>
                 </div>
@@ -134,11 +210,14 @@
                 <div class="footer_column">
                     <h3>Emergency Contact</h3>
                     <p><strong>Need immediate legal help?</strong></p>
-                    <p><a href="tel:6162273303" style="font-size: 1.2rem; font-weight: bold;">(616) 227-3303</a></p>
+                    <p><a href="tel:+16162273303" style="font-size: 1.2rem; font-weight: bold;">(616) 227-3303</a></p>
                 </div>
             </div>
+            <div class="footer_disclaimer">
+                <p><strong>Disclaimer:</strong> The information on this website is for general information purposes only. Nothing on this site should be taken as legal advice for any individual case or situation. This information is not intended to create, and receipt or viewing does not constitute, an attorney-client relationship.</p>
+            </div>
             <div class="footer_bottom-bar">
-                © 2025 Sorin & Pyle, PC. All Rights Reserved.
+                © 2025 Sorin & Pyle, PC. All Rights Reserved. | <a href="privacy-policy.html">Privacy Policy</a>
             </div>
         </div>
     </footer>
@@ -211,5 +290,7 @@
       ]
     }
     </script>
+    <!-- Cookie Consent Banner -->
+    <script src="js/cookie-consent.js" defer></script>
 </body>
 </html>

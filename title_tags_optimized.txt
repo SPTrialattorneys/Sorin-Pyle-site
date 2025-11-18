@@ -1,0 +1,180 @@
+# Title Tag Length Optimization
+# Target: 50-60 characters for optimal Google display
+# Google displays ~60 chars on desktop, ~50 chars on mobile
+
+## OPTIMIZATION STRATEGY:
+# 1. Keep primary keyword at start (location + service)
+# 2. Include firm name only if space allows
+# 3. Use abbreviations: MI (not Michigan), DUI (not OWI/DUI)
+# 4. Remove filler words: "Local Attorney", "Criminal Defense"
+# 5. Prioritize: Location > Service > Court/Modifier > Firm Name
+
+## WORST OFFENDERS (over 10 chars):
+
+blog\_site\blog\understanding-dui-charges-in-michigan-what-you-need-to-know\index.html
+Before (86 chars): Understanding DUI Charges in Michigan: What You Need to Know | Sorin & Pyle Legal Blog
+After (58 chars): Understanding DUI Charges in Michigan | Sorin & Pyle Blog
+Savings: -28 chars
+
+locations\davenport-student-defense.html
+Before (82 chars): Davenport University Student Lawyer | Grand Rapids Career College Criminal Defense
+After (59 chars): Davenport Student Defense Lawyer | Grand Rapids MI Attorney
+Savings: -23 chars
+
+locations\calvin-university-student-defense.html
+Before (78 chars): Calvin University Student Lawyer | Christian College Criminal Defense Attorney
+After (57 chars): Calvin University Student Lawyer | Grand Rapids Attorney
+Savings: -21 chars
+
+locations\ferris-student-defense.html
+Before (77 chars): Ferris State University Student Lawyer | Big Rapids Criminal Defense Attorney
+After (58 chars): Ferris State Student Lawyer | Big Rapids MI Attorney
+Savings: -19 chars
+
+your-rights.html
+Before (74 chars): Know Your Rights | Constitutional Rights Guide | Michigan Criminal Defense
+After (56 chars): Know Your Rights | Michigan Criminal Defense Guide
+Savings: -18 chars
+
+locations\grand-haven-mi.html
+Before (74 chars): Grand Haven MI Criminal Defense Lawyer | Ottawa County Courthouse Attorney
+After (60 chars): Grand Haven MI Criminal Lawyer | Ottawa County Courthouse
+Savings: -14 chars
+
+locations\wmu-student-defense.html
+Before (74 chars): WMU Student Lawyer | Western Michigan University Criminal Defense Attorney
+After (60 chars): WMU Student Defense Lawyer | Kalamazoo Criminal Attorney
+Savings: -14 chars
+
+locations\south-haven-mi.html
+Before (72 chars): South Haven MI Criminal Defense Lawyer | Local Attorney Van Buren County
+After (59 chars): South Haven MI Criminal Lawyer | Van Buren County Attorney
+Savings: -13 chars
+
+domestic-violence-defense.html
+Before (71 chars): Domestic Violence Lawyer Holland MI | DV Defense Attorney Ottawa County
+After (58 chars): Domestic Violence Lawyer Holland MI | Ottawa County DV
+Savings: -13 chars
+
+locations\grcc-student-defense.html
+Before (69 chars): GRCC Student Lawyer | Grand Rapids Community College Criminal Defense
+After (57 chars): GRCC Student Lawyer | Grand Rapids Criminal Defense
+Savings: -12 chars
+
+
+## MODERATE OFFENDERS (6-10 chars over):
+
+locations\allendale-mi.html
+Before (68 chars): Allendale MI Criminal Defense Lawyer | GVSU Student Defense Attorney
+After (60 chars): Allendale MI Criminal Lawyer | GVSU Student Defense
+Savings: -8 chars
+
+locations\saugatuck-mi.html
+Before (68 chars): Saugatuck MI Criminal Defense Lawyer | Local Attorney Allegan County
+After (59 chars): Saugatuck MI Criminal Lawyer | Allegan County Attorney
+Savings: -9 chars
+
+locations\hudsonville-mi.html
+Before (67 chars): Hudsonville MI Criminal Defense Lawyer | Ottawa County DUI Attorney
+After (60 chars): Hudsonville MI Criminal Lawyer | Ottawa County DUI Attorney
+Savings: -7 chars
+
+record-expungement.html
+Before (66 chars): Record Expungement Lawyer in Michigan | Clear Your Criminal Record
+After (57 chars): Record Expungement Lawyer Michigan | Clear Your Record
+Savings: -9 chars
+
+locations\grandville-mi.html
+Before (66 chars): Grandville MI Criminal Defense Lawyer | Local Attorney Kent County
+After (58 chars): Grandville MI Criminal Lawyer | Kent County Attorney
+Savings: -8 chars
+
+locations\kentwood-mi.html
+Before (66 chars): Kentwood MI Criminal Defense Lawyer | 61st District Court Attorney
+After (60 chars): Kentwood MI Criminal Lawyer | 61st District Court Attorney
+Savings: -6 chars
+
+
+## MINOR OFFENDERS (5-6 chars over):
+
+repeat-offense-owi.html
+Before (65 chars): Second & Third Offense OWI Michigan | Repeat DUI Defense Attorney
+After (60 chars): 2nd & 3rd Offense OWI Michigan | Repeat DUI Defense
+Savings: -5 chars
+
+locations\holland-mi.html
+Before (65 chars): Holland MI Criminal Defense Lawyer | Local Attorney Ottawa County
+After (57 chars): Holland MI Criminal Lawyer | Ottawa County Attorney
+Savings: -8 chars
+
+locations\jenison-mi.html
+Before (65 chars): Jenison MI Criminal Defense Lawyer | Local Attorney Ottawa County
+After (57 chars): Jenison MI Criminal Lawyer | Ottawa County Attorney
+Savings: -8 chars
+
+locations\wyoming-mi.html
+Before (65 chars): Wyoming MI Criminal Defense Lawyer | 61st District Court Attorney
+After (60 chars): Wyoming MI Criminal Lawyer | 61st District Court Attorney
+Savings: -5 chars
+
+
+## BARELY OVER (2-4 chars over):
+
+faq.html
+Before (64 chars): Frequently Asked Questions | Criminal Defense FAQ | Sorin & Pyle
+After (60 chars): FAQ | Criminal Defense Questions | Sorin & Pyle
+Savings: -4 chars
+
+card\sorin.html
+Before (64 chars): Sorin Panainte Digital Business Card | Criminal Defense Attorney
+After (60 chars): Sorin Panainte | Criminal Defense Attorney Contact Card
+Savings: -4 chars
+
+card\jonathan.html
+Before (63 chars): Jonathan Pyle Digital Business Card | Criminal Defense Attorney
+After (59 chars): Jonathan Pyle | Criminal Defense Attorney Contact Card
+Savings: -4 chars
+
+locations\hope-college-student-defense.html
+Before (63 chars): Hope College Student Lawyer | Holland Criminal Defense Attorney
+After (57 chars): Hope College Student Lawyer | Holland MI Attorney
+Savings: -6 chars
+
+locations\zeeland-mi.html
+Before (63 chars): Zeeland MI Criminal Defense Lawyer | Ottawa County DUI Attorney
+After (57 chars): Zeeland MI Criminal Lawyer | Ottawa County Attorney
+Savings: -6 chars
+
+community-resources.html
+Before (62 chars): Community Resources by County | West Michigan Support Services
+After (60 chars): Community Resources | West Michigan County Support Services
+Savings: -2 chars
+
+locations\grand-rapids-mi.html
+Before (62 chars): Grand Rapids MI Criminal Defense Lawyer | Kent County Attorney
+After (58 chars): Grand Rapids MI Criminal Lawyer | Kent County Attorney
+Savings: -4 chars
+
+locations\walker-mi.html
+Before (62 chars): Walker MI Criminal Defense Lawyer | Local Attorney Kent County
+After (56 chars): Walker MI Criminal Lawyer | Kent County Attorney
+Savings: -6 chars
+
+drivers-license-restoration.html
+Before (61 chars): Michigan Driver's License Restoration | Get Your License Back
+After (59 chars): Michigan License Restoration | Get Your Driver License Back
+Savings: -2 chars
+
+super-drunk-high-bac.html
+Before (61 chars): Michigan Super Drunk Law | High BAC 0.17% Penalties & Defense
+After (58 chars): Michigan Super Drunk Law | High BAC 0.17% Defense
+Savings: -3 chars
+
+
+## SUMMARY:
+Total pages optimized: 30
+Average before length: 68.0 chars
+Average after length: 58.5 chars
+Average savings: 9.5 chars per title
+Longest optimized title: 60 chars
+Shortest optimized title: 56 chars

@@ -4,20 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Local Resources by County | West Michigan Support Services</title>
-    <meta name="description" content="Find local resources for food, housing, counseling, employment and support services organized by county in West Michigan. Serving Ottawa, Kent, Allegan, and surrounding counties.">
-    <meta name="keywords" content="West Michigan resources, county resources, food assistance, housing help, counseling services, employment assistance, mental health support, substance abuse treatment">
+    <title>Community Resources | West Michigan County Support Services</title>
+    <meta name="description" content="West Michigan community resources: food, housing, counseling, employment & support services by county. Ottawa, Kent, Allegan, Muskegon. Sorin & Pyle directory.">
 
     <!-- AI Search Optimization -->
-    <meta name="AI-content-summary" content="Local resources for food, housing, counseling, employment, and support services organized by county in West Michigan. Mental health and substance abuse treatment referrals.">
+    <meta name="AI-content-summary" content="Community resources for food, housing, counseling, employment, and support services organized by county in West Michigan. Mental health and substance abuse treatment referrals.">
     <meta name="expertise" content="community resources, food assistance, housing help, mental health support, substance abuse treatment, employment assistance, counseling services">
     <meta name="jurisdiction" content="Michigan, Ottawa County, Kent County, Allegan County, Kalamazoo County, Muskegon County, Van Buren County, Newaygo County">
 
     <!-- SEO & Social Meta -->
-    <link rel="canonical" href="https://www.sorinpyle.com/local-resources.html">
-    <meta property="og:title" content="Local Resources by County | West Michigan Support Services">
-    <meta property="og:description" content="Find local resources for food, housing, counseling, employment and support services organized by county in West Michigan. Serving Ottawa, Kent, Allegan, and surrounding counties.">
-    <meta property="og:url" content="https://www.sorinpyle.com/local-resources.html">
+    <link rel="canonical" href="https://www.sorinpyle.com/community-resources.html">
+    <meta property="og:title" content="Community Resources by County | West Michigan Support Services">
+    <meta property="og:description" content="Find community resources for food, housing, counseling, employment and support services organized by county in West Michigan. Serving Ottawa, Kent, Allegan, and surrounding counties.">
+    <meta property="og:url" content="https://www.sorinpyle.com/community-resources.html">
     <meta property="og:image" content="https://www.sorinpyle.com/images/ottawa-county-courthouse.avif">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Sorin & Pyle, PC">
@@ -36,9 +35,10 @@
     </script>
 
     <link rel="icon" type="image/png" href="images/favicon.png">
-    <link rel="preload" href="css/core-brand.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="css/core-brand.css"><link rel="stylesheet" href="css/style.css"></noscript>
+    <link rel="stylesheet" href="css/core-brand.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Cookie Consent Banner -->
+    <link rel="stylesheet" href="css/cookie-consent.css">
 </head>
 <body>
 
@@ -60,8 +60,15 @@
                     <li class="navbar_item" role="none"><a href="attorneys.html" class="navbar_link" role="menuitem">Attorneys</a></li>
                     <li class="navbar_item" role="none"><a href="practice-areas.html" class="navbar_link" role="menuitem">Practice Areas</a></li>
                     <li class="navbar_item" role="none"><a href="locations.html" class="navbar_link" role="menuitem">Locations</a></li>
-                    <li class="navbar_item" role="none"><a href="resources.html" class="navbar_link" role="menuitem">Firm News & FAQs</a></li>
-                    <li class="navbar_item" role="none"><a href="local-resources.html" class="navbar_link" role="menuitem">Local Resources</a></li>
+                    <li class="navbar_item navbar_dropdown" role="none">
+                        <a href="#" class="navbar_link navbar_dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Client Resources</a>
+                        <ul class="navbar_dropdown-menu" role="menu">
+                            <li role="none"><a href="faq.html" role="menuitem">Frequently Asked Questions</a></li>
+                            <li role="none"><a href="your-rights.html" role="menuitem">Know Your Rights</a></li>
+                            <li role="none"><a href="community-resources.html" role="menuitem">Community Resources</a></li>
+                            <li role="none"><a href="blog.html" role="menuitem">Firm News & Updates</a></li>
+                        </ul>
+                    </li>
                     <li class="navbar_item" role="none"><a href="contact.html" class="navbar_link" role="menuitem">Contact</a></li>
                 </ul>
             </nav>
@@ -74,14 +81,21 @@
     </header>
 
     <!-- ▼▼▼ MOBILE NAVIGATION MENU (Identical on all pages) ▼▼▼ -->
-    <div class="mobile-nav_menu" id="mobile-nav" role="dialog" aria-label="Mobile navigation menu" aria-hidden="true">
+    <div class="mobile-nav_menu" id="mobile-nav" role="navigation" aria-label="Mobile navigation menu" aria-hidden="true">
         <ul class="mobile-nav_list" role="menu">
             <li class="mobile-nav_item" role="none"><a href="index.html" class="mobile-nav_link" role="menuitem">About</a></li>
             <li class="mobile-nav_item" role="none"><a href="attorneys.html" class="mobile-nav_link" role="menuitem">Attorneys</a></li>
             <li class="mobile-nav_item" role="none"><a href="practice-areas.html" class="mobile-nav_link" role="menuitem">Practice Areas</a></li>
             <li class="mobile-nav_item" role="none"><a href="locations.html" class="mobile-nav_link" role="menuitem">Locations</a></li>
-            <li class="mobile-nav_item" role="none"><a href="resources.html" class="mobile-nav_link" role="menuitem">Firm News & FAQs</a></li>
-            <li class="mobile-nav_item" role="none"><a href="local-resources.html" class="mobile-nav_link" role="menuitem">Local Resources</a></li>
+            <li class="mobile-nav_dropdown" role="none">
+                <button class="mobile-nav_dropdown-toggle" aria-haspopup="true" aria-expanded="false">Client Resources</button>
+                <ul class="mobile-nav_dropdown-menu" role="menu">
+                    <li role="none"><a href="faq.html" role="menuitem">Frequently Asked Questions</a></li>
+                    <li role="none"><a href="your-rights.html" role="menuitem">Know Your Rights</a></li>
+                    <li role="none"><a href="community-resources.html" role="menuitem">Community Resources</a></li>
+                    <li role="none"><a href="blog.html" role="menuitem">Firm News & Updates</a></li>
+                </ul>
+            </li>
             <li class="mobile-nav_item" role="none"><a href="contact.html" class="mobile-nav_link" role="menuitem">Contact</a></li>
         </ul>
     </div>
@@ -89,8 +103,19 @@
 
     <main id="main-content">
         <section class="section">
-            <div class="container-large fade-up-on-scroll">
-                <h1 class="text-align-center margin-bottom-md">Local Resources by County</h1>
+            <div class="container-large">
+                <!-- Breadcrumbs -->
+                <nav aria-label="Breadcrumb" class="margin-bottom-sm">
+                    <ol style="list-style: none; padding: 0; display: flex; gap: 0.5rem; font-size: 0.9rem;">
+                        <li><a href="index.html" style="color: var(--primary-blue); text-decoration: none;">Home</a></li>
+                        <li aria-hidden="true">›</li>
+                        <li><a href="faq.html" style="color: var(--primary-blue); text-decoration: none;">Client Resources</a></li>
+                        <li aria-hidden="true">›</li>
+                        <li aria-current="page" style="color: var(--text-color);">Community Resources</li>
+                    </ol>
+                </nav>
+
+                <h1 class="text-align-center margin-bottom-md">Community Resources by County</h1>
                 <p class="text-align-center sub-headline margin-bottom-lg">Find local support services organized by county in West Michigan. Click on your county to view available resources for food, housing, counseling, employment, and more.</p>
 
                 <!-- Crisis Resources Section (Always Visible) -->
@@ -132,13 +157,6 @@
                                     <p><strong>Holland Rescue Mission</strong><br>
                                     Emergency shelter and transitional housing<br>
                                     <a href="tel:6163923201">(616) 392-3201</a></p>
-
-                                    <p><strong>Housing Next</strong><br>
-                                    Housing assistance and support services<br>
-                                    <a href="tel:6163920043">(616) 392-0043</a></p>
-
-                                    <p><strong>Ottawa County Housing Services</strong><br>
-                                    Rental assistance and housing programs</p>
                                 </div>
 
                                 <div class="advantage-item">
@@ -655,7 +673,7 @@
                         Holland, MI 49423
                     </p>
                     <p class="footer_contact">
-                        <a href="tel:6162273303">(616) 227-3303</a><br>
+                        <a href="tel:+16162273303">(616) 227-3303</a><br>
                         <a href="mailto:justice@callsbp.com">justice@callsbp.com</a>
                     </p>
                 </div>
@@ -665,15 +683,13 @@
                     <p class="footer_hours-weekend">Saturday & Sunday: By Appointment</p>
                 </div>
                 <div class="footer_column">
-                    <h3>Quick Links</h3>
+                    <h3>Practice Areas</h3>
                     <ul class="footer_list">
-                        <li><a href="index.html">About</a></li>
-                        <li><a href="attorneys.html">Attorneys</a></li>
-                        <li><a href="practice-areas.html">Practice Areas</a></li>
-                        <li><a href="locations.html">Locations</a></li>
-                        <li><a href="resources.html">Firm News & FAQs</a></li>
-                        <li><a href="local-resources.html">Local Resources</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="dui-defense.html">DUI / OWI Defense</a></li>
+                        <li><a href="domestic-violence-defense.html">Domestic Violence</a></li>
+                        <li><a href="record-expungement.html">Record Expungement</a></li>
+                        <li><a href="drivers-license-restoration.html">License Restoration</a></li>
+                        <li><a href="practice-areas.html">View All Practice Areas</a></li>
                     </ul>
                 </div>
                 <div class="footer_column">
@@ -685,22 +701,19 @@
                     </ul>
                 </div>
             </div>
+            <div class="footer_disclaimer">
+                <p><strong>Disclaimer:</strong> The information on this website is for general information purposes only. Nothing on this site should be taken as legal advice for any individual case or situation. This information is not intended to create, and receipt or viewing does not constitute, an attorney-client relationship.</p>
+            </div>
             <div class="footer_bottom-bar">
-                © 2025 Sorin & Pyle, PC. All Rights Reserved.
+                © 2025 Sorin & Pyle, PC. All Rights Reserved. | <a href="privacy-policy.html">Privacy Policy</a> | <a href="accessibility.html">Accessibility</a>
             </div>
         </div>
     </footer>
 
     <script src="js/main.js" defer></script>
-
-    <<script src="js/main.js" defer></script>
-
-    <<script src="js/main.js" defer></script>
-
-    <<script src="js/main.js" defer></script>
-
-    <script src="js/main.js" defer></script>
     <script src="js/analytics.js" defer></script>
+    <!-- Cookie Consent Banner -->
+    <script src="js/cookie-consent.js" defer></script>
 </body>
 </html>
 

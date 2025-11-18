@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Michigan Driver's License Restoration | Get Your License Back</title>
-    <meta name="description" content="Restore your Michigan driver's license after DUI/OWI revocation with help from Sorin & Pyle. We handle license appeals, ignition interlock, and hardship licenses across West Michigan.">
+    <title>Michigan License Restoration | Get Your Driver License Back</title>
+    <meta name="description" content="Restore your Michigan driver's license after DUI/OWI revocation. License appeals, ignition interlock & hardship licenses. Free consultation: (616) 227-3303">
     <meta name="keywords" content="Michigan license restoration, DUI license appeal, drivers license restoration lawyer, ignition interlock lawyer, hardship license, license revocation appeal, Michigan Secretary of State appeal, West Michigan license attorney">
 
     <!-- AI Search Optimization -->
-    <meta name="AI-content-summary" content="Michigan driver's license restoration for revoked licenses due to DUI/OWI. Help with Secretary of State hearings, DAAD appeals, and license reinstatement.">
-    <meta name="expertise" content="license restoration, driver license reinstatement, DUI license suspension, Secretary of State hearings, DAAD appeals, Michigan OHAO, hardship license">
+    <meta name="AI-content-summary" content="Michigan driver's license restoration for revoked licenses due to DUI/OWI. Help with Secretary of State hearings, DLAD appeals, and license reinstatement.">
+    <meta name="expertise" content="license restoration, driver license reinstatement, DUI license suspension, Secretary of State hearings, DLAD appeals, Michigan license restoration, hardship license">
     <meta name="jurisdiction" content="Michigan, Ottawa County, Kent County, Allegan County, Kalamazoo County, Muskegon County, Van Buren County, Newaygo County">
 
     <!-- SEO & Social Meta -->
@@ -22,6 +22,81 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Sorin & Pyle, PC">
     <meta name="twitter:card" content="summary_large_image">
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV7PKRF2YT"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-LV7PKRF2YT', {
+            // Enhanced tracking for legal websites
+            page_title: document.title,
+            page_location: window.location.href,
+            // Core Web Vitals tracking
+            custom_map: {
+                'custom_parameter_1': 'page_type',
+                'custom_parameter_2': 'practice_area'
+            }
+        });
+
+        // Track Core Web Vitals
+        function trackWebVitals() {
+            function sendToGoogleAnalytics({name, delta, value, id}) {
+                gtag('event', name, {
+                    event_category: 'Web Vitals',
+                    event_label: id,
+                    value: Math.round(name === 'CLS' ? delta * 1000 : delta),
+                    non_interaction: true,
+                });
+            }
+
+            // Load web-vitals library
+            import('https://unpkg.com/web-vitals@3/dist/web-vitals.js').then(({onCLS, onFID, onFCP, onLCP, onTTFB}) => {
+                onCLS(sendToGoogleAnalytics);
+                onFID(sendToGoogleAnalytics);
+                onFCP(sendToGoogleAnalytics);
+                onLCP(sendToGoogleAnalytics);
+                onTTFB(sendToGoogleAnalytics);
+            });
+        }
+
+        // Track page engagement for legal sites
+        function trackEngagement() {
+            let engagementTime = 0;
+            let lastActiveTime = Date.now();
+
+            const trackTime = () => {
+                const now = Date.now();
+                engagementTime += now - lastActiveTime;
+                lastActiveTime = now;
+            };
+
+            ['mousedown', 'touchstart', 'keydown', 'scroll'].forEach(event => {
+                document.addEventListener(event, trackTime, {passive: true});
+            });
+
+            // Send engagement data on page unload
+            window.addEventListener('beforeunload', () => {
+                gtag('event', 'engagement_time', {
+                    event_category: 'User Engagement',
+                    value: Math.round(engagementTime / 1000),
+                    non_interaction: true
+                });
+            });
+        }
+
+        // Initialize tracking when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => {
+                trackWebVitals();
+                trackEngagement();
+            });
+        } else {
+            trackWebVitals();
+            trackEngagement();
+        }
+    </script>
+
 
     <!-- Local fonts loaded via CSS -->
 
@@ -29,6 +104,8 @@
     <link rel="preload" href="css/core-brand.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preload" href="css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="css/core-brand.css"><link rel="stylesheet" href="css/style.css"></noscript>
+    <!-- Cookie Consent Banner -->
+    <link rel="stylesheet" href="css/cookie-consent.css">
 </head>
 <body>
 
@@ -50,8 +127,15 @@
                     <li class="navbar_item" role="none"><a href="attorneys.html" class="navbar_link" role="menuitem">Attorneys</a></li>
                     <li class="navbar_item" role="none"><a href="practice-areas.html" class="navbar_link" role="menuitem">Practice Areas</a></li>
                     <li class="navbar_item" role="none"><a href="locations.html" class="navbar_link" role="menuitem">Locations</a></li>
-                    <li class="navbar_item" role="none"><a href="resources.html" class="navbar_link" role="menuitem">Firm News & FAQs</a></li>
-                    <li class="navbar_item" role="none"><a href="local-resources.html" class="navbar_link" role="menuitem">Local Resources</a></li>
+                    <li class="navbar_item navbar_dropdown" role="none">
+                        <a href="#" class="navbar_link navbar_dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Client Resources</a>
+                        <ul class="navbar_dropdown-menu" role="menu">
+                            <li role="none"><a href="faq.html" role="menuitem">Frequently Asked Questions</a></li>
+                            <li role="none"><a href="your-rights.html" role="menuitem">Know Your Rights</a></li>
+                            <li role="none"><a href="community-resources.html" role="menuitem">Community Resources</a></li>
+                            <li role="none"><a href="blog.html" role="menuitem">Firm News & Updates</a></li>
+                        </ul>
+                    </li>
                     <li class="navbar_item" role="none"><a href="contact.html" class="navbar_link" role="menuitem">Contact</a></li>
                 </ul>
             </nav>
@@ -64,14 +148,21 @@
     </header>
 
     <!-- ▼▼▼ MOBILE NAVIGATION MENU (Identical on all pages) ▼▼▼ -->
-    <div class="mobile-nav_menu" id="mobile-nav" role="dialog" aria-label="Mobile navigation menu" aria-hidden="true">
+    <div class="mobile-nav_menu" id="mobile-nav" role="navigation" aria-label="Mobile navigation menu" aria-hidden="true">
         <ul class="mobile-nav_list" role="menu">
             <li class="mobile-nav_item" role="none"><a href="index.html" class="mobile-nav_link" role="menuitem">About</a></li>
             <li class="mobile-nav_item" role="none"><a href="attorneys.html" class="mobile-nav_link" role="menuitem">Attorneys</a></li>
             <li class="mobile-nav_item" role="none"><a href="practice-areas.html" class="mobile-nav_link" role="menuitem">Practice Areas</a></li>
             <li class="mobile-nav_item" role="none"><a href="locations.html" class="mobile-nav_link" role="menuitem">Locations</a></li>
-            <li class="mobile-nav_item" role="none"><a href="resources.html" class="mobile-nav_link" role="menuitem">Firm News & FAQs</a></li>
-            <li class="mobile-nav_item" role="none"><a href="local-resources.html" class="mobile-nav_link" role="menuitem">Local Resources</a></li>
+            <li class="mobile-nav_dropdown" role="none">
+                <button class="mobile-nav_dropdown-toggle" aria-haspopup="true" aria-expanded="false">Client Resources</button>
+                <ul class="mobile-nav_dropdown-menu" role="menu">
+                    <li role="none"><a href="faq.html" role="menuitem">Frequently Asked Questions</a></li>
+                    <li role="none"><a href="your-rights.html" role="menuitem">Know Your Rights</a></li>
+                    <li role="none"><a href="community-resources.html" role="menuitem">Community Resources</a></li>
+                    <li role="none"><a href="blog.html" role="menuitem">Firm News & Updates</a></li>
+                </ul>
+            </li>
             <li class="mobile-nav_item" role="none"><a href="contact.html" class="mobile-nav_link" role="menuitem">Contact</a></li>
         </ul>
     </div>
@@ -79,13 +170,13 @@
 
     <main id="main-content">
         <section class="section">
-            <div class="container-large fade-up-on-scroll">
+            <div class="container-large">
                 <h1 class="text-align-center margin-bottom-md">Driver's License Restoration</h1>
                 <p class="text-align-center sub-headline">Get Your Michigan Driver's License Back</p>
                 <p class="text-align-center margin-bottom-lg">Lost your license due to DUI/OWI? Our experienced license restoration attorneys help Michigan drivers navigate the complex appeals process and regain their driving privileges.</p>
 
                 <div class="grid_2-col-left-heavy">
-                    <div class="fade-up-on-scroll">
+                    <div>
                         <h2>Why Was Your License Revoked?</h2>
                         <p>In Michigan, your driver's license is automatically revoked after certain violations:</p>
 
@@ -107,7 +198,8 @@
                             <li><strong>Waiting Period</strong> – Must complete minimum revocation period</li>
                             <li><strong>Sobriety</strong> – Must demonstrate sustained abstinence from alcohol and drugs</li>
                             <li><strong>Treatment</strong> – Complete required substance abuse treatment or counseling</li>
-                            <li><strong>No Violations</strong> – No driving on suspended/revoked license during revocation period</li>
+                            <li><strong>Clean Record</strong> – No driving on suspended/revoked license during revocation period (automatic disqualifier)</li>
+                            <li><strong>Complete Disclosure</strong> – Must disclose all criminal convictions and driving records from all states</li>
                             <li><strong>Supporting Evidence</strong> – Gather documentation proving rehabilitation</li>
                         </ul>
 
@@ -162,7 +254,7 @@
                             </div>
                             <div class="process-step">
                                 <h4>2. Hearing Scheduling</h4>
-                                <p>Receive notice of administrative hearing date (typically 2-3 months after filing).</p>
+                                <p>Receive notice of administrative hearing date (typically 4-6 months after filing, though times vary).</p>
                             </div>
                             <div class="process-step">
                                 <h4>3. Hearing Preparation</h4>
@@ -216,7 +308,7 @@
                         <p><strong>We help you understand and comply with all ignition interlock requirements to protect your restored license.</strong></p>
                     </div>
 
-                    <div class="sidebar fade-up-on-scroll">
+                    <div class="sidebar">
                         <div class="sidebar-card">
                             <h3>Free License Restoration Consultation</h3>
                             <p>Find out if you're eligible for license restoration and learn about the process. We'll review your case and explain your options.</p>
@@ -234,7 +326,7 @@
                             </div>
                             <div class="faq-item">
                                 <h4>How long does it take?</h4>
-                                <p>From application to hearing decision typically takes 3-4 months. Preparation should begin 6-12 months in advance.</p>
+                                <p>From application to hearing decision typically takes 4-6 months. Preparation should begin 6-12 months in advance.</p>
                             </div>
                             <div class="faq-item">
                                 <h4>What if I'm denied?</h4>
@@ -298,7 +390,7 @@
                         Holland, MI 49423
                     </p>
                     <p class="footer_contact">
-                        <a href="tel:6162273303">(616) 227-3303</a><br>
+                        <a href="tel:+16162273303">(616) 227-3303</a><br>
                         <a href="mailto:justice@callsbp.com">justice@callsbp.com</a>
                     </p>
                 </div>
@@ -308,15 +400,13 @@
                     <p class="footer_hours-weekend">Saturday & Sunday: By Appointment</p>
                 </div>
                 <div class="footer_column">
-                    <h3>Quick Links</h3>
+                    <h3>Practice Areas</h3>
                     <ul class="footer_list">
-                        <li><a href="index.html">About</a></li>
-                        <li><a href="attorneys.html">Attorneys</a></li>
-                        <li><a href="practice-areas.html">Practice Areas</a></li>
-                        <li><a href="locations.html">Locations</a></li>
-                        <li><a href="resources.html">Firm News & FAQs</a></li>
-                        <li><a href="local-resources.html">Local Resources</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="dui-defense.html">DUI / OWI Defense</a></li>
+                        <li><a href="domestic-violence-defense.html">Domestic Violence</a></li>
+                        <li><a href="record-expungement.html">Record Expungement</a></li>
+                        <li><a href="drivers-license-restoration.html">License Restoration</a></li>
+                        <li><a href="practice-areas.html">View All Practice Areas</a></li>
                     </ul>
                 </div>
                 <div class="footer_column">
@@ -328,21 +418,20 @@
                     </ul>
                 </div>
             </div>
+            <div class="footer_disclaimer">
+                <p><strong>Disclaimer:</strong> The information on this website is for general information purposes only. Nothing on this site should be taken as legal advice for any individual case or situation. This information is not intended to create, and receipt or viewing does not constitute, an attorney-client relationship.</p>
+            </div>
             <div class="footer_bottom-bar">
-                © 2025 Sorin & Pyle, PC. All Rights Reserved.
+                © 2025 Sorin & Pyle, PC. All Rights Reserved. | <a href="privacy-policy.html">Privacy Policy</a> | <a href="accessibility.html">Accessibility</a>
             </div>
         </div>
     </footer>
 
     <script src="js/main.js" defer></script>
 
-    <<script src="js/main.js" defer></script>
 
-    <<script src="js/main.js" defer></script>
 
-    <<script src="js/main.js" defer></script>
 
-    <script src="js/main.js" defer></script>
 
     <!-- Enhanced Schema Markup for Driver's License Restoration Page -->
     <script type="application/ld+json">
@@ -352,7 +441,7 @@
         "name": "Sorin & Pyle, PC - Driver's License Restoration Services",
         "description": "Michigan driver's license restoration attorneys helping clients regain driving privileges after DUI/OWI revocation across West Michigan including Ottawa, Kent, Allegan, Kalamazoo, Muskegon, Van Buren, and Newaygo counties.",
         "url": "https://www.sorinpyle.com/drivers-license-restoration.html",
-        "logo": "https://www.sorinpyle.com/images/logo.svg",
+        "logo": "https://www.sorinpyle.com/images/logo-icon.svg",
         "image": "https://www.sorinpyle.com/images/ottawa-county-courthouse.avif",
         "telephone": "+16162273303",
         "email": "justice@callsbp.com",
@@ -547,5 +636,7 @@
         ]
     }
     </script>
+    <!-- Cookie Consent Banner -->
+    <script src="js/cookie-consent.js" defer></script>
 </body>
 </html>

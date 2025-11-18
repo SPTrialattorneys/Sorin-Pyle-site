@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firm News & Updates | Sorin & Pyle Criminal Defense Blog</title>
+    <meta name="description" content="Sorin & Pyle firm news: community involvement, pro bono work & criminal defense insights. Latest updates from Holland, Michigan criminal defense attorneys.">
+
+    <!-- AI Search Optimization -->
+    <meta name="AI-content-summary" content="Firm news and updates from Sorin & Pyle criminal defense attorneys including community involvement, pro bono work, and legal insights for Michigan residents.">
+    <meta name="expertise" content="criminal defense news, pro bono legal services, expungement clinics, community involvement, legal updates">
+    <meta name="jurisdiction" content="Michigan, Ottawa County, Kent County, Allegan County">
+
+    <!-- SEO & Social Meta -->
+    <link rel="canonical" href="https://www.sorinpyle.com/blog.html">
+    <meta property="og:title" content="Firm News & Updates | Sorin & Pyle Criminal Defense Blog">
+    <meta property="og:description" content="Stay updated with Sorin & Pyle firm news, community involvement, and criminal defense insights. Latest updates from Holland, Michigan criminal defense attorneys.">
+    <meta property="og:url" content="https://www.sorinpyle.com/blog.html">
+    <meta property="og:image" content="https://www.sorinpyle.com/images/expungement-fair-volunteers.avif">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Sorin & Pyle, PC">
+    <meta name="twitter:card" content="summary_large_image">
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV7PKRF2YT"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-LV7PKRF2YT', {
+            // Enhanced tracking for legal websites
+            page_title: document.title,
+            page_location: window.location.href,
+            // Core Web Vitals tracking
+            custom_map: {
+                'custom_parameter_1': 'page_type',
+                'custom_parameter_2': 'practice_area'
+            }
+        });
+
+        // Track Core Web Vitals
+        function trackWebVitals() {
+            function sendToGoogleAnalytics({name, delta, value, id}) {
+                gtag('event', name, {
+                    event_category: 'Web Vitals',
+                    event_label: id,
+                    value: Math.round(name === 'CLS' ? delta * 1000 : delta),
+                    non_interaction: true,
+                });
+            }
+
+            // Load web-vitals library
+            import('https://unpkg.com/web-vitals@3/dist/web-vitals.js').then(({onCLS, onFID, onFCP, onLCP, onTTFB}) => {
+                onCLS(sendToGoogleAnalytics);
+                onFID(sendToGoogleAnalytics);
+                onFCP(sendToGoogleAnalytics);
+                onLCP(sendToGoogleAnalytics);
+                onTTFB(sendToGoogleAnalytics);
+            });
+        }
+
+        // Track page engagement for legal sites
+        function trackEngagement() {
+            let engagementTime = 0;
+            let lastActiveTime = Date.now();
+
+            const trackTime = () => {
+                const now = Date.now();
+                engagementTime += now - lastActiveTime;
+                lastActiveTime = now;
+            };
+
+            ['mousedown', 'touchstart', 'keydown', 'scroll'].forEach(event => {
+                document.addEventListener(event, trackTime, {passive: true});
+            });
+
+            // Send engagement data on page unload
+            window.addEventListener('beforeunload', () => {
+                gtag('event', 'engagement_time', {
+                    event_category: 'User Engagement',
+                    value: Math.round(engagementTime / 1000),
+                    non_interaction: true
+                });
+            });
+        }
+
+        // Initialize tracking when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => {
+                trackWebVitals();
+                trackEngagement();
+            });
+        } else {
+            trackWebVitals();
+            trackEngagement();
+        }
+    </script>
+
+
+    <!-- Local fonts loaded via CSS -->
+
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="css/core-brand.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Cookie Consent Banner -->
+    <link rel="stylesheet" href="css/cookie-consent.css">
+</head>
+<body>
+
+                    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- ▼▼▼ NAVBAR (Identical on all pages) ▼▼▼ -->
+    <header class="navbar_component">
+        <div class="container-large navbar_container">
+            <a href="index.html" class="navbar_logo-link">
+                <img src="images/logo-icon.svg" alt="Sorin & Pyle Ship Icon" class="logo-icon" width="70" height="70">
+                <div class="logo-text-container">
+                    <span class="logo-text-main">Sorin & Pyle</span>
+                    <span class="logo-text-sub">TRIAL LAWYERS</span>
+                </div>
+            </a>
+            <nav class="navbar_desktop-nav" role="navigation" aria-label="Main navigation">
+                <ul class="navbar_menu" role="menubar">
+                    <li class="navbar_item" role="none"><a href="index.html" class="navbar_link" role="menuitem">About</a></li>
+                    <li class="navbar_item" role="none"><a href="attorneys.html" class="navbar_link" role="menuitem">Attorneys</a></li>
+                    <li class="navbar_item" role="none"><a href="practice-areas.html" class="navbar_link" role="menuitem">Practice Areas</a></li>
+                    <li class="navbar_item" role="none"><a href="locations.html" class="navbar_link" role="menuitem">Locations</a></li>
+                    <li class="navbar_item navbar_dropdown" role="none">
+                        <a href="#" class="navbar_link navbar_dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Client Resources</a>
+                        <ul class="navbar_dropdown-menu" role="menu">
+                            <li role="none"><a href="faq.html" role="menuitem">Frequently Asked Questions</a></li>
+                            <li role="none"><a href="your-rights.html" role="menuitem">Know Your Rights</a></li>
+                            <li role="none"><a href="community-resources.html" role="menuitem">Community Resources</a></li>
+                            <li role="none"><a href="blog.html" role="menuitem">Firm News & Updates</a></li>
+                        </ul>
+                    </li>
+                    <li class="navbar_item" role="none"><a href="contact.html" class="navbar_link" role="menuitem">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="navbar_hamburger-button" id="hamburger-button" aria-label="Open Menu" aria-controls="mobile-nav" aria-expanded="false">
+                <span class="icon-line"></span>
+                <span class="icon-line"></span>
+                <span class="icon-line"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ▼▼▼ MOBILE NAVIGATION MENU (Identical on all pages) ▼▼▼ -->
+    <div class="mobile-nav_menu" id="mobile-nav" role="navigation" aria-label="Mobile navigation menu" aria-hidden="true">
+        <ul class="mobile-nav_list" role="menu">
+            <li class="mobile-nav_item" role="none"><a href="index.html" class="mobile-nav_link" role="menuitem">About</a></li>
+            <li class="mobile-nav_item" role="none"><a href="attorneys.html" class="mobile-nav_link" role="menuitem">Attorneys</a></li>
+            <li class="mobile-nav_item" role="none"><a href="practice-areas.html" class="mobile-nav_link" role="menuitem">Practice Areas</a></li>
+            <li class="mobile-nav_item" role="none"><a href="locations.html" class="mobile-nav_link" role="menuitem">Locations</a></li>
+            <li class="mobile-nav_dropdown" role="none">
+                <button class="mobile-nav_dropdown-toggle" aria-haspopup="true" aria-expanded="false">Client Resources</button>
+                <ul class="mobile-nav_dropdown-menu" role="menu">
+                    <li role="none"><a href="faq.html" role="menuitem">Frequently Asked Questions</a></li>
+                    <li role="none"><a href="your-rights.html" role="menuitem">Know Your Rights</a></li>
+                    <li role="none"><a href="community-resources.html" role="menuitem">Community Resources</a></li>
+                    <li role="none"><a href="blog.html" role="menuitem">Firm News & Updates</a></li>
+                </ul>
+            </li>
+            <li class="mobile-nav_item" role="none"><a href="contact.html" class="mobile-nav_link" role="menuitem">Contact</a></li>
+        </ul>
+    </div>
+
+
+    <main id="main-content">
+        <section class="section">
+            <div class="container-large max-width-xl">
+                <!-- Breadcrumbs -->
+                <nav aria-label="Breadcrumb" class="margin-bottom-sm">
+                    <ol style="list-style: none; padding: 0; display: flex; gap: 0.5rem; font-size: 0.9rem;">
+                        <li><a href="index.html" style="color: var(--primary-blue); text-decoration: none;">Home</a></li>
+                        <li aria-hidden="true">›</li>
+                        <li><a href="faq.html" style="color: var(--primary-blue); text-decoration: none;">Client Resources</a></li>
+                        <li aria-hidden="true">›</li>
+                        <li aria-current="page" style="color: var(--text-color);">Firm News</li>
+                    </ol>
+                </nav>
+
+                <h1 class="text-align-center margin-bottom-md">Firm News & Updates</h1>
+                <p class="text-align-center sub-headline margin-bottom-lg">Stay informed about Sorin & Pyle community involvement, pro bono work, and legal updates.</p>
+
+                <article class="blog-post" itemscope itemtype="https://schema.org/BlogPosting">
+                    <meta itemprop="mainEntityOfPage" content="https://www.sorinpyle.com/blog.html">
+                    <h2 itemprop="headline">Attorney Sorin Volunteers at Expungement Fair to Support Michigan Residents</h2>
+                    <p class="blog-date">
+                        <time itemprop="datePublished" datetime="2025-08-15">August 15, 2025</time> | Plainwell, MI
+                    </p>
+                    <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+                        <meta itemprop="name" content="Sorin & Pyle, PC">
+                        <div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+                            <meta itemprop="url" content="https://www.sorinpyle.com/images/logo-icon.svg">
+                        </div>
+                    </div>
+                    <div itemprop="author" itemscope itemtype="https://schema.org/Person">
+                        <meta itemprop="name" content="Sorin Panainte">
+                        <meta itemprop="url" content="https://www.sorinpyle.com/sorin-panainte.html">
+                    </div>
+                    <div itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+                        <meta itemprop="url" content="https://www.sorinpyle.com/images/expungement-fair-volunteers.avif">
+                        <meta itemprop="width" content="800">
+                        <meta itemprop="height" content="600">
+                    </div>
+
+                    <picture>
+                        <source srcset="images/expungement-fair-volunteers.avif" type="image/avif">
+                        <img src="images/expungement-fair-volunteers.jpg" alt="Sorin Panainte and Legal Volunteers at Free Expungement Fair in Plainwell, Michigan" class="blog-image" width="800" height="600" loading="lazy">
+                    </picture>
+
+                    <div itemprop="articleBody">
+                        <p>On August 15, 2025, one of our attorneys proudly joined fellow legal professionals in volunteering at the Free Expungement Fair & Resource Clinic hosted by Christian Neighbors in Plainwell, Michigan. The clinic was presented in partnership with the Allegan Public Defender's Office, the Michigan Attorney General's Office, Safe & Just Michigan, and several community organizations.</p>
+                        <p>The event offered Michigan residents a chance to begin clearing their criminal records of Misdemeanor and Felony convictions—an important step toward greater opportunities in employment, housing, and education. Expungement can be life-changing, and Attorney Sorin is honored to have been part of an effort that directly supports second chances.</p>
+                        <h3>How the Clinic Helped</h3>
+                        <p>Volunteer attorneys, including our own, worked alongside community partners to:</p>
+                        <ul>
+                            <li>Assist eligible attendees with completing expungement paperwork</li>
+                            <li>Provide access to volunteer notaries</li>
+                            <li>Conduct fingerprint scans</li>
+                            <li>Offer guidance on the next steps after applications were mailed</li>
+                        </ul>
+                        <p>The event was free to all Michigan residents and drew many individuals seeking a fresh start.</p>
+                        <h3>Why This Work Matters</h3>
+                        <p>At Sorin & Pyle, Trial Lawyers, we believe that access to justice shouldn't depend on income. Expungement clinics like this one remove barriers for people who deserve the opportunity to rebuild their lives. By giving back through pro bono work, our attorneys reaffirm the firm's commitment to ensuring fairness and equity in the legal system.</p>
+                        <h3>Looking Ahead</h3>
+                        <p>We are proud of the impact that events like the Plainwell clinic have on individuals and families across Michigan. Our firm remains dedicated to supporting community initiatives that empower people to move forward with dignity and confidence.</p>
+                    </div>
+                </article>
+
+                <!-- CTA Section -->
+                <div class="text-align-center margin-top-xl padding-top-lg" style="background: linear-gradient(135deg, rgba(64, 118, 180, 0.05) 0%, rgba(64, 118, 180, 0.02) 100%); border-radius: var(--border-radius-card); padding: var(--spacing-lg);">
+                    <h2 class="margin-bottom-sm">Need Legal Assistance?</h2>
+                    <p class="margin-bottom-md">Contact us for a free consultation to discuss your criminal defense needs.</p>
+                    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                        <a href="contact.html" class="button-primary">Get Free Consultation</a>
+                        <a href="tel:+16162273303" class="button-secondary" onclick="gtag('event', 'phone_click', {'event_category': 'contact', 'event_label': 'blog_cta'});">(616) 227-3303</a>
+                    </div>
+                </div>
+
+                <div class="legal-disclaimer margin-top-lg text-align-center" style="font-size: 0.9rem; opacity: 0.8;">
+                    <p><strong>Legal Disclaimer:</strong> The information on this website is for general information purposes only and is not a substitute for professional legal advice. Reading this information does not create an attorney-client relationship.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+                    <!-- ▼▼▼ FOOTER (Identical on all pages) ▼▼▼ -->
+    <footer class="footer_component">
+        <div class="container-large">
+            <div class="footer_grid">
+                <div class="footer_column">
+                    <h3 class="footer_firm-name">Sorin & Pyle, PC</h3>
+                    <p class="footer_address">
+                        217 E 24th St Ste 107<br>
+                        Holland, MI 49423
+                    </p>
+                    <p class="footer_contact">
+                        <a href="tel:+16162273303">(616) 227-3303</a><br>
+                        <a href="mailto:justice@callsbp.com">justice@callsbp.com</a>
+                    </p>
+                </div>
+                <div class="footer_column">
+                    <h3>Hours</h3>
+                    <p class="footer_hours-weekday">Monday - Friday: 9 AM - 5 PM</p>
+                    <p class="footer_hours-weekend">Saturday & Sunday: By Appointment</p>
+                </div>
+                <div class="footer_column">
+                    <h3>Practice Areas</h3>
+                    <ul class="footer_list">
+                        <li><a href="dui-defense.html">DUI / OWI Defense</a></li>
+                        <li><a href="domestic-violence-defense.html">Domestic Violence</a></li>
+                        <li><a href="record-expungement.html">Record Expungement</a></li>
+                        <li><a href="drivers-license-restoration.html">License Restoration</a></li>
+                        <li><a href="practice-areas.html">View All Practice Areas</a></li>
+                    </ul>
+                </div>
+                <div class="footer_column">
+                    <h3>Client Portal</h3>
+                    <ul class="footer_list">
+                        <li><a href="https://www.clio.com/clients/" target="_blank" rel="noopener noreferrer">Clio Client Portal</a></li>
+                        <li><a href="https://app.clio.com/link/v2/2/2/81d5d84d1d449d617bc5b8d5ff9658fb?hmac=e9a2a8e1fbd96a550ff5212173791d674bb93c42d08b7eb7564e8cee53e54ab9" target="_blank" rel="noopener noreferrer">Pay Engagement Fee</a></li>
+                        <li><a href="https://app.clio.com/clients/" target="_blank" rel="noopener noreferrer">Pay Outstanding Invoice</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer_disclaimer">
+                <p><strong>Disclaimer:</strong> The information on this website is for general information purposes only. Nothing on this site should be taken as legal advice for any individual case or situation. This information is not intended to create, and receipt or viewing does not constitute, an attorney-client relationship.</p>
+            </div>
+            <div class="footer_bottom-bar">
+                © 2025 Sorin & Pyle, PC. All Rights Reserved. | <a href="privacy-policy.html">Privacy Policy</a> | <a href="accessibility.html">Accessibility</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js" defer></script>
+    <!-- Cookie Consent Banner -->
+    <script src="js/cookie-consent.js" defer></script>
+</body>
+</html>

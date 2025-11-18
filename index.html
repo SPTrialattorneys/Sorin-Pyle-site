@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>West Michigan Criminal Defense Lawyer | Sorin & Pyle, PC</title>
-    <meta name="description" content="Facing criminal charges in West Michigan? Sorin & Pyle are aggressive trial lawyers defending DUI, felonies, domestic violence, and drug crimes in Holland, MI. Free consultation.">
+    <meta name="description" content="West Michigan criminal defense trial lawyers. DUI, felonies, domestic violence & drug crimes. Former public defenders. Holland office. Free consult: (616) 227-3303">
     <meta name="keywords" content="criminal defense attorney, Holland MI lawyer, West Michigan criminal lawyer, DUI lawyer, felony defense, misdemeanor defense, trial attorney, legal help">
 
     <!-- AI Search Optimization -->
@@ -111,14 +111,17 @@
         .navbar_container { display: flex; justify-content: space-between; align-items: center; }
         .section_home-hero { padding: 4rem 0 6rem; }
         .grid_2-col { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-        .button-primary { display: inline-block; background-color: #FF8A28; color: #FFFFFF; padding: 1rem 2rem; border-radius: 4px; font-weight: 600; text-decoration: none; }
-        h1 { font-family: 'Lora', serif; color: #4076B4; font-size: 3.5rem; font-weight: 700; line-height: 1.2; margin: 0 0 1rem; }
+        .button-primary { display: inline-block; background-color: #FF8A28; color: #FFFFFF; padding: 1rem 2rem; border-radius: 4px; font-weight: 600; text-decoration: none; max-width: 100%; box-sizing: border-box; }
+        h1 { font-family: 'Lora', serif; color: #4076B4; font-size: 3.5rem; font-weight: 700; line-height: 1.2; margin: 0 0 1rem; word-wrap: break-word; overflow-wrap: break-word; }
         @media (max-width: 767px) { .grid_2-col { grid-template-columns: 1fr; } h1 { font-size: 2.5rem; } }
+        @media (max-width: 374px) { h1 { font-size: 2rem; line-height: 1.1; } .button-primary { padding: 0.75rem 1.25rem; font-size: 0.9rem; } .container-large { padding: 0 1rem; } .section_home-hero { padding: 2rem 0 4rem; } }
     </style>
 
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="stylesheet" href="css/core-brand.css">
     <link rel="stylesheet" href="css/style.css">
+    <!-- Cookie Consent Banner -->
+    <link rel="stylesheet" href="css/cookie-consent.css">
 </head>
 <body>
 
@@ -140,8 +143,15 @@
                     <li class="navbar_item" role="none"><a href="attorneys.html" class="navbar_link" role="menuitem">Attorneys</a></li>
                     <li class="navbar_item" role="none"><a href="practice-areas.html" class="navbar_link" role="menuitem">Practice Areas</a></li>
                     <li class="navbar_item" role="none"><a href="locations.html" class="navbar_link" role="menuitem">Locations</a></li>
-                    <li class="navbar_item" role="none"><a href="resources.html" class="navbar_link" role="menuitem">Firm News & FAQs</a></li>
-                    <li class="navbar_item" role="none"><a href="local-resources.html" class="navbar_link" role="menuitem">Local Resources</a></li>
+                    <li class="navbar_item navbar_dropdown" role="none">
+                        <a href="#" class="navbar_link navbar_dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Client Resources</a>
+                        <ul class="navbar_dropdown-menu" role="menu">
+                            <li role="none"><a href="faq.html" role="menuitem">Frequently Asked Questions</a></li>
+                            <li role="none"><a href="your-rights.html" role="menuitem">Know Your Rights</a></li>
+                            <li role="none"><a href="community-resources.html" role="menuitem">Community Resources</a></li>
+                            <li role="none"><a href="blog.html" role="menuitem">Firm News & Updates</a></li>
+                        </ul>
+                    </li>
                     <li class="navbar_item" role="none"><a href="contact.html" class="navbar_link" role="menuitem">Contact</a></li>
                 </ul>
             </nav>
@@ -154,14 +164,21 @@
     </header>
 
     <!-- ▼▼▼ MOBILE NAVIGATION MENU (Identical on all pages) ▼▼▼ -->
-    <div class="mobile-nav_menu" id="mobile-nav" role="dialog" aria-label="Mobile navigation menu" aria-hidden="true">
+    <div class="mobile-nav_menu" id="mobile-nav" role="navigation" aria-label="Mobile navigation menu" aria-hidden="true">
         <ul class="mobile-nav_list" role="menu">
             <li class="mobile-nav_item" role="none"><a href="index.html" class="mobile-nav_link" role="menuitem">About</a></li>
             <li class="mobile-nav_item" role="none"><a href="attorneys.html" class="mobile-nav_link" role="menuitem">Attorneys</a></li>
             <li class="mobile-nav_item" role="none"><a href="practice-areas.html" class="mobile-nav_link" role="menuitem">Practice Areas</a></li>
             <li class="mobile-nav_item" role="none"><a href="locations.html" class="mobile-nav_link" role="menuitem">Locations</a></li>
-            <li class="mobile-nav_item" role="none"><a href="resources.html" class="mobile-nav_link" role="menuitem">Firm News & FAQs</a></li>
-            <li class="mobile-nav_item" role="none"><a href="local-resources.html" class="mobile-nav_link" role="menuitem">Local Resources</a></li>
+            <li class="mobile-nav_dropdown" role="none">
+                <button class="mobile-nav_dropdown-toggle" aria-haspopup="true" aria-expanded="false">Client Resources</button>
+                <ul class="mobile-nav_dropdown-menu" role="menu">
+                    <li role="none"><a href="faq.html" role="menuitem">Frequently Asked Questions</a></li>
+                    <li role="none"><a href="your-rights.html" role="menuitem">Know Your Rights</a></li>
+                    <li role="none"><a href="community-resources.html" role="menuitem">Community Resources</a></li>
+                    <li role="none"><a href="blog.html" role="menuitem">Firm News & Updates</a></li>
+                </ul>
+            </li>
             <li class="mobile-nav_item" role="none"><a href="contact.html" class="mobile-nav_link" role="menuitem">Contact</a></li>
         </ul>
     </div>
@@ -276,17 +293,17 @@
                                     <li>Felonious Assault</li>
                                     <li>Criminal Sexual Conduct (CSC)</li>
                                     <li>Robbery & Home Invasion</li>
-                                    <li>Major Drug Crimes</li>
+                                    <li>Drug Crimes</li>
                                     <li>Carrying Concealed Weapon (CCW)</li>
-                                    <li>Resisting or Obstructing</li>
+                                    <li>Resisting & Obstructing a Police Officer (R&O)</li>
                                 </ul>
                             </div>
 
                             <div class="charge-category">
                                 <h4>Misdemeanors</h4>
                                 <ul class="charge-list">
-                                    <li>OWI / Drunk Driving</li>
-                                    <li>Domestic Violence</li>
+                                    <li><a href="dui-defense.html">OWI / Drunk Driving</a></li>
+                                    <li><a href="domestic-violence-defense.html">Domestic Violence</a></li>
                                     <li>Assault and Battery</li>
                                     <li>Theft & Retail Fraud</li>
                                     <li>Reckless Driving</li>
@@ -318,12 +335,12 @@
                             </div>
 
                             <div class="service-item">
-                                <h4>Record Expungement</h4>
+                                <h4><a href="record-expungement.html">Record Expungement</a></h4>
                                 <p>Clear your criminal record and reclaim your future. We navigate Michigan's expungement process to help you seal past convictions, opening doors to better employment, housing, and educational opportunities.</p>
                             </div>
 
                             <div class="service-item">
-                                <h4>Driver License Restoration</h4>
+                                <h4><a href="drivers-license-restoration.html">Driver License Restoration</a></h4>
                                 <p>Lost your license due to DUI or other violations? We guide you through Michigan's DLAD/DAAD hearing process to restore your driving privileges and get you back on the road legally.</p>
                             </div>
 
@@ -356,12 +373,16 @@
                 </div>
             </div>
         </section>
+        <div class="legal-disclaimer" style="background: #f8f9fa; padding: 1.5rem; margin: 2rem 0; border-left: 4px solid #4076B4; border-radius: 4px;">
+            <p style="margin: 0; font-size: 0.9rem; color: #495057; line-height: 1.6;"><strong>Past Results Disclaimer:</strong> The results listed on this website are specific to the facts and legal circumstances of each individual case. Past results do not guarantee or predict a similar outcome in future cases. Each case is unique and must be evaluated on its own merits.</p>
+        </div>
+
 
         <!-- Section 5: Contact CTA -->
         <section class="section section_contact-cta">
             <div class="container-large text-align-center fade-up-on-scroll">
                 <h2>Call Today to Schedule a Free Consultation</h2>
-                <p class="font-size-xl margin-top-sm"><a href="tel:6162273303">(616) 227-3303</a></p>
+                <p class="font-size-xl margin-top-sm"><a href="tel:+16162273303">(616) 227-3303</a></p>
             </div>
         </section>
     </main>
@@ -377,7 +398,7 @@
                         Holland, MI 49423
                     </p>
                     <p class="footer_contact">
-                        <a href="tel:6162273303">(616) 227-3303</a><br>
+                        <a href="tel:+16162273303">(616) 227-3303</a><br>
                         <a href="mailto:justice@callsbp.com">justice@callsbp.com</a>
                     </p>
                 </div>
@@ -389,14 +410,13 @@
                     </p>
                 </div>
                 <div class="footer_column">
-                    <h3>Quick Links</h3>
+                    <h3>Practice Areas</h3>
                     <ul class="footer_list">
-                        <li><a href="index.html">About</a></li>
-                        <li><a href="attorneys.html">Attorneys</a></li>
-                        <li><a href="practice-areas.html">Practice Areas</a></li>
-                        <li><a href="locations.html">Locations</a></li>
-                        <li><a href="resources.html">Firm Updates & Resources</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="dui-defense.html">DUI / OWI Defense</a></li>
+                        <li><a href="domestic-violence-defense.html">Domestic Violence</a></li>
+                        <li><a href="record-expungement.html">Record Expungement</a></li>
+                        <li><a href="drivers-license-restoration.html">License Restoration</a></li>
+                        <li><a href="practice-areas.html">View All Practice Areas</a></li>
                     </ul>
                 </div>
                 <div class="footer_column">
@@ -408,8 +428,11 @@
                     </ul>
                 </div>
             </div>
+            <div class="footer_disclaimer">
+                <p><strong>Disclaimer:</strong> The information on this website is for general information purposes only. Nothing on this site should be taken as legal advice for any individual case or situation. This information is not intended to create, and receipt or viewing does not constitute, an attorney-client relationship.</p>
+            </div>
             <div class="footer_bottom-bar">
-                © 2025 Sorin & Pyle, PC. All Rights Reserved.
+                © 2025 Sorin & Pyle, PC. All Rights Reserved. | <a href="privacy-policy.html">Privacy Policy</a> | <a href="accessibility.html">Accessibility</a>
             </div>
         </div>
     </footer>
@@ -592,7 +615,7 @@
     </script>
     <!-- Mobile Sticky CTA Button -->
     <div class="mobile-cta-sticky" id="mobile-cta-sticky" aria-hidden="true">
-        <a href="tel:6162273303" class="mobile-cta-button" onclick="gtag('event', 'click', {event_category: 'Mobile CTA', event_label: 'Sticky Call Button', event_action: 'call_now'});">
+        <a href="tel:+16162273303" class="mobile-cta-button" onclick="gtag('event', 'click', {event_category: 'Mobile CTA', event_label: 'Sticky Call Button', event_action: 'call_now'});">
             <svg class="mobile-cta-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
             </svg>
@@ -604,6 +627,8 @@
     <script src="js/analytics.js" defer></script>
 
 
+    <!-- Cookie Consent Banner -->
+    <script src="js/cookie-consent.js" defer></script>
 </body>
 </html>
 

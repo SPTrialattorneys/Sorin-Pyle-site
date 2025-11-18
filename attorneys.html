@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Criminal Defense Attorneys in Holland, MI | Sorin & Pyle</title>
-    <meta name="description" content="Meet Sorin Panainte and Jonathan Pyle, experienced criminal defense trial attorneys specializing in DUI, felonies, and misdemeanors in Holland and West Michigan.">
+    <meta name="description" content="Meet Sorin Panainte & Jonathan Pyle, experienced criminal defense trial attorneys. DUI, felonies & misdemeanors. Former public defenders. Holland. (616) 227-3303">
     <meta name="keywords" content="Sorin Panainte attorney, Jonathan Pyle lawyer, Holland MI criminal defense attorneys, experienced trial lawyers, former public defender, West Michigan legal team">
 
     <!-- AI Search Optimization -->
@@ -22,13 +22,89 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Sorin & Pyle, PC">
     <meta name="twitter:card" content="summary_large_image">
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV7PKRF2YT"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-LV7PKRF2YT', {
+            // Enhanced tracking for legal websites
+            page_title: document.title,
+            page_location: window.location.href,
+            // Core Web Vitals tracking
+            custom_map: {
+                'custom_parameter_1': 'page_type',
+                'custom_parameter_2': 'practice_area'
+            }
+        });
+
+        // Track Core Web Vitals
+        function trackWebVitals() {
+            function sendToGoogleAnalytics({name, delta, value, id}) {
+                gtag('event', name, {
+                    event_category: 'Web Vitals',
+                    event_label: id,
+                    value: Math.round(name === 'CLS' ? delta * 1000 : delta),
+                    non_interaction: true,
+                });
+            }
+
+            // Load web-vitals library
+            import('https://unpkg.com/web-vitals@3/dist/web-vitals.js').then(({onCLS, onFID, onFCP, onLCP, onTTFB}) => {
+                onCLS(sendToGoogleAnalytics);
+                onFID(sendToGoogleAnalytics);
+                onFCP(sendToGoogleAnalytics);
+                onLCP(sendToGoogleAnalytics);
+                onTTFB(sendToGoogleAnalytics);
+            });
+        }
+
+        // Track page engagement for legal sites
+        function trackEngagement() {
+            let engagementTime = 0;
+            let lastActiveTime = Date.now();
+
+            const trackTime = () => {
+                const now = Date.now();
+                engagementTime += now - lastActiveTime;
+                lastActiveTime = now;
+            };
+
+            ['mousedown', 'touchstart', 'keydown', 'scroll'].forEach(event => {
+                document.addEventListener(event, trackTime, {passive: true});
+            });
+
+            // Send engagement data on page unload
+            window.addEventListener('beforeunload', () => {
+                gtag('event', 'engagement_time', {
+                    event_category: 'User Engagement',
+                    value: Math.round(engagementTime / 1000),
+                    non_interaction: true
+                });
+            });
+        }
+
+        // Initialize tracking when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => {
+                trackWebVitals();
+                trackEngagement();
+            });
+        } else {
+            trackWebVitals();
+            trackEngagement();
+        }
+    </script>
+
 
     <!-- Local fonts loaded via CSS -->
 
     <link rel="icon" type="image/png" href="images/favicon.png">
-    <link rel="preload" href="css/core-brand.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="css/core-brand.css"><link rel="stylesheet" href="css/style.css"></noscript>
+    <link rel="stylesheet" href="css/core-brand.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Cookie Consent Banner -->
+    <link rel="stylesheet" href="css/cookie-consent.css">
 </head>
 <body>
 
@@ -50,8 +126,15 @@
                     <li class="navbar_item" role="none"><a href="attorneys.html" class="navbar_link" role="menuitem">Attorneys</a></li>
                     <li class="navbar_item" role="none"><a href="practice-areas.html" class="navbar_link" role="menuitem">Practice Areas</a></li>
                     <li class="navbar_item" role="none"><a href="locations.html" class="navbar_link" role="menuitem">Locations</a></li>
-                    <li class="navbar_item" role="none"><a href="resources.html" class="navbar_link" role="menuitem">Firm News & FAQs</a></li>
-                    <li class="navbar_item" role="none"><a href="local-resources.html" class="navbar_link" role="menuitem">Local Resources</a></li>
+                    <li class="navbar_item navbar_dropdown" role="none">
+                        <a href="#" class="navbar_link navbar_dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Client Resources</a>
+                        <ul class="navbar_dropdown-menu" role="menu">
+                            <li role="none"><a href="faq.html" role="menuitem">Frequently Asked Questions</a></li>
+                            <li role="none"><a href="your-rights.html" role="menuitem">Know Your Rights</a></li>
+                            <li role="none"><a href="community-resources.html" role="menuitem">Community Resources</a></li>
+                            <li role="none"><a href="blog.html" role="menuitem">Firm News & Updates</a></li>
+                        </ul>
+                    </li>
                     <li class="navbar_item" role="none"><a href="contact.html" class="navbar_link" role="menuitem">Contact</a></li>
                 </ul>
             </nav>
@@ -64,14 +147,21 @@
     </header>
 
     <!-- ▼▼▼ MOBILE NAVIGATION MENU (Identical on all pages) ▼▼▼ -->
-    <div class="mobile-nav_menu" id="mobile-nav" role="dialog" aria-label="Mobile navigation menu" aria-hidden="true">
+    <div class="mobile-nav_menu" id="mobile-nav" role="navigation" aria-label="Mobile navigation menu" aria-hidden="true">
         <ul class="mobile-nav_list" role="menu">
             <li class="mobile-nav_item" role="none"><a href="index.html" class="mobile-nav_link" role="menuitem">About</a></li>
             <li class="mobile-nav_item" role="none"><a href="attorneys.html" class="mobile-nav_link" role="menuitem">Attorneys</a></li>
             <li class="mobile-nav_item" role="none"><a href="practice-areas.html" class="mobile-nav_link" role="menuitem">Practice Areas</a></li>
             <li class="mobile-nav_item" role="none"><a href="locations.html" class="mobile-nav_link" role="menuitem">Locations</a></li>
-            <li class="mobile-nav_item" role="none"><a href="resources.html" class="mobile-nav_link" role="menuitem">Firm News & FAQs</a></li>
-            <li class="mobile-nav_item" role="none"><a href="local-resources.html" class="mobile-nav_link" role="menuitem">Local Resources</a></li>
+            <li class="mobile-nav_dropdown" role="none">
+                <button class="mobile-nav_dropdown-toggle" aria-haspopup="true" aria-expanded="false">Client Resources</button>
+                <ul class="mobile-nav_dropdown-menu" role="menu">
+                    <li role="none"><a href="faq.html" role="menuitem">Frequently Asked Questions</a></li>
+                            <li role="none"><a href="your-rights.html" role="menuitem">Know Your Rights</a></li>
+                            <li role="none"><a href="community-resources.html" role="menuitem">Community Resources</a></li>
+                            <li role="none"><a href="blog.html" role="menuitem">Firm News & Updates</a></li>
+                </ul>
+            </li>
             <li class="mobile-nav_item" role="none"><a href="contact.html" class="mobile-nav_link" role="menuitem">Contact</a></li>
         </ul>
     </div>
@@ -79,16 +169,11 @@
 
     <main id="main-content">
         <section class="section">
-            <div class="container-large fade-up-on-scroll">
+            <div class="container-large">
                 <h1 class="text-align-center margin-bottom-md">Meet Your West Michigan Advocates</h1>
                 
                 <!-- Sorin Panainte Bio -->
                 <div class="grid_2-col grid-align-center">
-                    <div>
-                        <h2>Sorin Panainte</h2>
-                        <p>A former Public Defender and first-generation immigrant, Sorin brings a tenacious fighting spirit to every case. He founded the firm on the principle that every client deserves a dedicated advocate who will listen to their story and tirelessly defend their future.</p>
-                        <a href="sorin-panainte.html" class="button-primary margin-top-sm">Learn More About Sorin</a>
-                    </div>
                     <div class="attorney-bio-image">
                         <a href="sorin-panainte.html">
                             <img src="images/sorin-3.avif"
@@ -101,17 +186,17 @@
                                  height="300">
                         </a>
                     </div>
+                    <div>
+                        <h2>Sorin Panainte</h2>
+                        <p>A former Public Defender and first-generation immigrant, Sorin brings a tenacious fighting spirit to every case. He founded the firm on the principle that every client deserves a dedicated advocate who will listen to their story and tirelessly defend their future.</p>
+                        <a href="sorin-panainte.html" class="button-primary margin-top-sm">Learn More About Sorin</a>
+                    </div>
                 </div>
 
                 <hr class="hr-divider">
 
                 <!-- Jonathan Pyle Bio -->
-                <div class="grid_2-col grid-align-center attorney-bio-reversed">
-                    <div>
-                        <h2>Jonathan Pyle</h2>
-                        <p>Raised in West Michigan, Jonathan returned home to serve the community that raised him. He believes a strong defense is built on relentless preparation and a genuine connection with his clients, providing a steady hand to navigate the legal system.</p>
-                        <a href="jonathan-pyle.html" class="button-primary margin-top-sm">Learn More About Jonathan</a>
-                    </div>
+                <div class="grid_2-col grid-align-center">
                     <div class="attorney-bio-image">
                         <a href="jonathan-pyle.html">
                             <img src="images/jonathan-2.avif"
@@ -123,6 +208,11 @@
                                  width="300"
                                  height="300">
                         </a>
+                    </div>
+                    <div>
+                        <h2>Jonathan Pyle</h2>
+                        <p>Raised in West Michigan, Jonathan returned home to serve the community that raised him. He believes a strong defense is built on relentless preparation and a genuine connection with his clients, providing a steady hand to navigate the legal system.</p>
+                        <a href="jonathan-pyle.html" class="button-primary margin-top-sm">Learn More About Jonathan</a>
                     </div>
                 </div>
             </div>
@@ -140,7 +230,7 @@
                         Holland, MI 49423
                     </p>
                     <p class="footer_contact">
-                        <a href="tel:6162273303">(616) 227-3303</a><br>
+                        <a href="tel:+16162273303">(616) 227-3303</a><br>
                         <a href="mailto:justice@callsbp.com">justice@callsbp.com</a>
                     </p>
                 </div>
@@ -150,15 +240,13 @@
                     <p class="footer_hours-weekend">Saturday & Sunday: By Appointment</p>
                 </div>
                 <div class="footer_column">
-                    <h3>Quick Links</h3>
+                    <h3>Practice Areas</h3>
                     <ul class="footer_list">
-                        <li><a href="index.html">About</a></li>
-                        <li><a href="attorneys.html">Attorneys</a></li>
-                        <li><a href="practice-areas.html">Practice Areas</a></li>
-                        <li><a href="locations.html">Locations</a></li>
-                        <li><a href="resources.html">Firm News & FAQs</a></li>
-                        <li><a href="local-resources.html">Local Resources</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="dui-defense.html">DUI / OWI Defense</a></li>
+                        <li><a href="domestic-violence-defense.html">Domestic Violence</a></li>
+                        <li><a href="record-expungement.html">Record Expungement</a></li>
+                        <li><a href="drivers-license-restoration.html">License Restoration</a></li>
+                        <li><a href="practice-areas.html">View All Practice Areas</a></li>
                     </ul>
                 </div>
                 <div class="footer_column">
@@ -170,21 +258,18 @@
                     </ul>
                 </div>
             </div>
+            <div class="footer_disclaimer">
+                <p><strong>Disclaimer:</strong> The information on this website is for general information purposes only. Nothing on this site should be taken as legal advice for any individual case or situation. This information is not intended to create, and receipt or viewing does not constitute, an attorney-client relationship.</p>
+            </div>
             <div class="footer_bottom-bar">
-                © 2025 Sorin & Pyle, PC. All Rights Reserved.
+                © 2025 Sorin & Pyle, PC. All Rights Reserved. | <a href="privacy-policy.html">Privacy Policy</a> | <a href="accessibility.html">Accessibility</a>
             </div>
         </div>
     </footer>
 
     <script src="js/main.js" defer></script>
-
-    <<script src="js/main.js" defer></script>
-
-    <<script src="js/main.js" defer></script>
-
-    <<script src="js/main.js" defer></script>
-
-    <script src="js/main.js" defer></script>
+    <!-- Cookie Consent Banner -->
+    <script src="js/cookie-consent.js" defer></script>
 </body>
 </html>
 

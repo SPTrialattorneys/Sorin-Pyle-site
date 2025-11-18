@@ -98,6 +98,29 @@ RewriteRule ^index\.html$ / [R=301,L]
 # RewriteCond %{REQUEST_URI} ^/practice-areas\.html$
 # RewriteRule ^(.*)$ /$1? [R=301,L]
 
+# Client Resources Restructure Redirects
+# ========================================
+# Redirect old resources.html anchor links to new dedicated pages
+# Implemented: October 12, 2025
+
+# Redirect old FAQ anchor to dedicated FAQ page
+RedirectMatch 301 ^/resources\.html#faq$ /faq.html
+RedirectMatch 301 ^/resources\.html\?.*#faq$ /faq.html
+
+# Redirect old blog/news anchor to dedicated blog page
+RedirectMatch 301 ^/resources\.html#blog$ /blog.html
+RedirectMatch 301 ^/resources\.html\?.*#blog$ /blog.html
+
+# Redirect old rights anchor to dedicated your-rights page
+RedirectMatch 301 ^/resources\.html#rights$ /your-rights.html
+RedirectMatch 301 ^/resources\.html\?.*#rights$ /your-rights.html
+
+# Redirect old local-resources.html to new community-resources.html
+Redirect 301 /local-resources.html /community-resources.html
+
+# Redirect base resources.html to FAQ page (most common user need)
+Redirect 301 /resources.html /faq.html
+
 # Temporary Development Block - QR Campaign Pages
 # =================================================
 # Block public access to /go/ folder during development

@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Record Expungement Lawyer in Michigan | Clear Your Criminal Record</title>
-    <meta name="description" content="Clear your criminal record with Michigan expungement services from Sorin & Pyle. We help clients expunge felonies, misdemeanors, and DUIs across West Michigan. Free consultation.">
+    <title>Record Expungement Lawyer Michigan | Clear Your Record</title>
+    <meta name="description" content="Clear your Michigan criminal record. Expunge felonies, misdemeanors & DUIs. Set-aside convictions. West Michigan expungement lawyer. Free consult: (616) 227-3303">
     <meta name="keywords" content="Michigan expungement lawyer, criminal record clearing, felony expungement, misdemeanor expungement, DUI expungement, record sealing, criminal record removal, West Michigan expungement attorney">
 
     <!-- AI Search Optimization -->
@@ -22,6 +22,81 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Sorin & Pyle, PC">
     <meta name="twitter:card" content="summary_large_image">
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV7PKRF2YT"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-LV7PKRF2YT', {
+            // Enhanced tracking for legal websites
+            page_title: document.title,
+            page_location: window.location.href,
+            // Core Web Vitals tracking
+            custom_map: {
+                'custom_parameter_1': 'page_type',
+                'custom_parameter_2': 'practice_area'
+            }
+        });
+
+        // Track Core Web Vitals
+        function trackWebVitals() {
+            function sendToGoogleAnalytics({name, delta, value, id}) {
+                gtag('event', name, {
+                    event_category: 'Web Vitals',
+                    event_label: id,
+                    value: Math.round(name === 'CLS' ? delta * 1000 : delta),
+                    non_interaction: true,
+                });
+            }
+
+            // Load web-vitals library
+            import('https://unpkg.com/web-vitals@3/dist/web-vitals.js').then(({onCLS, onFID, onFCP, onLCP, onTTFB}) => {
+                onCLS(sendToGoogleAnalytics);
+                onFID(sendToGoogleAnalytics);
+                onFCP(sendToGoogleAnalytics);
+                onLCP(sendToGoogleAnalytics);
+                onTTFB(sendToGoogleAnalytics);
+            });
+        }
+
+        // Track page engagement for legal sites
+        function trackEngagement() {
+            let engagementTime = 0;
+            let lastActiveTime = Date.now();
+
+            const trackTime = () => {
+                const now = Date.now();
+                engagementTime += now - lastActiveTime;
+                lastActiveTime = now;
+            };
+
+            ['mousedown', 'touchstart', 'keydown', 'scroll'].forEach(event => {
+                document.addEventListener(event, trackTime, {passive: true});
+            });
+
+            // Send engagement data on page unload
+            window.addEventListener('beforeunload', () => {
+                gtag('event', 'engagement_time', {
+                    event_category: 'User Engagement',
+                    value: Math.round(engagementTime / 1000),
+                    non_interaction: true
+                });
+            });
+        }
+
+        // Initialize tracking when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => {
+                trackWebVitals();
+                trackEngagement();
+            });
+        } else {
+            trackWebVitals();
+            trackEngagement();
+        }
+    </script>
+
 
     <!-- Local fonts loaded via CSS -->
 
@@ -29,6 +104,8 @@
     <link rel="preload" href="css/core-brand.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preload" href="css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="css/core-brand.css"><link rel="stylesheet" href="css/style.css"></noscript>
+    <!-- Cookie Consent Banner -->
+    <link rel="stylesheet" href="css/cookie-consent.css">
 </head>
 <body>
 
@@ -50,8 +127,15 @@
                     <li class="navbar_item" role="none"><a href="attorneys.html" class="navbar_link" role="menuitem">Attorneys</a></li>
                     <li class="navbar_item" role="none"><a href="practice-areas.html" class="navbar_link" role="menuitem">Practice Areas</a></li>
                     <li class="navbar_item" role="none"><a href="locations.html" class="navbar_link" role="menuitem">Locations</a></li>
-                    <li class="navbar_item" role="none"><a href="resources.html" class="navbar_link" role="menuitem">Firm News & FAQs</a></li>
-                    <li class="navbar_item" role="none"><a href="local-resources.html" class="navbar_link" role="menuitem">Local Resources</a></li>
+                    <li class="navbar_item navbar_dropdown" role="none">
+                        <a href="#" class="navbar_link navbar_dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Client Resources</a>
+                        <ul class="navbar_dropdown-menu" role="menu">
+                            <li role="none"><a href="faq.html" role="menuitem">Frequently Asked Questions</a></li>
+                            <li role="none"><a href="your-rights.html" role="menuitem">Know Your Rights</a></li>
+                            <li role="none"><a href="community-resources.html" role="menuitem">Community Resources</a></li>
+                            <li role="none"><a href="blog.html" role="menuitem">Firm News & Updates</a></li>
+                        </ul>
+                    </li>
                     <li class="navbar_item" role="none"><a href="contact.html" class="navbar_link" role="menuitem">Contact</a></li>
                 </ul>
             </nav>
@@ -64,14 +148,21 @@
     </header>
 
     <!-- ▼▼▼ MOBILE NAVIGATION MENU (Identical on all pages) ▼▼▼ -->
-    <div class="mobile-nav_menu" id="mobile-nav" role="dialog" aria-label="Mobile navigation menu" aria-hidden="true">
+    <div class="mobile-nav_menu" id="mobile-nav" role="navigation" aria-label="Mobile navigation menu" aria-hidden="true">
         <ul class="mobile-nav_list" role="menu">
             <li class="mobile-nav_item" role="none"><a href="index.html" class="mobile-nav_link" role="menuitem">About</a></li>
             <li class="mobile-nav_item" role="none"><a href="attorneys.html" class="mobile-nav_link" role="menuitem">Attorneys</a></li>
             <li class="mobile-nav_item" role="none"><a href="practice-areas.html" class="mobile-nav_link" role="menuitem">Practice Areas</a></li>
             <li class="mobile-nav_item" role="none"><a href="locations.html" class="mobile-nav_link" role="menuitem">Locations</a></li>
-            <li class="mobile-nav_item" role="none"><a href="resources.html" class="mobile-nav_link" role="menuitem">Firm News & FAQs</a></li>
-            <li class="mobile-nav_item" role="none"><a href="local-resources.html" class="mobile-nav_link" role="menuitem">Local Resources</a></li>
+            <li class="mobile-nav_dropdown" role="none">
+                <button class="mobile-nav_dropdown-toggle" aria-haspopup="true" aria-expanded="false">Client Resources</button>
+                <ul class="mobile-nav_dropdown-menu" role="menu">
+                    <li role="none"><a href="faq.html" role="menuitem">Frequently Asked Questions</a></li>
+                    <li role="none"><a href="your-rights.html" role="menuitem">Know Your Rights</a></li>
+                    <li role="none"><a href="community-resources.html" role="menuitem">Community Resources</a></li>
+                    <li role="none"><a href="blog.html" role="menuitem">Firm News & Updates</a></li>
+                </ul>
+            </li>
             <li class="mobile-nav_item" role="none"><a href="contact.html" class="mobile-nav_link" role="menuitem">Contact</a></li>
         </ul>
     </div>
@@ -108,7 +199,7 @@
                                 <div class="step-number">1</div>
                                 <div class="step-content">
                                     <h4>Record Review</h4>
-                                    <p>We review your criminal record to determine eligibility for automatic or petition-based expungement.</p>
+                                    <p>We review your criminal record to determine eligibility for petition-based expungement and identify which convictions can be cleared.</p>
                                 </div>
                             </div>
 
@@ -116,7 +207,7 @@
                                 <div class="step-number">2</div>
                                 <div class="step-content">
                                     <h4>Legal Filing</h4>
-                                    <p>We prepare and file all necessary paperwork with proper legal arguments.</p>
+                                    <p>We prepare and file all necessary paperwork and present proper legal arguments to support your petition.</p>
                                 </div>
                             </div>
 
@@ -132,7 +223,7 @@
                                 <div class="step-number">4</div>
                                 <div class="step-content">
                                     <h4>Record Clearance</h4>
-                                    <p>Once approved, we ensure all agencies properly update their records.</p>
+                                    <p>Once approved, the court enters the expungement order and notifies relevant agencies. We monitor the process and follow up to verify that Michigan law enforcement databases are updated.</p>
                                 </div>
                             </div>
                         </div>
@@ -147,19 +238,19 @@
 
                         <div class="advantages-list">
                             <div class="advantage-item">
-                                <h4>📚 Deep Legal Knowledge</h4>
-                                <p>We understand Michigan's dual-track expungement system and stay current with all law changes.</p>
+                                <h4>Deep Legal Knowledge</h4>
+                                <p>We understand Michigan's expungement system and stay current with all law changes.</p>
                             </div>
                             <div class="advantage-item">
-                                <h4>⚖️ Proven Court Experience</h4>
+                                <h4>Proven Court Experience</h4>
                                 <p>We regularly represent clients in expungement hearings across West Michigan counties.</p>
                             </div>
                             <div class="advantage-item">
-                                <h4>📋 Thorough Case Preparation</h4>
+                                <h4>Thorough Case Preparation</h4>
                                 <p>We gather all documentation and build compelling arguments for your petition.</p>
                             </div>
                             <div class="advantage-item">
-                                <h4>🤝 Personal Guidance</h4>
+                                <h4>Personal Guidance</h4>
                                 <p>We take time to understand your goals and support you through every step.</p>
                             </div>
                         </div>
@@ -181,8 +272,8 @@
                                     <li>You've waited the required time period since completion of sentence</li>
                                     <li>You have no pending criminal charges</li>
                                 </ul>
-                                <p><strong>Waiting periods for petition-based expungement:</strong> Generally 3 years for misdemeanors, 5 years for felonies, and 7 years for serious felonies after completing your sentence.</p>
-                                <p><strong>Note:</strong> Certain serious crimes like murder, criminal sexual conduct, and terrorism offenses cannot be expunged. Each case is unique, so we recommend a free consultation to review your specific situation and determine the best path forward.</p>
+                                <p><strong>Waiting periods for petition-based expungement:</strong> Generally 3 years for misdemeanors and 5 years for felonies after completing your sentence. Certain offenses like domestic violence and OWI have 5-year waiting periods even if classified as misdemeanors. Some serious crimes cannot be expunged at all.</p>
+                                <p><strong>Note:</strong> Certain serious crimes cannot be expunged under Michigan law, including murder, criminal sexual conduct, terrorism, human trafficking, kidnapping, child exploitation offenses, and assault with intent to commit sexual conduct. Additionally, some traffic offenses (CDL violations causing death/serious impairment) are ineligible. Each case is unique, so we recommend a free consultation to review your specific situation and determine the best path forward.</p>
                             </details>
 
                             <details class="faq-item-expandable">
@@ -192,12 +283,20 @@
 
                             <details class="faq-item-expandable">
                                 <summary>Will employers still see my record?</summary>
-                                <p>Once expunged, most employers cannot see the conviction on background checks. Some government and sensitive positions may still have access.</p>
+                                <p>Once expunged, private employers generally cannot see the conviction on Michigan background checks. However, law enforcement, government employers, professional licensing boards, and federal background checks may still have access to expunged records.</p>
+                                <p>Important: The FBI is not required to remove expunged Michigan convictions from federal databases, so federal employers, TSA, immigration authorities, and federal licensing agencies may still see your record. We'll explain exactly what you can say to employers during your consultation.</p>
                             </details>
 
                             <details class="faq-item-expandable">
                                 <summary>Can I expunge multiple convictions?</summary>
-                                <p>Yes, Michigan law allows expungement of multiple convictions through petition-based expungement. We can help you petition the court to expunge multiple eligible convictions in a single application.</p>
+                                <p>Yes, Michigan law allows expungement of multiple convictions through petition-based expungement, but with important limitations. You can expunge up to 3 felonies or unlimited misdemeanors (but not both), with a maximum of 2 assaultive crimes. Additionally, you can only expunge one OWI conviction in your lifetime.</p>
+                                <p>We can help you petition the court to expunge multiple eligible convictions in a single application and determine which convictions should be prioritized based on your situation.</p>
+                            </details>
+
+                            <details class="faq-item-expandable">
+                                <summary>Can I expunge my DUI/OWI conviction?</summary>
+                                <p>Michigan law allows you to expunge <strong>one lifetime OWI conviction</strong> if you meet all other eligibility requirements. If you have multiple drunk driving convictions, only the first one can be expunged. The waiting period is 5 years after completing your sentence, including probation and all fines.</p>
+                                <p>Note: Expunging an OWI does not automatically restore your driver's license. That requires a separate license restoration process with the Michigan Secretary of State.</p>
                             </details>
 
                             <details class="faq-item-expandable">
@@ -214,7 +313,7 @@
         <section class="section" style="background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-orange-dark) 100%); color: var(--white); margin-bottom: 0;">
             <div class="container-large text-center">
                 <h2 style="color: var(--white);">Ready to Navigate Michigan's Clean Slate Laws?</h2>
-                <p style="color: var(--white);">Don't let past mistakes limit your future opportunities. Michigan's Clean Slate laws offer powerful new pathways to clear your record. Contact Sorin & Pyle today for expert guidance on both automatic and petition-based expungement.</p>
+                <p style="color: var(--white);">Don't let past mistakes limit your future opportunities. Michigan's Clean Slate laws offer powerful new pathways to clear your record through petition-based expungement. Contact Sorin & Pyle today for expert guidance on clearing eligible convictions from your record.</p>
                 <div class="cta_component margin-top-md">
                     <a href="contact.html" class="button" style="background: var(--white); color: var(--accent-orange); border: 2px solid var(--white); font-weight: 600; text-decoration: none;">Start Your Expungement Today</a>
                     <a href="tel:+16162273303" class="button" style="background: transparent; color: var(--white); border: 2px solid var(--white); font-weight: 600; text-decoration: none; margin-left: 1rem;" onclick="gtag('event', 'phone_click', {'event_category': 'contact', 'event_label': 'bottom_cta_expungement'});">(616) 227-3303</a>
@@ -234,7 +333,7 @@
                         Holland, MI 49423
                     </p>
                     <p class="footer_contact">
-                        <a href="tel:6162273303">(616) 227-3303</a><br>
+                        <a href="tel:+16162273303">(616) 227-3303</a><br>
                         <a href="mailto:justice@callsbp.com">justice@callsbp.com</a>
                     </p>
                 </div>
@@ -244,15 +343,13 @@
                     <p class="footer_hours-weekend">Saturday & Sunday: By Appointment</p>
                 </div>
                 <div class="footer_column">
-                    <h3>Quick Links</h3>
+                    <h3>Practice Areas</h3>
                     <ul class="footer_list">
-                        <li><a href="index.html">About</a></li>
-                        <li><a href="attorneys.html">Attorneys</a></li>
-                        <li><a href="practice-areas.html">Practice Areas</a></li>
-                        <li><a href="locations.html">Locations</a></li>
-                        <li><a href="resources.html">Firm News & FAQs</a></li>
-                        <li><a href="local-resources.html">Local Resources</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="dui-defense.html">DUI / OWI Defense</a></li>
+                        <li><a href="domestic-violence-defense.html">Domestic Violence</a></li>
+                        <li><a href="record-expungement.html">Record Expungement</a></li>
+                        <li><a href="drivers-license-restoration.html">License Restoration</a></li>
+                        <li><a href="practice-areas.html">View All Practice Areas</a></li>
                     </ul>
                 </div>
                 <div class="footer_column">
@@ -264,21 +361,20 @@
                     </ul>
                 </div>
             </div>
+            <div class="footer_disclaimer">
+                <p><strong>Disclaimer:</strong> The information on this website is for general information purposes only. Nothing on this site should be taken as legal advice for any individual case or situation. This information is not intended to create, and receipt or viewing does not constitute, an attorney-client relationship.</p>
+            </div>
             <div class="footer_bottom-bar">
-                © 2025 Sorin & Pyle, PC. All Rights Reserved.
+                © 2025 Sorin & Pyle, PC. All Rights Reserved. | <a href="privacy-policy.html">Privacy Policy</a> | <a href="accessibility.html">Accessibility</a>
             </div>
         </div>
     </footer>
 
     <script src="js/main.js" defer></script>
 
-    <<script src="js/main.js" defer></script>
 
-    <<script src="js/main.js" defer></script>
 
-    <<script src="js/main.js" defer></script>
 
-    <script src="js/main.js" defer></script>
 
     <!-- Enhanced Schema Markup for Record Expungement Page -->
     <script type="application/ld+json">
@@ -288,7 +384,7 @@
         "name": "Sorin & Pyle, PC - Record Expungement Services",
         "description": "Michigan record expungement attorneys helping clients clear criminal records across West Michigan including Ottawa, Kent, Allegan, Kalamazoo, Muskegon, Van Buren, and Newaygo counties.",
         "url": "https://www.sorinpyle.com/record-expungement.html",
-        "logo": "https://www.sorinpyle.com/images/logo.svg",
+        "logo": "https://www.sorinpyle.com/images/logo-icon.svg",
         "image": "https://www.sorinpyle.com/images/ottawa-county-courthouse.avif",
         "telephone": "+16162273303",
         "email": "justice@callsbp.com",
@@ -481,5 +577,7 @@
         ]
     }
     </script>
+    <!-- Cookie Consent Banner -->
+    <script src="js/cookie-consent.js" defer></script>
 </body>
 </html>

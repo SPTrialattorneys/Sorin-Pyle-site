@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessibility Statement | Sorin & Pyle, PC</title>
+    <meta name="description" content="Sorin & Pyle accessibility statement. WCAG 2.1 Level AA conformance, accessibility features & support contact. Committed to equal access for all users.">
+    <meta name="keywords" content="accessibility statement, WCAG compliance, ADA compliance, web accessibility, disability access">
+
+    <!-- AI Search Optimization -->
+    <meta name="AI-content-summary" content="Accessibility statement for Sorin & Pyle Criminal Defense Attorneys describing WCAG 2.1 Level AA conformance, accessibility features, and contact information for accessibility support.">
+    <meta name="expertise" content="web accessibility, WCAG 2.1 AA compliance, ADA compliance, disability access, assistive technology support">
+    <meta name="jurisdiction" content="Michigan">
+
+    <!-- SEO & Social Meta -->
+    <link rel="canonical" href="https://www.sorinpyle.com/accessibility.html">
+    <meta property="og:title" content="Accessibility Statement | Sorin & Pyle, PC">
+    <meta property="og:description" content="Sorin & Pyle is committed to ensuring digital accessibility for people with disabilities. Learn about our WCAG 2.1 Level AA conformance.">
+    <meta property="og:url" content="https://www.sorinpyle.com/accessibility.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Sorin & Pyle, PC">
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV7PKRF2YT"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-LV7PKRF2YT', {
+            page_title: document.title,
+            page_location: window.location.href,
+            custom_map: {
+                'custom_parameter_1': 'page_type',
+                'custom_parameter_2': 'practice_area'
+            }
+        });
+
+        // Track Core Web Vitals
+        function trackWebVitals() {
+            function sendToGoogleAnalytics({name, delta, value, id}) {
+                gtag('event', name, {
+                    event_category: 'Web Vitals',
+                    event_label: id,
+                    value: Math.round(name === 'CLS' ? delta * 1000 : delta),
+                    non_interaction: true,
+                });
+            }
+
+            import('https://unpkg.com/web-vitals@3/dist/web-vitals.js').then(({onCLS, onFID, onFCP, onLCP, onTTFB}) => {
+                onCLS(sendToGoogleAnalytics);
+                onFID(sendToGoogleAnalytics);
+                onFCP(sendToGoogleAnalytics);
+                onLCP(sendToGoogleAnalytics);
+                onTTFB(sendToGoogleAnalytics);
+            });
+        }
+
+        // Track page engagement
+        function trackEngagement() {
+            let engagementTime = 0;
+            let lastActiveTime = Date.now();
+
+            const trackTime = () => {
+                const now = Date.now();
+                engagementTime += now - lastActiveTime;
+                lastActiveTime = now;
+            };
+
+            ['mousedown', 'touchstart', 'keydown', 'scroll'].forEach(event => {
+                document.addEventListener(event, trackTime, {passive: true});
+            });
+
+            window.addEventListener('beforeunload', () => {
+                gtag('event', 'engagement_time', {
+                    event_category: 'User Engagement',
+                    value: Math.round(engagementTime / 1000),
+                    non_interaction: true
+                });
+            });
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => {
+                trackWebVitals();
+                trackEngagement();
+            });
+        } else {
+            trackWebVitals();
+            trackEngagement();
+        }
+    </script>
+
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="css/core-brand.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Cookie Consent Banner -->
+    <link rel="stylesheet" href="css/cookie-consent.css">
+</head>
+<body>
+    <!-- Skip Links for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Navigation -->
+    <header class="navbar_component">
+        <div class="container-large navbar_container">
+            <a href="index.html" class="navbar_logo-link">
+                <img src="images/logo-icon.svg" alt="Sorin & Pyle Ship Icon" class="logo-icon" width="70" height="70">
+                <div class="logo-text-container">
+                    <span class="logo-text-main">Sorin & Pyle</span>
+                    <span class="logo-text-sub">TRIAL LAWYERS</span>
+                </div>
+            </a>
+            <nav class="navbar_desktop-nav" role="navigation" aria-label="Main navigation">
+                <ul class="navbar_menu" role="menubar">
+                    <li class="navbar_item" role="none"><a href="index.html" class="navbar_link" role="menuitem">About</a></li>
+                    <li class="navbar_item" role="none"><a href="attorneys.html" class="navbar_link" role="menuitem">Attorneys</a></li>
+                    <li class="navbar_item" role="none"><a href="practice-areas.html" class="navbar_link" role="menuitem">Practice Areas</a></li>
+                    <li class="navbar_item" role="none"><a href="locations.html" class="navbar_link" role="menuitem">Locations</a></li>
+                    <li class="navbar_item navbar_dropdown" role="none">
+                        <a href="#" class="navbar_link navbar_dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Client Resources</a>
+                        <ul class="navbar_dropdown-menu" role="menu">
+                            <li role="none"><a href="faq.html" role="menuitem">Frequently Asked Questions</a></li>
+                            <li role="none"><a href="your-rights.html" role="menuitem">Know Your Rights</a></li>
+                            <li role="none"><a href="community-resources.html" role="menuitem">Community Resources</a></li>
+                            <li role="none"><a href="blog.html" role="menuitem">Firm News & Updates</a></li>
+                        </ul>
+                    </li>
+                    <li class="navbar_item" role="none"><a href="contact.html" class="navbar_link" role="menuitem">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="navbar_hamburger-button" id="hamburger-button" aria-label="Open Menu" aria-controls="mobile-nav" aria-expanded="false">
+                <span class="icon-line"></span>
+                <span class="icon-line"></span>
+                <span class="icon-line"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ▼▼▼ MOBILE NAVIGATION MENU (Identical on all pages) ▼▼▼ -->
+    <div class="mobile-nav_menu" id="mobile-nav" role="navigation" aria-label="Mobile navigation menu" aria-hidden="true">
+        <ul class="mobile-nav_list" role="menu">
+            <li class="mobile-nav_item" role="none"><a href="index.html" class="mobile-nav_link" role="menuitem">About</a></li>
+            <li class="mobile-nav_item" role="none"><a href="attorneys.html" class="mobile-nav_link" role="menuitem">Attorneys</a></li>
+            <li class="mobile-nav_item" role="none"><a href="practice-areas.html" class="mobile-nav_link" role="menuitem">Practice Areas</a></li>
+            <li class="mobile-nav_item" role="none"><a href="locations.html" class="mobile-nav_link" role="menuitem">Locations</a></li>
+            <li class="mobile-nav_dropdown" role="none">
+                <button class="mobile-nav_dropdown-toggle" aria-haspopup="true" aria-expanded="false">Client Resources</button>
+                <ul class="mobile-nav_dropdown-menu" role="menu">
+                    <li role="none"><a href="faq.html" role="menuitem">Frequently Asked Questions</a></li>
+                    <li role="none"><a href="your-rights.html" role="menuitem">Know Your Rights</a></li>
+                    <li role="none"><a href="community-resources.html" role="menuitem">Community Resources</a></li>
+                    <li role="none"><a href="blog.html" role="menuitem">Firm News & Updates</a></li>
+                </ul>
+            </li>
+            <li class="mobile-nav_item" role="none"><a href="contact.html" class="mobile-nav_link" role="menuitem">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <main id="main-content" class="main-content">
+        <article class="container-large section-spacing">
+            <h1>Accessibility Statement</h1>
+
+            <p class="intro-text">Sorin & Pyle, PC is committed to ensuring that our website is accessible to people with disabilities. We believe everyone deserves equal access to legal information and services, regardless of ability.</p>
+
+            <section class="margin-top-lg">
+                <h2>Our Commitment to Accessibility</h2>
+                <p>We are dedicated to providing a website that is accessible to the widest possible audience, including individuals who use assistive technologies such as screen readers, keyboard-only navigation, voice recognition software, and screen magnification tools.</p>
+
+                <p>We continuously work to enhance our website's accessibility and usability, implementing industry best practices and following established accessibility guidelines.</p>
+            </section>
+
+            <section class="margin-top-lg">
+                <h2>Conformance Status</h2>
+                <p>The <a href="https://www.w3.org/WAI/standards-guidelines/wcag/" target="_blank" rel="noopener noreferrer">Web Content Accessibility Guidelines (WCAG)</a> defines requirements for designers and developers to improve accessibility for people with disabilities. It defines three levels of conformance: Level A, Level AA, and Level AAA.</p>
+
+                <p><strong>This website is fully conformant with WCAG 2.1 Level AA.</strong> "Fully conformant" means that the content fully conforms to the accessibility standard without any exceptions.</p>
+
+                <p><strong>Standards Referenced:</strong></p>
+                <ul>
+                    <li>WCAG 2.1 Level AA (Web Content Accessibility Guidelines 2.1)</li>
+                    <li>ADA Title III (Americans with Disabilities Act Title III)</li>
+                    <li>Section 508 Standards (U.S. Federal Accessibility Standards)</li>
+                </ul>
+            </section>
+
+            <section class="margin-top-lg">
+                <h2>Accessibility Features</h2>
+                <p>Our website includes the following accessibility features to ensure a positive experience for all users:</p>
+
+                <h3 class="margin-top-md">Keyboard Navigation</h3>
+                <ul>
+                    <li><strong>Full keyboard access:</strong> All website functionality is available using only a keyboard (no mouse required)</li>
+                    <li><strong>Visible focus indicators:</strong> Clear visual indicators show which element is currently focused when navigating with Tab key</li>
+                    <li><strong>Skip links:</strong> "Skip to main content" links allow keyboard users to bypass repetitive navigation</li>
+                    <li><strong>Logical tab order:</strong> Tab navigation follows a logical and intuitive sequence</li>
+                    <li><strong>Escape key support:</strong> Dropdown menus and modals can be closed using the Escape key</li>
+                </ul>
+
+                <h3 class="margin-top-md">Screen Reader Compatibility</h3>
+                <ul>
+                    <li><strong>Semantic HTML:</strong> Proper HTML5 semantic elements (header, nav, main, article, footer)</li>
+                    <li><strong>ARIA attributes:</strong> Comprehensive ARIA labels, roles, and states for interactive elements</li>
+                    <li><strong>Alternative text:</strong> All images include descriptive alt text</li>
+                    <li><strong>Heading structure:</strong> Logical heading hierarchy (H1, H2, H3) for content organization</li>
+                    <li><strong>Form labels:</strong> All form fields properly labeled and associated</li>
+                </ul>
+
+                <h3 class="margin-top-md">Visual Design & Readability</h3>
+                <ul>
+                    <li><strong>Color contrast:</strong> Text and background colors meet WCAG AA contrast ratios (minimum 4.5:1 for normal text, 3:1 for large text)</li>
+                    <li><strong>Responsive text sizing:</strong> Text can be resized up to 200% without loss of content or functionality</li>
+                    <li><strong>No color-only information:</strong> Information is not conveyed by color alone</li>
+                    <li><strong>Readable fonts:</strong> Professional, easily readable font families</li>
+                    <li><strong>Sufficient spacing:</strong> Adequate spacing between interactive elements</li>
+                </ul>
+
+                <h3 class="margin-top-md">Mobile & Touch Accessibility</h3>
+                <ul>
+                    <li><strong>Touch target sizing:</strong> All interactive elements meet minimum 44x44 pixel touch target size</li>
+                    <li><strong>Mobile-friendly navigation:</strong> Accessible hamburger menu for mobile devices</li>
+                    <li><strong>Responsive design:</strong> Content adapts to all screen sizes and orientations</li>
+                    <li><strong>Zoom support:</strong> Viewport zoom is enabled (no user-scalable=no)</li>
+                </ul>
+
+                <h3 class="margin-top-md">Motion & Animation</h3>
+                <ul>
+                    <li><strong>Reduced motion support:</strong> Respects user's prefers-reduced-motion system settings</li>
+                    <li><strong>No auto-playing content:</strong> No automatically playing videos or animations that cannot be paused</li>
+                    <li><strong>Safe animations:</strong> No flashing or strobing content that could trigger seizures</li>
+                </ul>
+
+                <h3 class="margin-top-md">Content & Structure</h3>
+                <ul>
+                    <li><strong>Clear language:</strong> Content written in plain, understandable language</li>
+                    <li><strong>Consistent navigation:</strong> Navigation structure is consistent across all pages</li>
+                    <li><strong>Descriptive links:</strong> Link text describes the destination or purpose</li>
+                    <li><strong>Error identification:</strong> Form errors are clearly identified and described</li>
+                </ul>
+            </section>
+
+            <section class="margin-top-lg">
+                <h2>Assessment Approach</h2>
+                <p>Sorin & Pyle, PC assessed the accessibility of this website using the following methods:</p>
+                <ul>
+                    <li><strong>Code review:</strong> Review of HTML, CSS, and JavaScript for accessibility best practices</li>
+                    <li><strong>WCAG 2.1 Level AA checklist:</strong> Systematic review against WCAG 2.1 Level AA success criteria</li>
+                    <li><strong>Technical implementation review:</strong> Verification of semantic HTML, ARIA attributes, keyboard navigation support, color contrast ratios, and responsive design</li>
+                </ul>
+
+                <p><strong>Last Assessment Date:</strong> October 26, 2025</p>
+                <p><strong>Next Scheduled Assessment:</strong> April 2026</p>
+                <p><em>Note: We are committed to ongoing testing including automated tools, manual keyboard navigation testing, and screen reader compatibility testing as part of our regular review cycles.</em></p>
+            </section>
+
+            <section class="margin-top-lg">
+                <h2>Technical Specifications</h2>
+                <p>The accessibility of this website relies on the following technologies:</p>
+                <ul>
+                    <li>HTML5</li>
+                    <li>CSS3</li>
+                    <li>JavaScript (with graceful degradation)</li>
+                    <li>ARIA (Accessible Rich Internet Applications)</li>
+                </ul>
+
+                <p><strong>Compatible Browsers & Assistive Technologies:</strong></p>
+                <ul>
+                    <li>Modern browsers: Chrome, Firefox, Safari, Edge (current version and one version back)</li>
+                    <li>Screen readers: NVDA, JAWS, VoiceOver, TalkBack</li>
+                    <li>Speech recognition software: Dragon NaturallySpeaking</li>
+                    <li>Screen magnification: ZoomText, built-in browser zoom</li>
+                </ul>
+            </section>
+
+            <section class="margin-top-lg">
+                <h2>Known Limitations</h2>
+                <p>Despite our best efforts to ensure full accessibility, there may be some limitations. We are actively working to address the following known issues:</p>
+                <ul>
+                    <li><strong>Third-party content:</strong> Some embedded third-party content (e.g., Google Maps) may have accessibility limitations beyond our control. We strive to select the most accessible options available.</li>
+                    <li><strong>PDF documents:</strong> Some PDF documents may not be fully accessible. We are working to ensure all PDFs are properly tagged and accessible, and we provide alternative formats upon request.</li>
+                    <li><strong>Legacy content:</strong> Some older content is being updated to meet current accessibility standards.</li>
+                </ul>
+
+                <p>If you encounter any accessibility barriers not listed above, please contact us so we can address them promptly.</p>
+            </section>
+
+            <section class="margin-top-lg">
+                <h2>Feedback & Contact Information</h2>
+                <p>We welcome your feedback on the accessibility of our website. If you encounter any accessibility barriers or have suggestions for improvement, please contact us:</p>
+
+                <div class="contact-info margin-top-md">
+                    <p><strong>Accessibility Coordinator:</strong> Jonathan Pyle</p>
+                    <p><strong>Email:</strong> <a href="mailto:justice@callsbp.com">justice@callsbp.com</a></p>
+                    <p><strong>Phone:</strong> <a href="tel:+16162273303">(616) 227-3303</a></p>
+                    <p><strong>Address:</strong> 217 E 24th St Ste 107, Holland, MI 49423</p>
+                    <p><strong>Response Time:</strong> We aim to respond to accessibility feedback within 5 business days.</p>
+                </div>
+
+                <p class="margin-top-md">When contacting us about an accessibility issue, please provide:</p>
+                <ul>
+                    <li>The web page URL where you encountered the issue</li>
+                    <li>A description of the problem</li>
+                    <li>The assistive technology you were using (if applicable)</li>
+                    <li>Your preferred method of contact for our response</li>
+                </ul>
+            </section>
+
+            <section class="margin-top-lg">
+                <h2>Ongoing Accessibility Commitment</h2>
+                <p>Accessibility is an ongoing effort. We are committed to:</p>
+                <ul>
+                    <li><strong>Regular testing:</strong> Conducting accessibility audits every 6 months</li>
+                    <li><strong>Staff training:</strong> Providing ongoing accessibility training for our team</li>
+                    <li><strong>Continuous improvement:</strong> Incorporating accessibility into our design and development processes</li>
+                    <li><strong>User feedback:</strong> Actively soliciting and responding to feedback from users with disabilities</li>
+                    <li><strong>Standards compliance:</strong> Staying current with evolving accessibility standards and best practices</li>
+                </ul>
+            </section>
+
+            <section class="margin-top-lg">
+                <h2>Formal Complaints</h2>
+                <p>If you are not satisfied with our response to your accessibility concern, you have the right to file a complaint with:</p>
+
+                <div class="margin-top-md">
+                    <p><strong>U.S. Department of Justice</strong><br>
+                    Civil Rights Division<br>
+                    Disability Rights Section<br>
+                    950 Pennsylvania Avenue, NW<br>
+                    Washington, D.C. 20530<br>
+                    Website: <a href="https://www.ada.gov/" target="_blank" rel="noopener noreferrer">www.ada.gov</a></p>
+                </div>
+
+                <p class="margin-top-md">However, we encourage you to contact us first so we can work directly with you to resolve any accessibility issues.</p>
+            </section>
+
+            <section class="margin-top-lg">
+                <h2>Additional Resources</h2>
+                <p>For more information about web accessibility and disability rights:</p>
+                <ul>
+                    <li><a href="https://www.w3.org/WAI/" target="_blank" rel="noopener noreferrer">W3C Web Accessibility Initiative (WAI)</a></li>
+                    <li><a href="https://www.ada.gov/" target="_blank" rel="noopener noreferrer">Americans with Disabilities Act (ADA) Information</a></li>
+                    <li><a href="https://www.section508.gov/" target="_blank" rel="noopener noreferrer">Section 508 Accessibility Program</a></li>
+                    <li><a href="https://webaim.org/" target="_blank" rel="noopener noreferrer">WebAIM - Web Accessibility In Mind</a></li>
+                </ul>
+            </section>
+
+            <section class="margin-top-lg">
+                <p><strong>This accessibility statement was created on October 26, 2025.</strong></p>
+                <p><strong>Last updated:</strong> October 26, 2025</p>
+            </section>
+        </article>
+    </main>
+
+    <!-- ▼▼▼ FOOTER (Identical on all pages) ▼▼▼ -->
+    <footer class="footer_component">
+        <div class="container-large">
+            <div class="footer_grid">
+                <div class="footer_column">
+                    <h3 class="footer_firm-name">Sorin & Pyle, PC</h3>
+                    <p class="footer_address">
+                        217 E 24th St Ste 107<br>
+                        Holland, MI 49423
+                    </p>
+                    <p class="footer_contact">
+                        <a href="tel:+16162273303">(616) 227-3303</a><br>
+                        <a href="mailto:justice@callsbp.com">justice@callsbp.com</a>
+                    </p>
+                </div>
+                <div class="footer_column">
+                    <h3>Hours</h3>
+                    <p class="footer_hours-weekday">Monday - Friday: 9 AM - 5 PM</p>
+                    <p class="footer_hours-weekend">Saturday & Sunday: By Appointment</p>
+                </div>
+                <div class="footer_column">
+                    <h3>Practice Areas</h3>
+                    <ul class="footer_list">
+                        <li><a href="dui-defense.html">DUI / OWI Defense</a></li>
+                        <li><a href="domestic-violence-defense.html">Domestic Violence</a></li>
+                        <li><a href="record-expungement.html">Record Expungement</a></li>
+                        <li><a href="drivers-license-restoration.html">License Restoration</a></li>
+                        <li><a href="practice-areas.html">View All Practice Areas</a></li>
+                    </ul>
+                </div>
+                <div class="footer_column">
+                    <h3>Client Portal</h3>
+                    <ul class="footer_list">
+                        <li><a href="https://www.clio.com/clients/" target="_blank" rel="noopener noreferrer">Clio Client Portal</a></li>
+                        <li><a href="https://app.clio.com/link/v2/2/2/81d5d84d1d449d617bc5b8d5ff9658fb?hmac=e9a2a8e1fbd96a550ff5212173791d674bb93c42d08b7eb7564e8cee53e54ab9" target="_blank" rel="noopener noreferrer">Pay Engagement Fee</a></li>
+                        <li><a href="https://app.clio.com/clients/" target="_blank" rel="noopener noreferrer">Pay Outstanding Invoice</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer_disclaimer">
+                <p><strong>Disclaimer:</strong> The information on this website is for general information purposes only. Nothing on this site should be taken as legal advice for any individual case or situation. This information is not intended to create, and receipt or viewing does not constitute, an attorney-client relationship.</p>
+            </div>
+            <div class="footer_bottom-bar">
+                © 2025 Sorin & Pyle, PC. All Rights Reserved. | <a href="privacy-policy.html">Privacy Policy</a> | <a href="accessibility.html">Accessibility</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js" defer></script>
+
+    <!-- Cookie Consent Banner -->
+    <script src="js/cookie-consent.js" defer></script>
+</body>
+</html>

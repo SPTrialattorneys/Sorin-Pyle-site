@@ -1,5 +1,62 @@
 document.addEventListener('DOMContentLoaded', function() {
 
+    // --- DESKTOP DROPDOWN NAVIGATION ---
+    const dropdownToggles = document.querySelectorAll('.navbar_dropdown-toggle');
+
+    dropdownToggles.forEach(toggle => {
+        const dropdown = toggle.closest('.navbar_dropdown');
+
+        // Click handler for toggle
+        toggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            dropdown.classList.toggle('is-open');
+
+            // Update ARIA attributes
+            const isExpanded = dropdown.classList.contains('is-open');
+            toggle.setAttribute('aria-expanded', isExpanded);
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!dropdown.contains(e.target)) {
+                dropdown.classList.remove('is-open');
+                toggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // Keyboard navigation support
+        toggle.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                dropdown.classList.remove('is-open');
+                toggle.setAttribute('aria-expanded', 'false');
+                toggle.focus();
+            }
+        });
+    });
+
+    // --- MOBILE DROPDOWN NAVIGATION ---
+    const mobileDropdownToggles = document.querySelectorAll('.mobile-nav_dropdown-toggle');
+
+    mobileDropdownToggles.forEach(toggle => {
+        toggle.addEventListener('click', function() {
+            const dropdown = this.closest('.mobile-nav_dropdown');
+            const isOpen = dropdown.classList.contains('is-open');
+
+            // Close all other mobile dropdowns
+            document.querySelectorAll('.mobile-nav_dropdown').forEach(otherDropdown => {
+                if (otherDropdown !== dropdown) {
+                    otherDropdown.classList.remove('is-open');
+                    const otherToggle = otherDropdown.querySelector('.mobile-nav_dropdown-toggle');
+                    otherToggle.setAttribute('aria-expanded', 'false');
+                }
+            });
+
+            // Toggle current dropdown
+            dropdown.classList.toggle('is-open');
+            this.setAttribute('aria-expanded', !isOpen);
+        });
+    });
+
     // --- MOBILE NAVIGATION MENU ---
     const hamburgerButton = document.getElementById('hamburger-button');
     const mobileNav = document.getElementById('mobile-nav');
@@ -91,22 +148,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // --- PRACTICE AREAS "SHOW MORE" BUTTON ---
-    const showMoreBtn = document.getElementById('show-more-btn');
-    const moreAreasContainer = document.getElementById('more-practice-areas');
-
-    if (showMoreBtn && moreAreasContainer) {
-        showMoreBtn.addEventListener('click', () => {
-            moreAreasContainer.classList.toggle('is-expanded');
-
-            if (moreAreasContainer.classList.contains('is-expanded')) {
-                showMoreBtn.textContent = 'Show Less';
-            } else {
-                showMoreBtn.textContent = 'Show All Practice Areas';
-            }
-        });
-    }
-
     // --- TABS FOR RESOURCES PAGE ---
     const tabButtons = document.querySelectorAll('.tab_button');
     const tabContents = document.querySelectorAll('.tab_content');
@@ -150,7 +191,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (isVisible) {
                     mobileCTA.classList.remove('is-visible');
                     mobileCTA.setAttribute('aria-hidden', 'true');
-                    mobileCTA.style.display = 'none';
                     isVisible = false;
                 }
                 return;
@@ -160,24 +200,15 @@ document.addEventListener('DOMContentLoaded', function() {
             const shouldShow = scrollY > showThreshold;
 
             if (shouldShow && !isVisible) {
-                // Show the button
-                mobileCTA.style.display = 'block';
-                mobileCTA.setAttribute('aria-hidden', 'false');
-                // Trigger reflow to ensure display:block is applied before adding class
-                mobileCTA.offsetHeight;
+                // Show the button using CSS transform+visibility (no CLS)
                 mobileCTA.classList.add('is-visible');
+                mobileCTA.setAttribute('aria-hidden', 'false');
                 isVisible = true;
             } else if (!shouldShow && isVisible) {
-                // Hide the button
+                // Hide the button using CSS transform+visibility (no CLS)
                 mobileCTA.classList.remove('is-visible');
                 mobileCTA.setAttribute('aria-hidden', 'true');
                 isVisible = false;
-                // Hide completely after animation
-                setTimeout(() => {
-                    if (!isVisible) {
-                        mobileCTA.style.display = 'none';
-                    }
-                }, 300);
             }
         }
 
