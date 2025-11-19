@@ -21,85 +21,22 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Sorin & Pyle, PC">
     <meta name="twitter:card" content="summary_large_image">
+
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV7PKRF2YT"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'G-LV7PKRF2YT', {
-            // Enhanced tracking for legal websites
-            page_title: document.title,
-            page_location: window.location.href,
-            // Core Web Vitals tracking
-            custom_map: {
-                'custom_parameter_1': 'page_type',
-                'custom_parameter_2': 'practice_area'
-            }
-        });
-
-        // Track Core Web Vitals
-        function trackWebVitals() {
-            function sendToGoogleAnalytics({name, delta, value, id}) {
-                gtag('event', name, {
-                    event_category: 'Web Vitals',
-                    event_label: id,
-                    value: Math.round(name === 'CLS' ? delta * 1000 : delta),
-                    non_interaction: true,
-                });
-            }
-
-            // Load web-vitals library
-            import('https://unpkg.com/web-vitals@3/dist/web-vitals.js').then(({onCLS, onFID, onFCP, onLCP, onTTFB}) => {
-                onCLS(sendToGoogleAnalytics);
-                onFID(sendToGoogleAnalytics);
-                onFCP(sendToGoogleAnalytics);
-                onLCP(sendToGoogleAnalytics);
-                onTTFB(sendToGoogleAnalytics);
-            });
-        }
-
-        // Track page engagement for legal sites
-        function trackEngagement() {
-            let engagementTime = 0;
-            let lastActiveTime = Date.now();
-
-            const trackTime = () => {
-                const now = Date.now();
-                engagementTime += now - lastActiveTime;
-                lastActiveTime = now;
-            };
-
-            ['mousedown', 'touchstart', 'keydown', 'scroll'].forEach(event => {
-                document.addEventListener(event, trackTime, {passive: true});
-            });
-
-            // Send engagement data on page unload
-            window.addEventListener('beforeunload', () => {
-                gtag('event', 'engagement_time', {
-                    event_category: 'User Engagement',
-                    value: Math.round(engagementTime / 1000),
-                    non_interaction: true
-                });
-            });
-        }
-
-        // Initialize tracking when DOM is ready
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', () => {
-                trackWebVitals();
-                trackEngagement();
-            });
-        } else {
-            trackWebVitals();
-            trackEngagement();
-        }
+        gtag('config', 'G-LV7PKRF2YT');
     </script>
 
-
     <!-- Local fonts loaded via CSS -->
-<link rel="stylesheet" href="../css/core-brand.css">
+<link rel="icon" type="image/png" href="../images/favicon.png">
+    <link rel="stylesheet" href="../css/core-brand.css">
     <link rel="stylesheet" href="../css/style.css">
+    <!-- Cookie Consent Banner -->
+    <link rel="stylesheet" href="../css/cookie-consent.css">
 
     <!-- Breadcrumb Schema -->
     <script type="application/ld+json">
@@ -128,71 +65,9 @@
       ]
     }
     </script>
-
-    <!-- LegalService Schema -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LegalService",
-      "name": "Sorin & Pyle, PC - Muskegon County Criminal Defense",
-      "image": "https://www.sorinpyle.com/images/logo-icon.svg",
-      "description": "Criminal defense attorneys serving Muskegon County, Michigan. Defending clients in Muskegon and Norton Shores. Experienced representation in 14th Circuit Court and 60th District Court.",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "217 E 24th St Ste 107",
-        "addressLocality": "Holland",
-        "addressRegion": "MI",
-        "postalCode": "49423",
-        "addressCountry": "US"
-      },
-      "telephone": "+1-616-227-3303",
-      "email": "justice@callsbp.com",
-      "url": "https://www.sorinpyle.com/locations/muskegon-county.html",
-      "priceRange": "$$",
-      "areaServed": [
-        {
-          "@type": "AdministrativeArea",
-          "name": "Muskegon County",
-          "containedInPlace": {
-            "@type": "State",
-            "name": "Michigan"
-          }
-        },
-        {
-          "@type": "City",
-          "name": "Muskegon",
-          "containedInPlace": {
-            "@type": "State",
-            "name": "Michigan"
-          }
-        },
-        {
-          "@type": "City",
-          "name": "Norton Shores",
-          "containedInPlace": {
-            "@type": "State",
-            "name": "Michigan"
-          }
-        }
-      ],
-      "serviceType": [
-        "Criminal Defense",
-        "DUI/OWI Defense",
-        "Domestic Violence Defense",
-        "Drug Crime Defense",
-        "Assault Defense",
-        "Theft Crime Defense",
-        "Weapons Charges Defense",
-        "Felony Defense",
-        "Misdemeanor Defense"
-      ]
-    }
-    </script>
-    <!-- Cookie Consent Banner -->
-    <link rel="stylesheet" href="../css/cookie-consent.css">
 </head>
 <body>
-
+    
                                         <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <!-- ▼▼▼ NAVBAR (Identical on all pages) ▼▼▼ -->
@@ -254,115 +129,19 @@
 
     <main id="main-content">
         <section class="section">
-            <div class="container-large">
+            <div class="container-large fade-up-on-scroll">
                 <h1 class="text-align-center">Muskegon County Criminal Defense Lawyer</h1>
                 <p class="text-align-center sub-headline">If you have been charged with a crime in Muskegon County, you need a defense team that knows the local courts. Sorin & Pyle offers aggressive and experienced representation for clients facing charges in Muskegon, Norton Shores, and throughout the county.</p>
 
-                <div class="cta-button-container">
-                    <a href="tel:+16162273303" class="cta-button" onclick="gtag('event', 'click', {'event_category': 'CTA', 'event_label': 'Muskegon County Top Call'});">Call (616) 227-3303</a>
-                    <a href="../contact.html" class="cta-button cta-button-secondary" onclick="gtag('event', 'click', {'event_category': 'CTA', 'event_label': 'Muskegon County Top Contact'});">Free Consultation</a>
-                </div>
-
                 <hr class="hr-divider">
 
-                <h2>Understanding Muskegon County's Criminal Justice System</h2>
-                <p>Muskegon County sits along Michigan's western coastline with approximately 175,000 residents. The county includes the city of Muskegon, Norton Shores, Muskegon Heights, and several lakeside communities. The area's economy includes manufacturing, tourism, and port activities on Lake Michigan, creating a diverse population with various law enforcement challenges.</p>
-
-                <p>The county's criminal justice system handles significant caseloads including drug offenses, domestic violence, OWI, and property crimes. Muskegon has faced economic challenges over the years, leading to higher crime rates in certain areas, particularly in the city of Muskegon and Muskegon Heights. This environment means prosecutors often take a aggressive approach to criminal charges, making experienced defense representation critical.</p>
-
-                <h2>Muskegon County Courts: Where Your Case Will Be Heard</h2>
-                <p>Criminal cases in Muskegon County proceed through two court levels depending on the severity of charges:</p>
-
-                <h3>14th Circuit Court - Muskegon</h3>
-                <p><strong>Address:</strong> Michael E. Kobza Hall of Justice, 990 Terrace Street, Muskegon, MI 49442</p>
-                <p>The 14th Circuit Court has jurisdiction over all felony cases in Muskegon County. This is where serious criminal charges are prosecuted including drug trafficking, armed robbery, criminal sexual conduct, assault with intent to do great bodily harm, and other felonies. If you're facing felony charges, your case will ultimately be tried before a jury in the 14th Circuit Court. Our trial lawyers have experience defending clients in this courthouse and understand the local jury dynamics and court procedures.</p>
-
-                <h3>60th District Court - Muskegon</h3>
-                <p><strong>Address:</strong> Michael E. Kobza Hall of Justice, 990 Terrace Street, Muskegon, MI 49442</p>
-                <p>The 60th District Court handles all misdemeanor criminal cases from start to finish, as well as the preliminary proceedings for felony cases including arraignments and preliminary examinations. The court processes a high volume of cases including OWI, domestic violence, assault and battery, retail fraud, and other misdemeanors. We regularly appear in the 60th District Court and are familiar with its judges, prosecutors, and procedures.</p>
-
-                <h2>Common Criminal Charges in Muskegon County</h2>
-                <p>Muskegon County's law enforcement agencies prioritize certain types of cases based on local crime patterns:</p>
-
+                <h2 class="text-align-center">Fighting for You in Muskegon County Courts</h2>
+                <p>Our lawyers have a deep understanding of the Muskegon County justice system and frequently handle cases in:</p>
                 <ul>
-                    <li><strong>OWI/DUI:</strong> Drunk driving enforcement is active throughout Muskegon County, particularly during summer tourist season along the lakeshore. We defend all OWI charges including first offense, second offense, high BAC, and felony third offense cases.</li>
-                    <li><strong>Drug Offenses:</strong> Muskegon County has experienced significant drug problems including methamphetamine, heroin, fentanyl, and cocaine. Charges range from simple possession to delivery and manufacturing. Drug task forces actively target trafficking operations.</li>
-                    <li><strong>Domestic Violence:</strong> These charges are prosecuted vigorously in Muskegon County. Even first-time offenders face jail time, probation, and mandatory counseling programs.</li>
-                    <li><strong>Assault Crimes:</strong> Simple assault, aggravated assault, assault with a dangerous weapon, and felonious assault charges are common, particularly in high-crime areas of the county.</li>
-                    <li><strong>Property Crimes:</strong> Breaking and entering, larceny, retail fraud, and motor vehicle theft are prosecuted frequently.</li>
-                    <li><strong>Weapons Charges:</strong> Carrying concealed weapons, felon in possession, and felony firearm charges.</li>
-                    <li><strong>Traffic Violations:</strong> Driving while license suspended, reckless driving, and fleeing and eluding.</li>
-                    <li><strong>Probation Violations:</strong> With many defendants on probation or parole, violation hearings are common in Muskegon County courts.</li>
+                    <li><strong>14th Circuit Court:</strong> This is the trial court for all felony matters in Muskegon County. Our trial attorneys are ready to build a powerful defense for you here.</li>
+                    <li><strong>60th District Court:</strong> Located in the city of Muskegon, this court presides over all misdemeanor cases and the initial proceedings for felony charges. We are familiar with the judges and prosecutors of this busy court.</li>
                 </ul>
-
-                <h2>Cities and Communities We Serve in Muskegon County</h2>
-                <p>Sorin & Pyle represents clients throughout Muskegon County, including:</p>
-                <ul>
-                    <li><strong>Muskegon</strong> - County seat and largest city</li>
-                    <li><strong>Norton Shores</strong> - Large suburb with active law enforcement</li>
-                    <li><strong>Muskegon Heights</strong> - Small city with high prosecution rates</li>
-                    <li><strong>Roosevelt Park</strong> - Smaller municipality within the metro area</li>
-                    <li><strong>North Muskegon</strong> - Lakeside community</li>
-                    <li><strong>Whitehall</strong> - City in southern Muskegon County</li>
-                    <li><strong>Montague</strong> - Community adjacent to Whitehall</li>
-                    <li><strong>Ravenna</strong> - Eastern Muskegon County community</li>
-                    <li><strong>Fruitport Township, Dalton Township, Muskegon Township, and all other Muskegon County townships</strong></li>
-                </ul>
-
-                <h2>Law Enforcement Agencies in Muskegon County</h2>
-                <p>Criminal charges in Muskegon County can result from arrests by multiple agencies:</p>
-                <ul>
-                    <li><strong>Muskegon County Sheriff's Office:</strong> Provides law enforcement to townships and operates the county jail</li>
-                    <li><strong>Muskegon Police Department:</strong> City of Muskegon law enforcement</li>
-                    <li><strong>Norton Shores Police Department:</strong> Active in traffic and drug enforcement</li>
-                    <li><strong>Muskegon Heights Police Department</strong></li>
-                    <li><strong>Whitehall Police Department</strong></li>
-                    <li><strong>Fruitport Police Department</strong></li>
-                    <li><strong>North Muskegon Police Department</strong></li>
-                    <li><strong>Michigan State Police:</strong> Active on US-31 and other major highways</li>
-                    <li><strong>West Michigan Enforcement Team (WEMET):</strong> Regional drug task force</li>
-                </ul>
-
-                <p>Understanding which agency made the arrest and their typical practices can be important for building your defense strategy.</p>
-
-                <h2>Why You Need Experienced Representation in Muskegon County</h2>
-                <p>Muskegon County's criminal justice environment presents unique challenges:</p>
-
-                <p><strong>Aggressive Prosecution:</strong> Muskegon County prosecutors take a firm stance on criminal charges, particularly drug offenses, weapons crimes, and violent offenses. You need an attorney who isn't intimidated and knows how to fight back effectively.</p>
-
-                <p><strong>Understanding Local Courts:</strong> The judges and prosecutors in Muskegon County have their own approaches to different types of cases. Our experience in these courts helps us develop strategies tailored to the specific courthouse culture.</p>
-
-                <p><strong>Protecting Your Rights:</strong> With high caseloads and pressure to move cases quickly, constitutional rights can sometimes be overlooked. We ensure that law enforcement followed proper procedures and that your rights are protected throughout the process.</p>
-
-                <p><strong>Trial Experience:</strong> If your case goes to trial, you need lawyers who know how to select a Muskegon County jury and present evidence effectively. We are trial attorneys who have defended clients before Muskegon County juries.</p>
-
-                <p><strong>Sentencing Advocacy:</strong> Even if a conviction occurs, sentencing advocacy can make the difference between probation and prison. We know how to present mitigating factors to Muskegon County judges.</p>
-
-                <h2>Muskegon County's Unique Challenges</h2>
-                <p>Several factors make criminal defense in Muskegon County particularly challenging:</p>
-
-                <p><strong>Economic Conditions:</strong> Muskegon County has faced economic struggles, contributing to crime rates and making prosecutors less likely to offer lenient plea deals. The community expects tough enforcement, which affects jury attitudes and prosecutorial policies.</p>
-
-                <p><strong>Drug Epidemic:</strong> Like many Rust Belt communities, Muskegon has been hit hard by the opioid crisis. Drug cases are prosecuted aggressively, and judges may impose serious sentences even for first-time offenders.</p>
-
-                <p><strong>High-Crime Areas:</strong> Certain areas of Muskegon and Muskegon Heights experience higher crime rates, leading to aggressive policing and prosecution. Cases arising in these areas may face additional scrutiny.</p>
-
-                <h2>Defending Common Muskegon County Charges</h2>
-                <p>We have experience with the charges most commonly filed in Muskegon County:</p>
-
-                <p><strong><a href="../dui-defense.html">OWI/DUI Defense:</a></strong> Whether arrested in downtown Muskegon, along the lakeshore, or on US-31, we know how to challenge OWI charges. We attack breathalyzer results, question field sobriety tests, and identify constitutional violations in traffic stops.</p>
-
-                <p><strong><a href="../domestic-violence-defense.html">Domestic Violence Defense:</a></strong> These charges carry serious consequences in Muskegon County including potential jail time and long-term probation. We understand how to defend these emotionally charged cases while protecting your rights and your future.</p>
-
-                <div class="cta-section">
-                    <h2>Fight Your Muskegon County Criminal Charges</h2>
-                    <p>If you're facing criminal charges in Muskegon County, don't face the prosecutor alone. You need an experienced criminal defense attorney who will fight for you. Contact Sorin & Pyle today for a free consultation about your Muskegon County case.</p>
-                    <div class="cta-button-container">
-                        <a href="tel:+16162273303" class="cta-button" onclick="gtag('event', 'click', {'event_category': 'CTA', 'event_label': 'Muskegon County Bottom Call'});">Call (616) 227-3303 Now</a>
-                        <a href="../contact.html" class="cta-button cta-button-secondary" onclick="gtag('event', 'click', {'event_category': 'CTA', 'event_label': 'Muskegon County Bottom Contact'});">Request Free Consultation</a>
-                    </div>
-                </div>
-
+                <p>From OWI to serious felonies, our firm has the experience to protect your rights in Muskegon County. We are committed to achieving the best possible outcome for our clients. <a href="../contact.html">Call us for a free, confidential consultation</a> to discuss your case.</p>
             </div>
         </section>
     </main>

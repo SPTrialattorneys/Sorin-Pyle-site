@@ -21,85 +21,22 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Sorin & Pyle, PC">
     <meta name="twitter:card" content="summary_large_image">
+
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV7PKRF2YT"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'G-LV7PKRF2YT', {
-            // Enhanced tracking for legal websites
-            page_title: document.title,
-            page_location: window.location.href,
-            // Core Web Vitals tracking
-            custom_map: {
-                'custom_parameter_1': 'page_type',
-                'custom_parameter_2': 'practice_area'
-            }
-        });
-
-        // Track Core Web Vitals
-        function trackWebVitals() {
-            function sendToGoogleAnalytics({name, delta, value, id}) {
-                gtag('event', name, {
-                    event_category: 'Web Vitals',
-                    event_label: id,
-                    value: Math.round(name === 'CLS' ? delta * 1000 : delta),
-                    non_interaction: true,
-                });
-            }
-
-            // Load web-vitals library
-            import('https://unpkg.com/web-vitals@3/dist/web-vitals.js').then(({onCLS, onFID, onFCP, onLCP, onTTFB}) => {
-                onCLS(sendToGoogleAnalytics);
-                onFID(sendToGoogleAnalytics);
-                onFCP(sendToGoogleAnalytics);
-                onLCP(sendToGoogleAnalytics);
-                onTTFB(sendToGoogleAnalytics);
-            });
-        }
-
-        // Track page engagement for legal sites
-        function trackEngagement() {
-            let engagementTime = 0;
-            let lastActiveTime = Date.now();
-
-            const trackTime = () => {
-                const now = Date.now();
-                engagementTime += now - lastActiveTime;
-                lastActiveTime = now;
-            };
-
-            ['mousedown', 'touchstart', 'keydown', 'scroll'].forEach(event => {
-                document.addEventListener(event, trackTime, {passive: true});
-            });
-
-            // Send engagement data on page unload
-            window.addEventListener('beforeunload', () => {
-                gtag('event', 'engagement_time', {
-                    event_category: 'User Engagement',
-                    value: Math.round(engagementTime / 1000),
-                    non_interaction: true
-                });
-            });
-        }
-
-        // Initialize tracking when DOM is ready
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', () => {
-                trackWebVitals();
-                trackEngagement();
-            });
-        } else {
-            trackWebVitals();
-            trackEngagement();
-        }
+        gtag('config', 'G-LV7PKRF2YT');
     </script>
 
-
     <!-- Local fonts loaded via CSS -->
-<link rel="stylesheet" href="../css/core-brand.css">
+<link rel="icon" type="image/png" href="../images/favicon.png">
+    <link rel="stylesheet" href="../css/core-brand.css">
     <link rel="stylesheet" href="../css/style.css">
+    <!-- Cookie Consent Banner -->
+    <link rel="stylesheet" href="../css/cookie-consent.css">
 
     <!-- Breadcrumb Schema -->
     <script type="application/ld+json">
@@ -128,78 +65,9 @@
       ]
     }
     </script>
-
-    <!-- LegalService Schema -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LegalService",
-      "name": "Sorin & Pyle, PC - Newaygo County Criminal Defense",
-      "image": "https://www.sorinpyle.com/images/logo-icon.svg",
-      "description": "Criminal defense attorneys serving Newaygo County, Michigan. Defending clients in White Cloud, Fremont, and Newaygo. Experienced representation in 27th Circuit Court and 78th District Court.",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "217 E 24th St Ste 107",
-        "addressLocality": "Holland",
-        "addressRegion": "MI",
-        "postalCode": "49423",
-        "addressCountry": "US"
-      },
-      "telephone": "+1-616-227-3303",
-      "email": "justice@callsbp.com",
-      "url": "https://www.sorinpyle.com/locations/newaygo-county.html",
-      "priceRange": "$$",
-      "areaServed": [
-        {
-          "@type": "AdministrativeArea",
-          "name": "Newaygo County",
-          "containedInPlace": {
-            "@type": "State",
-            "name": "Michigan"
-          }
-        },
-        {
-          "@type": "City",
-          "name": "White Cloud",
-          "containedInPlace": {
-            "@type": "State",
-            "name": "Michigan"
-          }
-        },
-        {
-          "@type": "City",
-          "name": "Fremont",
-          "containedInPlace": {
-            "@type": "State",
-            "name": "Michigan"
-          }
-        },
-        {
-          "@type": "City",
-          "name": "Newaygo",
-          "containedInPlace": {
-            "@type": "State",
-            "name": "Michigan"
-          }
-        }
-      ],
-      "serviceType": [
-        "Criminal Defense",
-        "DUI/OWI Defense",
-        "Domestic Violence Defense",
-        "Drug Crime Defense",
-        "Assault Defense",
-        "Theft Crime Defense",
-        "Felony Defense",
-        "Misdemeanor Defense"
-      ]
-    }
-    </script>
-    <!-- Cookie Consent Banner -->
-    <link rel="stylesheet" href="../css/cookie-consent.css">
 </head>
 <body>
-
+    
                                         <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <!-- ▼▼▼ NAVBAR (Identical on all pages) ▼▼▼ -->
@@ -261,110 +129,19 @@
 
     <main id="main-content">
         <section class="section">
-            <div class="container-large">
+            <div class="container-large fade-up-on-scroll">
                 <h1 class="text-align-center">Newaygo County Criminal Defense Lawyer</h1>
                 <p class="text-align-center sub-headline">When you're facing criminal charges in Newaygo County, you need a defense attorney who is familiar with the local legal landscape. Sorin & Pyle provides dedicated representation for clients in White Cloud, Fremont, Newaygo, and the surrounding areas.</p>
 
-                <div class="cta-button-container">
-                    <a href="tel:+16162273303" class="cta-button" onclick="gtag('event', 'click', {'event_category': 'CTA', 'event_label': 'Newaygo County Top Call'});">Call (616) 227-3303</a>
-                    <a href="../contact.html" class="cta-button cta-button-secondary" onclick="gtag('event', 'click', {'event_category': 'CTA', 'event_label': 'Newaygo County Top Contact'});">Free Consultation</a>
-                </div>
-
                 <hr class="hr-divider">
 
-                <h2>Newaygo County's Criminal Justice System</h2>
-                <p>Newaygo County is a largely rural county in West Michigan with approximately 48,000 residents spread across 860 square miles. The county seat is White Cloud, where the courthouse is located. Other major communities include Fremont, Newaygo, Grant, and Hesperia. The county's economy is based primarily on agriculture, manufacturing, and outdoor recreation, creating a tight-knit community where local reputation matters.</p>
-
-                <p>US-131 runs through the eastern part of the county, and several state highways cross the area, leading to traffic enforcement and occasional drug interdiction cases. The county's rural character means the criminal justice system handles a different mix of cases than urban counties, with significant numbers of domestic violence, OWI, drug offenses, and property crimes. The smaller population also means judges, prosecutors, and defense attorneys often know each other well, making professional relationships and local reputation important factors.</p>
-
-                <h2>Newaygo County Courts: Where Your Case Will Be Heard</h2>
-                <p>All criminal cases in Newaygo County are handled at the county courthouse in White Cloud through two court levels:</p>
-
-                <h3>27th Circuit Court - White Cloud</h3>
-                <p><strong>Address:</strong> Newaygo County Courthouse, 1092 Newell Street, White Cloud, MI 49349</p>
-                <p>The 27th Circuit Court has jurisdiction over all felony cases in Newaygo County. This is where serious criminal charges are prosecuted including drug trafficking, criminal sexual conduct, armed robbery, assault with intent to do great bodily harm, home invasion, and all other felonies. If you're facing felony charges, your case will ultimately be tried before a jury of Newaygo County residents in this courthouse. Our trial attorneys understand how to present cases to rural juries and are prepared to defend you effectively.</p>
-
-                <h3>78th District Court - White Cloud</h3>
-                <p><strong>Address:</strong> Newaygo County Courthouse, 1092 Newell Street, White Cloud, MI 49349</p>
-                <p>The 78th District Court handles all misdemeanor criminal cases from arraignment through trial, as well as the preliminary proceedings for felony cases including arraignments and preliminary examinations. Whether you're charged with OWI, domestic violence, assault and battery, retail fraud, or any other misdemeanor, your case will be heard in this court. We regularly appear in the 78th District Court and are familiar with its judges, prosecutors, and local procedures.</p>
-
-                <h2>Common Criminal Charges in Newaygo County</h2>
-                <p>Newaygo County's rural character and economy create specific patterns of criminal charges:</p>
-
+                <h2 class="text-align-center">Your Advocate in Newaygo County Courts</h2>
+                <p>Our attorneys have the experience necessary to effectively navigate the Newaygo County court system, including:</p>
                 <ul>
-                    <li><strong>OWI/DUI:</strong> Operating while intoxicated is one of the most common criminal charges in Newaygo County. Rural roads and limited public transportation contribute to DUI enforcement patterns. We defend first offense OWI, second offense OWI, high BAC cases, and felony third offense OWI.</li>
-                    <li><strong>Domestic Violence:</strong> These charges are taken very seriously in Newaygo County. Even first-time offenders can face jail time, protective orders, and mandatory counseling programs that can be difficult to complete in a rural county with limited treatment options.</li>
-                    <li><strong>Drug Offenses:</strong> Methamphetamine, prescription drugs, cocaine, and heroin cases are prosecuted in Newaygo County. Charges range from simple possession to delivery and manufacturing.</li>
-                    <li><strong>Assault & Battery:</strong> Simple assault, aggravated assault, and assault with a dangerous weapon charges.</li>
-                    <li><strong>Property Crimes:</strong> Breaking and entering, larceny, malicious destruction of property, and receiving stolen property.</li>
-                    <li><strong>Traffic Violations:</strong> Driving while license suspended (DWLS), reckless driving, and fleeing and eluding.</li>
-                    <li><strong>Retail Fraud:</strong> Shoplifting charges from stores in Fremont, Newaygo, and other communities.</li>
-                    <li><strong>Weapons Offenses:</strong> Carrying concealed weapons and felon in possession charges.</li>
+                    <li><strong>27th Circuit Court:</strong> This court has jurisdiction over all felony cases in Newaygo County. Our trial lawyers are prepared to defend your most serious charges here.</li>
+                    <li><strong>78th District Court:</strong> Located in White Cloud, this court handles all misdemeanor offenses and the preliminary stages of felony cases. We are experienced in representing clients at every stage in this court.</li>
                 </ul>
-
-                <h2>Cities and Communities We Serve in Newaygo County</h2>
-                <p>Sorin & Pyle represents clients throughout Newaygo County, including:</p>
-                <ul>
-                    <li><strong>White Cloud</strong> - County seat and location of the courthouse</li>
-                    <li><strong>Fremont</strong> - Largest city in Newaygo County</li>
-                    <li><strong>Newaygo</strong> - City along the Muskegon River</li>
-                    <li><strong>Grant</strong> - Small city in southern Newaygo County</li>
-                    <li><strong>Hesperia</strong> - Village in western Newaygo County</li>
-                    <li><strong>Big Prairie Township, Croton Township, Garfield Township, and all other Newaygo County townships</strong></li>
-                </ul>
-
-                <h2>Law Enforcement in Newaygo County</h2>
-                <p>Criminal charges in Newaygo County typically result from arrests by these law enforcement agencies:</p>
-                <ul>
-                    <li><strong>Newaygo County Sheriff's Office:</strong> Primary law enforcement for townships and unincorporated areas throughout the county</li>
-                    <li><strong>Fremont Department of Public Safety:</strong> Combined police and fire services for the City of Fremont</li>
-                    <li><strong>Newaygo Police Department</strong></li>
-                    <li><strong>White Cloud Police Department</strong></li>
-                    <li><strong>Grant Police Department</strong></li>
-                    <li><strong>Michigan State Police:</strong> Active on US-131 and other major highways</li>
-                    <li><strong>West Michigan Enforcement Team (WEMET):</strong> Multi-jurisdictional drug task force</li>
-                </ul>
-
-                <p>Understanding the arresting agency and their standard practices can be important for identifying potential defense strategies.</p>
-
-                <h2>Why Local Representation Matters in Newaygo County</h2>
-                <p>Newaygo County's small, rural character creates unique considerations for criminal defense:</p>
-
-                <p><strong>Small Community Dynamics:</strong> In a county of 48,000 residents, reputation matters. The judges, prosecutors, and court staff often know each other well. Having an attorney who understands these dynamics and maintains professional relationships while zealously advocating for clients is valuable.</p>
-
-                <p><strong>Single Courthouse:</strong> With all cases handled in White Cloud, understanding the specific procedures, expectations, and preferences of the Newaygo County courts is essential. We appear regularly in this courthouse and know how things work there.</p>
-
-                <p><strong>Rural Jury Understanding:</strong> Newaygo County juries are drawn from agricultural communities and small towns. Understanding local values and how to present cases to rural juries is important for trial success.</p>
-
-                <p><strong>Limited Resources:</strong> Court-ordered treatment programs, community service, and other sentencing requirements can be challenging to complete in a rural county with limited public transportation and fewer service providers. We work to address these practical concerns in negotiations and sentencing.</p>
-
-                <p><strong>Prosecutor Familiarity:</strong> The Newaygo County Prosecutor's Office is smaller than those in urban counties. Understanding their approach to different types of cases and building working relationships helps us negotiate effectively on your behalf.</p>
-
-                <h2>Challenges Unique to Newaygo County Cases</h2>
-                <p>Several factors create unique challenges for criminal defendants in Newaygo County:</p>
-
-                <p><strong>Transportation Issues:</strong> Limited public transportation makes it difficult for defendants without driver's licenses to attend court hearings, meet with attorneys, complete treatment programs, or perform community service. These practical concerns must be addressed early in the case.</p>
-
-                <p><strong>Treatment Availability:</strong> Substance abuse treatment, domestic violence counseling, and mental health services may have waiting lists or limited availability in rural Newaygo County. Planning for these requirements is important when negotiating plea deals.</p>
-
-                <p><strong>Economic Challenges:</strong> Newaygo County has faced economic difficulties, and many defendants struggle to pay fines, costs, and restitution. Understanding judges' approaches to economic hardship is important for sentencing advocacy.</p>
-
-                <h2>Defending Common Newaygo County Charges</h2>
-                <p>We have experience defending the charges most commonly prosecuted in Newaygo County:</p>
-
-                <p><strong><a href="../dui-defense.html">OWI/DUI Defense:</a></strong> Rural roads and limited public transportation make OWI charges particularly common in Newaygo County. We know how to challenge breathalyzer results, question field sobriety test administration, and identify constitutional violations in traffic stops throughout the county.</p>
-
-                <p><strong><a href="../domestic-violence-defense.html">Domestic Violence Defense:</a></strong> These charges carry serious consequences in Newaygo County including jail time, probation, protective orders, and mandatory counseling. We understand how to defend domestic violence cases while working toward outcomes that protect your rights and your future.</p>
-
-                <div class="cta-section">
-                    <h2>Experienced Newaygo County Criminal Defense</h2>
-                    <p>If you're facing criminal charges in Newaygo County, don't navigate the justice system alone. Local experience matters, and you need an attorney who understands Newaygo County courts, prosecutors, and procedures. Contact Sorin & Pyle today for a free consultation about your case.</p>
-                    <div class="cta-button-container">
-                        <a href="tel:+16162273303" class="cta-button" onclick="gtag('event', 'click', {'event_category': 'CTA', 'event_label': 'Newaygo County Bottom Call'});">Call (616) 227-3303 Now</a>
-                        <a href="../contact.html" class="cta-button cta-button-secondary" onclick="gtag('event', 'click', {'event_category': 'CTA', 'event_label': 'Newaygo County Bottom Contact'});">Request Free Consultation</a>
-                    </div>
-                </div>
-
+                <p>Don't face the Newaygo County justice system alone. Our firm is committed to providing a robust defense for every client. <a href="../contact.html">Contact us today for a free consultation</a> to learn how we can protect your rights.</p>
             </div>
         </section>
     </main>

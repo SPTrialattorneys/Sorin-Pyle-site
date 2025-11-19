@@ -21,85 +21,22 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Sorin & Pyle, PC">
     <meta name="twitter:card" content="summary_large_image">
+
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV7PKRF2YT"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'G-LV7PKRF2YT', {
-            // Enhanced tracking for legal websites
-            page_title: document.title,
-            page_location: window.location.href,
-            // Core Web Vitals tracking
-            custom_map: {
-                'custom_parameter_1': 'page_type',
-                'custom_parameter_2': 'practice_area'
-            }
-        });
-
-        // Track Core Web Vitals
-        function trackWebVitals() {
-            function sendToGoogleAnalytics({name, delta, value, id}) {
-                gtag('event', name, {
-                    event_category: 'Web Vitals',
-                    event_label: id,
-                    value: Math.round(name === 'CLS' ? delta * 1000 : delta),
-                    non_interaction: true,
-                });
-            }
-
-            // Load web-vitals library
-            import('https://unpkg.com/web-vitals@3/dist/web-vitals.js').then(({onCLS, onFID, onFCP, onLCP, onTTFB}) => {
-                onCLS(sendToGoogleAnalytics);
-                onFID(sendToGoogleAnalytics);
-                onFCP(sendToGoogleAnalytics);
-                onLCP(sendToGoogleAnalytics);
-                onTTFB(sendToGoogleAnalytics);
-            });
-        }
-
-        // Track page engagement for legal sites
-        function trackEngagement() {
-            let engagementTime = 0;
-            let lastActiveTime = Date.now();
-
-            const trackTime = () => {
-                const now = Date.now();
-                engagementTime += now - lastActiveTime;
-                lastActiveTime = now;
-            };
-
-            ['mousedown', 'touchstart', 'keydown', 'scroll'].forEach(event => {
-                document.addEventListener(event, trackTime, {passive: true});
-            });
-
-            // Send engagement data on page unload
-            window.addEventListener('beforeunload', () => {
-                gtag('event', 'engagement_time', {
-                    event_category: 'User Engagement',
-                    value: Math.round(engagementTime / 1000),
-                    non_interaction: true
-                });
-            });
-        }
-
-        // Initialize tracking when DOM is ready
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', () => {
-                trackWebVitals();
-                trackEngagement();
-            });
-        } else {
-            trackWebVitals();
-            trackEngagement();
-        }
+        gtag('config', 'G-LV7PKRF2YT');
     </script>
 
-
     <!-- Local fonts loaded via CSS -->
-<link rel="stylesheet" href="../css/core-brand.css">
+<link rel="icon" type="image/png" href="../images/favicon.png">
+    <link rel="stylesheet" href="../css/core-brand.css">
     <link rel="stylesheet" href="../css/style.css">
+    <!-- Cookie Consent Banner -->
+    <link rel="stylesheet" href="../css/cookie-consent.css">
 
     <!-- Breadcrumb Schema -->
     <script type="application/ld+json">
@@ -128,70 +65,9 @@
       ]
     }
     </script>
-
-    <!-- LegalService Schema -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LegalService",
-      "name": "Sorin & Pyle, PC - Kalamazoo County Criminal Defense",
-      "image": "https://www.sorinpyle.com/images/logo-icon.svg",
-      "description": "Criminal defense attorneys serving Kalamazoo County, Michigan. Defending clients in Kalamazoo and Portage. Experienced representation in 9th Circuit Court and 8th District Court.",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "217 E 24th St Ste 107",
-        "addressLocality": "Holland",
-        "addressRegion": "MI",
-        "postalCode": "49423",
-        "addressCountry": "US"
-      },
-      "telephone": "+1-616-227-3303",
-      "email": "justice@callsbp.com",
-      "url": "https://www.sorinpyle.com/locations/kalamazoo-county.html",
-      "priceRange": "$$",
-      "areaServed": [
-        {
-          "@type": "AdministrativeArea",
-          "name": "Kalamazoo County",
-          "containedInPlace": {
-            "@type": "State",
-            "name": "Michigan"
-          }
-        },
-        {
-          "@type": "City",
-          "name": "Kalamazoo",
-          "containedInPlace": {
-            "@type": "State",
-            "name": "Michigan"
-          }
-        },
-        {
-          "@type": "City",
-          "name": "Portage",
-          "containedInPlace": {
-            "@type": "State",
-            "name": "Michigan"
-          }
-        }
-      ],
-      "serviceType": [
-        "Criminal Defense",
-        "DUI/OWI Defense",
-        "Domestic Violence Defense",
-        "Drug Crime Defense",
-        "Assault Defense",
-        "Theft Crime Defense",
-        "Felony Defense",
-        "Misdemeanor Defense"
-      ]
-    }
-    </script>
-    <!-- Cookie Consent Banner -->
-    <link rel="stylesheet" href="../css/cookie-consent.css">
 </head>
 <body>
-
+    
                                         <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <!-- ▼▼▼ NAVBAR (Identical on all pages) ▼▼▼ -->
@@ -253,116 +129,19 @@
 
     <main id="main-content">
         <section class="section">
-            <div class="container-large">
+            <div class="container-large fade-up-on-scroll">
                 <h1 class="text-align-center">Kalamazoo County Criminal Defense Lawyer</h1>
                 <p class="text-align-center sub-headline">Facing criminal charges in Kalamazoo County requires a defense attorney with local insight. Sorin & Pyle provides skilled representation for clients in Kalamazoo, Portage, and the surrounding areas, fighting both felony and misdemeanor charges.</p>
 
-                <div class="cta-button-container">
-                    <a href="tel:+16162273303" class="cta-button" onclick="gtag('event', 'click', {'event_category': 'CTA', 'event_label': 'Kalamazoo County Top Call'});">Call (616) 227-3303</a>
-                    <a href="../contact.html" class="cta-button cta-button-secondary" onclick="gtag('event', 'click', {'event_category': 'CTA', 'event_label': 'Kalamazoo County Top Contact'});">Free Consultation</a>
-                </div>
-
                 <hr class="hr-divider">
 
-                <h2>The Kalamazoo County Criminal Justice System</h2>
-                <p>Kalamazoo County is a major regional center in Southwest Michigan, home to approximately 260,000 residents. The city of Kalamazoo serves as the county seat and hosts multiple universities including Western Michigan University and Kalamazoo College. This creates a unique demographic mix of permanent residents, college students, and transient populations that shapes the county's criminal justice landscape.</p>
-
-                <p>The county's criminal courts process thousands of cases annually, ranging from student-related alcohol offenses to serious violent felonies. Major highways including I-94 and US-131 run through the county, leading to significant traffic enforcement and drug interdiction efforts. Understanding the complexities of Kalamazoo County's criminal justice system is essential when facing charges here.</p>
-
-                <h2>Kalamazoo County Courts: Where Your Case Will Be Heard</h2>
-                <p>Criminal cases in Kalamazoo County are handled through two distinct court systems:</p>
-
-                <h3>9th Circuit Court - Kalamazoo</h3>
-                <p><strong>Address:</strong> Kalamazoo County Courthouse, 227 W Michigan Avenue, Kalamazoo, MI 49007</p>
-                <p>The 9th Circuit Court has exclusive jurisdiction over all felony cases in Kalamazoo County. This is where serious criminal charges are prosecuted and tried before juries. The court handles cases including armed robbery, criminal sexual conduct, drug trafficking, assault with intent to do great bodily harm, home invasion, and all other felony offenses. Our trial attorneys have experience defending clients in the 9th Circuit Court and understand the expectations and procedures of this courthouse.</p>
-
-                <h3>8th District Court - Two Locations</h3>
-                <p>The 8th District Court serves Kalamazoo County with two divisions:</p>
-                <p><strong>Kalamazoo Division:</strong> 227 W Michigan Avenue, Kalamazoo, MI 49007</p>
-                <p><strong>Portage Division:</strong> 7900 Shaver Road, Portage, MI 49024</p>
-                <p>The 8th District Court handles all misdemeanor criminal cases from arraignment through trial, as well as the preliminary proceedings for felony cases including arraignments and preliminary examinations. Depending on where you were arrested, your case will be heard in either the Kalamazoo or Portage division. We regularly appear in both courthouses and are familiar with the judges, prosecutors, and procedures at each location.</p>
-
-                <h2>Common Criminal Charges in Kalamazoo County</h2>
-                <p>Kalamazoo County's urban environment, university populations, and major highway corridors result in distinct patterns of criminal charges:</p>
-
+                <h2 class="text-align-center">Defending Clients in Kalamazoo County Courts</h2>
+                <p>Our attorneys are well-versed in the procedures and personnel of the Kalamazoo County court system. We regularly appear in:</p>
                 <ul>
-                    <li><strong>OWI/DUI:</strong> Operating while intoxicated charges are extremely common, particularly in areas near Western Michigan University and downtown Kalamazoo entertainment districts. We defend all levels of OWI charges including first offense, second offense, high BAC (.17 or above), and felony third offense.</li>
-                    <li><strong>Drug Offenses:</strong> From simple possession to delivery and manufacturing, Kalamazoo County sees significant drug enforcement. Charges commonly involve marijuana, cocaine, methamphetamine, heroin, fentanyl, MDMA, and prescription drugs. Interstate highway traffic through the county results in many drug interdiction cases.</li>
-                    <li><strong>Domestic Violence:</strong> Domestic assault charges are prosecuted aggressively in Kalamazoo County. The prosecutor's office takes these cases seriously regardless of whether the alleged victim wants to proceed with charges.</li>
-                    <li><strong>Assault Crimes:</strong> Assault and battery, aggravated assault, assault with a dangerous weapon, and assault causing serious injury. Bar fights and other altercations near campus and entertainment districts generate many assault charges.</li>
-                    <li><strong>Retail Fraud:</strong> Shoplifting charges from the many retail centers in Portage, Kalamazoo, and throughout the county.</li>
-                    <li><strong>Minor in Possession (MIP):</strong> Alcohol violations involving university students and minors.</li>
-                    <li><strong>Disorderly Conduct and Disturbing the Peace:</strong> Often related to nightlife and campus activities.</li>
-                    <li><strong>Property Crimes:</strong> Breaking and entering, larceny, motor vehicle theft, and receiving stolen property.</li>
-                    <li><strong>Traffic Offenses:</strong> Driving while license suspended, reckless driving, and fleeing and eluding police.</li>
+                    <li><strong>9th Circuit Court:</strong> As the court for all felony cases in the county, we are prepared to take your case to trial here, defending your freedom and future.</li>
+                    <li><strong>8th District Court:</strong> With locations in both Kalamazoo and Portage, this court handles all misdemeanor cases and the critical early stages of felony cases. We have extensive experience navigating both divisions of this court.</li>
                 </ul>
-
-                <h2>Cities and Communities We Serve in Kalamazoo County</h2>
-                <p>Sorin & Pyle represents clients throughout Kalamazoo County, including:</p>
-                <ul>
-                    <li><strong>Kalamazoo</strong> - County seat and largest city, home to multiple universities</li>
-                    <li><strong>Portage</strong> - Major suburb with significant retail and residential areas</li>
-                    <li><strong>Parchment</strong> - Small city adjacent to Kalamazoo</li>
-                    <li><strong>Galesburg</strong> - Community in northeastern Kalamazoo County</li>
-                    <li><strong>Schoolcraft</strong> - Village in southern Kalamazoo County</li>
-                    <li><strong>Vicksburg</strong> - Community in southern Kalamazoo County</li>
-                    <li><strong>Texas Township, Oshtemo Township, Kalamazoo Township, and all other Kalamazoo County townships</strong></li>
-                </ul>
-
-                <h2>Law Enforcement Agencies in Kalamazoo County</h2>
-                <p>Criminal charges in Kalamazoo County can result from arrests by multiple law enforcement agencies:</p>
-                <ul>
-                    <li><strong>Kalamazoo County Sheriff's Office:</strong> Provides law enforcement services to townships and operates the county jail</li>
-                    <li><strong>Kalamazoo Department of Public Safety:</strong> Combined police and fire services for the City of Kalamazoo</li>
-                    <li><strong>Portage Department of Public Safety:</strong> Serves the City of Portage</li>
-                    <li><strong>Western Michigan University Department of Public Safety:</strong> University police with jurisdiction on campus and adjacent areas</li>
-                    <li><strong>Parchment Police Department</strong></li>
-                    <li><strong>Michigan State Police:</strong> Very active on I-94 and US-131 conducting traffic enforcement and drug interdiction</li>
-                    <li><strong>Southwest Enforcement Team (SWET):</strong> Multi-agency drug task force operating in Southwest Michigan</li>
-                </ul>
-
-                <p>Each agency has different enforcement priorities and practices. Our experience with these agencies helps us evaluate the evidence and identify potential defenses in your case.</p>
-
-                <h2>Why Local Representation Matters in Kalamazoo County</h2>
-                <p>While Kalamazoo County is outside our immediate area, we take select cases there and bring several advantages when we do:</p>
-
-                <p><strong>Understanding Kalamazoo's Urban Environment:</strong> The county's mix of university populations, urban residents, and suburban communities creates unique jury dynamics and prosecutorial approaches. We understand these factors and how they affect case outcomes.</p>
-
-                <p><strong>Experience with University-Related Cases:</strong> Cases involving college students often have unique considerations including academic consequences, out-of-state residence, and first-time offender status. We know how to address these factors effectively.</p>
-
-                <p><strong>Highway Interdiction Defense:</strong> Many Kalamazoo County drug cases arise from Interstate traffic stops. We have experience challenging the legality of these stops and searches, particularly in I-94 and US-131 corridor cases.</p>
-
-                <p><strong>Prosecutor Familiarity:</strong> The Kalamazoo County Prosecutor's Office is a large, professional organization with specialized units. Our experience working with these prosecutors helps us negotiate effectively and understand when trial is the better option.</p>
-
-                <p><strong>Trial Experience:</strong> We are trial lawyers first and foremost. When cases can't be resolved favorably through negotiation, we are prepared to take your case to a jury in Kalamazoo County Circuit or District Court.</p>
-
-                <h2>Special Considerations for Kalamazoo County Cases</h2>
-                <p>Certain factors make Kalamazoo County criminal cases unique:</p>
-
-                <p><strong>University Student Defendants:</strong> Criminal convictions can affect financial aid, housing, and future career prospects. We work to achieve outcomes that minimize these collateral consequences when possible.</p>
-
-                <p><strong>Interstate Drug Cases:</strong> I-94 serves as a major drug trafficking corridor. Kalamazoo County sees many cases involving non-residents stopped on the highway. These cases often involve complex Fourth Amendment search and seizure issues that require experienced criminal defense counsel.</p>
-
-                <p><strong>Urban Crime Patterns:</strong> The city of Kalamazoo faces urban crime challenges including gang activity, gun violence, and drug trafficking. Cases arising in the city may be charged more seriously than similar conduct in outlying areas.</p>
-
-                <p><strong>Multiple Jurisdictions:</strong> With two district court divisions, understanding where your case will be heard and the procedural differences between locations matters for case strategy.</p>
-
-                <h2>Defending Common Kalamazoo County Charges</h2>
-                <p>We have experience defending the charges most frequently filed in Kalamazoo County:</p>
-
-                <p><strong><a href="../dui-defense.html">OWI/DUI Defense:</a></strong> Kalamazoo's entertainment districts and university areas generate significant OWI enforcement. We know how to challenge breathalyzer results, question field sobriety test administration, and identify constitutional violations in OWI stops throughout Kalamazoo County.</p>
-
-                <p><strong><a href="../domestic-violence-defense.html">Domestic Violence Defense:</a></strong> These charges carry serious consequences including jail time, probation restrictions, and loss of firearm rights. Kalamazoo County takes domestic violence seriously, making experienced defense representation essential.</p>
-
-                <div class="cta-section">
-                    <h2>Professional Criminal Defense in Kalamazoo County</h2>
-                    <p>If you're facing criminal charges in Kalamazoo County, the decisions you make now will affect your future. You need an attorney with the experience and skills to fight for you in the Kalamazoo County courts. Contact Sorin & Pyle for a free consultation about your case.</p>
-                    <div class="cta-button-container">
-                        <a href="tel:+16162273303" class="cta-button" onclick="gtag('event', 'click', {'event_category': 'CTA', 'event_label': 'Kalamazoo County Bottom Call'});">Call (616) 227-3303 Now</a>
-                        <a href="../contact.html" class="cta-button cta-button-secondary" onclick="gtag('event', 'click', {'event_category': 'CTA', 'event_label': 'Kalamazoo County Bottom Contact'});">Request Free Consultation</a>
-                    </div>
-                </div>
-
+                <p>A local charge needs a local defense. We understand the nuances of practicing in Kalamazoo County and use that knowledge to your advantage. <a href="../contact.html">Contact us for a free consultation</a> to see how we can help with your case.</p>
             </div>
         </section>
     </main>

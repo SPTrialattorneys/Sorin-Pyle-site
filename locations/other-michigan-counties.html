@@ -21,85 +21,22 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Sorin & Pyle, PC">
     <meta name="twitter:card" content="summary_large_image">
+
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV7PKRF2YT"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'G-LV7PKRF2YT', {
-            // Enhanced tracking for legal websites
-            page_title: document.title,
-            page_location: window.location.href,
-            // Core Web Vitals tracking
-            custom_map: {
-                'custom_parameter_1': 'page_type',
-                'custom_parameter_2': 'practice_area'
-            }
-        });
-
-        // Track Core Web Vitals
-        function trackWebVitals() {
-            function sendToGoogleAnalytics({name, delta, value, id}) {
-                gtag('event', name, {
-                    event_category: 'Web Vitals',
-                    event_label: id,
-                    value: Math.round(name === 'CLS' ? delta * 1000 : delta),
-                    non_interaction: true,
-                });
-            }
-
-            // Load web-vitals library
-            import('https://unpkg.com/web-vitals@3/dist/web-vitals.js').then(({onCLS, onFID, onFCP, onLCP, onTTFB}) => {
-                onCLS(sendToGoogleAnalytics);
-                onFID(sendToGoogleAnalytics);
-                onFCP(sendToGoogleAnalytics);
-                onLCP(sendToGoogleAnalytics);
-                onTTFB(sendToGoogleAnalytics);
-            });
-        }
-
-        // Track page engagement for legal sites
-        function trackEngagement() {
-            let engagementTime = 0;
-            let lastActiveTime = Date.now();
-
-            const trackTime = () => {
-                const now = Date.now();
-                engagementTime += now - lastActiveTime;
-                lastActiveTime = now;
-            };
-
-            ['mousedown', 'touchstart', 'keydown', 'scroll'].forEach(event => {
-                document.addEventListener(event, trackTime, {passive: true});
-            });
-
-            // Send engagement data on page unload
-            window.addEventListener('beforeunload', () => {
-                gtag('event', 'engagement_time', {
-                    event_category: 'User Engagement',
-                    value: Math.round(engagementTime / 1000),
-                    non_interaction: true
-                });
-            });
-        }
-
-        // Initialize tracking when DOM is ready
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', () => {
-                trackWebVitals();
-                trackEngagement();
-            });
-        } else {
-            trackWebVitals();
-            trackEngagement();
-        }
+        gtag('config', 'G-LV7PKRF2YT');
     </script>
 
-
     <!-- Local fonts loaded via CSS -->
-<link rel="stylesheet" href="../css/core-brand.css">
+<link rel="icon" type="image/png" href="../images/favicon.png">
+    <link rel="stylesheet" href="../css/core-brand.css">
     <link rel="stylesheet" href="../css/style.css">
+    <!-- Cookie Consent Banner -->
+    <link rel="stylesheet" href="../css/cookie-consent.css">
 
     <!-- Breadcrumb Schema -->
     <script type="application/ld+json">
@@ -128,41 +65,6 @@
       ]
     }
     </script>
-
-    <!-- LegalService Schema -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LegalService",
-      "name": "Sorin & Pyle, PC - Statewide Michigan Criminal Defense",
-      "image": "https://www.sorinpyle.com/images/logo-icon.svg",
-      "description": "Criminal defense attorneys licensed to practice statewide in Michigan. Taking select serious felony cases throughout the state. Based in West Michigan with experience in courts across Michigan.",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "217 E 24th St Ste 107",
-        "addressLocality": "Holland",
-        "addressRegion": "MI",
-        "postalCode": "49423",
-        "addressCountry": "US"
-      },
-      "telephone": "+1-616-227-3303",
-      "email": "justice@callsbp.com",
-      "url": "https://www.sorinpyle.com/locations/other-michigan-counties.html",
-      "priceRange": "$$",
-      "areaServed": {
-        "@type": "State",
-        "name": "Michigan"
-      },
-      "serviceType": [
-        "Criminal Defense",
-        "Felony Defense",
-        "Serious Criminal Charges",
-        "Statewide Representation"
-      ]
-    }
-    </script>
-    <!-- Cookie Consent Banner -->
-    <link rel="stylesheet" href="../css/cookie-consent.css">
 </head>
 <body>
     
@@ -227,7 +129,7 @@
 
     <main id="main-content">
         <section class="section">
-            <div class="container-large">
+            <div class="container-large fade-up-on-scroll">
                 <h1 class="text-align-center">Serving Other Michigan Counties</h1>
                 <p class="text-align-center sub-headline">While our primary focus is on West Michigan, our attorneys are licensed to practice throughout the state of Michigan. We have the experience and willingness to travel to other counties to provide the aggressive, dedicated defense our clients deserve. If you are facing serious charges anywhere in Michigan, do not hesitate to contact us for a free consultation.</p>
             </div>

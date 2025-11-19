@@ -21,85 +21,22 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Sorin & Pyle, PC">
     <meta name="twitter:card" content="summary_large_image">
+
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV7PKRF2YT"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'G-LV7PKRF2YT', {
-            // Enhanced tracking for legal websites
-            page_title: document.title,
-            page_location: window.location.href,
-            // Core Web Vitals tracking
-            custom_map: {
-                'custom_parameter_1': 'page_type',
-                'custom_parameter_2': 'practice_area'
-            }
-        });
-
-        // Track Core Web Vitals
-        function trackWebVitals() {
-            function sendToGoogleAnalytics({name, delta, value, id}) {
-                gtag('event', name, {
-                    event_category: 'Web Vitals',
-                    event_label: id,
-                    value: Math.round(name === 'CLS' ? delta * 1000 : delta),
-                    non_interaction: true,
-                });
-            }
-
-            // Load web-vitals library
-            import('https://unpkg.com/web-vitals@3/dist/web-vitals.js').then(({onCLS, onFID, onFCP, onLCP, onTTFB}) => {
-                onCLS(sendToGoogleAnalytics);
-                onFID(sendToGoogleAnalytics);
-                onFCP(sendToGoogleAnalytics);
-                onLCP(sendToGoogleAnalytics);
-                onTTFB(sendToGoogleAnalytics);
-            });
-        }
-
-        // Track page engagement for legal sites
-        function trackEngagement() {
-            let engagementTime = 0;
-            let lastActiveTime = Date.now();
-
-            const trackTime = () => {
-                const now = Date.now();
-                engagementTime += now - lastActiveTime;
-                lastActiveTime = now;
-            };
-
-            ['mousedown', 'touchstart', 'keydown', 'scroll'].forEach(event => {
-                document.addEventListener(event, trackTime, {passive: true});
-            });
-
-            // Send engagement data on page unload
-            window.addEventListener('beforeunload', () => {
-                gtag('event', 'engagement_time', {
-                    event_category: 'User Engagement',
-                    value: Math.round(engagementTime / 1000),
-                    non_interaction: true
-                });
-            });
-        }
-
-        // Initialize tracking when DOM is ready
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', () => {
-                trackWebVitals();
-                trackEngagement();
-            });
-        } else {
-            trackWebVitals();
-            trackEngagement();
-        }
+        gtag('config', 'G-LV7PKRF2YT');
     </script>
 
-
     <!-- Local fonts loaded via CSS -->
-<link rel="stylesheet" href="../css/core-brand.css">
+<link rel="icon" type="image/png" href="../images/favicon.png">
+    <link rel="stylesheet" href="../css/core-brand.css">
     <link rel="stylesheet" href="../css/style.css">
+    <!-- Cookie Consent Banner -->
+    <link rel="stylesheet" href="../css/cookie-consent.css">
 
     <!-- Breadcrumb Schema -->
     <script type="application/ld+json">
@@ -128,86 +65,9 @@
       ]
     }
     </script>
-
-    <!-- LegalService Schema -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LegalService",
-      "name": "Sorin & Pyle, PC - Allegan County Criminal Defense",
-      "image": "https://www.sorinpyle.com/images/logo-icon.svg",
-      "description": "Criminal defense attorneys serving Allegan County, Michigan. Defending clients in Allegan, Plainwell, Otsego, and Saugatuck. Experienced representation in 48th Circuit Court and 57th District Court.",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "217 E 24th St Ste 107",
-        "addressLocality": "Holland",
-        "addressRegion": "MI",
-        "postalCode": "49423",
-        "addressCountry": "US"
-      },
-      "telephone": "+1-616-227-3303",
-      "email": "justice@callsbp.com",
-      "url": "https://www.sorinpyle.com/locations/allegan-county.html",
-      "priceRange": "$$",
-      "areaServed": [
-        {
-          "@type": "AdministrativeArea",
-          "name": "Allegan County",
-          "containedInPlace": {
-            "@type": "State",
-            "name": "Michigan"
-          }
-        },
-        {
-          "@type": "City",
-          "name": "Allegan",
-          "containedInPlace": {
-            "@type": "State",
-            "name": "Michigan"
-          }
-        },
-        {
-          "@type": "City",
-          "name": "Plainwell",
-          "containedInPlace": {
-            "@type": "State",
-            "name": "Michigan"
-          }
-        },
-        {
-          "@type": "City",
-          "name": "Otsego",
-          "containedInPlace": {
-            "@type": "State",
-            "name": "Michigan"
-          }
-        },
-        {
-          "@type": "City",
-          "name": "Saugatuck",
-          "containedInPlace": {
-            "@type": "State",
-            "name": "Michigan"
-          }
-        }
-      ],
-      "serviceType": [
-        "Criminal Defense",
-        "DUI/OWI Defense",
-        "Domestic Violence Defense",
-        "Drug Crime Defense",
-        "Assault Defense",
-        "Theft Crime Defense",
-        "Felony Defense",
-        "Misdemeanor Defense"
-      ]
-    }
-    </script>
-    <!-- Cookie Consent Banner -->
-    <link rel="stylesheet" href="../css/cookie-consent.css">
 </head>
 <body>
-
+    
                                         <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <!-- ▼▼▼ NAVBAR (Identical on all pages) ▼▼▼ -->
@@ -269,112 +129,19 @@
 
     <main id="main-content">
         <section class="section">
-            <div class="container-large">
+            <div class="container-large fade-up-on-scroll">
                 <h1 class="text-align-center">Allegan County Criminal Defense Lawyer</h1>
                 <p class="text-align-center sub-headline">If you're facing criminal charges in Allegan County, having a local attorney who knows the system is crucial. Sorin & Pyle has a strong track record of defending clients in the Allegan County courts against a wide range of misdemeanor and felony charges.</p>
 
-                <div class="cta-button-container">
-                    <a href="tel:+16162273303" class="cta-button" onclick="gtag('event', 'click', {'event_category': 'CTA', 'event_label': 'Allegan County Top Call'});">Call (616) 227-3303</a>
-                    <a href="../contact.html" class="cta-button cta-button-secondary" onclick="gtag('event', 'click', {'event_category': 'CTA', 'event_label': 'Allegan County Top Contact'});">Free Consultation</a>
-                </div>
-
                 <hr class="hr-divider">
 
-                <h2>Understanding Allegan County's Criminal Justice System</h2>
-                <p>Allegan County is a diverse region covering over 1,800 square miles in southwestern Michigan. From the lakeshore resort communities of Saugatuck and Douglas to the agricultural townships and the city of Allegan, the county serves approximately 120,000 residents. This mix of seasonal tourism, agricultural economy, and permanent residential communities creates unique law enforcement patterns and criminal defense challenges.</p>
-
-                <p>The county's criminal justice system handles everything from tourist-related OWI arrests during the busy summer season to drug offenses, domestic violence cases, and property crimes throughout the year. Understanding the local dynamics of Allegan County law enforcement and court procedures is essential for mounting an effective defense.</p>
-
-                <h2>Allegan County Courts: Where Your Case Will Be Heard</h2>
-                <p>Your criminal case in Allegan County will be handled in one of two courts, depending on the severity of your charges:</p>
-
-                <h3>48th Circuit Court - Allegan</h3>
-                <p><strong>Address:</strong> 113 Chestnut Street, Allegan, MI 49010</p>
-                <p>The 48th Circuit Court is the trial court for all felony cases in Allegan County. Located in the county seat of Allegan, this court handles serious criminal charges including drug trafficking, criminal sexual conduct, assault with intent to do great bodily harm, home invasion, and other felonies. If you're charged with a felony, your case will ultimately be tried before a jury in this courthouse. Our trial lawyers have defended numerous clients in the 48th Circuit Court and understand how to effectively present a defense to Allegan County juries.</p>
-
-                <h3>57th District Court - Allegan</h3>
-                <p><strong>Address:</strong> 113 Chestnut Street, Allegan, MI 49010</p>
-                <p>The 57th District Court shares the same courthouse building as the Circuit Court and handles all misdemeanor criminal cases from start to finish, as well as the preliminary stages of felony cases including arraignments and preliminary examinations. Whether you're charged with OWI, domestic violence, retail fraud, or any other misdemeanor, your case will be heard in this court. We regularly appear in the 57th District Court and have developed strong working relationships while maintaining our aggressive defense advocacy.</p>
-
-                <h2>Common Criminal Charges in Allegan County</h2>
-                <p>Allegan County's unique geographic and demographic characteristics result in certain types of criminal charges being particularly common:</p>
-
+                <h2 class="text-align-center">Experienced Defense in Allegan County Courts</h2>
+                <p>Our firm is intimately familiar with the courts and legal personnel of Allegan County. We regularly handle cases in:</p>
                 <ul>
-                    <li><strong>OWI/DUI Offenses:</strong> The county's lakeshore resort communities attract significant summer tourism, leading to increased drunk driving arrests during peak season. Law enforcement agencies patrol heavily along Blue Star Highway and other major routes. We defend all OWI charges including first offense, second offense, high BAC, and operating while visibly impaired.</li>
-                    <li><strong>Drug Crimes:</strong> Allegan County has seen increased drug enforcement targeting methamphetamine, cocaine, heroin, and prescription drug offenses. Charges range from simple possession to delivery and manufacturing.</li>
-                    <li><strong>Domestic Violence:</strong> Like many rural counties, Allegan County takes domestic violence charges very seriously. Even first-time offenders face potential jail time, mandatory classes, and other consequences.</li>
-                    <li><strong>Retail Fraud/Shoplifting:</strong> Charges from stores in Plainwell, Otsego, Allegan, and the lakeshore communities.</li>
-                    <li><strong>Assault & Battery:</strong> Simple assault, aggravated assault, and assault with a dangerous weapon charges.</li>
-                    <li><strong>Property Crimes:</strong> Breaking and entering, larceny, and malicious destruction of property.</li>
-                    <li><strong>Traffic Violations:</strong> Driving while license suspended (DWLS), reckless driving, and other serious traffic offenses.</li>
-                    <li><strong>Weapons Charges:</strong> Carrying concealed weapons and other firearms violations.</li>
+                    <li><strong>48th Circuit Court:</strong> This is the trial court for all felony cases in Allegan County. Our experienced trial lawyers are prepared to defend your rights and your future in front of a jury at the main courthouse in the city of Allegan.</li>
+                    <li><strong>57th District Court:</strong> This court, also located in Allegan, handles the initial stages of all felony cases (like arraignments and preliminary examinations) and all misdemeanor cases from start to finish. Whether you're charged with OWI, domestic violence, or another offense, your case will begin here.</li>
                 </ul>
-
-                <h2>Cities and Communities We Serve in Allegan County</h2>
-                <p>Sorin & Pyle represents clients throughout Allegan County. Learn more about our criminal defense services in this key Allegan County city:</p>
-                <ul>
-                    <li><strong>Allegan</strong> - County seat and location of the courthouse</li>
-                    <li><strong>Plainwell</strong> - Northern Allegan County city</li>
-                    <li><strong>Otsego</strong> - Community along M-89</li>
-                    <li><a href="saugatuck-mi.html"><strong>Saugatuck & Douglas Criminal Defense Lawyer</strong></a> - Popular lakeshore resort community</li>
-                    <li><strong>Wayland</strong> - Eastern Allegan County community</li>
-                    <li><strong>Martin</strong> - Small community in northeast Allegan County</li>
-                    <li><strong>Fennville</strong> - Agricultural community</li>
-                    <li><strong>Saugatuck Township, Ganges Township, Laketown Township, Manlius Township, and all other Allegan County townships</strong></li>
-                </ul>
-
-                <h2>Law Enforcement in Allegan County</h2>
-                <p>Criminal charges in Allegan County can originate from arrests by various law enforcement agencies:</p>
-                <ul>
-                    <li><strong>Allegan County Sheriff's Office:</strong> Primary law enforcement for townships and unincorporated areas</li>
-                    <li><strong>Allegan Department of Public Safety:</strong> Serves the City of Allegan</li>
-                    <li><strong>Plainwell Department of Public Safety</strong></li>
-                    <li><strong>Otsego Police Department</strong></li>
-                    <li><strong>Saugatuck-Douglas Police Department:</strong> Serves both lakeshore communities</li>
-                    <li><strong>Wayland Police Department</strong></li>
-                    <li><strong>Michigan State Police:</strong> Active on US-131, I-196, M-40, M-89, and other major highways</li>
-                    <li><strong>West Michigan Enforcement Team (WEMET):</strong> Multi-jurisdictional drug task force</li>
-                </ul>
-
-                <p>Each agency operates differently, and understanding their arrest patterns and evidence collection procedures can be critical to your defense. Our experience with Allegan County law enforcement helps us identify potential weaknesses in the prosecution's case.</p>
-
-                <h2>Why Local Representation Matters in Allegan County</h2>
-                <p>Allegan County's smaller size compared to neighboring Kent or Ottawa counties creates a tight-knit legal community where relationships and reputation matter:</p>
-
-                <p><strong>Courthouse Familiarity:</strong> With all criminal cases handled in one courthouse in Allegan, knowing the judges, court staff, and local procedures is invaluable. We appear regularly in the Allegan County courthouse and understand how things work there.</p>
-
-                <p><strong>Prosecutor Relationships:</strong> The Allegan County Prosecutor's Office handles all criminal prosecutions. Our experience working with these prosecutors helps us negotiate effectively and understand their approach to different types of cases.</p>
-
-                <p><strong>Judicial Knowledge:</strong> Understanding each judge's sentencing philosophy, trial procedures, and case management style allows us to tailor our defense strategy for maximum effectiveness.</p>
-
-                <p><strong>Local Jury Understanding:</strong> Allegan County juries are drawn from a mix of rural, small-town, and lakeshore resort communities. Our experience with local juries helps us present your case in a way that resonates with Allegan County residents.</p>
-
-                <p><strong>Proximity and Availability:</strong> Our Holland office is just a short drive from the Allegan County courthouse, allowing us to meet with you promptly and appear in court without the delays associated with out-of-area counsel.</p>
-
-                <h2>Unique Challenges in Allegan County Cases</h2>
-                <p>Allegan County's characteristics create some unique defense challenges:</p>
-
-                <p><strong>Seasonal Tourism Impact:</strong> During summer months, the lakeshore communities see a dramatic increase in population and law enforcement activity. Tourist-related arrests, particularly OWI offenses, spike during this period. Non-residents facing charges may need special assistance navigating the court system from a distance.</p>
-
-                <p><strong>Rural vs. Resort Dynamics:</strong> Cases arising in the agricultural townships may be viewed differently than those from resort communities like Saugatuck. Understanding these local perspectives is important for jury selection and case presentation.</p>
-
-                <p><strong>Limited Public Transportation:</strong> Court-ordered requirements like substance abuse treatment or community service can be challenging for defendants without reliable transportation in this largely rural county. We work to address these practical considerations in plea negotiations and sentencing.</p>
-
-                <h2>Defense for Common Allegan County Charges</h2>
-                <p>We have extensive experience defending the most common charges in Allegan County:</p>
-
-                <p><strong><a href="../dui-defense.html">OWI/DUI Defense:</a></strong> Allegan County's lakeshore tourism and major highway corridors result in significant OWI enforcement activity. We know how to challenge breathalyzer results, question field sobriety test procedures, and identify constitutional violations in traffic stops. Our attorneys have successfully defended OWI cases throughout Allegan County.</p>
-
-                <p><strong><a href="../domestic-violence-defense.html">Domestic Violence Defense:</a></strong> Domestic assault charges carry serious consequences in Allegan County including jail time, probation, and mandatory participation in batterer intervention programs. We understand how to navigate these cases while protecting your rights and working toward the best possible outcome.</p>
-
-                <div class="cta-section">
-                    <h2>Experienced Allegan County Criminal Defense</h2>
-                    <p>If you're facing criminal charges in Allegan County, don't leave your future to chance. The decisions you make now can affect your freedom, your family, and your future for years to come. Sorin & Pyle has the local experience and trial skills to fight for you in the Allegan County courts.</p>
-                    <div class="cta-button-container">
-                        <a href="tel:+16162273303" class="cta-button" onclick="gtag('event', 'click', {'event_category': 'CTA', 'event_label': 'Allegan County Bottom Call'});">Call (616) 227-3303 Now</a>
-                        <a href="../contact.html" class="cta-button cta-button-secondary" onclick="gtag('event', 'click', {'event_category': 'CTA', 'event_label': 'Allegan County Bottom Contact'});">Request Free Consultation</a>
-                    </div>
-                </div>
+                <p>We understand the local procedures and have built professional relationships within the Allegan County legal community. This local knowledge can be a significant advantage in your defense. Whether you were arrested in Allegan, Plainwell, Otsego, or Saugatuck, we are ready to fight for you. <a href="../contact.html">Contact us for a free consultation</a> to discuss your Allegan County case.</p>
 
             </div>
         </section>
