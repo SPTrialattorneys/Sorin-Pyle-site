@@ -9,6 +9,7 @@
 *.backup
 *.bak
 *.backup-*
+*.css.backup*
 
 # Text files (optimization logs)
 *.txt
@@ -42,3 +43,20 @@ test-mockups/
 
 # Samples directory (if not needed on live site)
 # samples/
+
+# Blog development files
+blog/*.md
+blog/package*.json
+blog/.eleventy.js
+
+# Go/QR campaign development files
+go/*.md
+go/_*.html
+
+# Include/template files (development only)
+_includes/
+
+# Source design files (too large for web)
+images/*.ai
+images/*.eps
+images/*.pdf
