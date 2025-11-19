@@ -21,13 +21,85 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Sorin & Pyle, PC">
     <meta name="twitter:card" content="summary_large_image">
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV7PKRF2YT"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-LV7PKRF2YT', {
+            // Enhanced tracking for legal websites
+            page_title: document.title,
+            page_location: window.location.href,
+            // Core Web Vitals tracking
+            custom_map: {
+                'custom_parameter_1': 'page_type',
+                'custom_parameter_2': 'practice_area'
+            }
+        });
+
+        // Track Core Web Vitals
+        function trackWebVitals() {
+            function sendToGoogleAnalytics({name, delta, value, id}) {
+                gtag('event', name, {
+                    event_category: 'Web Vitals',
+                    event_label: id,
+                    value: Math.round(name === 'CLS' ? delta * 1000 : delta),
+                    non_interaction: true,
+                });
+            }
+
+            // Load web-vitals library
+            import('https://unpkg.com/web-vitals@3/dist/web-vitals.js').then(({onCLS, onFID, onFCP, onLCP, onTTFB}) => {
+                onCLS(sendToGoogleAnalytics);
+                onFID(sendToGoogleAnalytics);
+                onFCP(sendToGoogleAnalytics);
+                onLCP(sendToGoogleAnalytics);
+                onTTFB(sendToGoogleAnalytics);
+            });
+        }
+
+        // Track page engagement for legal sites
+        function trackEngagement() {
+            let engagementTime = 0;
+            let lastActiveTime = Date.now();
+
+            const trackTime = () => {
+                const now = Date.now();
+                engagementTime += now - lastActiveTime;
+                lastActiveTime = now;
+            };
+
+            ['mousedown', 'touchstart', 'keydown', 'scroll'].forEach(event => {
+                document.addEventListener(event, trackTime, {passive: true});
+            });
+
+            // Send engagement data on page unload
+            window.addEventListener('beforeunload', () => {
+                gtag('event', 'engagement_time', {
+                    event_category: 'User Engagement',
+                    value: Math.round(engagementTime / 1000),
+                    non_interaction: true
+                });
+            });
+        }
+
+        // Initialize tracking when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => {
+                trackWebVitals();
+                trackEngagement();
+            });
+        } else {
+            trackWebVitals();
+            trackEngagement();
+        }
+    </script>
+
 
     <!-- Local fonts loaded via CSS -->
-
-    <link rel="icon" type="image/png" href="../images/favicon.png">
-    <link rel="preload" href="../css/core-brand.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="../css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="../css/core-brand.css"><link rel="stylesheet" href="../css/style.css"></noscript>
+<link rel="stylesheet" href="../css/core-brand.css">
+    <link rel="stylesheet" href="../css/style.css">
 
     <!-- Breadcrumb Schema -->
     <script type="application/ld+json">
@@ -56,16 +128,102 @@
       ]
     }
     </script>
+
+    <!-- LegalService Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LegalService",
+      "name": "Sorin & Pyle, PC - Kent County Criminal Defense",
+      "image": "https://www.sorinpyle.com/images/logo-icon.svg",
+      "description": "Criminal defense attorneys serving Kent County, Michigan. Defending clients in Grand Rapids, Wyoming, Kentwood, and Walker. Experienced representation in 17th Circuit Court and all Kent County District Courts.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "217 E 24th St Ste 107",
+        "addressLocality": "Holland",
+        "addressRegion": "MI",
+        "postalCode": "49423",
+        "addressCountry": "US"
+      },
+      "telephone": "+1-616-227-3303",
+      "email": "justice@callsbp.com",
+      "url": "https://www.sorinpyle.com/locations/kent-county.html",
+      "priceRange": "$$",
+      "areaServed": [
+        {
+          "@type": "AdministrativeArea",
+          "name": "Kent County",
+          "containedInPlace": {
+            "@type": "State",
+            "name": "Michigan"
+          }
+        },
+        {
+          "@type": "City",
+          "name": "Grand Rapids",
+          "containedInPlace": {
+            "@type": "State",
+            "name": "Michigan"
+          }
+        },
+        {
+          "@type": "City",
+          "name": "Wyoming",
+          "containedInPlace": {
+            "@type": "State",
+            "name": "Michigan"
+          }
+        },
+        {
+          "@type": "City",
+          "name": "Kentwood",
+          "containedInPlace": {
+            "@type": "State",
+            "name": "Michigan"
+          }
+        },
+        {
+          "@type": "City",
+          "name": "Walker",
+          "containedInPlace": {
+            "@type": "State",
+            "name": "Michigan"
+          }
+        },
+        {
+          "@type": "City",
+          "name": "Grandville",
+          "containedInPlace": {
+            "@type": "State",
+            "name": "Michigan"
+          }
+        }
+      ],
+      "serviceType": [
+        "Criminal Defense",
+        "DUI/OWI Defense",
+        "Domestic Violence Defense",
+        "Drug Crime Defense",
+        "Assault Defense",
+        "Theft Crime Defense",
+        "Weapons Charges Defense",
+        "Felony Defense",
+        "Misdemeanor Defense"
+      ]
+    }
+    </script>
+    <!-- Cookie Consent Banner -->
+    <link rel="stylesheet" href="../css/cookie-consent.css">
 </head>
 <body>
-    
-                    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+                                        <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <!-- ▼▼▼ NAVBAR (Identical on all pages) ▼▼▼ -->
     <header class="navbar_component">
         <div class="container-large navbar_container">
-            <a href="index.html" class="navbar_logo-link">
-                <img src="images/logo-icon.svg" alt="Sorin & Pyle Ship Icon" class="logo-icon" width="70" height="70">
+            <a href="../index.html" class="navbar_logo-link">
+                <img src="../images/logo-icon.svg" alt="Sorin & Pyle Ship Icon" class="logo-icon" width="70" height="70">
                 <div class="logo-text-container">
                     <span class="logo-text-main">Sorin & Pyle</span>
                     <span class="logo-text-sub">TRIAL LAWYERS</span>
@@ -73,13 +231,20 @@
             </a>
             <nav class="navbar_desktop-nav" role="navigation" aria-label="Main navigation">
                 <ul class="navbar_menu" role="menubar">
-                    <li class="navbar_item" role="none"><a href="index.html" class="navbar_link" role="menuitem">About</a></li>
-                    <li class="navbar_item" role="none"><a href="attorneys.html" class="navbar_link" role="menuitem">Attorneys</a></li>
-                    <li class="navbar_item" role="none"><a href="practice-areas.html" class="navbar_link" role="menuitem">Practice Areas</a></li>
-                    <li class="navbar_item" role="none"><a href="locations.html" class="navbar_link" role="menuitem">Locations</a></li>
-                    <li class="navbar_item" role="none"><a href="resources.html" class="navbar_link" role="menuitem">Firm News & FAQs</a></li>
-                    <li class="navbar_item" role="none"><a href="local-resources.html" class="navbar_link" role="menuitem">Local Resources</a></li>
-                    <li class="navbar_item" role="none"><a href="contact.html" class="navbar_link" role="menuitem">Contact</a></li>
+                    <li class="navbar_item" role="none"><a href="../index.html" class="navbar_link" role="menuitem">About</a></li>
+                    <li class="navbar_item" role="none"><a href="../attorneys.html" class="navbar_link" role="menuitem">Attorneys</a></li>
+                    <li class="navbar_item" role="none"><a href="../practice-areas.html" class="navbar_link" role="menuitem">Practice Areas</a></li>
+                    <li class="navbar_item" role="none"><a href="../locations.html" class="navbar_link" role="menuitem">Locations</a></li>
+                    <li class="navbar_item navbar_dropdown" role="none">
+                        <a href="#" class="navbar_link navbar_dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Client Resources</a>
+                        <ul class="navbar_dropdown-menu" role="menu">
+                            <li role="none"><a href="../faq.html" role="menuitem">Frequently Asked Questions</a></li>
+                            <li role="none"><a href="../your-rights.html" role="menuitem">Know Your Rights</a></li>
+                            <li role="none"><a href="../community-resources.html" role="menuitem">Community Resources</a></li>
+                            <li role="none"><a href="../blog.html" role="menuitem">Firm News & Updates</a></li>
+                        </ul>
+                    </li>
+                    <li class="navbar_item" role="none"><a href="../contact.html" class="navbar_link" role="menuitem">Contact</a></li>
                 </ul>
             </nav>
             <button class="navbar_hamburger-button" id="hamburger-button" aria-label="Open Menu" aria-controls="mobile-nav" aria-expanded="false">
@@ -91,42 +256,151 @@
     </header>
 
     <!-- ▼▼▼ MOBILE NAVIGATION MENU (Identical on all pages) ▼▼▼ -->
-    <div class="mobile-nav_menu" id="mobile-nav" role="dialog" aria-label="Mobile navigation menu" aria-hidden="true">
+    <div class="mobile-nav_menu" id="mobile-nav" role="navigation" aria-label="Mobile navigation menu" aria-hidden="true">
         <ul class="mobile-nav_list" role="menu">
-            <li class="mobile-nav_item" role="none"><a href="index.html" class="mobile-nav_link" role="menuitem">About</a></li>
-            <li class="mobile-nav_item" role="none"><a href="attorneys.html" class="mobile-nav_link" role="menuitem">Attorneys</a></li>
-            <li class="mobile-nav_item" role="none"><a href="practice-areas.html" class="mobile-nav_link" role="menuitem">Practice Areas</a></li>
-            <li class="mobile-nav_item" role="none"><a href="locations.html" class="mobile-nav_link" role="menuitem">Locations</a></li>
-            <li class="mobile-nav_item" role="none"><a href="resources.html" class="mobile-nav_link" role="menuitem">Firm News & FAQs</a></li>
-            <li class="mobile-nav_item" role="none"><a href="local-resources.html" class="mobile-nav_link" role="menuitem">Local Resources</a></li>
-            <li class="mobile-nav_item" role="none"><a href="contact.html" class="mobile-nav_link" role="menuitem">Contact</a></li>
+            <li class="mobile-nav_item" role="none"><a href="../index.html" class="mobile-nav_link" role="menuitem">About</a></li>
+            <li class="mobile-nav_item" role="none"><a href="../attorneys.html" class="mobile-nav_link" role="menuitem">Attorneys</a></li>
+            <li class="mobile-nav_item" role="none"><a href="../practice-areas.html" class="mobile-nav_link" role="menuitem">Practice Areas</a></li>
+            <li class="mobile-nav_item" role="none"><a href="../locations.html" class="mobile-nav_link" role="menuitem">Locations</a></li>
+            <li class="mobile-nav_dropdown" role="none">
+                <button class="mobile-nav_dropdown-toggle" aria-haspopup="true" aria-expanded="false">Client Resources</button>
+                <ul class="mobile-nav_dropdown-menu" role="menu">
+                    <li role="none"><a href="../faq.html" role="menuitem">Frequently Asked Questions</a></li>
+                    <li role="none"><a href="../your-rights.html" role="menuitem">Know Your Rights</a></li>
+                    <li role="none"><a href="../community-resources.html" role="menuitem">Community Resources</a></li>
+                    <li role="none"><a href="../blog.html" role="menuitem">Firm News & Updates</a></li>
+                </ul>
+            </li>
+            <li class="mobile-nav_item" role="none"><a href="../contact.html" class="mobile-nav_link" role="menuitem">Contact</a></li>
         </ul>
     </div>
 
 
     <main id="main-content">
         <section class="section">
-            <div class="container-large fade-up-on-scroll">
+            <div class="container-large">
                 <h1 class="text-align-center">Kent County Criminal Defense Lawyer</h1>
                 <p class="text-align-center sub-headline">If you are facing criminal charges in Kent County, you need a local defense attorney who understands the courts, the prosecutors, and the system. Sorin & Pyle regularly defends clients in Grand Rapids, Wyoming, Kentwood, and the surrounding areas against felony and misdemeanor charges.</p>
 
+                <div class="cta-button-container">
+                    <a href="tel:+16162273303" class="cta-button" onclick="gtag('event', 'click', {'event_category': 'CTA', 'event_label': 'Kent County Top Call'});">Call (616) 227-3303</a>
+                    <a href="../contact.html" class="cta-button cta-button-secondary" onclick="gtag('event', 'click', {'event_category': 'CTA', 'event_label': 'Kent County Top Contact'});">Free Consultation</a>
+                </div>
+
                 <hr class="hr-divider">
 
-                <h2 class="text-align-center">Navigating the Kent County Court System</h2>
-                <p>Our attorneys have extensive experience in the primary courts serving Kent County:</p>
+                <h2>Navigating Kent County's Complex Criminal Justice System</h2>
+                <p>Kent County is Michigan's fourth-largest county and home to Grand Rapids, the state's second-largest city. With a population exceeding 650,000 residents, Kent County's criminal justice system is one of the busiest in West Michigan. The county processes thousands of criminal cases annually, ranging from minor misdemeanors to serious violent felonies.</p>
+
+                <p>The complexity of Kent County's court system, with multiple district courts serving different municipalities, requires defense attorneys who are intimately familiar with the procedures, personnel, and local practices across all jurisdictions. Each courthouse has its own culture, and prosecutors may approach cases differently depending on where charges are filed. This local knowledge can make a critical difference in the outcome of your case.</p>
+
+                <h2>Kent County Courts: Where Your Case Will Be Heard</h2>
+                <p>Kent County's court system includes one Circuit Court for felonies and multiple District Courts for misdemeanors and preliminary proceedings:</p>
+
+                <h3>17th Circuit Court - Grand Rapids</h3>
+                <p><strong>Address:</strong> Kent County Courthouse, 180 Ottawa Avenue NW, Grand Rapids, MI 49503</p>
+                <p>The 17th Circuit Court has exclusive jurisdiction over all felony cases in Kent County. This is where serious criminal charges are tried, including armed robbery, criminal sexual conduct, drug trafficking, home invasion, and other felonies. The 17th Circuit is one of Michigan's largest and busiest trial courts. Our trial attorneys have extensive experience defending clients before Kent County juries and understand the strategies that work in this courthouse.</p>
+
+                <h3>61st District Court - Grand Rapids</h3>
+                <p><strong>Address:</strong> 180 Ottawa Avenue NW, Grand Rapids, MI 49503</p>
+                <p>The 61st District Court serves the City of Grand Rapids and handles all misdemeanor cases arising within the city limits, as well as the initial stages of all felony cases including arraignments and preliminary examinations. This is one of the busiest district courts in Michigan, processing thousands of OWI, domestic violence, assault, and other misdemeanor cases each year. We appear in this court regularly and have built strong working relationships while maintaining our commitment to aggressive client advocacy.</p>
+
+                <h3>63rd District Court - Grand Rapids (Divisions A & B)</h3>
+                <p><strong>Division A Address:</strong> 2922 Fuller Avenue NE, Grand Rapids, MI 49505</p>
+                <p><strong>Division B Address:</strong> 4240 Kalamazoo Avenue SE, Grand Rapids, MI 49508</p>
+                <p>The 63rd District Court has two divisions serving different areas of Kent County outside the City of Grand Rapids. We regularly practice in both divisions and understand the procedural differences between them.</p>
+
+                <h3>62-A District Court - Wyoming</h3>
+                <p><strong>Address:</strong> 1332 Galewood Avenue SW, Wyoming, MI 49509</p>
+                <p>Serving the City of Wyoming, this court handles misdemeanor cases and felony preliminary proceedings for one of Kent County's largest suburbs. Wyoming law enforcement is particularly active in OWI and drug enforcement.</p>
+
+                <h3>62-B District Court - Kentwood</h3>
+                <p><strong>Address:</strong> 4740 Walma Avenue SE, Kentwood, MI 49512</p>
+                <p>The Kentwood District Court serves the City of Kentwood and processes a high volume of traffic offenses, OWI cases, and retail fraud charges from the area's many shopping centers.</p>
+
+                <h3>59th District Court - Walker & Grandville</h3>
+                <p><strong>Walker Division:</strong> 4243 Lake Michigan Drive NW, Walker, MI 49534</p>
+                <p><strong>Grandville Division:</strong> 3195 Wilson Avenue SW, Grandville, MI 49418</p>
+                <p>The 59th District Court operates two divisions serving the cities of Walker and Grandville, as well as several surrounding townships. We represent clients in both locations.</p>
+
+                <h2>Common Criminal Charges in Kent County</h2>
+                <p>Kent County's urban environment, major highways, and large population create unique law enforcement priorities. Common charges we defend include:</p>
+
                 <ul>
-                    <li><strong>17th Circuit Court:</strong> Located in Grand Rapids, this is where all felony cases are handled after the preliminary examination stage. Our trial lawyers are prepared to defend you in front of a jury in this court.</li>
-                    <li><strong>61st District Court (Grand Rapids):</strong> This court handles all misdemeanor cases arising within the city of Grand Rapids and the initial stages of all felony cases.</li>
-                    <li><strong>59th District Court (Walker & Grandville):</strong> We represent clients in both divisions of this court for charges originating in Walker, Grandville, and the surrounding townships.</li>
-                    <li><strong>62-A District Court (Wyoming):</strong> If you were arrested in Wyoming, your case will begin here. We are familiar with the procedures and personnel of this court.</li>
-                    <li><strong>62-B District Court (Kentwood):</strong> We handle OWI, domestic violence, and other misdemeanor charges in the Kentwood district court.</li>
+                    <li><strong>OWI/DUI:</strong> Kent County law enforcement agencies conduct aggressive drunk driving enforcement, including regular sobriety checkpoints on major roads. We defend first offense OWI, high BAC cases, second offense OWI, and felony third offense cases.</li>
+                    <li><strong>Domestic Violence:</strong> Domestic assault charges are prosecuted vigorously in Kent County. The prosecutor's office has a specialized domestic violence unit that handles these cases.</li>
+                    <li><strong>Drug Offenses:</strong> From simple possession to large-scale trafficking, Kent County sees significant drug enforcement activity. Charges involving cocaine, methamphetamine, heroin, fentanyl, and prescription drugs are common.</li>
+                    <li><strong>Assault Crimes:</strong> Assault and battery, aggravated assault, assault with a dangerous weapon, and assault with intent to do great bodily harm less than murder.</li>
+                    <li><strong>Retail Fraud:</strong> With numerous shopping centers and retail districts, shoplifting charges are extremely common in Kent County, particularly in Kentwood and Wyoming.</li>
+                    <li><strong>Weapons Charges:</strong> Carrying a concealed weapon (CCW), felony firearm, felon in possession, and other gun crimes.</li>
+                    <li><strong>Property Crimes:</strong> Breaking and entering, home invasion, larceny, motor vehicle theft, and receiving stolen property.</li>
+                    <li><strong>Traffic Offenses:</strong> Driving while license suspended (DWLS), reckless driving, and fleeing and eluding.</li>
                 </ul>
-                <p>Whether you are facing a DUI, assault, theft, or a more serious felony, we have the local experience to build the strongest possible defense for your Kent County case. <a href="../contact.html">Contact us for a free consultation</a> to discuss your specific situation.</p>
+
+                <h2>Cities and Communities We Serve in Kent County</h2>
+                <p>Sorin & Pyle represents clients throughout Kent County. Learn more about our criminal defense services in these key Kent County cities:</p>
+                <ul>
+                    <li><a href="grand-rapids-mi.html"><strong>Grand Rapids Criminal Defense Lawyer</strong></a> - Michigan's second-largest city and Kent County seat</li>
+                    <li><a href="wyoming-mi.html"><strong>Wyoming Criminal Defense Attorney</strong></a> - Large suburb with active law enforcement</li>
+                    <li><a href="kentwood-mi.html"><strong>Kentwood Defense Lawyer</strong></a> - Major retail center with high volume of retail fraud and traffic cases</li>
+                    <li><a href="walker-mi.html"><strong>Walker Criminal Attorney</strong></a> - Northern suburb along I-96 corridor</li>
+                    <li><a href="grandville-mi.html"><strong>Grandville Defense Lawyer</strong></a> - Southwest Kent County city</li>
+                    <li><a href="jenison-mi.html"><strong>Jenison Criminal Attorney</strong></a> - Georgetown Township community</li>
+                    <li><strong>East Grand Rapids</strong> - Affluent community with own police department</li>
+                    <li><strong>Rockford</strong> - Northern Kent County city</li>
+                    <li><strong>Cedar Springs</strong> - Northern community</li>
+                    <li><strong>Lowell</strong> - Eastern Kent County city</li>
+                    <li><strong>Ada Township, Cascade Township, Gaines Township, Plainfield Township, and all other Kent County townships</strong></li>
+                </ul>
+
+                <h2>Law Enforcement Agencies in Kent County</h2>
+                <p>Criminal charges in Kent County can arise from arrests by numerous law enforcement agencies:</p>
+                <ul>
+                    <li><strong>Kent County Sheriff's Office:</strong> Large agency providing law enforcement to townships and operating the county jail</li>
+                    <li><strong>Grand Rapids Police Department:</strong> The largest municipal police force in West Michigan</li>
+                    <li><strong>Wyoming Department of Public Safety</strong></li>
+                    <li><strong>Kentwood Police Department</strong></li>
+                    <li><strong>Walker Police Department</strong></li>
+                    <li><strong>Grandville Police Department</strong></li>
+                    <li><strong>East Grand Rapids Department of Public Safety</strong></li>
+                    <li><strong>Michigan State Police:</strong> Active on I-96, US-131, and other major highways</li>
+                    <li><strong>Specialized Units:</strong> Metro Narcotics Enforcement Team, Kent Area Narcotics Enforcement (KANE), and others</li>
+                </ul>
+
+                <h2>Why You Need Local Representation in Kent County</h2>
+                <p>Kent County's size and complexity make local criminal defense experience essential:</p>
+
+                <p><strong>Multiple Courts, Multiple Procedures:</strong> With six different district courts and one circuit court, navigating Kent County's criminal justice system requires knowledge of each courthouse's unique procedures and expectations. We practice regularly in all of them.</p>
+
+                <p><strong>Understanding Local Prosecutors:</strong> The Kent County Prosecutor's Office is one of Michigan's largest, with specialized units for different types of crimes. We have worked with these prosecutors on hundreds of cases and understand their priorities and negotiation styles.</p>
+
+                <p><strong>Judicial Experience:</strong> Kent County has numerous judges, each with their own approach to criminal cases. Our experience appearing before these judges helps us tailor our defense strategy to maximize your chances of a favorable outcome.</p>
+
+                <p><strong>Strategic Advantages:</strong> Knowing which discovery motions work in which courthouse, which judges are receptive to certain arguments, and how local prosecutors typically handle specific charges gives our clients a significant advantage.</p>
+
+                <p><strong>Quick Response Time:</strong> Kent County cases move quickly. Having local counsel who can appear in court on short notice, meet with you promptly, and respond immediately to developments in your case is crucial.</p>
+
+                <h2>Defending Common Kent County Charges</h2>
+                <p>We have particular experience with charges that are common in Kent County's urban environment:</p>
+
+                <p><strong><a href="../dui-defense.html">OWI Defense in Kent County:</a></strong> With multiple law enforcement agencies conducting DUI enforcement on busy roadways and entertainment districts, OWI cases are extremely common. We know how to challenge breathalyzer results, attack field sobriety test administration, and identify constitutional violations in Kent County OWI stops.</p>
+
+                <p><strong><a href="../domestic-violence-defense.html">Domestic Violence Defense:</a></strong> Kent County prosecutors have a specialized domestic violence unit and prosecute these cases aggressively. We understand the unique dynamics of domestic violence cases and work to achieve outcomes that protect our clients' rights and futures.</p>
+
+                <div class="cta-section">
+                    <h2>Experienced Kent County Criminal Defense</h2>
+                    <p>Facing criminal charges in Kent County's complex court system can be overwhelming. You need an attorney who knows the courts, understands the prosecutors, and has the trial experience to fight for you. Contact Sorin & Pyle today for a free consultation about your Kent County criminal case.</p>
+                    <div class="cta-button-container">
+                        <a href="tel:+16162273303" class="cta-button" onclick="gtag('event', 'click', {'event_category': 'CTA', 'event_label': 'Kent County Bottom Call'});">Call (616) 227-3303 Now</a>
+                        <a href="../contact.html" class="cta-button cta-button-secondary" onclick="gtag('event', 'click', {'event_category': 'CTA', 'event_label': 'Kent County Bottom Contact'});">Request Free Consultation</a>
+                    </div>
+                </div>
+
             </div>
         </section>
     </main>
 
-                    <!-- ▼▼▼ FOOTER (Identical on all pages) ▼▼▼ -->
+                        <!-- ▼▼▼ FOOTER (Identical on all pages) ▼▼▼ -->
     <footer class="footer_component">
         <div class="container-large">
             <div class="footer_grid">
@@ -137,7 +411,7 @@
                         Holland, MI 49423
                     </p>
                     <p class="footer_contact">
-                        <a href="tel:6162273303">(616) 227-3303</a><br>
+                        <a href="tel:+16162273303">(616) 227-3303</a><br>
                         <a href="mailto:justice@callsbp.com">justice@callsbp.com</a>
                     </p>
                 </div>
@@ -147,15 +421,13 @@
                     <p class="footer_hours-weekend">Saturday & Sunday: By Appointment</p>
                 </div>
                 <div class="footer_column">
-                    <h3>Quick Links</h3>
+                    <h3>Practice Areas</h3>
                     <ul class="footer_list">
-                        <li><a href="index.html">About</a></li>
-                        <li><a href="attorneys.html">Attorneys</a></li>
-                        <li><a href="practice-areas.html">Practice Areas</a></li>
-                        <li><a href="locations.html">Locations</a></li>
-                        <li><a href="resources.html">Firm News & FAQs</a></li>
-                        <li><a href="local-resources.html">Local Resources</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="../dui-defense.html">DUI / OWI Defense</a></li>
+                        <li><a href="../domestic-violence-defense.html">Domestic Violence</a></li>
+                        <li><a href="../record-expungement.html">Record Expungement</a></li>
+                        <li><a href="../drivers-license-restoration.html">License Restoration</a></li>
+                        <li><a href="../practice-areas.html">View All Practice Areas</a></li>
                     </ul>
                 </div>
                 <div class="footer_column">
@@ -167,21 +439,17 @@
                     </ul>
                 </div>
             </div>
+            <div class="footer_disclaimer">
+                <p><strong>Disclaimer:</strong> The information on this website is for general information purposes only. Nothing on this site should be taken as legal advice for any individual case or situation. This information is not intended to create, and receipt or viewing does not constitute, an attorney-client relationship.</p>
+            </div>
             <div class="footer_bottom-bar">
-                © 2025 Sorin & Pyle, PC. All Rights Reserved.
+                © 2025 Sorin & Pyle, PC. All Rights Reserved. | <a href="../privacy-policy.html">Privacy Policy</a> | <a href="../accessibility.html">Accessibility</a>
             </div>
         </div>
     </footer>
-
-    <script src="js/main.js" defer></script>
-
-    <<script src="js/main.js" defer></script>
-
-    <<script src="js/main.js" defer></script>
-
-    <<script src="js/main.js" defer></script>
-
     <script src="../js/main.js" defer></script>
+<!-- Cookie Consent Banner -->
+    <script src="../js/cookie-consent.js" defer></script>
 </body>
 </html>
 
