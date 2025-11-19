@@ -1,0 +1,44 @@
+# Python scripts (development tools)
+*.py
+
+# Documentation files (internal use only)
+*.md
+!README.md
+
+# Backup files
+*.backup
+*.bak
+*.backup-*
+
+# Text files (optimization logs)
+*.txt
+!robots.txt
+!llms.txt
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Claude Code settings
+.claude/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Node modules (if any)
+node_modules/
+
+# Cloudflare trigger file
+.cloudflare-rebuild-trigger.txt
+
+# Test files
+test-mockups/
+
+# Shell scripts
+*.sh
+
+# Samples directory (if not needed on live site)
+# samples/
