@@ -1,0 +1,19 @@
+name: IndexNow Submission
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**.html'
+      - 'sitemap.xml'
+
+jobs:
+  submit-to-indexnow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Submit to IndexNow
+        run: |
+          echo "Submitting sitemap to IndexNow..."
+          curl -s "https://api.indexnow.org/indexnow?url=https://www.sorinpyle.com/sitemap.xml&key=7d7b322263d37b164568a832357c63b8"
+          echo ""
+          echo "IndexNow submission complete"
