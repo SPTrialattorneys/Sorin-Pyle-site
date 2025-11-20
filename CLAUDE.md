@@ -199,6 +199,98 @@ npx serve .
 
 ## Recent Changes Log
 
+### November 20, 2025 - IndexNow Integration for Instant Search Engine Indexing
+
+**Goal:** Enable instant URL submission to Bing, Yandex, Seznam, and Naver search engines
+
+**Files Created:**
+- `7d7b322263d37b164568a832357c63b8.txt` - IndexNow API key verification file
+- `.github/workflows/indexnow.yml` - GitHub Action for automatic submission
+
+**Files Modified:**
+- `.gitignore` - Added exception for IndexNow key file
+
+**Implementation Details:**
+
+**API Key:** `7d7b322263d37b164568a832357c63b8`
+- Self-generated random hex string (no external registration required)
+- Key file placed at root for search engine verification
+- Key never expires unless manually changed
+
+**GitHub Action Automation:**
+- Triggers on push to main branch when HTML or sitemap.xml changes
+- Automatically submits sitemap.xml to IndexNow API
+- Notifies Bing, Yandex, Seznam, Naver of content updates
+- No manual intervention required
+
+**Workflow Configuration:**
+```yaml
+name: IndexNow Submission
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**.html'
+      - 'sitemap.xml'
+jobs:
+  submit-to-indexnow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Submit to IndexNow
+        run: |
+          curl -s "https://api.indexnow.org/indexnow?url=https://www.sorinpyle.com/sitemap.xml&key=7d7b322263d37b164568a832357c63b8"
+```
+
+**Benefits:**
+- Instant indexing on Bing, Yandex, Seznam, Naver (within minutes vs days/weeks)
+- Zero-configuration automation via GitHub Actions
+- No rate limits or quotas for free tier
+- Reduces crawl lag for new content and updates
+
+**Note:** Google does not support IndexNow. Use Google Search Console's URL Inspection tool for manual Google indexing requests.
+
+**Status:** ✅ Complete - Automatic submission active
+
+---
+
+### November 20, 2025 - Dropdown Button Styling Fix (Chrome Browser)
+
+**Issue Identified:** Client Resources dropdown displayed with visible border/box in Chrome
+
+**Root Cause:** Chrome's default `<button>` element styling showing through despite CSS reset
+
+**Solution Implemented:**
+- Added `appearance: none` to remove browser default button styling
+- Added margin, text-align, line-height resets for consistency
+
+**File Modified:** `css/style.css` (lines 192-204)
+
+**CSS Changes:**
+```css
+button.navbar_dropdown-toggle {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;                    /* Added */
+  font: inherit;
+  color: inherit;
+  -webkit-appearance: none;     /* Added */
+  -moz-appearance: none;        /* Added */
+  appearance: none;             /* Added */
+  text-align: inherit;          /* Added */
+  line-height: inherit;         /* Added */
+}
+```
+
+**Impact:**
+- Fixes visible border/box around dropdown button in Chrome
+- Consistent appearance across all browsers (Chrome, Firefox, Safari, Edge)
+- Maintains accessibility features (ARIA attributes, keyboard navigation)
+
+**Status:** ✅ Complete - Pushed to production
+
+---
+
 ### November 20, 2025 - GA4 Script Extraction & Code Consolidation
 
 **Goal:** Extract inline GA4 tracking code from 55 HTML files into a shared js/analytics.js file for easier maintenance
