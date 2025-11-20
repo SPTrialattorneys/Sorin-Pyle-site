@@ -4,6 +4,10 @@
 # Documentation files (internal use only)
 *.md
 !README.md
+!CLAUDE.md
+
+# Utility scripts (development tools)
+utilities/
 
 # Backup files
 *.backup
