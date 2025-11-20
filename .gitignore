@@ -19,6 +19,7 @@ utilities/
 *.txt
 !robots.txt
 !llms.txt
+!7d7b322263d37b164568a832357c63b8.txt
 
 # IDE and editor files
 .vscode/
