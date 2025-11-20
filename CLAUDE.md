@@ -199,6 +199,51 @@ npx serve .
 
 ## Recent Changes Log
 
+### November 20, 2025 - MRPC 7.4 Compliance Review (Attorney Ethics)
+
+**Goal:** Ensure full compliance with Michigan Rules of Professional Conduct 7.4 (Communication of Fields of Practice and Specialization)
+
+**Issue Identified:**
+- Michigan has no criminal law specialization certification program recognized by the State Bar
+- MRPC 7.4 prohibits stating or implying specialization unless certified by an appropriate organization
+- Found 6 instances across the site using prohibited "specializing" language
+
+**Violations Found:**
+1. `attorneys.html` (line 19) - OG meta: "specializing in DUI, felonies, and misdemeanors"
+2. `record-expungement.html` (line 105) - Body copy: "We specialize in petition-based expungement"
+3. `card.html` (line 49) - Schema: "specializing in second chances and cases involving mental health"
+4. `allendale-mi.html` (line 18) - OG meta: "specializing in GVSU student defense"
+5. `cdl-owi-defense.html` (line 244) - Body copy: "attorney who specializes in CDL defense"
+6. `drivers-license-restoration.html` (line 218) - Bullet point: "Specialized Knowledge"
+
+**Compliant Alternatives Used:**
+- ✅ "defending" (stronger, action-oriented)
+- ✅ "experienced in" (factual credential statement)
+- ✅ "focusing on" (practice description)
+- ✅ "In-Depth Knowledge" (descriptive, not claiming certification)
+
+**Files Modified:** 6 HTML files
+- attorneys.html - "specializing in" → "defending"
+- record-expungement.html - "We specialize in" → "We focus on"
+- card.html - "specializing in" → "focusing on"
+- allendale-mi.html - "specializing in" → "experienced in"
+- cdl-owi-defense.html - "attorney who specializes in" → "attorney experienced in"
+- drivers-license-restoration.html - "Specialized Knowledge" → "In-Depth Knowledge"
+
+**Remaining Uses of "Specialized" (Compliant):**
+- Descriptive uses only: "specialized defense" (describing type of defense, not attorney credentials)
+- "Specialized area of law" (factual statement about law, not attorney certification)
+- References to other attorneys' practices (not claims about firm)
+
+**Legal Impact:**
+- Eliminates potential MRPC 7.4 grievance risk
+- Brings site into full compliance with Michigan Bar advertising ethics rules
+- Maintains strong marketing language with compliant alternatives
+
+**Status:** ✅ Complete - All violations corrected, ethics compliance achieved
+
+---
+
 ### November 20, 2025 - IndexNow Integration for Instant Search Engine Indexing
 
 **Goal:** Enable instant URL submission to Bing, Yandex, Seznam, and Naver search engines
