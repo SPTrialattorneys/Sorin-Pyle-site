@@ -30,20 +30,25 @@ document.addEventListener('DOMContentLoaded', function() {
             toggle.setAttribute('aria-expanded', isExpanded);
         });
 
-        // Close dropdown when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!dropdown.contains(e.target)) {
-                dropdown.classList.remove('is-open');
-                toggle.setAttribute('aria-expanded', 'false');
-            }
-        });
-
         // Keyboard navigation support
         toggle.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 dropdown.classList.remove('is-open');
                 toggle.setAttribute('aria-expanded', 'false');
                 toggle.focus();
+            }
+        });
+    });
+
+    // Single delegated listener to close dropdowns when clicking outside (performance optimization)
+    document.addEventListener('click', (e) => {
+        document.querySelectorAll('.navbar_dropdown.is-open').forEach(dropdown => {
+            if (!dropdown.contains(e.target)) {
+                dropdown.classList.remove('is-open');
+                const toggle = dropdown.querySelector('.navbar_dropdown-toggle');
+                if (toggle) {
+                    toggle.setAttribute('aria-expanded', 'false');
+                }
             }
         });
     });
