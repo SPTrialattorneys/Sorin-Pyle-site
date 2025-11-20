@@ -1,5 +1,19 @@
 document.addEventListener('DOMContentLoaded', function() {
 
+    // --- HOMEPAGE LOGO LINK BEHAVIOR ---
+    // Prevent page reload when clicking logo on homepage
+    const logoLink = document.querySelector('.navbar_logo-link');
+    if (logoLink) {
+        const currentPath = window.location.pathname;
+        const isHomepage = currentPath === '/' || currentPath.endsWith('/index.html') || currentPath.endsWith('/');
+        if (isHomepage) {
+            logoLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+    }
+
     // --- DESKTOP DROPDOWN NAVIGATION ---
     const dropdownToggles = document.querySelectorAll('.navbar_dropdown-toggle');
 

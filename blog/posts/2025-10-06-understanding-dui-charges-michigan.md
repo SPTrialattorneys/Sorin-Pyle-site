@@ -1,8 +1,9 @@
 ---
 layout: layouts/blog-post.html
 title: "Understanding DUI Charges in Michigan: What You Need to Know"
-author: "Sorin Panainte"
+author: "Sorin & Pyle, Trial Lawyers"
 date: 2025-10-06
+category: "legal"
 description: "A comprehensive guide to understanding DUI/OWI charges in Michigan, your rights, and potential defenses from experienced criminal defense attorneys."
 tags: ["DUI", "OWI", "Criminal Defense", "Michigan Law"]
 ---

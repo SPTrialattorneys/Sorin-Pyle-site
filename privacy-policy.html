@@ -55,6 +55,8 @@
                 onFCP(sendToGoogleAnalytics);
                 onLCP(sendToGoogleAnalytics);
                 onTTFB(sendToGoogleAnalytics);
+            }).catch(err => {
+                console.warn('Web Vitals library failed to load:', err);
             });
         }
 
@@ -124,7 +126,7 @@
                     <li class="navbar_item" role="none"><a href="practice-areas.html" class="navbar_link" role="menuitem">Practice Areas</a></li>
                     <li class="navbar_item" role="none"><a href="locations.html" class="navbar_link" role="menuitem">Locations</a></li>
                     <li class="navbar_item navbar_dropdown" role="none">
-                        <a href="#" class="navbar_link navbar_dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Client Resources</a>
+                        <button type="button" class="navbar_link navbar_dropdown-toggle" aria-haspopup="true" aria-expanded="false">Client Resources</button>
                         <ul class="navbar_dropdown-menu" role="menu">
                             <li role="none"><a href="faq.html" role="menuitem">Frequently Asked Questions</a></li>
                             <li role="none"><a href="your-rights.html" role="menuitem">Know Your Rights</a></li>

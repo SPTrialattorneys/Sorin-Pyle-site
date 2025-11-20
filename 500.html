@@ -49,6 +49,8 @@
                 onFCP(sendToGoogleAnalytics);
                 onLCP(sendToGoogleAnalytics);
                 onTTFB(sendToGoogleAnalytics);
+            }).catch(err => {
+                console.warn('Web Vitals library failed to load:', err);
             });
         }
 

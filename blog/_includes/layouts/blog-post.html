@@ -54,7 +54,9 @@
     </script>
 
     <link rel="icon" type="image/png" href="/images/favicon.png">
-    <link rel="stylesheet" href="/css/style.min.css">
+    <link rel="stylesheet" href="/css/core-brand.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/cookie-consent.css">
 </head>
 <body>
 
@@ -76,8 +78,15 @@
                     <li class="navbar_item" role="none"><a href="/attorneys.html" class="navbar_link" role="menuitem">Attorneys</a></li>
                     <li class="navbar_item" role="none"><a href="/practice-areas.html" class="navbar_link" role="menuitem">Practice Areas</a></li>
                     <li class="navbar_item" role="none"><a href="/locations.html" class="navbar_link" role="menuitem">Locations</a></li>
-                    <li class="navbar_item" role="none"><a href="/resources.html" class="navbar_link" role="menuitem">Firm News & FAQs</a></li>
-                    <li class="navbar_item" role="none"><a href="/local-resources.html" class="navbar_link" role="menuitem">Local Resources</a></li>
+                    <li class="navbar_item navbar_dropdown" role="none">
+                        <a href="#" class="navbar_link navbar_dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Client Resources</a>
+                        <ul class="navbar_dropdown-menu" role="menu">
+                            <li role="none"><a href="/faq.html" role="menuitem">Frequently Asked Questions</a></li>
+                            <li role="none"><a href="/your-rights.html" role="menuitem">Know Your Rights</a></li>
+                            <li role="none"><a href="/community-resources.html" role="menuitem">Community Resources</a></li>
+                            <li role="none"><a href="/blog.html" role="menuitem">Firm News & Updates</a></li>
+                        </ul>
+                    </li>
                     <li class="navbar_item" role="none"><a href="/contact.html" class="navbar_link" role="menuitem">Contact</a></li>
                 </ul>
             </nav>
@@ -96,8 +105,15 @@
             <li class="mobile-nav_item" role="none"><a href="/attorneys.html" class="mobile-nav_link" role="menuitem">Attorneys</a></li>
             <li class="mobile-nav_item" role="none"><a href="/practice-areas.html" class="mobile-nav_link" role="menuitem">Practice Areas</a></li>
             <li class="mobile-nav_item" role="none"><a href="/locations.html" class="mobile-nav_link" role="menuitem">Locations</a></li>
-            <li class="mobile-nav_item" role="none"><a href="/resources.html" class="mobile-nav_link" role="menuitem">Firm News & FAQs</a></li>
-            <li class="mobile-nav_item" role="none"><a href="/local-resources.html" class="mobile-nav_link" role="menuitem">Local Resources</a></li>
+            <li class="mobile-nav_dropdown" role="none">
+                <button class="mobile-nav_dropdown-toggle" aria-haspopup="true" aria-expanded="false">Client Resources</button>
+                <ul class="mobile-nav_dropdown-menu" role="menu">
+                    <li role="none"><a href="/faq.html" role="menuitem">Frequently Asked Questions</a></li>
+                    <li role="none"><a href="/your-rights.html" role="menuitem">Know Your Rights</a></li>
+                    <li role="none"><a href="/community-resources.html" role="menuitem">Community Resources</a></li>
+                    <li role="none"><a href="/blog.html" role="menuitem">Firm News & Updates</a></li>
+                </ul>
+            </li>
             <li class="mobile-nav_item" role="none"><a href="/contact.html" class="mobile-nav_link" role="menuitem">Contact</a></li>
         </ul>
     </div>
@@ -107,9 +123,13 @@
             <div class="container-large">
                 <div class="blog-post-header text-align-center margin-bottom-lg">
                     <h1>{{ title }}</h1>
-                    <p class="blog-post-meta">
-                        By {{ author }} | <time datetime="{{ date | htmlDateString }}">{{ date | readableDate }}</time>
+                    <p class="blog-date">
+                        <time datetime="{{ date | htmlDateString }}">{{ date | readableDate }}</time>
+                        {% if category %}
+                        <span class="blog-category blog-category-{{ category }}">{{ category | replace("-", " ") | title }}</span>
+                        {% endif %}
                     </p>
+                    <p class="blog-byline">By {{ author }}</p>
                 </div>
 
                 <div class="blog-post-content">
@@ -132,32 +152,29 @@
         <div class="container-large">
             <div class="footer_grid">
                 <div class="footer_column">
-                    <h3>Sorin & Pyle, PC</h3>
-                    <p>217 E 24th St Ste 107<br>Holland, MI 49423</p>
-                    <p>
-                        <a href="tel:6162273303">(616) 227-3303</a><br>
+                    <h3 class="footer_firm-name">Sorin & Pyle, PC</h3>
+                    <p class="footer_address">
+                        217 E 24th St Ste 107<br>
+                        Holland, MI 49423
+                    </p>
+                    <p class="footer_contact">
+                        <a href="tel:+16162273303">(616) 227-3303</a><br>
                         <a href="mailto:justice@callsbp.com">justice@callsbp.com</a>
                     </p>
                 </div>
                 <div class="footer_column">
                     <h3>Hours</h3>
-                    <p>
-                        Office: Mon-Fri 9 AM - 5 PM
-                    </p>
-                    <p>
-                        Phone: 24/7 for messages & scheduling
-                    </p>
+                    <p class="footer_hours-weekday">Office: Mon-Fri 9 AM - 5 PM</p>
+                    <p class="footer_hours-weekend">Phone: 24/7 for messages & scheduling</p>
                 </div>
                 <div class="footer_column">
-                    <h3>Quick Links</h3>
+                    <h3>Practice Areas</h3>
                     <ul class="footer_list">
-                        <li><a href="/index.html">About</a></li>
-                        <li><a href="/attorneys.html">Attorneys</a></li>
-                        <li><a href="/practice-areas.html">Practice Areas</a></li>
-                        <li><a href="/locations.html">Locations</a></li>
-                        <li><a href="/resources.html">Firm News & FAQs</a></li>
-                        <li><a href="/local-resources.html">Local Resources</a></li>
-                        <li><a href="/contact.html">Contact</a></li>
+                        <li><a href="/dui-defense.html">DUI / OWI Defense</a></li>
+                        <li><a href="/domestic-violence-defense.html">Domestic Violence</a></li>
+                        <li><a href="/record-expungement.html">Record Expungement</a></li>
+                        <li><a href="/drivers-license-restoration.html">License Restoration</a></li>
+                        <li><a href="/practice-areas.html">View All Practice Areas</a></li>
                     </ul>
                 </div>
                 <div class="footer_column">
@@ -169,12 +186,16 @@
                     </ul>
                 </div>
             </div>
+            <div class="footer_disclaimer">
+                <p><strong>Disclaimer:</strong> The information on this website is for general information purposes only. Nothing on this site should be taken as legal advice for any individual case or situation. This information is not intended to create, and receipt or viewing does not constitute, an attorney-client relationship.</p>
+            </div>
             <div class="footer_bottom-bar">
-                © 2025 Sorin & Pyle, PC. All Rights Reserved.
+                © 2025 Sorin & Pyle, PC. All Rights Reserved. | <a href="/privacy-policy.html">Privacy Policy</a> | <a href="/accessibility.html">Accessibility</a>
             </div>
         </div>
     </footer>
 
     <script src="/js/main.js" defer></script>
+    <script src="/js/cookie-consent.js" defer></script>
 </body>
 </html>
