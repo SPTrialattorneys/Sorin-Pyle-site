@@ -193,8 +193,14 @@ button.navbar_dropdown-toggle {
   background: none;
   border: none;
   padding: 0;
+  margin: 0;
   font: inherit;
   color: inherit;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  text-align: inherit;
+  line-height: inherit;
 }
 
 .navbar_dropdown-toggle:focus {
