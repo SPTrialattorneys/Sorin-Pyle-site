@@ -332,6 +332,123 @@ npx serve .
 
 ---
 
+### November 20, 2025 - Comprehensive Security Audit (OWASP Top 10 & Best Practices)
+
+**Type:** Full Website Security Assessment
+**Scope:** OWASP Top 10, HTTPS, XSS, CSRF, Security Headers, Third-Party Scripts
+**Auditor:** Claude Code (AI Security Assistant)
+**Methodology:** Code review, configuration analysis, vulnerability scanning
+
+**Security Categories Assessed:**
+
+1. **Cross-Site Scripting (XSS) Protection** - ⚠️ MEDIUM RISK
+   - ✅ No eval() or dangerous functions
+   - ✅ innerHTML limited to hardcoded strings
+   - ⚠️ **VULN-001:** Unsanitized URL parameters in go/qr-shared.js (UTM tracking)
+   - ⚠️ **VULN-002:** CSP allows 'unsafe-inline' (weakens XSS protection)
+   - ⚠️ **VULN-003:** Google Tag Manager missing from CSP whitelist
+
+2. **Form Security & CSRF Protection** - ⚠️ MEDIUM RISK
+   - ⚠️ **VULN-004:** No CSRF tokens on consultation forms
+   - Mitigating factor: Static site with no server-side sessions
+   - Recommendation: Document form handling or implement CSRF protection
+
+3. **HTTP Security Headers** - ✅ EXCELLENT
+   - ✅ HSTS enabled (1-year max-age, includeSubDomains, preload)
+   - ✅ X-Frame-Options: SAMEORIGIN (clickjacking protection)
+   - ✅ X-Content-Type-Options: nosniff
+   - ✅ X-XSS-Protection: 1; mode=block
+   - ✅ Referrer-Policy: strict-origin-when-cross-origin
+   - ✅ Permissions-Policy: Restricts dangerous features
+   - ✅ Server signature removed
+
+4. **HTTPS & Transport Security** - ✅ EXCELLENT
+   - ✅ All resources loaded over HTTPS
+   - ✅ No mixed content
+   - ✅ HTTP → HTTPS redirect enforced
+   - ✅ HSTS prevents protocol downgrade
+
+5. **Third-Party Scripts** - ✅ GOOD
+   - ✅ Only Google Tag Manager/Analytics
+   - ✅ No other external dependencies
+   - ⚠️ Missing SRI (Subresource Integrity) hashes
+
+6. **Sensitive Data Exposure** - ✅ EXCELLENT
+   - ✅ No API keys, passwords, or credentials exposed
+   - ✅ No PII stored client-side
+   - ✅ .htaccess blocks sensitive file extensions
+
+7. **Information Disclosure** - ⚠️ LOW RISK
+   - ⚠️ **VULN-005:** robots.txt reveals directory structure
+   - ⚠️ **VULN-006:** HTML comments present (minor)
+   - ✅ Server information properly hidden
+
+8. **Cookie Security** - ✅ GOOD
+   - ✅ GDPR/CCPA compliant consent system
+   - ✅ Consent stored in localStorage (not cookies)
+   - ✅ GA blocked until user consent
+
+9. **JavaScript Security** - ✅ GOOD
+   - ✅ No eval() or Function() constructor
+   - ✅ Safe setTimeout/setInterval usage
+   - ✅ Proper event handler attachment
+
+10. **Authentication & Authorization** - ✅ N/A
+    - Static site, no authentication system (appropriate)
+
+**Audit Results:**
+
+**Critical Issues:** 0
+**High Priority Issues:** 0
+**Medium Priority Issues:** 4 (VULN-001, VULN-002, VULN-003, VULN-004)
+**Low Priority Issues:** 2 (VULN-005, VULN-006)
+
+**Overall Security Status:** ⚠️ **GOOD with Moderate Improvements Needed**
+
+**OWASP Top 10 2021 Coverage:**
+- A01 (Broken Access Control): ✅ N/A
+- A02 (Cryptographic Failures): ✅ SECURE
+- A03 (Injection): ⚠️ MEDIUM (URL param sanitization needed)
+- A04 (Insecure Design): ✅ SECURE
+- A05 (Security Misconfiguration): ⚠️ MEDIUM (CSP improvement needed)
+- A06 (Vulnerable Components): ✅ SECURE
+- A07 (Authentication Failures): ✅ N/A
+- A08 (Data Integrity Failures): ⚠️ MEDIUM (SRI hashes recommended)
+- A09 (Security Logging): ⚠️ LOW (acceptable for static site)
+- A10 (SSRF): ✅ N/A
+
+**Prioritized Remediation Plan:**
+
+**Medium Priority (Fix within 30 days):**
+1. Sanitize URL parameters in go/qr-shared.js (30 min)
+2. Add Google Tag Manager to CSP whitelist (5 min)
+3. Document or implement CSRF protection (2-4 hours)
+4. Improve CSP to remove 'unsafe-inline' (4-8 hours, requires refactoring)
+
+**Low Priority (Fix when convenient):**
+5. Clean up robots.txt entries (5 min)
+6. Strip HTML comments in production (automated via build script)
+
+**Security Best Practices:**
+- ✅ HTTPS enforced with HSTS
+- ✅ Comprehensive security headers
+- ✅ Minimal third-party dependencies
+- ✅ No sensitive data exposure
+- ⚠️ Input sanitization needed
+- ⚠️ CSP needs improvement
+
+**Certification:** Website meets **acceptable security standards** for professional services marketing site. With recommended fixes, security posture would be **excellent**.
+
+**Risk Level:** 🟡 LOW-MEDIUM (appropriate for law firm website)
+
+**Documentation:** Complete security audit report available at `SECURITY_AUDIT_2025-11-20.md` (comprehensive OWASP Top 10 analysis)
+
+**Next Security Review:** November 20, 2026
+
+**Status:** ✅ Complete - Security assessment finished, moderate improvements recommended
+
+---
+
 ### November 20, 2025 - IndexNow Integration for Instant Search Engine Indexing
 
 **Goal:** Enable instant URL submission to Bing, Yandex, Seznam, and Naver search engines

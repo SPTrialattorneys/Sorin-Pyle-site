@@ -6,6 +6,7 @@
 !README.md
 !CLAUDE.md
 !COMPLIANCE_REVIEW_*.md
+!SECURITY_AUDIT_*.md
 
 # Utility scripts (development tools)
 utilities/
