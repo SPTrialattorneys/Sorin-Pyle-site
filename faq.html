@@ -23,6 +23,7 @@
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV7PKRF2YT"></script>
     <script src="js/analytics.js"></script>
+    <script src="js/tracking.js"></script>
 
 
     <!-- Local fonts loaded via CSS -->
@@ -197,7 +198,7 @@
                     <div class="faq_item">
                         <button class="faq_question" aria-expanded="false" aria-controls="answer-1">What should I do if I am arrested?</button>
                         <div class="faq_answer" id="answer-1" aria-hidden="true">
-                            <p>Exercise your right to remain silent. Do not answer questions, consent to searches, or make any decisions without an attorney present. Clearly state, "I am going to remain silent, and I would like to speak to my lawyer." Then, call us immediately at <a href="tel:+16162273303">(616) 227-3303</a>.</p>
+                            <p>Exercise your right to remain silent. Do not answer questions, consent to searches, or make any decisions without an attorney present. Clearly state, "I am going to remain silent, and I would like to speak to my lawyer." Then, call us immediately at <a href="tel:+16162273303" class="track-phone-click" data-event-label="faq_cta">(616) 227-3303</a>.</p>
                         </div>
                     </div>
 
@@ -281,7 +282,7 @@
                     <p class="margin-bottom-md">Every case is unique. Contact us for a free consultation to discuss your specific situation.</p>
                     <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
                         <a href="contact.html" class="button-primary">Get Free Consultation</a>
-                        <a href="tel:+16162273303" class="button-secondary" onclick="gtag('event', 'phone_click', {'event_category': 'contact', 'event_label': 'faq_cta'});">(616) 227-3303</a>
+                        <a href="tel:+16162273303" class="button-secondary track-phone-click" data-event-label="faq_cta">(616) 227-3303</a>
                     </div>
                 </div>
 
@@ -303,7 +304,7 @@
                         Holland, MI 49423
                     </p>
                     <p class="footer_contact">
-                        <a href="tel:+16162273303">(616) 227-3303</a><br>
+                        <a href="tel:+16162273303" class="track-phone-click" data-event-label="faq_footer">(616) 227-3303</a><br>
                         <a href="mailto:justice@callsbp.com">justice@callsbp.com</a>
                     </p>
                 </div>

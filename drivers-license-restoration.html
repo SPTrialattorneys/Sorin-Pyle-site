@@ -25,6 +25,7 @@
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV7PKRF2YT"></script>
     <script src="js/analytics.js"></script>
+    <script src="js/tracking.js"></script>
 
 
     <!-- Local fonts loaded via CSS -->
@@ -243,7 +244,7 @@
                             <p>Find out if you're eligible for license restoration and learn about the process. We'll review your case and explain your options.</p>
                             <a href="contact.html" class="button button-primary full-width">Free License Restoration Consultation</a>
                             <p class="text-center margin-top-sm">
-                                <a href="tel:+16162273303" class="phone-link" onclick="gtag('event', 'phone_click', {'event_category': 'contact', 'event_label': 'sidebar_license'});">(616) 227-3303</a>
+                                <a href="tel:+16162273303" class="phone-link track-phone-click" data-event-label="sidebar_license">(616) 227-3303</a>
                             </p>
                         </div>
 
@@ -302,7 +303,7 @@
                 <p style="color: var(--white);">Don't let license revocation keep you from work, family, and life opportunities. Contact Sorin & Pyle today for experienced license restoration representation.</p>
                 <div class="cta_component margin-top-md">
                     <a href="contact.html" class="button" style="background: var(--white); color: var(--accent-orange); border: 2px solid var(--white); margin-right: 1rem;">Start Your License Restoration</a>
-                    <a href="tel:+16162273303" class="button" style="background: transparent; color: var(--white); border: 2px solid var(--white);" onclick="gtag('event', 'phone_click', {'event_category': 'contact', 'event_label': 'bottom_cta_license'});">(616) 227-3303</a>
+                    <a href="tel:+16162273303" class="button track-phone-click" style="background: transparent; color: var(--white); border: 2px solid var(--white);" data-event-label="bottom_cta_license">(616) 227-3303</a>
                 </div>
             </div>
         </section>
@@ -319,7 +320,7 @@
                         Holland, MI 49423
                     </p>
                     <p class="footer_contact">
-                        <a href="tel:+16162273303">(616) 227-3303</a><br>
+                        <a href="tel:+16162273303" class="track-phone-click" data-event-label="drivers-license-restoration_footer">(616) 227-3303</a><br>
                         <a href="mailto:justice@callsbp.com">justice@callsbp.com</a>
                     </p>
                 </div>

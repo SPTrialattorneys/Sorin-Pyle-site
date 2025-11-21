@@ -255,7 +255,7 @@
             </div>
 
             <!-- Primary CTA -->
-            <button onclick="downloadVCard('Police Stops')" class="btn btn-primary btn-block">
+            <button class="track-vcard-download" data-card-type="police_stops" class="btn btn-primary btn-block">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
                 </svg>
@@ -267,7 +267,7 @@
                 <h2 class="rights-title">Know Your Constitutional Rights</h2>
 
                 <div class="right-item">
-                    <div class="right-header" onclick="toggleRight(this)">
+                    <div class="right-header toggle-accordion">
                         <h3>🚦 During Traffic Stops</h3>
                         <span class="right-icon">▼</span>
                     </div>
@@ -284,7 +284,7 @@
                 </div>
 
                 <div class="right-item">
-                    <div class="right-header" onclick="toggleRight(this)">
+                    <div class="right-header toggle-accordion">
                         <h3>🔍 If Police Want to Search</h3>
                         <span class="right-icon">▼</span>
                     </div>
@@ -301,7 +301,7 @@
                 </div>
 
                 <div class="right-item">
-                    <div class="right-header" onclick="toggleRight(this)">
+                    <div class="right-header toggle-accordion">
                         <h3>🚔 If You're Arrested</h3>
                         <span class="right-icon">▼</span>
                     </div>
@@ -319,7 +319,7 @@
                 </div>
 
                 <div class="right-item">
-                    <div class="right-header" onclick="toggleRight(this)">
+                    <div class="right-header toggle-accordion">
                         <h3>📱 Your Right to Record</h3>
                         <span class="right-icon">▼</span>
                     </div>
@@ -418,11 +418,6 @@
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR-GA-ID"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'YOUR-GA-ID');
-    </script>
+    
 </body>
 </html>

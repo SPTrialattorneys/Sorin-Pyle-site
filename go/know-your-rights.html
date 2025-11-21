@@ -561,19 +561,19 @@
 
             <!-- Amendment Cards -->
             <div class="amendment-grid">
-                <div class="amendment-card" onclick="scrollToSection('fourth')">
+                <div class="amendment-card scroll-to-section" data-target-id="fourth">
                     <div class="amendment-number">4th</div>
                     <div class="amendment-title">Search & Seizure</div>
                     <div class="amendment-summary">Protection from unreasonable searches</div>
                 </div>
 
-                <div class="amendment-card" onclick="scrollToSection('fifth')">
+                <div class="amendment-card scroll-to-section" data-target-id="fifth">
                     <div class="amendment-number">5th</div>
                     <div class="amendment-title">Remain Silent</div>
                     <div class="amendment-summary">Right against self-incrimination</div>
                 </div>
 
-                <div class="amendment-card" onclick="scrollToSection('sixth')">
+                <div class="amendment-card scroll-to-section" data-target-id="sixth">
                     <div class="amendment-number">6th</div>
                     <div class="amendment-title">Legal Counsel</div>
                     <div class="amendment-summary">Right to an attorney</div>
@@ -581,7 +581,7 @@
             </div>
 
             <!-- Primary CTA -->
-            <button onclick="downloadVCard()" class="cta-primary">
+            <button class="track-vcard-download" data-card-type="qr_campaign" class="cta-primary">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
                 </svg>
@@ -593,7 +593,7 @@
                 <h2 class="rights-title">Your Rights in Different Situations</h2>
 
                 <div class="right-item" id="fourth">
-                    <div class="right-header" onclick="toggleRight(this)">
+                    <div class="right-header toggle-accordion">
                         <h3>🏠 Home Searches - 4th Amendment</h3>
                         <span class="right-icon">▼</span>
                     </div>
@@ -615,7 +615,7 @@
                 </div>
 
                 <div class="right-item" id="fifth">
-                    <div class="right-header" onclick="toggleRight(this)">
+                    <div class="right-header toggle-accordion">
                         <h3>🤐 Right to Remain Silent - 5th Amendment</h3>
                         <span class="right-icon">▼</span>
                     </div>
@@ -638,7 +638,7 @@
                 </div>
 
                 <div class="right-item" id="sixth">
-                    <div class="right-header" onclick="toggleRight(this)">
+                    <div class="right-header toggle-accordion">
                         <h3>⚖️ Right to an Attorney - 6th Amendment</h3>
                         <span class="right-icon">▼</span>
                     </div>
@@ -661,7 +661,7 @@
                 </div>
 
                 <div class="right-item">
-                    <div class="right-header" onclick="toggleRight(this)">
+                    <div class="right-header toggle-accordion">
                         <h3>🚗 Vehicle Searches</h3>
                         <span class="right-icon">▼</span>
                     </div>
@@ -680,7 +680,7 @@
                 </div>
 
                 <div class="right-item">
-                    <div class="right-header" onclick="toggleRight(this)">
+                    <div class="right-header toggle-accordion">
                         <h3>📱 Phone & Digital Privacy</h3>
                         <span class="right-icon">▼</span>
                     </div>
@@ -699,7 +699,7 @@
                 </div>
 
                 <div class="right-item">
-                    <div class="right-header" onclick="toggleRight(this)">
+                    <div class="right-header toggle-accordion">
                         <h3>🚶 Street Encounters</h3>
                         <span class="right-icon">▼</span>
                     </div>
@@ -721,7 +721,7 @@
                 </div>
 
                 <div class="right-item">
-                    <div class="right-header" onclick="toggleRight(this)">
+                    <div class="right-header toggle-accordion">
                         <h3>🎥 Recording Police</h3>
                         <span class="right-icon">▼</span>
                     </div>
@@ -963,17 +963,6 @@ END:VCARD`;
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR-GA-ID"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'YOUR-GA-ID', {
-            'campaign': {
-                'source': 'qr_code',
-                'medium': 'card',
-                'name': 'know_your_rights'
-            }
-        });
-    </script>
+    
 </body>
 </html>

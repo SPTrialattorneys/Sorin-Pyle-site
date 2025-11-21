@@ -509,7 +509,7 @@
             </div>
 
             <!-- Primary CTA -->
-            <button onclick="downloadVCard()" class="cta-primary">
+            <button class="track-vcard-download" data-card-type="qr_campaign" class="cta-primary">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
                 </svg>
@@ -544,7 +544,7 @@
                 <h2 class="rights-title">Your Rights During a DUI Stop</h2>
 
                 <div class="right-item critical">
-                    <div class="right-header" onclick="toggleRight(this)">
+                    <div class="right-header toggle-accordion">
                         <h3>🚨 Michigan's Implied Consent Law</h3>
                         <span class="right-icon">▼</span>
                     </div>
@@ -561,7 +561,7 @@
                 </div>
 
                 <div class="right-item">
-                    <div class="right-header" onclick="toggleRight(this)">
+                    <div class="right-header toggle-accordion">
                         <h3>🌬️ Preliminary Breath Test (PBT)</h3>
                         <span class="right-icon">▼</span>
                     </div>
@@ -578,7 +578,7 @@
                 </div>
 
                 <div class="right-item">
-                    <div class="right-header" onclick="toggleRight(this)">
+                    <div class="right-header toggle-accordion">
                         <h3>🚶 Field Sobriety Tests</h3>
                         <span class="right-icon">▼</span>
                     </div>
@@ -596,7 +596,7 @@
                 </div>
 
                 <div class="right-item">
-                    <div class="right-header" onclick="toggleRight(this)">
+                    <div class="right-header toggle-accordion">
                         <h3>💬 What NOT to Say</h3>
                         <span class="right-icon">▼</span>
                     </div>
@@ -614,7 +614,7 @@
                 </div>
 
                 <div class="right-item">
-                    <div class="right-header" onclick="toggleRight(this)">
+                    <div class="right-header toggle-accordion">
                         <h3>📱 Document Everything</h3>
                         <span class="right-icon">▼</span>
                     </div>
@@ -633,7 +633,7 @@
                 </div>
 
                 <div class="right-item critical">
-                    <div class="right-header" onclick="toggleRight(this)">
+                    <div class="right-header toggle-accordion">
                         <h3>⏰ Critical Deadlines After Arrest</h3>
                         <span class="right-icon">▼</span>
                     </div>
@@ -853,17 +853,6 @@ END:VCARD`;
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR-GA-ID"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'YOUR-GA-ID', {
-            'campaign': {
-                'source': 'qr_code',
-                'medium': 'card',
-                'name': 'dui_rights'
-            }
-        });
-    </script>
+    
 </body>
 </html>

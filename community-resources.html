@@ -24,15 +24,8 @@
 
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV7PKRF2YT"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-LV7PKRF2YT', {
-            page_title: document.title,
-            page_location: window.location.href
-        });
-    </script>
+    <script src="js/analytics.js"></script>
+    <script src="js/tracking.js"></script>
 
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="stylesheet" href="css/core-brand.css">
@@ -656,7 +649,7 @@
                 <div class="text-align-center margin-top-xl">
                     <h3>Need Legal Support?</h3>
                     <p>If you're facing criminal charges while dealing with personal challenges, we provide both legal representation and connections to community resources.</p>
-                    <a href="contact.html" class="button-primary margin-top-sm" onclick="gtag('event', 'click', {event_category: 'CTA', event_label: 'Local Resources Contact', event_action: 'consultation_request'});">Contact Us for Legal Help</a>
+                    <a href="contact.html" class="button-primary margin-top-sm track-click" data-event-category="CTA" data-event-label="Local Resources Contact" data-event-action="consultation_request">Contact Us for Legal Help</a>
                 </div>
             </div>
         </section>
@@ -673,7 +666,7 @@
                         Holland, MI 49423
                     </p>
                     <p class="footer_contact">
-                        <a href="tel:+16162273303">(616) 227-3303</a><br>
+                        <a href="tel:+16162273303" class="track-phone-click" data-event-label="community-resources_footer">(616) 227-3303</a><br>
                         <a href="mailto:justice@callsbp.com">justice@callsbp.com</a>
                     </p>
                 </div>

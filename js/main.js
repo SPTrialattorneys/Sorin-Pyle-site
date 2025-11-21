@@ -249,4 +249,17 @@ document.addEventListener('DOMContentLoaded', function() {
         handleScroll();
     }
 
+    // --- SCROLL TO SECTION FUNCTIONALITY ---
+    // Used on your-rights.html and other pages with section navigation
+    document.querySelectorAll('.scroll-to-section').forEach(button => {
+        button.addEventListener('click', function() {
+            const targetId = this.dataset.targetId;
+            const element = document.getElementById(targetId);
+            if (element) {
+                element.classList.add('active');
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+
 });

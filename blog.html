@@ -23,6 +23,7 @@
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV7PKRF2YT"></script>
     <script src="js/analytics.js"></script>
+    <script src="js/tracking.js"></script>
 
 
     <!-- Local fonts loaded via CSS -->
@@ -237,7 +238,7 @@
                     <p class="margin-bottom-md">Contact us for a free consultation to discuss your criminal defense needs.</p>
                     <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
                         <a href="contact.html" class="button-primary">Get Free Consultation</a>
-                        <a href="tel:+16162273303" class="button-secondary" onclick="gtag('event', 'phone_click', {'event_category': 'contact', 'event_label': 'blog_cta'});">(616) 227-3303</a>
+                        <a href="tel:+16162273303" class="button-secondary track-phone-click" data-event-label="blog_cta">(616) 227-3303</a>
                     </div>
                 </div>
 
@@ -259,7 +260,7 @@
                         Holland, MI 49423
                     </p>
                     <p class="footer_contact">
-                        <a href="tel:+16162273303">(616) 227-3303</a><br>
+                        <a href="tel:+16162273303" class="track-phone-click" data-event-label="blog_footer">(616) 227-3303</a><br>
                         <a href="mailto:justice@callsbp.com">justice@callsbp.com</a>
                     </p>
                 </div>

@@ -25,80 +25,6 @@
 
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV7PKRF2YT"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-LV7PKRF2YT', {
-            // Enhanced tracking for legal websites
-            page_title: document.title,
-            page_location: window.location.href,
-            // Core Web Vitals tracking
-            custom_map: {
-                'custom_parameter_1': 'page_type',
-                'custom_parameter_2': 'practice_area'
-            }
-        });
-
-        // Track Core Web Vitals
-        function trackWebVitals() {
-            function sendToGoogleAnalytics({name, delta, value, id}) {
-                gtag('event', name, {
-                    event_category: 'Web Vitals',
-                    event_label: id,
-                    value: Math.round(name === 'CLS' ? delta * 1000 : delta),
-                    non_interaction: true,
-                });
-            }
-
-            // Load web-vitals library
-            import('https://unpkg.com/web-vitals@3/dist/web-vitals.js').then(({onCLS, onFID, onFCP, onLCP, onTTFB}) => {
-                onCLS(sendToGoogleAnalytics);
-                onFID(sendToGoogleAnalytics);
-                onFCP(sendToGoogleAnalytics);
-                onLCP(sendToGoogleAnalytics);
-                onTTFB(sendToGoogleAnalytics);
-            }).catch(err => {
-                console.warn('Web Vitals library failed to load:', err);
-            });
-        }
-
-        // Track page engagement for legal sites
-        function trackEngagement() {
-            let engagementTime = 0;
-            let lastActiveTime = Date.now();
-
-            const trackTime = () => {
-                const now = Date.now();
-                engagementTime += now - lastActiveTime;
-                lastActiveTime = now;
-            };
-
-            ['mousedown', 'touchstart', 'keydown', 'scroll'].forEach(event => {
-                document.addEventListener(event, trackTime, {passive: true});
-            });
-
-            // Send engagement data on page unload
-            window.addEventListener('beforeunload', () => {
-                gtag('event', 'engagement_time', {
-                    event_category: 'User Engagement',
-                    value: Math.round(engagementTime / 1000),
-                    non_interaction: true
-                });
-            });
-        }
-
-        // Initialize tracking when DOM is ready
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', () => {
-                trackWebVitals();
-                trackEngagement();
-            });
-        } else {
-            trackWebVitals();
-            trackEngagement();
-        }
-    </script>
 
     <!-- Image Preloading -->
     <link rel="preload" as="image" href="images/holland-michigan-criminal-defense-lawyers.avif" type="image/avif">
@@ -201,7 +127,7 @@
                             <li>Client-Centered Advocacy</li>
                             <li>Even <i>occasional attempts</i> at humor</li>
                         </ul>
-                        <a href="contact.html" class="button-primary margin-top-sm" onclick="gtag('event', 'click', {event_category: 'CTA', event_label: 'Hero CTA', event_action: 'consultation_request'});">Request a Free Consultation</a>
+                        <a href="contact.html" class="button-primary margin-top-sm track-click" data-event-category="CTA" data-event-label="Hero CTA" data-event-action="consultation_request">Request a Free Consultation</a>
                     </div>
                     <div>
                         <img src="images/holland-michigan-criminal-defense-lawyers.avif"
@@ -271,7 +197,7 @@
         <section class="section">
             <div class="container-large fade-up-on-scroll">
                 <h2 class="text-align-center margin-bottom-md">
-                    <a href="practice-areas.html" class="practice-areas-heading-link" onclick="gtag('event', 'click', {event_category: 'Practice Areas', event_label: 'Heading Link', event_action: 'learn_more'});">
+                    <a href="practice-areas.html" class="practice-areas-heading-link track-click" data-event-category="Practice Areas" data-event-label="Heading Link" data-event-action="learn_more">
                         Our Practice Areas
                         <span class="heading-link-arrow">→</span>
                     </a>
@@ -378,7 +304,7 @@
         <section class="section section_contact-cta">
             <div class="container-large text-align-center fade-up-on-scroll">
                 <h2>Call Today to Schedule a Free Consultation</h2>
-                <p class="font-size-xl margin-top-sm"><a href="tel:+16162273303">(616) 227-3303</a></p>
+                <p class="font-size-xl margin-top-sm"><a href="tel:+16162273303" class="track-phone-click" data-event-label="index_cta">(616) 227-3303</a></p>
             </div>
         </section>
     </main>
@@ -394,7 +320,7 @@
                         Holland, MI 49423
                     </p>
                     <p class="footer_contact">
-                        <a href="tel:+16162273303">(616) 227-3303</a><br>
+                        <a href="tel:+16162273303" class="track-phone-click" data-event-label="index_footer">(616) 227-3303</a><br>
                         <a href="mailto:justice@callsbp.com">justice@callsbp.com</a>
                     </p>
                 </div>
@@ -596,7 +522,7 @@
     </script>
     <!-- Mobile Sticky CTA Button -->
     <div class="mobile-cta-sticky" id="mobile-cta-sticky" aria-hidden="true">
-        <a href="tel:+16162273303" class="mobile-cta-button" onclick="gtag('event', 'click', {event_category: 'Mobile CTA', event_label: 'Sticky Call Button', event_action: 'call_now'});">
+        <a href="tel:+16162273303" class="mobile-cta-button track-click" data-event-category="Mobile CTA" data-event-label="Sticky Call Button" data-event-action="call_now">
             <svg class="mobile-cta-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
             </svg>
@@ -606,6 +532,7 @@
 
     <script src="js/main.js" defer></script>
     <script src="js/analytics.js" defer></script>
+    <script src="js/tracking.js"></script>
 
 
     <!-- Cookie Consent Banner -->
