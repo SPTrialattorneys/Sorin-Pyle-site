@@ -1,8 +1,5 @@
 User-agent: *
 Allow: /
-Disallow: /blog/_site/
-Disallow: /blog/node_modules/
-Disallow: /_includes/
 
 # AI Crawlers - Explicitly Allow
 User-agent: GPTBot

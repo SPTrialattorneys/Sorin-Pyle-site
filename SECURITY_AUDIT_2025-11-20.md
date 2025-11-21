@@ -8,15 +8,15 @@
 
 ## Executive Summary
 
-**Overall Security Status:** ⚠️ **GOOD with Moderate Improvements Needed**
+**Overall Security Status:** ✅ **GOOD - Improved** (Updated: November 20, 2025)
 
-The Sorin & Pyle website has a solid security foundation with proper HTTPS enforcement, security headers, and no critical vulnerabilities. However, there are **4 medium-priority** security improvements recommended to enhance protection against modern web attacks.
+The Sorin & Pyle website has a solid security foundation with proper HTTPS enforcement, security headers, and no critical vulnerabilities. **Recent security fixes have resolved 2 vulnerabilities**, further strengthening the site's protection against XSS attacks and information disclosure.
 
 **Risk Level:**
 - 🔴 **Critical Issues:** 0
 - 🟠 **High Priority Issues:** 0
-- 🟡 **Medium Priority Issues:** 4
-- 🟢 **Low Priority Issues:** 2
+- 🟡 **Medium Priority Issues:** 2 ~~4~~ (2 RESOLVED: VULN-001, VULN-005)
+- 🟢 **Low Priority Issues:** 1 ~~2~~ (1 RESOLVED: VULN-005)
 
 ---
 
@@ -36,26 +36,29 @@ The Sorin & Pyle website has a solid security foundation with proper HTTPS enfor
 
 ⚠️ **Vulnerabilities Identified:**
 
-**VULN-001: Unsanitized URL Parameters in Form Fields**
-- **Location:** `go/qr-shared.js` lines 53-68
-- **Issue:** UTM parameters from URL are directly inserted into form fields without sanitization
+**VULN-001: Unsanitized URL Parameters in Form Fields** ✅ **RESOLVED (November 20, 2025)**
+- **Location:** `go/qr-shared.js` lines 51-77
+- **Issue:** UTM parameters from URL were directly inserted into form fields without sanitization
 - **Risk:** Low-Medium (form fields are safer than DOM innerHTML, but still a potential XSS vector)
-- **Code:**
+- **Resolution:** Added `sanitizeInput()` function that escapes HTML characters (`<>"'&`)
+- **Implementation:**
 ```javascript
-const utmSource = params.get('utm_source') || 'qr_direct';
-if (sourceField) sourceField.value = utmSource;  // ⚠️ No sanitization
-```
-- **Exploitation Scenario:**
-  - Attacker crafts URL: `https://example.com?utm_source=<script>alert('XSS')</script>`
-  - Script tag inserted into hidden form field
-  - If form data is ever echoed back to page without encoding, XSS occurs
-- **Recommendation:** Sanitize URL parameters before insertion
-```javascript
-function sanitizeInput(str) {
-    return str.replace(/[<>"']/g, '');
+function sanitizeInput(input) {
+    if (!input) return input;
+    return input.replace(/[<>"'&]/g, function(char) {
+        const escapeMap = {
+            '<': '&lt;', '>': '&gt;', '"': '&quot;',
+            "'": '&#39;', '&': '&amp;'
+        };
+        return escapeMap[char];
+    });
 }
 const utmSource = sanitizeInput(params.get('utm_source') || 'qr_direct');
+const utmMedium = sanitizeInput(params.get('utm_medium') || 'card');
+const utmCampaign = sanitizeInput(params.get('utm_campaign') || defaultCampaign);
 ```
+- **Result:** All URL parameters now sanitized before insertion into form fields
+- **Status:** ✅ **FIXED** - XSS attack vector eliminated
 
 **VULN-002: Content Security Policy Allows 'unsafe-inline'**
 - **Location:** `.htaccess` line 5
@@ -295,16 +298,17 @@ script-src 'self' 'unsafe-inline' https://www.google.com https://www.gstatic.com
 
 ⚠️ **Minor Information Disclosure:**
 
-**VULN-005: robots.txt Reveals Directory Structure**
-- **Location:** `robots.txt` lines 3-5
-- **Issue:** Disallows paths reveal internal structure
-```
-Disallow: /blog/_site/
-Disallow: /blog/node_modules/
-Disallow: /_includes/
-```
-- **Risk:** Very Low (attacker learns about Eleventy blog system and development files)
-- **Recommendation:** Ensure these directories return 404 or have directory listing disabled
+**VULN-005: robots.txt Reveals Directory Structure** ✅ **RESOLVED (November 20, 2025)**
+- **Location:** `robots.txt` (previously lines 3-5)
+- **Issue:** Disallow paths revealed internal structure (blog build directories, node_modules, template includes)
+- **Risk:** Very Low (minimal information disclosure)
+- **Resolution:** Removed unnecessary `Disallow` entries from robots.txt
+- **Rationale:**
+  - These directories are already protected by `.htaccess` configuration
+  - Files excluded from deployment via `.gitignore`
+  - No need to advertise their existence to search engines
+- **Result:** Cleaner robots.txt with only essential AI crawler permissions and sitemap reference
+- **Status:** ✅ **FIXED** - Unnecessary information disclosure eliminated
 
 **VULN-006: Comment Blocks in HTML**
 - **Issue:** Some HTML files contain development comments

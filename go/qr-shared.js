@@ -48,13 +48,33 @@ function toggleRight(element) {
     toggleAccordion(element);
 }
 
+/**
+ * Sanitizes user input by escaping HTML characters
+ * Prevents XSS attacks via URL parameters
+ * @param {string} input - The input string to sanitize
+ * @returns {string} - Sanitized string with HTML entities escaped
+ */
+function sanitizeInput(input) {
+    if (!input) return input;
+    return input.replace(/[<>"'&]/g, function(char) {
+        const escapeMap = {
+            '<': '&lt;',
+            '>': '&gt;',
+            '"': '&quot;',
+            "'": '&#39;',
+            '&': '&amp;'
+        };
+        return escapeMap[char];
+    });
+}
+
 // UTM Parameter Capture
 function getUTMParams(defaultCampaign = 'qr_direct') {
     const params = new URLSearchParams(window.location.search);
 
-    const utmSource = params.get('utm_source') || 'qr_direct';
-    const utmMedium = params.get('utm_medium') || 'card';
-    const utmCampaign = params.get('utm_campaign') || defaultCampaign;
+    const utmSource = sanitizeInput(params.get('utm_source') || 'qr_direct');
+    const utmMedium = sanitizeInput(params.get('utm_medium') || 'card');
+    const utmCampaign = sanitizeInput(params.get('utm_campaign') || defaultCampaign);
 
     // Set hidden form fields if they exist
     const sourceField = document.getElementById('utm_source');
