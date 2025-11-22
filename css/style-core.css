@@ -702,13 +702,18 @@ button.navbar_dropdown-toggle {
 .attorney-bio-image img {
     width: 100%;
     max-width: 400px;
-    height: 500px; /* Set fixed height for proper aspect ratio */
-    object-fit: cover; /* Ensure image fills the frame */
-    object-position: center 10%; /* Position head with balanced spacing */
+    height: auto; /* Auto height for square frames on attorneys.html */
     border-radius: var(--border-radius-card);
     box-shadow: var(--shadow-layered);
     display: block;
     transition: all 0.3s ease;
+}
+
+/* Rectangular 400x500 photos for individual profile pages only */
+.attorney-bio-image img:not(.attorney_photo) {
+    height: 500px; /* Set fixed height for proper aspect ratio */
+    object-fit: cover; /* Ensure image fills the frame */
+    object-position: center 10%; /* Position head with balanced spacing */
 }
 
 .attorney-bio-image img:hover {
