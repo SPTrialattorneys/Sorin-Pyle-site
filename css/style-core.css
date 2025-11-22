@@ -692,7 +692,7 @@ button.navbar_dropdown-toggle {
 }
 
 .attorney_photo-jonathan {
-    object-position: center 20%; /* Positions head lower in frame with space above, 20% from top */
+    object-position: center 15%; /* Positions head lower in frame with more space above */
 }
 
 .attorney-bio-image .attorney_photo-sorin {
