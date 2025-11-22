@@ -43,9 +43,13 @@
         @media (max-width: 767px) { .grid_2-col { grid-template-columns: 1fr; } h1 { font-size: 2.5rem; } }
         @media (max-width: 374px) { h1 { font-size: 2rem; line-height: 1.1; } .button-primary { padding: 0.75rem 1.25rem; font-size: 0.9rem; } .container-large { padding: 0 1rem; } .section_home-hero { padding: 2rem 0 4rem; } }
             /* Prevent mobile menu FOUC on desktop */
-        @media (min-width: 768px) {
+        @media (min-width: 992px) {
             .mobile-nav_menu { display: none !important; }
             .navbar_hamburger-button { display: none !important; }
+        }
+        /* Prevent desktop menu FOUC on mobile/tablet */
+        @media (max-width: 991px) {
+            .navbar_menu { display: none !important; }
         }
     </style>
 

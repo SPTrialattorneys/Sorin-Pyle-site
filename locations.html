@@ -28,7 +28,72 @@
     <script src="../js/tracking.js"></script>
 
 
-    <!-- Local fonts loaded via CSS -->
+    <!-- Local fonts loaded via CSS -->    <!-- Critical CSS - Prevents FOUC on navigation -->
+    <style>
+        /* Prevent layout shift and navigation flash */
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
+            background-color: #FDFBF6;
+            color: #212529;
+        }
+
+        /* Navbar structure */
+        .navbar_component {
+            position: sticky;
+            top: 0;
+            background-color: #FDFBF6;
+            border-bottom: 1px solid #dee2e6;
+            padding: 1rem 0;
+            z-index: 1002;
+        }
+
+        .container-large {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .navbar_container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar_logo-link {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 70px;
+            height: 70px;
+        }
+
+        /* CRITICAL: Hide mobile nav on desktop to prevent flash */
+        @media (min-width: 992px) {
+            .mobile-nav_menu {
+                display: none !important;
+            }
+            .navbar_hamburger-button {
+                display: none !important;
+            }
+        }
+
+        /* CRITICAL: Hide desktop nav on mobile/tablet to prevent flash */
+        @media (max-width: 991px) {
+            .navbar_menu {
+                display: none !important;
+            }
+            .navbar_hamburger-button {
+                display: block;
+            }
+        }
+    </style>
+
+
 
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="preload" href="css/core-brand.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
