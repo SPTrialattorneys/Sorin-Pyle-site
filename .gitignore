@@ -10,6 +10,10 @@
 !COMPLIANCE_REVIEW_*.md
 !SECURITY_AUDIT_*.md
 !IMAGE_OPTIMIZATION_WORKFLOW.md
+!BUILD_SYSTEM_GUIDE.md
+!CLOUDFLARE_DEPLOYMENT.md
+!MAINTENANCE.md
+!TESTING.md
 
 # Utility scripts (development tools)
 utilities/
@@ -75,3 +79,9 @@ images/*.pdf
 .env
 .env.local
 .env.*.local
+
+# Build system output and cache
+dist/
+.cache/
+*.log
+package-lock.json

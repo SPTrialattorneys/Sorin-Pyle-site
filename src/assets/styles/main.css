@@ -1,0 +1,27 @@
+/* ===============================================
+   SORIN & PYLE - MAIN STYLESHEET
+   ===============================================
+   Combined and optimized CSS for all pages
+   Processed by PostCSS (autoprefixer, cssnano)
+   =============================================== */
+
+/* 1. Core Brand Styles (Variables, Resets) */
+@import "core-brand.css";
+
+/* 2. Core Component Styles */
+@import "style-core.css";
+
+/* 3. Main Stylesheet (Page-specific styles) */
+@import "style.css";
+
+/* 4. Blog Page Styles */
+@import "style-blog.css";
+
+/* 5. FAQ Page Styles */
+@import "style-faq.css";
+
+/* 6. Digital Business Card Styles */
+@import "style-card-pages.css";
+
+/* 7. Cookie Consent Banner */
+@import "cookie-consent.css";

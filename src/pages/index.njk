@@ -1,0 +1,201 @@
+---
+layout: layouts/page.njk
+title: West Michigan Criminal Defense Lawyer
+description: "West Michigan criminal defense trial lawyers. DUI, felonies, domestic violence & drug crimes. Former public defenders. Holland office. Free consult: (616) 227-3303"
+permalink: /index.html
+criticalCSSFile: critical-homepage.css
+---
+
+<!-- Section 1: Hero -->
+<section class="section section_home-hero">
+    <div class="container-large fade-up-on-scroll">
+        <div class="grid_2-col grid-align-center">
+            <div>
+                <h1>Legal help is just a phone call away. Just call Sorin & Pyle, Trial Lawyers!</h1>
+                <p>At Sorin & Pyle you can expect:</p>
+                <ul class="hero-list">
+                    <li>Honesty</li>
+                    <li>Loyalty</li>
+                    <li>Reliability</li>
+                    <li>Respect</li>
+                    <li>Client-Centered Advocacy</li>
+                    <li>Even <i>occasional attempts</i> at humor</li>
+                </ul>
+                <a href="/contact.html" class="button-primary margin-top-sm track-click" data-event-category="CTA" data-event-label="Hero CTA" data-event-action="consultation_request">Request a Free Consultation</a>
+            </div>
+            <div>
+                <img src="/images/holland-michigan-criminal-defense-lawyers-450w.avif"
+                     srcset="/images/holland-michigan-criminal-defense-lawyers-450w.avif 450w,
+                             /images/holland-michigan-criminal-defense-lawyers.avif 800w"
+                     sizes="(max-width: 767px) 100vw, 800px"
+                     alt="Criminal defense attorneys Sorin Panainte and Jonathan Pyle at Sorin & Pyle law office in Holland, Michigan"
+                     class="hero-image"
+                     width="800"
+                     height="600"
+                     loading="eager"
+                     fetchpriority="high">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section 2: Meet Your Advocates -->
+<section class="section">
+    <div class="container-large fade-up-on-scroll">
+        <h2 class="text-align-center margin-bottom-md">Your Fighters in the Courtroom</h2>
+        <div class="grid_2-col" id="attorney-cards-container">
+            {% for attorney in site.attorneys %}
+            <div class="card_attorney" id="attorney-{{ loop.index }}">
+                <img src="{{ attorney.photo }}"
+                     srcset="{{ attorney.photo | replace('.avif', '-220w.avif') }} 220w,
+                             {{ attorney.photo }} 400w"
+                     sizes="(max-width: 768px) 220px, 220px"
+                     alt="{{ attorney.name }} - {{ attorney.title }} in Holland, Michigan"
+                     class="attorney_photo attorney_photo-{{ attorney.slug }}"
+                     loading="lazy"
+                     width="400"
+                     height="400">
+                <h3 class="attorney_name">{{ attorney.name }}</h3>
+                <p class="attorney_snippet">
+                    {% if attorney.slug == 'sorin-panainte' %}
+                    First-generation immigrant, former Public Defender, dedicated to your fight.
+                    {% else %}
+                    West Michigan native, seasoned trial attorney, committed to results.
+                    {% endif %}
+                </p>
+                <a href="/{{ attorney.slug }}.html" class="button-primary">Learn More About {{ attorney.firstName }}</a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Section 3: Firm Philosophy -->
+<section class="section section_our-beliefs">
+    <div class="container-large fade-up-on-scroll">
+        <div class="grid_2-col">
+            <div class="text-align-center">
+                <h2>WE GIVE A [EXPLETIVE]!</h2>
+                <p>WE PROUDLY SERVE THOSE WITH MENTAL HEALTH AND SUBSTANCE ABUSE CONCERNS, Everyone deserves the best and to find their inner peace</p>
+            </div>
+            <div class="text-align-center">
+                <h2>JUDGMENT-FREE</h2>
+                <p>Every person is more than their worst self. "If your play is set in hell, you cannot expect your actors to be angels."<br>- A friend of ours</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section 4: Practice Areas -->
+<section class="section">
+    <div class="container-large fade-up-on-scroll">
+        <h2 class="text-align-center margin-bottom-md">
+            <a href="/practice-areas.html" class="practice-areas-heading-link track-click" data-event-category="Practice Areas" data-event-label="Heading Link" data-event-action="learn_more">
+                Our Practice Areas
+                <span class="heading-link-arrow">→</span>
+            </a>
+        </h2>
+        <div class="grid_2-col practice-areas-grid">
+            <!-- Criminal Charges Section (Left Half) -->
+            <div class="card_practice-area-enhanced">
+                <h3>Criminal Charges</h3>
+                <p class="practice-area-intro">From misdemeanors to serious felonies, we handle any criminal charge in Michigan with aggressive, dedicated defense. Your fight is our fight.</p>
+
+                <div class="charges-grid">
+                    <div class="charge-category">
+                        <h4>Felonies & High Court Misdemeanors</h4>
+                        <ul class="charge-list">
+                            <li>Felonious Assault</li>
+                            <li>Criminal Sexual Conduct (CSC)</li>
+                            <li>Robbery & Home Invasion</li>
+                            <li>Drug Crimes</li>
+                            <li>Carrying Concealed Weapon (CCW)</li>
+                            <li>Resisting & Obstructing a Police Officer (R&O)</li>
+                        </ul>
+                    </div>
+
+                    <div class="charge-category">
+                        <h4>Misdemeanors</h4>
+                        <ul class="charge-list">
+                            <li><a href="/dui-defense.html">OWI / Drunk Driving</a></li>
+                            <li><a href="/domestic-violence-defense.html">Domestic Violence</a></li>
+                            <li>Assault and Battery</li>
+                            <li>Theft & Retail Fraud</li>
+                            <li>Reckless Driving</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="services-list">
+                    <div class="service-item">
+                        <h4>Probation Violations</h4>
+                        <p>Expert defense when facing violations of probation terms.</p>
+                    </div>
+
+                    <div class="service-item">
+                        <h4>Appeals</h4>
+                        <p>Challenging unfavorable verdicts and seeking justice through appellate courts.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Specialized Services Section (Right Half) -->
+            <div class="card_practice-area-enhanced">
+                <h3>Specialized Legal Services</h3>
+
+                <div class="services-list">
+                    <div class="service-item">
+                        <h4>Pre-Charge Investigations</h4>
+                        <p>When you're under investigation but haven't been charged yet, we step in early to protect your rights. Our proactive approach can prevent charges from being filed or significantly reduce their severity before you ever see a courtroom.</p>
+                    </div>
+
+                    <div class="service-item">
+                        <h4><a href="/record-expungement.html">Record Expungement</a></h4>
+                        <p>Clear your criminal record and reclaim your future. We navigate Michigan's expungement process to help you seal past convictions, opening doors to better employment, housing, and educational opportunities.</p>
+                    </div>
+
+                    <div class="service-item">
+                        <h4><a href="/drivers-license-restoration.html">Driver License Restoration</a></h4>
+                        <p>Lost your license due to DUI or other violations? We guide you through Michigan's DLAD/DAAD hearing process to restore your driving privileges and get you back on the road legally.</p>
+                    </div>
+
+                    <div class="service-item">
+                        <h4>Personal Protection Orders (PPO)</h4>
+                        <p>Whether you need to obtain a PPO for your safety or defend against an unfair PPO petition, we provide skilled representation in Michigan's personal protection order proceedings. We understand the sensitive nature of these cases and work to protect your rights and safety.</p>
+                    </div>
+
+                    <div class="service-item">
+                        <h4>Juvenile Defense</h4>
+                        <p>Young people deserve a second chance. We provide compassionate, aggressive defense for minors facing criminal charges, always keeping their future opportunities and educational goals as our top priority.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section 5: Proven Results -->
+<section class="section section_results">
+     <div class="container-large fade-up-on-scroll">
+        <h2 class="text-align-center margin-bottom-md">Recent Results That Speak for Themselves</h2>
+        <div class="grid_3-col">
+            <div class="card_results"><p><span class="charge">Felonious Assault:</span><br><span class="result">Dismissed</span></p></div>
+            <div class="card_results"><p><span class="charge">CCW (carrying a concealed weapon):</span><br><span class="result">Dismissed</span></p></div>
+            <div class="card_results"><p><span class="charge">Domestic Violence:</span><br><span class="result">Not Guilty</span></p></div>
+            <div class="card_results"><p><span class="charge">Operating While Intoxicated:</span><br><span class="result">Dismissed</span></p></div>
+            <div class="card_results"><p><span class="charge">Resisting and Opposing:</span><br><span class="result">Not Guilty</span></p></div>
+            <div class="card_results"><p><span class="charge">Aggravated Assault:</span><br><span class="result">Not Guilty</span></p></div>
+        </div>
+    </div>
+</section>
+<div class="legal-disclaimer" style="background: #f8f9fa; padding: 1.5rem; margin: 2rem 0; border-left: 4px solid #4076B4; border-radius: 4px;">
+    <p style="margin: 0; font-size: 0.9rem; color: #495057; line-height: 1.6;"><strong>Past Results Disclaimer:</strong> {{ site.legal.pastResults }}</p>
+</div>
+
+<!-- Section 6: Contact CTA -->
+<section class="section section_contact-cta">
+    <div class="container-large text-align-center fade-up-on-scroll">
+        <h2>Call Today to Schedule a Free Consultation</h2>
+        <p class="font-size-xl margin-top-sm"><a href="{{ site.phoneLink }}" class="track-phone-click" data-event-label="index_cta">{{ site.phone }}</a></p>
+    </div>
+</section>
