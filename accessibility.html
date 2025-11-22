@@ -18,16 +18,18 @@
     <meta property="og:description" content="Sorin & Pyle is committed to ensuring digital accessibility for people with disabilities. Learn about our WCAG 2.1 Level AA conformance.">
     <meta property="og:url" content="https://www.sorinpyle.com/accessibility.html">
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Sorin & Pyle, PC">
-
-    <!-- Google Analytics 4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV7PKRF2YT"></script>
-    <script src="js/analytics.js"></script>
+    <meta property="og:site_name" content="Sorin & Pyle, PC">    <script src="js/analytics-deferred.js"></script>
     <script src="js/tracking.js"></script>
 
     <link rel="icon" type="image/png" href="images/favicon.png">
-    <link rel="stylesheet" href="css/core-brand.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="preload" href="css/core-brand.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+    <link rel="preload" href="css/style-core.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+    <noscript><link rel="stylesheet" href="css/core-brand.css"><link rel="stylesheet" href="css/style-core.css"></noscript>
+
+
+    
 
     <!-- Cookie Consent Banner -->
     <link rel="stylesheet" href="css/cookie-consent.css">

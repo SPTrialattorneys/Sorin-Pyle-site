@@ -19,18 +19,21 @@
     <meta property="twitter:url" content="https://www.sorinpyle.com/cdl-owi-defense.html">
     <meta property="twitter:title" content="CDL OWI Defense Michigan | Commercial Driver DUI Attorney">
     <meta property="twitter:description" content="CDL holders: 1-year suspension for first OWI, lifetime ban for second. Fight for your career. Former public defender with CDL defense experience. Free consultation.">
-    <meta property="twitter:image" content="https://www.sorinpyle.com/images/sorin-pyle-primary-color.avif">
-
-    <!-- Google Analytics 4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV7PKRF2YT"></script>
-    <script src="js/analytics.js"></script>
+    <meta property="twitter:image" content="https://www.sorinpyle.com/images/sorin-pyle-primary-color.avif">    <script src="js/analytics-deferred.js"></script>
     <script src="js/tracking.js"></script>
 
     <!-- Local fonts loaded via CSS -->
 
     <link rel="icon" type="image/png" href="images/favicon.png">
-    <link rel="stylesheet" href="css/core-brand.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="preload" href="css/core-brand.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+    <link rel="preload" href="css/style-core.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+    <link rel="preload" href="css/style-faq.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+    <noscript><link rel="stylesheet" href="css/core-brand.css"><link rel="stylesheet" href="css/style-core.css"><link rel="stylesheet" href="css/style-faq.css"></noscript>
+
+    
     <!-- Cookie Consent Banner -->
     <link rel="stylesheet" href="css/cookie-consent.css">
 </head>

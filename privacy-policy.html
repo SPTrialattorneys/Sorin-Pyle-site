@@ -18,18 +18,19 @@
     <meta property="og:description" content="Privacy Policy for Sorin & Pyle Criminal Defense Attorneys. Learn how we protect your personal information and legal confidentiality.">
     <meta property="og:url" content="https://www.sorinpyle.com/privacy-policy.html">
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Sorin & Pyle, PC">
-
-    <!-- Google Analytics 4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV7PKRF2YT"></script>
-    <script src="js/analytics.js"></script>
+    <meta property="og:site_name" content="Sorin & Pyle, PC">    <script src="js/analytics-deferred.js"></script>
     <script src="js/tracking.js"></script>
 
     <!-- Local fonts loaded via CSS -->
 
     <link rel="icon" type="image/png" href="images/favicon.png">
-    <link rel="stylesheet" href="css/core-brand.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="preload" href="css/core-brand.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+    <link rel="preload" href="css/style-core.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+    <noscript><link rel="stylesheet" href="css/core-brand.css"><link rel="stylesheet" href="css/style-core.css"></noscript>
+
+    
     <!-- Cookie Consent Banner -->
     <link rel="stylesheet" href="css/cookie-consent.css">
 </head>
