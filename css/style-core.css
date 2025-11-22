@@ -688,11 +688,11 @@ button.navbar_dropdown-toggle {
 }
 
 .attorney_photo-sorin {
-    object-position: top; /* Aligns the image to the top of the frame */
+    object-position: center 10%; /* Positions head with balanced spacing in frame */
 }
 
 .attorney_photo-jonathan {
-    object-position: center 15%; /* Positions head lower in frame with more space above */
+    object-position: center 10%; /* Positions head with balanced spacing in frame */
 }
 
 .attorney-bio-image .attorney_photo-sorin {
