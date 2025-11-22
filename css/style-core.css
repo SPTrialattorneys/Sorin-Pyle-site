@@ -695,25 +695,38 @@ button.navbar_dropdown-toggle {
     object-position: center 10%; /* Positions head with balanced spacing in frame */
 }
 
-.attorney-bio-image .attorney_photo-sorin {
-    object-position: top;
-}
-
 .attorney-bio-image img {
     width: 100%;
     max-width: 400px;
-    height: auto; /* Auto height for square frames on attorneys.html */
+    height: auto;
     border-radius: var(--border-radius-card);
     box-shadow: var(--shadow-layered);
     display: block;
     transition: all 0.3s ease;
 }
 
-/* Rectangular 400x500 photos for individual profile pages only */
+/* Square frames for attorneys.html listing page */
+.attorney-bio-image img.attorney_photo {
+    height: 400px; /* Force square aspect ratio */
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: center 15%; /* Show head and shoulders */
+    border-radius: var(--border-radius-card); /* Square frame, not circular */
+}
+
+.attorney-bio-image img.attorney_photo-sorin {
+    object-position: center 15%; /* Consistent positioning for Sorin */
+}
+
+.attorney-bio-image img.attorney_photo-jonathan {
+    object-position: center 15%; /* Consistent positioning for Jonathan */
+}
+
+/* Rectangular 400x600 photos for individual profile pages */
 .attorney-bio-image img:not(.attorney_photo) {
-    height: 500px; /* Set fixed height for proper aspect ratio */
-    object-fit: cover; /* Ensure image fills the frame */
-    object-position: center 10%; /* Position head with balanced spacing */
+    height: 600px; /* Match actual image dimensions */
+    object-fit: cover;
+    object-position: center 20%; /* Show more of upper body, prevent head cutoff */
 }
 
 .attorney-bio-image img:hover {
