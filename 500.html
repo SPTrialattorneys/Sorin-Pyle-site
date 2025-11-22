@@ -16,7 +16,7 @@
 
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV7PKRF2YT"></script>
-    <script src="js/analytics.js"></script>
+    <script src="js/analytics-deferred.js" defer></script>
 
     <!-- Local fonts loaded via CSS -->
 
@@ -69,6 +69,9 @@
             font-weight: bold;
         }
     </style>
+    <link rel="preload" href="css/core-brand.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="css/style-core.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="css/core-brand.css"><link rel="stylesheet" href="css/style-core.css"></noscript>
     <!-- Cookie Consent Banner -->
     <link rel="stylesheet" href="css/cookie-consent.css">
 </head>
@@ -222,6 +225,9 @@
       ]
     }
     </script>
+    <link rel="preload" href="css/core-brand.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="css/style-core.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="css/core-brand.css"><link rel="stylesheet" href="css/style-core.css"></noscript>
     <!-- Cookie Consent Banner -->
     <script src="js/cookie-consent.js" defer></script>
 </body>

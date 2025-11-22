@@ -22,13 +22,16 @@
 
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV7PKRF2YT"></script>
-    <script src="js/analytics.js"></script>
+    <script src="js/analytics-deferred.js" defer></script>
     <script src="js/tracking.js"></script>
 
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="stylesheet" href="css/core-brand.css">
-    <link rel="stylesheet" href="css/style.css">
+    
 
+    <link rel="preload" href="css/core-brand.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="css/style-core.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="css/core-brand.css"><link rel="stylesheet" href="css/style-core.css"></noscript>
     <!-- Cookie Consent Banner -->
     <link rel="stylesheet" href="css/cookie-consent.css">
 </head>
@@ -338,6 +341,9 @@
     <!-- Scripts -->
     <script src="js/main.js" defer></script>
 
+    <link rel="preload" href="css/core-brand.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="css/style-core.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="css/core-brand.css"><link rel="stylesheet" href="css/style-core.css"></noscript>
     <!-- Cookie Consent Banner -->
     <script src="js/cookie-consent.js" defer></script>
 </body>
