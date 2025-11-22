@@ -698,35 +698,11 @@ button.navbar_dropdown-toggle {
 .attorney-bio-image img {
     width: 100%;
     max-width: 400px;
-    height: auto;
+    height: auto; /* Images are correctly sized: 400x400 for attorneys.html, 400x500 for profiles */
     border-radius: var(--border-radius-card);
     box-shadow: var(--shadow-layered);
     display: block;
     transition: all 0.3s ease;
-}
-
-/* Square frames for attorneys.html listing page */
-.attorney-bio-image img.attorney_photo {
-    height: 400px; /* Force square aspect ratio */
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-    object-position: center 15%; /* Show head and shoulders */
-    border-radius: var(--border-radius-card); /* Square frame, not circular */
-}
-
-.attorney-bio-image img.attorney_photo-sorin {
-    object-position: center 15%; /* Consistent positioning for Sorin */
-}
-
-.attorney-bio-image img.attorney_photo-jonathan {
-    object-position: center 15%; /* Consistent positioning for Jonathan */
-}
-
-/* Rectangular 400x600 photos for individual profile pages */
-.attorney-bio-image img:not(.attorney_photo) {
-    height: 600px; /* Match actual image dimensions */
-    object-fit: cover;
-    object-position: center 20%; /* Show more of upper body, prevent head cutoff */
 }
 
 .attorney-bio-image img:hover {
@@ -739,7 +715,7 @@ button.navbar_dropdown-toggle {
     border-radius: 8px;
     object-fit: cover;
     aspect-ratio: 1 / 1;
-    object-position: center 20%; /* Position to show head and upper body when cropping 400x600 to square */
+    object-position: center 15%; /* Position to show head and shoulders when cropping 400x500 to square */
 }
 
 .attorney_name {
