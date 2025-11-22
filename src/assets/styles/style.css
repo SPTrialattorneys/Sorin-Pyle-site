@@ -849,6 +849,7 @@ textarea.form_field {
     padding: var(--spacing-md);
     border: 1px solid var(--border-color);
     border-radius: 8px;
+    text-align: center;
 }
 .card_practice-area h3 {
     text-align: center;
@@ -1818,6 +1819,7 @@ textarea.form_field {
     max-width: 100%;
     margin: 0 auto;
     padding: 0;
+    text-align: center;
 }
 
 .cta-buttons {
@@ -1855,6 +1857,12 @@ textarea.form_field {
     border-left: none;
     box-shadow: none;
     border-bottom: 1px solid #e9ecef;
+}
+
+.process-step-linear ul,
+.process-step-linear ol {
+    text-align: left;
+    margin-left: 1.5rem;
 }
 
 .process-step-linear:last-child {

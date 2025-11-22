@@ -850,6 +850,7 @@ textarea.form_field {
     padding: var(--spacing-md);
     border: 1px solid var(--border-color);
     border-radius: 8px;
+    text-align: center;
 }
 .card_practice-area h3 {
     text-align: center;
@@ -1572,6 +1573,13 @@ textarea.form_field {
     .step-number {
         align-self: center;
     }
+}
+
+/* Keep lists left-aligned even when parent is centered */
+.process-step-linear ul,
+.process-step-linear ol {
+    text-align: left;
+    margin-left: 1.5rem;
 }
 
 /* ------------------- */
