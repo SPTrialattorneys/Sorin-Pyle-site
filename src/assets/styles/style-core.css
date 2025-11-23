@@ -688,11 +688,11 @@ button.navbar_dropdown-toggle {
 }
 
 .attorney_photo-sorin-panainte {
-    object-position: center 20%; /* Positions head with balanced spacing in frame */
+    object-position: center center; /* Default center positioning to match production site */
 }
 
 .attorney_photo-jonathan-pyle {
-    object-position: center 20%; /* Positions head with balanced spacing in frame */
+    object-position: center center; /* Default center positioning to match production site */
 }
 
 .attorney-bio-image img {
