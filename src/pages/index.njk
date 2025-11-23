@@ -46,15 +46,15 @@ criticalCSSFile: critical-homepage.css
         <div class="grid_2-col" id="attorney-cards-container">
             {% for attorney in site.attorneys %}
             <div class="card_attorney" id="attorney-{{ loop.index }}">
-                <img src="{{ attorney.photo }}"
+                <img src="{{ attorney.photo | replace('.avif', '-220w.avif') }}"
                      srcset="{{ attorney.photo | replace('.avif', '-220w.avif') }} 220w,
                              {{ attorney.photo }} 400w"
                      sizes="(max-width: 768px) 220px, 220px"
                      alt="{{ attorney.name }} - {{ attorney.title }} in Holland, Michigan"
                      class="attorney_photo attorney_photo-{{ attorney.slug }}"
                      loading="lazy"
-                     width="400"
-                     height="400">
+                     width="220"
+                     height="220">
                 <h3 class="attorney_name">{{ attorney.name }}</h3>
                 <p class="attorney_snippet">
                     {% if attorney.slug == 'sorin-panainte' %}

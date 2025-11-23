@@ -77,6 +77,64 @@
 - **Core Web Vitals**: Performance monitoring
 - **Custom Events**: Legal-specific tracking (consultation requests)
 
+### Attorney Photo Handling - CRITICAL NOTES
+
+**⚠️ IMPORTANT: Production uses hand-cropped 220w images, NOT auto-generated ones**
+
+**Problem**: Auto-generated responsive image variants (220w) have different cropping than production's hand-cropped versions, causing attorney photos to appear with heads "higher in the frame" on dev/staging.
+
+**Root Cause**:
+- Production 220w images: ~14KB (hand-cropped for optimal framing)
+- Auto-generated 220w images: ~4-5KB (algorithmically cropped from 400px originals)
+- Different file sizes = completely different cropping
+
+**Solution Applied (November 2025)**:
+1. **Use production 220w images as source files**:
+   - Downloaded from: `https://www.sorinpyle.com/images/*-220w.avif`
+   - Replaced auto-generated versions in `images/` folder
+   - Files: `sorin-panainte-criminal-defense-attorney-holland-mi-220w.avif` (14KB)
+   - Files: `jonathan-pyle-criminal-defense-attorney-holland-mi-220w.avif` (14KB)
+
+2. **Template uses 220w as default src** (src/pages/index.njk):
+   ```njk
+   <img src="{{ attorney.photo | replace('.avif', '-220w.avif') }}"
+        srcset="{{ attorney.photo | replace('.avif', '-220w.avif') }} 220w,
+                {{ attorney.photo }} 400w"
+        sizes="(max-width: 768px) 220px, 220px"
+        width="220"
+        height="220">
+   ```
+
+3. **CSS object-position matches production** (src/assets/styles/style-core.css):
+   ```css
+   .attorney_photo-sorin-panainte {
+       object-position: top; /* Aligns to top - matches production */
+   }
+
+   .attorney_photo-jonathan-pyle {
+       object-position: top; /* Aligns to top - matches production */
+   }
+   ```
+
+**DO NOT**:
+- ❌ Auto-generate 220w images from 400px originals
+- ❌ Try to fix cropping with CSS percentages (center 20%, center 40%, etc.)
+- ❌ Replace the hand-cropped 220w images with auto-generated versions
+
+**ALWAYS**:
+- ✅ Use the production 220w images from `images/` folder
+- ✅ Keep `object-position: top` CSS rule
+- ✅ Use 220w as default src in homepage template
+- ✅ Verify photos match production before deploying
+
+**Verification Command**:
+```bash
+# Check if using production 220w images (should be ~14KB)
+ls -lh images/*-220w.avif
+# Sorin: 14K, Jonathan: 14K = correct
+# Sorin: 4-5K, Jonathan: 4-5K = WRONG (auto-generated)
+```
+
 ## Content Strategy
 
 ### Firm Philosophy
