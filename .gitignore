@@ -85,3 +85,6 @@ dist/
 .cache/
 *.log
 package-lock.json
+
+# Legacy static files (archived pre-Eleventy files)
+legacy/
