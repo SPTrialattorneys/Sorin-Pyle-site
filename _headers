@@ -1,0 +1,43 @@
+## Cloudflare Pages HTTP Security Headers
+## Deployed to: https://www.sorinpyle.com
+
+/*
+  # Strict-Transport-Security (HSTS) - Force HTTPS for 1 year
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+
+  # Content-Security-Policy (CSP) - XSS Protection
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://www.google.com https://www.gstatic.com https://www.googletagmanager.com https://unpkg.com 'sha256-nqfcEkRQsN3ws2HsiBy72Zb15B99hqaE6HL9UykyhPQ='; style-src 'self' 'sha256-nqfcEkRQsN3ws2HsiBy72Zb15B99hqaE6HL9UykyhPQ='; img-src 'self' data: https://www.google-analytics.com https://www.googletagmanager.com; font-src 'self' data:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests;
+
+  # X-Frame-Options - Clickjacking Protection
+  X-Frame-Options: SAMEORIGIN
+
+  # X-Content-Type-Options - MIME Sniffing Protection
+  X-Content-Type-Options: nosniff
+
+  # X-XSS-Protection - Legacy XSS Protection
+  X-XSS-Protection: 1; mode=block
+
+  # Referrer-Policy - Privacy Protection
+  Referrer-Policy: strict-origin-when-cross-origin
+
+  # Cross-Origin-Opener-Policy (COOP) - Origin Isolation
+  Cross-Origin-Opener-Policy: same-origin
+
+  # Permissions-Policy - Feature Restrictions
+  Permissions-Policy: accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()
+
+  # Cache-Control for HTML (no cache)
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Cache static assets for 1 year
+/css/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/js/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable

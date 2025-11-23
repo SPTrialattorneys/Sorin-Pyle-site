@@ -5,6 +5,7 @@ const path = require('path');
 const buildConfig = {
   entryPoints: {
     'main.min': 'src/assets/scripts/main.js',
+    'analytics': 'src/assets/scripts/analytics.js',
     'cookie-consent': 'src/assets/scripts/cookie-consent.js',
     'tracking': 'src/assets/scripts/tracking.js',
     'business-card': 'src/assets/scripts/business-card.js',

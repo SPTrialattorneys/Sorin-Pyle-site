@@ -32,6 +32,9 @@ module.exports = function(eleventyConfig) {
   // Copy fonts if they exist
   eleventyConfig.addPassthroughCopy({"fonts": "fonts"});
 
+  // Copy Cloudflare Pages configuration files
+  eleventyConfig.addPassthroughCopy({"_headers": "_headers"});
+
   // Date filter for footer copyright
   eleventyConfig.addFilter("date", function(date, format) {
     const d = date === "now" ? new Date() : new Date(date);

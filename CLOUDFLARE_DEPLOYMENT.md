@@ -1,16 +1,16 @@
-# Cloudflare Pages Deployment Guide
+# Cloudflare Pages Deployment Configuration
 
-## Quick Deploy
+## Critical Build Settings
 
-This project is configured for automatic deployment to Cloudflare Pages.
+**IMPORTANT:** Cloudflare Pages must be configured with these exact build settings.
 
-### Cloudflare Pages Settings
+### Build Configuration
 
-**Framework preset:** None (Custom Configuration)
+Go to Cloudflare Pages dashboard → Your project → Settings → Build & deployments
 
 **Build command:**
-```bash
-npm run build:prod
+```
+npm run build:cloudflare
 ```
 
 **Build output directory:**
@@ -18,171 +18,115 @@ npm run build:prod
 dist
 ```
 
-**Root directory:**
+**Node.js version:**
 ```
-/ (project root)
-```
-
-**Node version:**
-```
-22
+20.x
 ```
 
-### Environment Variables
+## What the Build Does
 
-No environment variables required for build.
+The `npm run build:cloudflare` command runs these steps in order:
 
-### Build Process
+1. `npm run clean` - Removes old dist/ folder
+2. `npm run build:images` - Processes images with Sharp
+3. `npm run build:css` - Compiles CSS with PostCSS (autoprefixer + cssnano)
+4. `npm run build:html:prod` - Builds HTML with Eleventy (production mode with minification)
+5. `npm run build:js` - Bundles and minifies JavaScript with esbuild
 
-The `build:prod` script performs the following steps:
+## Required Files in Build Output
 
-1. **Clean**: Removes existing `dist` directory
-2. **Images**: Processes responsive images with Sharp (WebP, AVIF variants)
-3. **HTML (Production)**: Builds HTML with minification enabled
-4. **CSS**: Bundles and minifies CSS with PostCSS
-5. **Critical CSS**: Extracts above-the-fold CSS for key pages
-6. **HTML (Rebuild)**: Rebuilds HTML with inlined critical CSS
-7. **JavaScript**: Bundles and minifies JavaScript with esbuild
+After build completes, `dist/` should contain:
 
-**Total build time:** ~30-45 seconds
+- ✅ `dist/_headers` - HTTP security headers configuration
+- ✅ `dist/css/main.min.css` - Minified CSS bundle
+- ✅ `dist/js/analytics.js` - Google Analytics script
+- ✅ `dist/js/main.min.js` - Main JavaScript bundle
+- ✅ `dist/js/cookie-consent.js` - Cookie banner script
+- ✅ `dist/js/tracking.js` - Event tracking script
+- ✅ `dist/js/business-card.js` - Digital business card script
+- ✅ `dist/js/qr-campaign.js` - QR campaign script
+- ✅ `dist/images/` - Optimized images
+- ✅ `dist/*.html` - All HTML pages
 
-### Deployment Workflow
+## Security Headers
 
-1. Push code to your GitHub repository main branch
-2. Cloudflare Pages automatically detects the push
-3. Cloudflare runs `npm install` and `npm run build:prod`
-4. Site deployed to `https://[project-name].pages.dev`
+The `_headers` file configures these security headers:
 
-### Custom Domain Setup
+- **HSTS** - Forces HTTPS for 1 year
+- **Content-Security-Policy** - XSS protection
+- **X-Frame-Options** - Clickjacking protection
+- **X-Content-Type-Options** - MIME sniffing protection
+- **Cross-Origin-Opener-Policy** - Origin isolation
+- **Permissions-Policy** - Feature restrictions
 
-1. Go to Cloudflare Pages dashboard
-2. Navigate to your project > Custom domains
-3. Add `www.sorinpyle.com` and `sorinpyle.com`
-4. Update DNS records as instructed by Cloudflare
-5. Enable automatic HTTPS
+## Troubleshooting
 
-### Performance Features
+### Issue: 404 errors for /js/analytics.js or /css/cookie-consent.css
 
-The site includes:
+**Cause:** Cloudflare isn't running the build command
 
-- **HTML Minification**: Removes comments, whitespace (production only)
-- **CSS Optimization**: PostCSS with cssnano (63% file size reduction)
-- **Critical CSS**: Inlined for faster First Contentful Paint
-- **JavaScript Bundling**: esbuild with tree shaking (~10KB total)
-- **Responsive Images**: WebP, AVIF, multiple sizes via Sharp
-- **Lazy Loading**: Images load on scroll for better performance
+**Fix:**
+1. Check build settings use `npm run build:cloudflare`
+2. Check build output directory is set to `dist`
+3. Verify build logs show all scripts running successfully
 
-### Cache Control
+### Issue: Security headers not working
 
-Cloudflare Pages automatically caches static assets with optimal headers:
+**Cause:** `_headers` file not in dist/
 
-- HTML: Short cache (1 hour), revalidate frequently
-- CSS/JS: Long cache (1 year) with hash-based filenames
-- Images: Long cache (1 year) for processed responsive variants
+**Fix:**
+1. Verify `.eleventy.js` has passthrough copy for _headers
+2. Run `npm run build:html` locally and check `dist/_headers` exists
+3. Push changes and rebuild on Cloudflare
 
-### Rollback
+### Issue: CSS or JavaScript changes not appearing
 
-To rollback to a previous deployment:
+**Cause:** Browser caching
 
-1. Go to Cloudflare Pages dashboard
-2. Navigate to your project > Deployments
-3. Find the deployment you want to restore
-4. Click "⋮" menu > "Rollback to this deployment"
+**Fix:**
+1. Hard refresh (Ctrl+Shift+R or Cmd+Shift+R)
+2. Check version string in base.njk matches deployment date
+3. Clear Cloudflare cache if needed
 
-### Build Troubleshooting
+## Local Testing
 
-**Build fails on `npm run build:prod`:**
-- Verify Node v22 is set in Cloudflare Pages settings
-- Check build logs for specific error messages
-- Test build locally with `npm run build:prod`
-
-**CSS not applying:**
-- Verify critical CSS extraction completed successfully
-- Check browser console for CSS load errors
-- Confirm PostCSS plugins are installed
-
-**Images not loading:**
-- Verify Sharp successfully processed images (check build logs)
-- Confirm `images.json` manifest was generated
-- Check responsive image shortcode syntax in templates
-
-### Local Testing
-
-To test production build locally:
+Test the full build locally before pushing:
 
 ```bash
-# Build for production
+# Full production build
 npm run build:prod
 
-# Serve dist directory
-cd dist
-python -m http.server 8000
-# OR
-npx serve
+# Serve dist/ folder locally
+npx serve dist -p 8080
 
-# Open http://localhost:8000
+# Open http://localhost:8080 and test
 ```
 
-### Continuous Deployment
+## Deployment Checklist
 
-Cloudflare Pages automatically deploys:
+Before deploying major changes:
 
-- **Production deployments**: Commits to `main` branch
-- **Preview deployments**: Pull requests (optional)
+- [ ] Test locally with `npm run build:prod`
+- [ ] Verify all JS/CSS files exist in `dist/`
+- [ ] Check `dist/_headers` exists
+- [ ] Test pages load without errors
+- [ ] Check browser console for errors
+- [ ] Verify images load correctly
+- [ ] Test navigation works
+- [ ] Commit and push to main branch
+- [ ] Monitor Cloudflare build logs
+- [ ] Test live site after deployment
 
-### Performance Monitoring
+## Build Performance
 
-Monitor site performance:
+Expected build times on Cloudflare Pages:
 
-- **Cloudflare Analytics**: Dashboard > Analytics
-- **Lighthouse CI**: Run periodic audits (see TESTING.md)
-- **Core Web Vitals**: Google Search Console
+- Image processing: ~15-30 seconds (first build)
+- CSS compilation: ~2-5 seconds
+- HTML generation: ~1-2 seconds
+- JavaScript bundling: ~1-2 seconds
+- **Total:** ~25-45 seconds
 
----
+## Contact
 
-## Advanced Configuration
-
-### Build Optimization
-
-For faster builds on Cloudflare Pages, consider:
-
-1. **Incremental Builds**: Eleventy supports incremental rebuilds
-2. **Image Caching**: Pre-process images locally, commit to repo
-3. **Parallel Processing**: Already enabled in build scripts
-
-### Custom Build Commands
-
-**Development build** (no minification):
-```bash
-npm run build
-```
-
-**Production build** (full optimization):
-```bash
-npm run build:prod
-```
-
-**Individual steps:**
-```bash
-npm run build:images  # Process responsive images
-npm run build:css     # Bundle CSS
-npm run build:html    # Build HTML
-npm run build:js      # Bundle JavaScript
-```
-
-### Debugging
-
-Enable verbose logging by modifying `.eleventy.js`:
-
-```javascript
-// Change quiet mode to false
-eleventyConfig.setQuietMode(false);
-```
-
-Then rebuild to see detailed Eleventy output.
-
----
-
-**Last Updated:** November 22, 2025
-**Eleventy Version:** 3.1.2
-**Node Version:** 22.18.0
+For Cloudflare Pages support: https://developers.cloudflare.com/pages/
