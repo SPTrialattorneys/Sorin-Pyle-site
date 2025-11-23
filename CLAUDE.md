@@ -135,6 +135,44 @@ ls -lh images/*-220w.avif
 # Sorin: 4-5K, Jonathan: 4-5K = WRONG (auto-generated)
 ```
 
+### Navigation Configuration - CRITICAL NOTES
+
+**⚠️ IMPORTANT: Site has no about.html page - About content is on the homepage**
+
+**Problem**: Navigation data file referenced `/about.html` which doesn't exist, causing 404 error when clicking "About" button.
+
+**Root Cause**:
+- Site does not have a dedicated "About" page
+- About/philosophy content is integrated into the homepage (`index.html`)
+- Navigation configuration file incorrectly pointed to non-existent `/about.html`
+
+**Solution Applied (November 2025)**:
+1. **Updated navigation.json** (`src/_data/navigation.json`):
+   - Changed main navigation "About" link from `/about.html` → `/`
+   - Changed footer "Our Philosophy" link from `/about.html` → `/`
+   - Both links now correctly point to homepage
+
+2. **Rebuild HTML** to apply navigation changes:
+   ```bash
+   npm run build:html
+   ```
+
+**DO NOT**:
+- ❌ Create an about.html page - the homepage serves this purpose
+- ❌ Point About navigation to any page other than the homepage
+- ❌ Use `/index.html` in navigation (use `/` for cleaner URLs)
+
+**ALWAYS**:
+- ✅ Keep "About" navigation pointing to `/` (homepage)
+- ✅ Keep footer "Our Philosophy" pointing to `/` (homepage)
+- ✅ Rebuild HTML after changing navigation.json
+- ✅ Test navigation links before deploying
+
+**Navigation File Location**:
+```
+src/_data/navigation.json
+```
+
 ## Content Strategy
 
 ### Firm Philosophy
