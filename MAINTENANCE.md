@@ -494,6 +494,76 @@ All pages with LegalService schema (typically in `<script type="application/ld+j
 3. Fix any errors
 4. Deploy to production
 
+### FAQPage Schema Maintenance
+
+**Pages with FAQPage Schema:**
+- [src/pages/dui-defense.njk](src/pages/dui-defense.njk) - 7 Q&As
+- [src/pages/domestic-violence-defense.njk](src/pages/domestic-violence-defense.njk) - 8 Q&As
+- [src/pages/record-expungement.njk](src/pages/record-expungement.njk) - 6 Q&As
+- [src/pages/first-offense-owi.njk](src/pages/first-offense-owi.njk) - 12 Q&As
+- [src/pages/cdl-owi-defense.njk](src/pages/cdl-owi-defense.njk) - 10 Q&As
+- [src/pages/repeat-offense-owi.njk](src/pages/repeat-offense-owi.njk) - 10 Q&As
+- [src/pages/super-drunk-high-bac.njk](src/pages/super-drunk-high-bac.njk) - 11 Q&As
+
+**When to update FAQPage schema:**
+- Adding new questions to FAQ section
+- Updating answers due to law changes
+- Removing outdated questions
+- Expanding FAQ content
+
+**How to update:**
+
+1. **Edit the HTML FAQ section** (lines with `<details class="faq-item-expandable">`):
+   - Update question in `<summary>` tag
+   - Update answer in `<p>` tags
+
+2. **Update the FAQPage schema** (in `<script type="application/ld+json">` block):
+   - Match question text exactly from `<summary>` tag
+   - Condense answer text from paragraphs to plain text
+   - Remove HTML formatting but preserve key information
+
+3. **Test FAQPage schema**:
+   - Run `npm run build:html:prod` to generate HTML
+   - Test with Google Rich Results Test
+   - Verify FAQPage schema validates without errors
+   - Check for Featured Snippet eligibility
+
+4. **Deploy**:
+   - Commit changes
+   - Push to GitHub
+   - Cloudflare automatically deploys
+
+**Schema Format Example:**
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Question text here?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Answer text condensed from HTML paragraphs, preserving key information."
+      }
+    }
+  ]
+}
+```
+
+**Best Practices:**
+- Keep questions phrased as natural language queries (how user searches)
+- Answers should be 100-200+ words for comprehensive responses
+- Minimum 5-10 questions per page for Featured Snippet eligibility
+- Update schema whenever FAQ content changes (keep in sync)
+- Test with Google Rich Results Test after every update
+
+**Benefits of FAQPage Schema:**
+- Eligibility for Google Featured Snippets
+- FAQ rich snippets in search results (expanded SERP real estate)
+- AI Overview citations (ChatGPT, Perplexity, Google AI)
+- Higher click-through rates (FAQ snippets average 2x higher CTR)
+
 ### Sitemap Updates
 
 **Automatic Updates:**
