@@ -13,6 +13,7 @@
     "build:critical": "node extract-critical-css.mjs",
     "build": "npm run build:html && npm run build:css && npm run build:critical && npm run build:html && npm run build:js",
     "build:prod": "npm run clean && npm run build:images && npm run build:html:prod && npm run build:css && npm run build:critical && npm run build:html:prod && npm run build:js",
+    "build:cloudflare": "npm run clean && npm run build:images && npm run build:css && npm run build:html:prod && npm run build:js",
     "dev": "node node_modules/@11ty/eleventy/cmd.cjs --serve",
     "dev:watch": "concurrently \"npm run dev\" \"node esbuild.config.js -- --watch\"",
     "start": "npm run dev",
