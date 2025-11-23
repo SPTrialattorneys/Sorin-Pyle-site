@@ -46,12 +46,12 @@
     {% block criticalCSS %}{% endblock %}
 
     {# Deferred CSS loading #}
-    <link rel="preload" href="/css/main.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="/css/main.min.css"></noscript>
+    <link rel="preload" href="/css/main.min.css?v=20251123" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/css/main.min.css?v=20251123"></noscript>
 
     {# Cookie Consent CSS #}
-    <link rel="preload" href="/css/cookie-consent.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="/css/cookie-consent.css"></noscript>
+    <link rel="preload" href="/css/cookie-consent.css?v=20251123" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/css/cookie-consent.css?v=20251123"></noscript>
 
     {# Page-specific CSS #}
     {% block pageCss %}{% endblock %}
