@@ -295,6 +295,124 @@ npx serve .
 
 ## Recent Changes Log
 
+### November 23, 2025 - PageSpeed Optimization & Security Headers (Production Ready)
+
+**Type:** Performance & Security - Build System Fixes
+**Goal:** Achieve near-perfect PageSpeed scores and implement security headers
+**Final Scores:** Performance 99/100, Best Practices 100/100, SEO 100/100, Accessibility 93/100
+**Impact:** Production-ready site with excellent performance and security
+
+**Problem Identified:**
+- Browser console errors: 404 for `/js/analytics.js` and MIME type error for `cookie-consent.css`
+- Missing security headers (HSTS, CSP, X-Frame-Options, COOP, etc.)
+- Initial CSP implementation blocked Cloudflare's own Analytics beacon
+- Best Practices score dropped to 69 due to CSP blocking legitimate scripts
+
+**Solution Implemented:**
+
+**1. Build System Fixes**
+- Added `analytics.js` to esbuild.config.js entryPoints (was missing from build)
+- Removed duplicate `cookie-consent.css` link from base.njk template (already bundled in main.min.css)
+- Verified dist/js/analytics.js (2.66 KB) now builds correctly
+
+**2. Security Headers Implementation**
+- Created `_headers` file for Cloudflare Pages with comprehensive security headers
+- Added `_headers` passthrough copy to .eleventy.js configuration
+- Implemented headers:
+  - **HSTS**: Force HTTPS for 1 year (max-age=31536000, includeSubDomains, preload)
+  - **X-Frame-Options**: SAMEORIGIN (clickjacking protection)
+  - **X-Content-Type-Options**: nosniff (MIME sniffing protection)
+  - **X-XSS-Protection**: 1; mode=block (legacy XSS protection)
+  - **Referrer-Policy**: strict-origin-when-cross-origin
+  - **Cross-Origin-Opener-Policy**: same-origin (origin isolation)
+  - **Permissions-Policy**: Restricts accelerometer, camera, geolocation, etc.
+  - **Cache-Control**: Static assets cached 1 year, HTML no-cache
+
+**3. Content Security Policy (CSP) - CRITICAL DECISIONS**
+
+**Initial Attempt (Too Strict - FAILED):**
+- Used strict CSP with SHA-256 hashes only
+- Blocked Cloudflare's beacon.min.js from static.cloudflareinsights.com
+- Best Practices score dropped from 100 to 69
+- Browser console errors for CSP violations
+
+**Final CSP (Relaxed - SUCCESS):**
+```
+Content-Security-Policy: default-src 'self';
+  script-src 'self' 'unsafe-inline' https://www.google.com https://www.gstatic.com https://www.googletagmanager.com https://unpkg.com https://static.cloudflareinsights.com;
+  style-src 'self' 'unsafe-inline';
+  img-src 'self' data: https://www.google-analytics.com https://www.googletagmanager.com;
+  font-src 'self' data:;
+  connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com https://cloudflareinsights.com;
+  frame-ancestors 'self';
+  base-uri 'self';
+  form-action 'self';
+  upgrade-insecure-requests;
+```
+
+**CSP Design Decisions:**
+- ✅ Added `'unsafe-inline'` for script-src and style-src (required for inline scripts/styles)
+- ✅ Whitelisted `https://static.cloudflareinsights.com` (Cloudflare Analytics beacon)
+- ✅ Whitelisted `https://cloudflareinsights.com` for connect-src (analytics connections)
+- ✅ Whitelisted Google Tag Manager, Google Analytics, Unpkg CDN domains
+- ⚠️ Trade-off: Less strict security vs. functional site with 100/100 Best Practices score
+
+**Why 'unsafe-inline' Was Necessary:**
+- Site uses inline onclick handlers for analytics tracking
+- Cookie consent banner uses inline scripts
+- Critical CSS inlined in head for performance
+- Alternative (CSP nonces/hashes) would require major refactoring
+- Decision: Prioritize functionality over theoretical security hardening
+
+**4. Documentation Created**
+- Created `CLOUDFLARE_DEPLOYMENT.md` with:
+  - Build command: `npm run build:cloudflare`
+  - Build output directory: `dist`
+  - Node.js version: `20.x`
+  - Troubleshooting guide for 404 errors and security header issues
+  - Deployment checklist and expected build times
+
+**5. Remaining PageSpeed Suggestions (Deliberately Not Fixed)**
+
+**Why We Stopped at 99/100:**
+- All remaining suggestions are **unscored** (don't affect scores)
+- Minimal impact suggestions:
+  - Render blocking: 160ms savings (trivial)
+  - Cache lifetimes: 4 KiB savings (negligible)
+  - Unused JavaScript: 54 KiB (Google Analytics - essential)
+- Third-party code we can't control (Google Tag Manager, Cloudflare Analytics)
+- "Unsupported CSS" warnings are false positives (border-radius, box-shadow ARE supported)
+- Risk vs. reward: Further optimization could break analytics or cause FOUT
+
+**Decision:** Stop optimization here. Site is production-ready with excellent scores.
+
+**Results Achieved:**
+- ✅ Performance: 99/100 (nearly perfect)
+- ✅ Best Practices: 100/100 (perfect - up from 69)
+- ✅ SEO: 100/100 (perfect)
+- ✅ Accessibility: 93/100 (very good)
+- ✅ Core Web Vitals: FCP 1.5s, LCP 2.1s, TBT 10ms, CLS 0
+- ✅ No browser console errors
+- ✅ All security headers implemented
+
+**Files Modified:**
+- `.eleventy.js` - Added _headers passthrough copy
+- `_headers` - Created with security headers and relaxed CSP
+- `esbuild.config.js` - Added analytics.js entrypoint
+- `src/_includes/layouts/base.njk` - Removed duplicate cookie-consent.css link
+- `CLOUDFLARE_DEPLOYMENT.md` - Created comprehensive deployment guide
+
+**Key Learnings for Future Sessions:**
+1. Cloudflare Pages auto-injects Analytics beacon - CSP must allow static.cloudflareinsights.com
+2. Cookie consent CSS is bundled in main.min.css - don't load separately
+3. All JS files must be in esbuild.config.js entryPoints to be built
+4. Security headers configured via `_headers` file in project root (copied to dist/)
+5. PageSpeed scores 99-100 are excellent - don't over-optimize and risk breaking functionality
+
+**Status:** ✅ Production Ready - Site deployed to https://www.sorinpyle.com with excellent performance
+
+---
+
 ### November 21, 2025 - Comprehensive Image Optimization with TinyPNG API
 
 **Type:** Performance Optimization - Site-Wide Image Compression
