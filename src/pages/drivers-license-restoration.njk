@@ -224,11 +224,13 @@ permalink: /drivers-license-restoration.html
     "@context": "https://schema.org",
     "@type": "LegalService",
     "name": "Michigan Driver's License Restoration",
+    "legalName": "Sorin & Pyle, PC",
     "description": "Legal representation for driver's license restoration appeals after DUI/OWI revocation. Help with Secretary of State DLAD hearings and license reinstatement.",
-    "provider": {
-        "@id": "{{ site.url }}/#organization"
-    },
     "url": "{{ site.url }}/drivers-license-restoration.html",
+    "telephone": "+16162273303",
+    "email": "justice@callsbp.com",
+    "logo": "{{ site.url }}/images/logo.svg",
+    "image": "{{ site.url }}/images/ottawa-county-courthouse.avif",
     "address": {
         "@type": "PostalAddress",
         "streetAddress": "217 E 24th St Ste 107",
@@ -237,8 +239,36 @@ permalink: /drivers-license-restoration.html
         "postalCode": "49423",
         "addressCountry": "US"
     },
-    "telephone": "+16162273303",
-    "image": "{{ site.url }}/images/ottawa-county-courthouse.avif",
+    "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "42.7875",
+        "longitude": "-86.1089"
+    },
+    "hasMap": "https://maps.google.com/?q=217+E+24th+St+Ste+107,+Holland,+MI+49423",
+    "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+16162273303",
+        "contactType": "customer service",
+        "areaServed": "US-MI",
+        "availableLanguage": ["English"]
+    },
+    "openingHours": ["Mo-Fr 09:00-17:00"],
+    "openingHoursSpecification": [
+        {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "09:00",
+            "closes": "17:00"
+        }
+    ],
+    "memberOf": [
+        {
+            "@type": "Organization",
+            "name": "State Bar of Michigan"
+        }
+    ],
+    "priceRange": "$",
+    "paymentAccepted": "Cash, Check, Credit Card",
     "areaServed": [
         {
             "@type": "State",

@@ -167,11 +167,13 @@ permalink: /record-expungement.html
     "@context": "https://schema.org",
     "@type": "LegalService",
     "name": "Michigan Record Expungement Services",
+    "legalName": "Sorin & Pyle, PC",
     "description": "Petition-based criminal record expungement in Michigan. Clear felonies, misdemeanors, and DUI convictions to improve employment and housing opportunities.",
-    "provider": {
-        "@id": "{{ site.url }}/#organization"
-    },
     "url": "{{ site.url }}/record-expungement.html",
+    "telephone": "+16162273303",
+    "email": "justice@callsbp.com",
+    "logo": "{{ site.url }}/images/logo.svg",
+    "image": "{{ site.url }}/images/ottawa-county-courthouse.avif",
     "address": {
         "@type": "PostalAddress",
         "streetAddress": "217 E 24th St Ste 107",
@@ -180,8 +182,36 @@ permalink: /record-expungement.html
         "postalCode": "49423",
         "addressCountry": "US"
     },
-    "telephone": "+16162273303",
-    "image": "{{ site.url }}/images/ottawa-county-courthouse.avif",
+    "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "42.7875",
+        "longitude": "-86.1089"
+    },
+    "hasMap": "https://maps.google.com/?q=217+E+24th+St+Ste+107,+Holland,+MI+49423",
+    "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+16162273303",
+        "contactType": "customer service",
+        "areaServed": "US-MI",
+        "availableLanguage": ["English"]
+    },
+    "openingHours": ["Mo-Fr 09:00-17:00"],
+    "openingHoursSpecification": [
+        {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "09:00",
+            "closes": "17:00"
+        }
+    ],
+    "memberOf": [
+        {
+            "@type": "Organization",
+            "name": "State Bar of Michigan"
+        }
+    ],
+    "priceRange": "$",
+    "paymentAccepted": "Cash, Check, Credit Card",
     "areaServed": [
         {
             "@type": "State",
