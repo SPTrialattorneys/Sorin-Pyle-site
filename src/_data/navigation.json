@@ -2,7 +2,7 @@
   "main": [
     {
       "text": "About",
-      "url": "/about.html",
+      "url": "/",
       "id": "about"
     },
     {
@@ -53,7 +53,7 @@
     "about": [
       {
         "text": "Our Philosophy",
-        "url": "/about.html"
+        "url": "/"
       },
       {
         "text": "Meet Our Attorneys",
