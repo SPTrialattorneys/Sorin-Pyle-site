@@ -199,3 +199,215 @@ criticalCSSFile: critical-homepage.css
         <p class="font-size-xl margin-top-sm"><a href="{{ site.phoneLink }}" class="track-phone-click" data-event-label="index_cta">{{ site.phone }}</a></p>
     </div>
 </section>
+
+{% block schema %}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "LegalService",
+    "@id": "{{ site.url }}/#organization",
+    "name": "{{ site.title }}",
+    "description": "Criminal defense law firm in West Michigan. Judgment-free representation by former public defenders. Defending DUI, domestic violence, felonies, misdemeanors, and all criminal charges.",
+    "url": "{{ site.url }}/",
+    "logo": "{{ site.url }}/images/logo-icon.svg",
+    "image": "{{ site.url }}/images/holland-michigan-criminal-defense-lawyers.avif",
+    "telephone": "+16162273303",
+    "email": "{{ site.email }}",
+    "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "217 E 24th St Ste 107",
+        "addressLocality": "Holland",
+        "addressRegion": "MI",
+        "postalCode": "49423",
+        "addressCountry": "US"
+    },
+    "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "42.7875",
+        "longitude": "-86.1089"
+    },
+    "openingHours": ["Mo-Fr 09:00-17:00"],
+    "openingHoursSpecification": [
+        {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "09:00",
+            "closes": "17:00"
+        }
+    ],
+    "areaServed": [
+        {
+            "@type": "AdministrativeArea",
+            "name": "Ottawa County",
+            "containedInPlace": {"@type": "State", "name": "Michigan"}
+        },
+        {
+            "@type": "AdministrativeArea",
+            "name": "Kent County",
+            "containedInPlace": {"@type": "State", "name": "Michigan"}
+        },
+        {
+            "@type": "AdministrativeArea",
+            "name": "Allegan County",
+            "containedInPlace": {"@type": "State", "name": "Michigan"}
+        },
+        {
+            "@type": "AdministrativeArea",
+            "name": "Kalamazoo County",
+            "containedInPlace": {"@type": "State", "name": "Michigan"}
+        },
+        {
+            "@type": "AdministrativeArea",
+            "name": "Muskegon County",
+            "containedInPlace": {"@type": "State", "name": "Michigan"}
+        },
+        {
+            "@type": "AdministrativeArea",
+            "name": "Van Buren County",
+            "containedInPlace": {"@type": "State", "name": "Michigan"}
+        },
+        {
+            "@type": "AdministrativeArea",
+            "name": "Newaygo County",
+            "containedInPlace": {"@type": "State", "name": "Michigan"}
+        },
+        {
+            "@type": "City",
+            "name": "Holland",
+            "containedInPlace": {"@type": "State", "name": "Michigan"}
+        },
+        {
+            "@type": "City",
+            "name": "Grand Rapids",
+            "containedInPlace": {"@type": "State", "name": "Michigan"}
+        },
+        {
+            "@type": "City",
+            "name": "Grand Haven",
+            "containedInPlace": {"@type": "State", "name": "Michigan"}
+        },
+        {
+            "@type": "City",
+            "name": "Hudsonville",
+            "containedInPlace": {"@type": "State", "name": "Michigan"}
+        },
+        {
+            "@type": "City",
+            "name": "Zeeland",
+            "containedInPlace": {"@type": "State", "name": "Michigan"}
+        },
+        {
+            "@type": "City",
+            "name": "Allendale",
+            "containedInPlace": {"@type": "State", "name": "Michigan"}
+        },
+        {
+            "@type": "CollegeOrUniversity",
+            "name": "Grand Valley State University",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Allendale",
+                "addressRegion": "MI"
+            }
+        },
+        {
+            "@type": "CollegeOrUniversity",
+            "name": "Calvin University",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Grand Rapids",
+                "addressRegion": "MI"
+            }
+        },
+        {
+            "@type": "CollegeOrUniversity",
+            "name": "Hope College",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Holland",
+                "addressRegion": "MI"
+            }
+        },
+        {
+            "@type": "CollegeOrUniversity",
+            "name": "Grand Rapids Community College",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Grand Rapids",
+                "addressRegion": "MI"
+            }
+        },
+        {
+            "@type": "CollegeOrUniversity",
+            "name": "Davenport University",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Grand Rapids",
+                "addressRegion": "MI"
+            }
+        },
+        {
+            "@type": "CollegeOrUniversity",
+            "name": "Western Michigan University",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Kalamazoo",
+                "addressRegion": "MI"
+            }
+        },
+        {
+            "@type": "CollegeOrUniversity",
+            "name": "Ferris State University",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Big Rapids",
+                "addressRegion": "MI"
+            }
+        }
+    ],
+    "serviceType": [
+        "Criminal Defense",
+        "DUI Defense",
+        "OWI Defense",
+        "Domestic Violence Defense",
+        "Felony Defense",
+        "Misdemeanor Defense",
+        "Drug Crime Defense",
+        "Assault Defense",
+        "Theft Defense",
+        "Record Expungement",
+        "License Restoration",
+        "Trial Representation"
+    ],
+    "priceRange": "$$",
+    "paymentAccepted": "Cash, Check, Credit Card, Payment Plans",
+    "employee": [
+        {
+            "@type": "Person",
+            "@id": "{{ site.url }}/sorin-panainte.html#attorney",
+            "name": "Sorin Panainte",
+            "jobTitle": "Criminal Defense Attorney",
+            "url": "{{ site.url }}/sorin-panainte.html"
+        },
+        {
+            "@type": "Person",
+            "@id": "{{ site.url }}/jonathan-pyle.html#attorney",
+            "name": "Jonathan Pyle",
+            "jobTitle": "Criminal Defense Attorney",
+            "url": "{{ site.url }}/jonathan-pyle.html"
+        }
+    ],
+    "foundingDate": "2019",
+    "slogan": "WE GIVE A [EXPLETIVE]!",
+    "knowsAbout": [
+        "Criminal Law",
+        "DUI/OWI Defense",
+        "Domestic Violence",
+        "Drug Crimes",
+        "Felony Defense",
+        "Mental Health in Criminal Defense",
+        "Substance Abuse Defense"
+    ]
+}
+</script>
+{% endblock %}

@@ -432,3 +432,93 @@ permalink: /dui-defense.html
                 </div>
             </div>
         </section>
+
+{% block schema %}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "LegalService",
+    "name": "{{ site.title }} - DUI Defense",
+    "description": "Experienced DUI/OWI defense attorneys in Holland, Michigan. Former public defenders defending drunk driving charges throughout West Michigan.",
+    "url": "{{ site.url }}/dui-defense.html",
+    "telephone": "+16162273303",
+    "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "217 E 24th St Ste 107",
+        "addressLocality": "Holland",
+        "addressRegion": "MI",
+        "postalCode": "49423"
+    },
+    "areaServed": [
+        {
+            "@type": "AdministrativeArea",
+            "name": "Ottawa County",
+            "containedInPlace": {"@type": "State", "name": "Michigan"}
+        },
+        {
+            "@type": "AdministrativeArea",
+            "name": "Kent County",
+            "containedInPlace": {"@type": "State", "name": "Michigan"}
+        },
+        {
+            "@type": "AdministrativeArea",
+            "name": "Allegan County",
+            "containedInPlace": {"@type": "State", "name": "Michigan"}
+        },
+        {
+            "@type": "City",
+            "name": "Holland",
+            "containedInPlace": {"@type": "State", "name": "Michigan"}
+        },
+        {
+            "@type": "City",
+            "name": "Grand Rapids",
+            "containedInPlace": {"@type": "State", "name": "Michigan"}
+        },
+        {
+            "@type": "City",
+            "name": "Grand Haven",
+            "containedInPlace": {"@type": "State", "name": "Michigan"}
+        },
+        {
+            "@type": "City",
+            "name": "Hudsonville",
+            "containedInPlace": {"@type": "State", "name": "Michigan"}
+        }
+    ],
+    "serviceType": [
+        "DUI Defense",
+        "OWI Defense",
+        "OWVI Defense",
+        "Super Drunk Defense",
+        "High BAC Defense",
+        "OWPD Defense",
+        "Second Offense OWI",
+        "Third Offense OWI",
+        "Breathalyzer Defense",
+        "Field Sobriety Test Defense",
+        "License Restoration"
+    ]
+}
+</script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "{{ site.url }}/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "DUI Defense",
+            "item": "{{ site.url }}/dui-defense.html"
+        }
+    ]
+}
+</script>
+{% endblock %}

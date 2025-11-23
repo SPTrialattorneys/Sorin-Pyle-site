@@ -529,3 +529,92 @@ permalink: /domestic-violence-defense.html
                 </div>
             </div>
         </section>
+
+{% block schema %}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "LegalService",
+    "name": "{{ site.title }} - Domestic Violence Defense",
+    "description": "Experienced domestic violence defense attorneys in Holland, Michigan. Former public defenders defending DV charges, protecting your rights, your family, and your future.",
+    "url": "{{ site.url }}/domestic-violence-defense.html",
+    "telephone": "+16162273303",
+    "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "217 E 24th St Ste 107",
+        "addressLocality": "Holland",
+        "addressRegion": "MI",
+        "postalCode": "49423"
+    },
+    "areaServed": [
+        {
+            "@type": "AdministrativeArea",
+            "name": "Ottawa County",
+            "containedInPlace": {"@type": "State", "name": "Michigan"}
+        },
+        {
+            "@type": "AdministrativeArea",
+            "name": "Kent County",
+            "containedInPlace": {"@type": "State", "name": "Michigan"}
+        },
+        {
+            "@type": "AdministrativeArea",
+            "name": "Allegan County",
+            "containedInPlace": {"@type": "State", "name": "Michigan"}
+        },
+        {
+            "@type": "City",
+            "name": "Holland",
+            "containedInPlace": {"@type": "State", "name": "Michigan"}
+        },
+        {
+            "@type": "City",
+            "name": "Grand Rapids",
+            "containedInPlace": {"@type": "State", "name": "Michigan"}
+        },
+        {
+            "@type": "City",
+            "name": "Grand Haven",
+            "containedInPlace": {"@type": "State", "name": "Michigan"}
+        },
+        {
+            "@type": "City",
+            "name": "Hudsonville",
+            "containedInPlace": {"@type": "State", "name": "Michigan"}
+        }
+    ],
+    "serviceType": [
+        "Domestic Violence Defense",
+        "Domestic Assault Defense",
+        "Aggravated Domestic Violence Defense",
+        "PPO Defense",
+        "Personal Protection Order Violation Defense",
+        "False Accusation Defense",
+        "Self-Defense Cases",
+        "Stalking Defense",
+        "Assault and Battery Defense",
+        "Family Violence Defense"
+    ]
+}
+</script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "{{ site.url }}/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Domestic Violence Defense",
+            "item": "{{ site.url }}/domestic-violence-defense.html"
+        }
+    ]
+}
+</script>
+{% endblock %}

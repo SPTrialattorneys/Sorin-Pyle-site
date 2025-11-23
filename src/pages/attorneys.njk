@@ -60,3 +60,69 @@ criticalCSSFile: critical-attorneys.css
         </div>
     </div>
 </section>
+
+{% block schema %}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "LegalService",
+    "name": "{{ site.title }}",
+    "description": "Meet Sorin Panainte and Jonathan Pyle, experienced criminal defense attorneys in Holland, Michigan. Former public defenders with trial experience.",
+    "url": "{{ site.url }}/attorneys.html",
+    "telephone": "+16162273303",
+    "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "217 E 24th St Ste 107",
+        "addressLocality": "Holland",
+        "addressRegion": "MI",
+        "postalCode": "49423"
+    },
+    "employee": [
+        {
+            "@type": "Person",
+            "@id": "{{ site.url }}/sorin-panainte.html#attorney",
+            "name": "Sorin Panainte",
+            "jobTitle": "Criminal Defense Attorney",
+            "url": "{{ site.url }}/sorin-panainte.html",
+            "alumniOf": "Case Western Reserve University School of Law",
+            "memberOf": {
+                "@type": "Organization",
+                "name": "State Bar of Michigan"
+            }
+        },
+        {
+            "@type": "Person",
+            "@id": "{{ site.url }}/jonathan-pyle.html#attorney",
+            "name": "Jonathan Pyle",
+            "jobTitle": "Criminal Defense Attorney",
+            "url": "{{ site.url }}/jonathan-pyle.html",
+            "alumniOf": "University of Georgia School of Law",
+            "memberOf": {
+                "@type": "Organization",
+                "name": "State Bar of Michigan"
+            }
+        }
+    ]
+}
+</script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "{{ site.url }}/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Attorneys",
+            "item": "{{ site.url }}/attorneys.html"
+        }
+    ]
+}
+</script>
+{% endblock %}
