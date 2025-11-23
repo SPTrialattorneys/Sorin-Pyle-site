@@ -7,8 +7,6 @@
 *.md
 !README.md
 !CLAUDE.md
-!COMPLIANCE_REVIEW_*.md
-!SECURITY_AUDIT_*.md
 !IMAGE_OPTIMIZATION_WORKFLOW.md
 !BUILD_SYSTEM_GUIDE.md
 !CLOUDFLARE_DEPLOYMENT.md
@@ -88,3 +86,6 @@ package-lock.json
 
 # Legacy static files (archived pre-Eleventy files)
 legacy/
+
+# Archived documentation (historical session notes, audits, implementation records)
+docs/
