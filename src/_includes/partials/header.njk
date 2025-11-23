@@ -1,0 +1,76 @@
+{# Navbar Header #}
+<header class="navbar_component">
+    <div class="container-large navbar_container">
+        {# Logo #}
+        <a href="/" class="navbar_logo-link">
+            <img src="/images/logo-icon.svg" alt="{{ site.title}} Ship Icon" class="logo-icon" width="70" height="70">
+            <div class="logo-text-container">
+                <span class="logo-text-main">Sorin & Pyle</span>
+                <span class="logo-text-sub">TRIAL LAWYERS</span>
+            </div>
+        </a>
+
+        {# Desktop Navigation #}
+        <nav class="navbar_desktop-nav" role="navigation" aria-label="Main navigation">
+            <ul class="navbar_menu" role="menubar">
+                {% for item in navigation.main %}
+                    {% if item.dropdown %}
+                        {# Dropdown menu item #}
+                        <li class="navbar_item navbar_dropdown" role="none">
+                            <button type="button" class="navbar_link navbar_dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                                {{ item.text }}
+                            </button>
+                            <ul class="navbar_dropdown-menu" role="menu">
+                                {% for subitem in item.dropdown %}
+                                    <li role="none">
+                                        <a href="{{ subitem.url }}" role="menuitem">{{ subitem.text }}</a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    {% else %}
+                        {# Regular menu item #}
+                        <li class="navbar_item" role="none">
+                            <a href="{{ item.url }}" class="navbar_link" role="menuitem">{{ item.text }}</a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </nav>
+
+        {# Mobile Hamburger Button #}
+        <button class="navbar_hamburger-button" id="hamburger-button" aria-label="Open Menu" aria-controls="mobile-nav" aria-expanded="false">
+            <span class="icon-line"></span>
+            <span class="icon-line"></span>
+            <span class="icon-line"></span>
+        </button>
+    </div>
+</header>
+
+{# Mobile Navigation Menu #}
+<div class="mobile-nav_menu" id="mobile-nav" role="navigation" aria-label="Mobile navigation menu" aria-hidden="true">
+    <ul class="mobile-nav_list" role="menu">
+        {% for item in navigation.main %}
+            {% if item.dropdown %}
+                {# Mobile dropdown menu item #}
+                <li class="mobile-nav_dropdown" role="none">
+                    <button class="mobile-nav_dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                        {{ item.text }}
+                    </button>
+                    <ul class="mobile-nav_dropdown-menu" role="menu">
+                        {% for subitem in item.dropdown %}
+                            <li role="none">
+                                <a href="{{ subitem.url }}" role="menuitem">{{ subitem.text }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% else %}
+                {# Regular mobile menu item #}
+                <li class="mobile-nav_item" role="none">
+                    <a href="{{ item.url }}" class="mobile-nav_link" role="menuitem">{{ item.text }}</a>
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+</div>

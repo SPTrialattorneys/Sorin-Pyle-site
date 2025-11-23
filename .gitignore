@@ -1,5 +1,7 @@
 # Python scripts (development tools)
 *.py
+!optimize_images_tinify.py
+!optimize_all_images_tinify.py
 
 # Documentation files (internal use only)
 *.md
@@ -7,6 +9,11 @@
 !CLAUDE.md
 !COMPLIANCE_REVIEW_*.md
 !SECURITY_AUDIT_*.md
+!IMAGE_OPTIMIZATION_WORKFLOW.md
+!BUILD_SYSTEM_GUIDE.md
+!CLOUDFLARE_DEPLOYMENT.md
+!MAINTENANCE.md
+!TESTING.md
 
 # Utility scripts (development tools)
 utilities/
@@ -67,4 +74,14 @@ _includes/
 images/*.ai
 images/*.eps
 images/*.pdf
-nul
+
+# Environment variables (API keys, secrets)
+.env
+.env.local
+.env.*.local
+
+# Build system output and cache
+dist/
+.cache/
+*.log
+package-lock.json

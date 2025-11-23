@@ -1,0 +1,49 @@
+{
+  "name": "sorin-pyle-site-html",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build:images": "node process-images.mjs",
+    "build:css": "node node_modules/postcss-cli/index.js src/assets/styles/main.css -o dist/css/main.min.css",
+    "build:js": "node esbuild.config.js",
+    "build:html": "node node_modules/@11ty/eleventy/cmd.cjs",
+    "build:html:prod": "node node_modules/cross-env/dist/bin/cross-env.js NODE_ENV=production node node_modules/@11ty/eleventy/cmd.cjs",
+    "build:critical": "node extract-critical-css.mjs",
+    "build": "npm run build:html && npm run build:css && npm run build:critical && npm run build:html && npm run build:js",
+    "build:prod": "npm run clean && npm run build:images && npm run build:html:prod && npm run build:css && npm run build:critical && npm run build:html:prod && npm run build:js",
+    "build:cloudflare": "npm run clean && npm run build:images && npm run build:css && npm run build:html:prod && npm run build:js",
+    "dev": "node node_modules/@11ty/eleventy/cmd.cjs --serve",
+    "dev:watch": "concurrently \"npm run dev\" \"node esbuild.config.js -- --watch\"",
+    "start": "npm run dev",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SPTrialattorneys/Sorin-Pyle-site.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/SPTrialattorneys/Sorin-Pyle-site/issues"
+  },
+  "homepage": "https://github.com/SPTrialattorneys/Sorin-Pyle-site#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.2",
+    "autoprefixer": "^10.4.22",
+    "concurrently": "^9.2.1",
+    "critical": "^7.2.1",
+    "cross-env": "^10.1.0",
+    "cssnano": "^7.1.2",
+    "esbuild": "^0.27.0",
+    "html-minifier-terser": "^7.2.0",
+    "postcss": "^8.5.6",
+    "postcss-cli": "^11.0.1",
+    "postcss-import": "^16.1.1",
+    "sharp": "^0.34.5",
+    "terser": "^5.44.1"
+  }
+}

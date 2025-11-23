@@ -1,0 +1,78 @@
+{
+  "title": "Sorin & Pyle, PC",
+  "description": "West Michigan Criminal Defense Trial Lawyers",
+  "tagline": "Aggressive Trial Lawyers Defending Your Rights",
+  "url": "https://www.sorinpyle.com",
+  "phone": "(616) 227-3303",
+  "phoneLink": "tel:+16162273303",
+  "email": "justice@callsbp.com",
+  "emailLink": "mailto:justice@callsbp.com",
+  "address": {
+    "street": "217 E 24th St Ste 107",
+    "city": "Holland",
+    "state": "MI",
+    "zip": "49423",
+    "full": "217 E 24th St Ste 107, Holland, MI 49423"
+  },
+  "hours": {
+    "office": "Mon-Fri 9 AM - 5 PM",
+    "phone": "24/7 for messages & scheduling",
+    "full": "Office: Mon-Fri 9 AM - 5 PM / Phone: 24/7 for messages & scheduling"
+  },
+  "social": {
+    "googleMaps": "https://maps.google.com/?cid=8651646635502736704"
+  },
+  "attorneys": [
+    {
+      "name": "Sorin Panainte",
+      "firstName": "Sorin",
+      "lastName": "Panainte",
+      "slug": "sorin-panainte",
+      "title": "Criminal Defense Attorney",
+      "barNumber": "P85326",
+      "photo": "/images/sorin-panainte-criminal-defense-attorney-holland-mi.avif",
+      "bio": "Former Ottawa County Public Defender with extensive trial experience defending clients charged with DUI, domestic violence, drug crimes, and felonies."
+    },
+    {
+      "name": "Jonathan Pyle",
+      "firstName": "Jonathan",
+      "lastName": "Pyle",
+      "slug": "jonathan-pyle",
+      "title": "Criminal Defense Attorney",
+      "barNumber": "P81692",
+      "photo": "/images/jonathan-pyle-criminal-defense-attorney-holland-mi.avif",
+      "bio": "Trial lawyer and former public defender specializing in criminal defense, OWI, and expungements. Licensed in Michigan."
+    }
+  ],
+  "philosophy": {
+    "tagline": "WE GIVE A [EXPLETIVE]!",
+    "description": "Judgment-free representation for clients facing criminal charges. We fight for your rights with aggressive trial advocacy."
+  },
+  "counties": [
+    "Ottawa County",
+    "Kent County",
+    "Allegan County",
+    "Kalamazoo County",
+    "Muskegon County",
+    "Van Buren County",
+    "Newaygo County"
+  ],
+  "practiceAreas": [
+    "DUI / OWI Defense",
+    "Domestic Violence",
+    "Drug Crimes",
+    "Felonies",
+    "Misdemeanors",
+    "Record Expungement",
+    "Driver License Restoration",
+    "Juvenile Defense",
+    "Personal Protection Orders"
+  ],
+  "analytics": {
+    "measurementId": "G-LV7PKRF2YT"
+  },
+  "legal": {
+    "disclaimer": "The information on this website is for general information purposes only. Nothing on this site should be taken as legal advice for any individual case or situation. This information is not intended to create, and receipt or viewing does not constitute, an attorney-client relationship.",
+    "pastResults": "The results listed on this website are specific to the facts and legal circumstances of each individual case. Past results do not guarantee or predict a similar outcome in future cases. Each case is unique and must be evaluated on its own merits."
+  }
+}

@@ -1,0 +1,86 @@
+---
+layout: layouts/page.njk
+title: Server Error | Sorin & Pyle, PC
+description: "We're experiencing technical difficulties. Contact Sorin & Pyle Criminal Defense Attorneys for immediate assistance."
+aiSummary: "Server error page for Sorin & Pyle Criminal Defense Attorneys. For immediate legal assistance call (616) 227-3303."
+expertise: "criminal defense, Michigan criminal lawyer, legal assistance, emergency legal help"
+jurisdiction: "Michigan, West Michigan, Ottawa County, Kent County"
+permalink: /500.html
+---
+
+{% block schema %}
+<script type="application/ld+json">{
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "LegalService",
+          "@id": "https://www.sorinpyle.com/#organization",
+          "name": "Sorin & Pyle, PC",
+          "alternateName": "Sorin & Pyle Trial Lawyers",
+          "url": "https://www.sorinpyle.com/",
+          "logo": "https://www.sorinpyle.com/images/logo-icon.svg",
+          "image": "https://www.sorinpyle.com/images/Ottawa-County-Courthouse.jpg",
+          "description": "Aggressive, empathetic trial lawyers in Holland, MI, defending clients against DUI, assault, and other criminal charges.",
+          "telephone": "+1-616-227-3303",
+          "email": "justice@callsbp.com",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "217 E 24th St Ste 107",
+            "addressLocality": "Holland",
+            "addressRegion": "MI",
+            "postalCode": "49423",
+            "addressCountry": "US"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 42.7726949,
+            "longitude": -86.0959496
+          },
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+            "opens": "00:00",
+            "closes": "23:59",
+            "description": "Phone consultations and messages 24/7. Office visits Mon-Fri 9 AM - 5 PM."
+          },
+          "attorney": [
+            {
+              "@id": "https://www.sorinpyle.com/sorin-panainte.html#attorney"
+            },
+            {
+              "@id": "https://www.sorinpyle.com/jonathan-pyle.html#attorney"
+            }
+          ],
+          "serviceType": [
+            "Criminal Defense",
+            "DUI Defense",
+            "Felony Defense",
+            "Misdemeanor Defense",
+            "Trial Representation",
+            "Legal Consultation"
+          ],
+          "priceRange": "Free Consultation"
+        }
+      ]
+    }</script>
+{% endblock %}
+<div class="error-content">
+            <h1 class="error-code">500</h1>
+            <p class="error-message">Server Error</p>
+            <p>We're experiencing temporary technical difficulties. Our team has been notified and is working to resolve this issue.</p>
+
+            <div class="error-suggestions">
+                <h3>What you can do:</h3>
+                <ul>
+                    <li><a href="/index.html">Return to our homepage</a></li>
+                    <li><a href="/contact.html">Contact us for immediate help</a></li>
+                    <li><a href="tel:+16162273303">Call us directly at (616) 227-3303</a></li>
+                    <li>Try refreshing the page in a few minutes</li>
+                    <li><a href="/attorneys.html">Meet our attorneys</a></li>
+                </ul>
+            </div>
+
+            <div style="margin-top: 2rem;">
+                <a href="/contact.html" class="button-primary">Get Legal Help Now</a>
+            </div>
+        </div>

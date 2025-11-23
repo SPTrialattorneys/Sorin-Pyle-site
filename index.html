@@ -21,36 +21,32 @@
     <meta property="og:image" content="https://www.sorinpyle.com/images/holland-michigan-criminal-defense-lawyers.avif">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Sorin & Pyle, PC">
-    <meta name="twitter:card" content="summary_large_image">
-
-    <!-- Google Analytics 4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV7PKRF2YT"></script>
-
-    <!-- Image Preloading -->
-    <link rel="preload" as="image" href="images/holland-michigan-criminal-defense-lawyers.avif" type="image/avif">
+    <meta name="twitter:card" content="summary_large_image">    <!-- Image Preloading - Mobile first -->
+    <link rel="preload" as="image" href="images/holland-michigan-criminal-defense-lawyers-450w.avif" type="image/avif" media="(max-width: 767px)">
+    <link rel="preload" as="image" href="images/holland-michigan-criminal-defense-lawyers.avif" type="image/avif" media="(min-width: 768px)">
 
     <!-- Critical CSS (inline for faster rendering) -->
     <style>
         /* Critical above-the-fold styles */
-        body { margin: 0; font-family: 'Inter', sans-serif; background-color: #FDFBF6; color: #212529; }
+        body { margin: 0; font-family: 'Inter', sans-serif; background-color: #FDFBF6; color: #212529; line-height: 1.6; }
         .navbar_component { position: sticky; top: 0; background-color: #FDFBF6; border-bottom: 1px solid #dee2e6; padding: 1rem 0; z-index: 1002; }
         .container-large { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
         .navbar_container { display: flex; justify-content: space-between; align-items: center; }
+        .navbar_logo-link { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+        .logo-icon { width: 70px; height: 70px; }
+        .logo-text-container { display: flex; flex-direction: column; }
+        .logo-text-main { font-family: 'Merriweather', serif; font-size: 1.5rem; font-weight: 700; color: #4076B4; line-height: 1.2; }
+        .logo-text-sub { font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 600; color: #6c757d; letter-spacing: 0.1em; text-transform: uppercase; }
+        .skip-link { position: absolute; left: -9999px; z-index: 9999; padding: 1rem; background: #4076B4; color: white; text-decoration: none; }
+        .skip-link:focus { left: 50%; transform: translateX(-50%); top: 1rem; }
         .section_home-hero { padding: 4rem 0 6rem; }
         .grid_2-col { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-        .button-primary { display: inline-block; background-color: #FF8A28; color: #FFFFFF; padding: 1rem 2rem; border-radius: 4px; font-weight: 600; text-decoration: none; max-width: 100%; box-sizing: border-box; }
+        .button-primary { display: inline-block; background-color: #FF8A28; color: #FFFFFF; padding: 1rem 2rem; border-radius: 4px; font-weight: 600; text-decoration: none; max-width: 100%; box-sizing: border-box; transition: background-color 0.2s; }
+        .button-primary:hover { background-color: #e67821; }
         h1 { font-family: 'Lora', serif; color: #4076B4; font-size: 3.5rem; font-weight: 700; line-height: 1.2; margin: 0 0 1rem; word-wrap: break-word; overflow-wrap: break-word; }
-        @media (max-width: 767px) { .grid_2-col { grid-template-columns: 1fr; } h1 { font-size: 2.5rem; } }
-        @media (max-width: 374px) { h1 { font-size: 2rem; line-height: 1.1; } .button-primary { padding: 0.75rem 1.25rem; font-size: 0.9rem; } .container-large { padding: 0 1rem; } .section_home-hero { padding: 2rem 0 4rem; } }
-            /* Prevent mobile menu FOUC on desktop */
-        @media (min-width: 992px) {
-            .mobile-nav_menu { display: none !important; }
-            .navbar_hamburger-button { display: none !important; }
-        }
-        /* Prevent desktop menu FOUC on mobile/tablet */
-        @media (max-width: 991px) {
-            .navbar_menu { display: none !important; }
-        }
+        p { font-size: 1.125rem; line-height: 1.8; margin: 0 0 1.5rem; }
+        @media (max-width: 767px) { .grid_2-col { grid-template-columns: 1fr; } h1 { font-size: 2.5rem; } .logo-text-main { font-size: 1.25rem; } .container-large { padding: 0 1.5rem; } }
+        @media (max-width: 374px) { h1 { font-size: 2rem; line-height: 1.1; } .button-primary { padding: 0.75rem 1.25rem; font-size: 0.9rem; } .container-large { padding: 0 1rem; } .section_home-hero { padding: 2rem 0 4rem; } .logo-icon { width: 55px; height: 55px; } }
     </style>
 
     <link rel="icon" type="image/png" href="images/favicon.png">
@@ -140,7 +136,10 @@
                         <a href="contact.html" class="button-primary margin-top-sm track-click" data-event-category="CTA" data-event-label="Hero CTA" data-event-action="consultation_request">Request a Free Consultation</a>
                     </div>
                     <div>
-                        <img src="images/holland-michigan-criminal-defense-lawyers.avif"
+                        <img src="images/holland-michigan-criminal-defense-lawyers-450w.avif"
+                             srcset="images/holland-michigan-criminal-defense-lawyers-450w.avif 450w,
+                                     images/holland-michigan-criminal-defense-lawyers.avif 800w"
+                             sizes="(max-width: 767px) 100vw, 800px"
                              alt="Criminal defense attorneys Sorin Panainte and Jonathan Pyle at Sorin & Pyle law office in Holland, Michigan"
                              class="hero-image"
                              width="800"
@@ -158,9 +157,10 @@
                 <h2 class="text-align-center margin-bottom-md">Your Fighters in the Courtroom</h2>
                 <div class="grid_2-col" id="attorney-cards-container">
                     <div class="card_attorney" id="attorney-1">
-                        <img src="images/sorin-panainte-criminal-defense-attorney-holland-mi.avif"
-                             srcset="images/sorin-panainte-criminal-defense-attorney-holland-mi.avif 400w"
-                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
+                        <img src="images/sorin-panainte-criminal-defense-attorney-holland-mi-220w.avif"
+                             srcset="images/sorin-panainte-criminal-defense-attorney-holland-mi-220w.avif 220w,
+                                     images/sorin-panainte-criminal-defense-attorney-holland-mi.avif 400w"
+                             sizes="(max-width: 768px) 220px, 220px"
                              alt="Sorin Panainte - Criminal Defense Attorney and Former Public Defender in Holland, Michigan"
                              class="attorney_photo attorney_photo-sorin"
                              loading="lazy"
@@ -171,11 +171,12 @@
                         <a href="sorin-panainte.html" class="button-primary">Learn More About Sorin</a>
                     </div>
                     <div class="card_attorney" id="attorney-2">
-                        <img src="images/jonathan-pyle-criminal-defense-attorney-holland-mi.avif"
-                             srcset="images/jonathan-pyle-criminal-defense-attorney-holland-mi.avif 400w"
-                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
+                        <img src="images/jonathan-pyle-criminal-defense-attorney-holland-mi-220w.avif"
+                             srcset="images/jonathan-pyle-criminal-defense-attorney-holland-mi-220w.avif 220w,
+                                     images/jonathan-pyle-criminal-defense-attorney-holland-mi.avif 400w"
+                             sizes="(max-width: 768px) 220px, 220px"
                              alt="Jonathan Pyle - Experienced Trial Attorney and Criminal Defense Lawyer in West Michigan"
-                             class="attorney_photo"
+                             class="attorney_photo attorney_photo-jonathan"
                              loading="lazy"
                              width="400"
                              height="400">
@@ -541,7 +542,7 @@
     </div>
 
     <script src="js/main.js" defer></script>
-    <script src="js/analytics.js" defer></script>
+    <script src="js/analytics-deferred.js" defer></script>
     <script src="js/tracking.js"></script>
 
 

@@ -1,0 +1,68 @@
+{# Footer Component #}
+<footer class="footer_component">
+    <div class="container-large">
+        <div class="footer_grid">
+            {# Column 1: Firm Info #}
+            <div class="footer_column">
+                <h3 class="footer_firm-name">{{ site.title }}</h3>
+                <p class="footer_address">
+                    {{ site.address.street }}<br>
+                    {{ site.address.city }}, {{ site.address.state }} {{ site.address.zip }}
+                </p>
+                <p class="footer_contact">
+                    <a href="{{ site.phoneLink }}" class="track-phone-click" data-event-label="{{ page.fileSlug }}_footer">{{ site.phone }}</a><br>
+                    <a href="{{ site.emailLink }}">{{ site.email }}</a>
+                </p>
+            </div>
+
+            {# Column 2: Hours #}
+            <div class="footer_column">
+                <h3>Hours</h3>
+                <p>
+                    {{ site.hours.office }}
+                </p>
+                <p>
+                    {{ site.hours.phone }}
+                </p>
+            </div>
+
+            {# Column 3: Practice Areas #}
+            <div class="footer_column">
+                <h3>Practice Areas</h3>
+                <ul class="footer_list">
+                    {% for item in navigation.footer.practiceAreas %}
+                        <li><a href="{{ item.url }}">{{ item.text }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            {# Column 4: Client Portal #}
+            <div class="footer_column">
+                <h3>Client Portal</h3>
+                <ul class="footer_list">
+                    {% for item in navigation.footer.clientPortal %}
+                        <li>
+                            <a href="{{ item.url }}"
+                               {% if item.external %}target="_blank" rel="noopener noreferrer"{% endif %}>
+                                {{ item.text }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+        {# Footer Disclaimer #}
+        <div class="footer_disclaimer">
+            <p><strong>Disclaimer:</strong> {{ site.legal.disclaimer }}</p>
+        </div>
+
+        {# Footer Bottom Bar #}
+        <div class="footer_bottom-bar">
+            © {{ "now" | date("Y") }} {{ site.title }}. All Rights Reserved. |
+            {% for item in navigation.footer.legal %}
+                <a href="{{ item.url }}">{{ item.text }}</a>{% if not loop.last %} | {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</footer>

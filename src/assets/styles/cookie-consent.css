@@ -1,0 +1,234 @@
+/**
+ * Cookie Consent Banner Styles
+ * Professional, accessible, and mobile-friendly
+ */
+
+/* Banner Container */
+.cookie-consent-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 9999;
+    padding: 1.5rem;
+    border-top: 3px solid #4076B4;
+    animation: slideUp 0.4s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.cookie-consent-banner-fadeout {
+    animation: slideDown 0.3s ease-in forwards;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+}
+
+/* Container */
+.cookie-consent-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+/* Content */
+.cookie-consent-content {
+    flex: 1;
+}
+
+.cookie-consent-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0 0 0.5rem 0;
+    font-family: var(--font-headings, 'Montserrat', sans-serif);
+}
+
+.cookie-consent-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #4a4a4a;
+    margin: 0;
+}
+
+.cookie-consent-text a {
+    color: #4076B4;
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+.cookie-consent-text a:hover {
+    color: #2d5a8c;
+}
+
+.cookie-consent-text a:focus {
+    outline: 2px solid #4076B4;
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
+/* Actions */
+.cookie-consent-actions {
+    display: flex;
+    gap: 1rem;
+    flex-shrink: 0;
+}
+
+/* Buttons */
+.cookie-btn {
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: var(--font-headings, 'Montserrat', sans-serif);
+    white-space: nowrap;
+}
+
+.cookie-btn-accept {
+    background: #4076B4;
+    color: #ffffff;
+}
+
+.cookie-btn-accept:hover {
+    background: #2d5a8c;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(64, 118, 180, 0.3);
+}
+
+.cookie-btn-accept:active {
+    transform: translateY(0);
+}
+
+.cookie-btn-decline {
+    background: #f5f5f5;
+    color: #4a4a4a;
+    border: 1px solid #d0d0d0;
+}
+
+.cookie-btn-decline:hover {
+    background: #e5e5e5;
+    border-color: #b0b0b0;
+}
+
+/* Focus states for accessibility */
+.cookie-btn:focus {
+    outline: 3px solid #4076B4;
+    outline-offset: 3px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .cookie-consent-banner {
+        padding: 1.25rem;
+    }
+
+    .cookie-consent-container {
+        flex-direction: column;
+        gap: 1.25rem;
+        align-items: stretch;
+    }
+
+    .cookie-consent-title {
+        font-size: 1.1rem;
+    }
+
+    .cookie-consent-text {
+        font-size: 0.9rem;
+    }
+
+    .cookie-consent-actions {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .cookie-btn {
+        width: 100%;
+        padding: 0.875rem 1.5rem;
+    }
+}
+
+/* Small mobile screens */
+@media (max-width: 480px) {
+    .cookie-consent-banner {
+        padding: 1rem;
+    }
+
+    .cookie-consent-title {
+        font-size: 1rem;
+    }
+
+    .cookie-consent-text {
+        font-size: 0.85rem;
+    }
+
+    .cookie-btn {
+        font-size: 0.95rem;
+    }
+}
+
+/* Print styles - hide banner */
+@media print {
+    .cookie-consent-banner {
+        display: none !important;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .cookie-consent-banner {
+        border-top-width: 4px;
+    }
+
+    .cookie-btn-accept {
+        border: 2px solid #ffffff;
+    }
+
+    .cookie-btn-decline {
+        border-width: 2px;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .cookie-consent-banner {
+        animation: none;
+    }
+
+    .cookie-consent-banner-fadeout {
+        animation: none;
+        display: none;
+    }
+
+    .cookie-btn {
+        transition: none;
+    }
+
+    .cookie-btn-accept:hover {
+        transform: none;
+    }
+}

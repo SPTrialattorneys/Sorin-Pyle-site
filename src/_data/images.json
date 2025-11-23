@@ -1,0 +1,821 @@
+{
+  "attorneys_sitting": {
+    "original": "attorneys_sitting.png",
+    "variants": [
+      {
+        "format": "webp",
+        "width": 320,
+        "size": 10838,
+        "url": "/images/attorneys_sitting-320w.webp"
+      },
+      {
+        "format": "avif",
+        "width": 320,
+        "size": 13387,
+        "url": "/images/attorneys_sitting-320w.avif"
+      },
+      {
+        "format": "png",
+        "width": 320,
+        "size": 38270,
+        "url": "/images/attorneys_sitting-320w.png"
+      },
+      {
+        "format": "webp",
+        "width": 640,
+        "size": 26172,
+        "url": "/images/attorneys_sitting-640w.webp"
+      },
+      {
+        "format": "avif",
+        "width": 640,
+        "size": 30068,
+        "url": "/images/attorneys_sitting-640w.avif"
+      },
+      {
+        "format": "png",
+        "width": 640,
+        "size": 124508,
+        "url": "/images/attorneys_sitting-640w.png"
+      },
+      {
+        "format": "webp",
+        "width": 768,
+        "size": 33508,
+        "url": "/images/attorneys_sitting-768w.webp"
+      },
+      {
+        "format": "avif",
+        "width": 768,
+        "size": 38172,
+        "url": "/images/attorneys_sitting-768w.avif"
+      },
+      {
+        "format": "png",
+        "width": 768,
+        "size": 173205,
+        "url": "/images/attorneys_sitting-768w.png"
+      },
+      {
+        "format": "webp",
+        "width": 1024,
+        "size": 50532,
+        "url": "/images/attorneys_sitting-1024w.webp"
+      },
+      {
+        "format": "avif",
+        "width": 1024,
+        "size": 61151,
+        "url": "/images/attorneys_sitting-1024w.avif"
+      },
+      {
+        "format": "png",
+        "width": 1024,
+        "size": 301767,
+        "url": "/images/attorneys_sitting-1024w.png"
+      }
+    ]
+  },
+  "card-logo": {
+    "original": "card-logo.png",
+    "variants": [
+      {
+        "format": "webp",
+        "width": 320,
+        "size": 4262,
+        "url": "/images/card-logo-320w.webp"
+      },
+      {
+        "format": "avif",
+        "width": 320,
+        "size": 4661,
+        "url": "/images/card-logo-320w.avif"
+      },
+      {
+        "format": "png",
+        "width": 320,
+        "size": 7474,
+        "url": "/images/card-logo-320w.png"
+      },
+      {
+        "format": "webp",
+        "width": 640,
+        "size": 11134,
+        "url": "/images/card-logo-640w.webp"
+      },
+      {
+        "format": "avif",
+        "width": 640,
+        "size": 11661,
+        "url": "/images/card-logo-640w.avif"
+      },
+      {
+        "format": "png",
+        "width": 640,
+        "size": 17426,
+        "url": "/images/card-logo-640w.png"
+      },
+      {
+        "format": "webp",
+        "width": 768,
+        "size": 14860,
+        "url": "/images/card-logo-768w.webp"
+      },
+      {
+        "format": "avif",
+        "width": 768,
+        "size": 14942,
+        "url": "/images/card-logo-768w.avif"
+      },
+      {
+        "format": "png",
+        "width": 768,
+        "size": 22988,
+        "url": "/images/card-logo-768w.png"
+      },
+      {
+        "format": "webp",
+        "width": 1024,
+        "size": 22046,
+        "url": "/images/card-logo-1024w.webp"
+      },
+      {
+        "format": "avif",
+        "width": 1024,
+        "size": 21355,
+        "url": "/images/card-logo-1024w.avif"
+      },
+      {
+        "format": "png",
+        "width": 1024,
+        "size": 30723,
+        "url": "/images/card-logo-1024w.png"
+      },
+      {
+        "format": "webp",
+        "width": 1280,
+        "size": 29912,
+        "url": "/images/card-logo-1280w.webp"
+      },
+      {
+        "format": "avif",
+        "width": 1280,
+        "size": 27920,
+        "url": "/images/card-logo-1280w.avif"
+      },
+      {
+        "format": "png",
+        "width": 1280,
+        "size": 41565,
+        "url": "/images/card-logo-1280w.png"
+      },
+      {
+        "format": "webp",
+        "width": 1920,
+        "size": 50844,
+        "url": "/images/card-logo-1920w.webp"
+      },
+      {
+        "format": "avif",
+        "width": 1920,
+        "size": 45160,
+        "url": "/images/card-logo-1920w.avif"
+      },
+      {
+        "format": "png",
+        "width": 1920,
+        "size": 64250,
+        "url": "/images/card-logo-1920w.png"
+      }
+    ]
+  },
+  "expungement-fair-volunteers": {
+    "original": "expungement-fair-volunteers.jpg",
+    "variants": [
+      {
+        "format": "webp",
+        "width": 320,
+        "size": 14386,
+        "url": "/images/expungement-fair-volunteers-320w.webp"
+      },
+      {
+        "format": "avif",
+        "width": 320,
+        "size": 17997,
+        "url": "/images/expungement-fair-volunteers-320w.avif"
+      },
+      {
+        "format": "jpeg",
+        "width": 320,
+        "size": 17741,
+        "url": "/images/expungement-fair-volunteers-320w.jpeg"
+      },
+      {
+        "format": "webp",
+        "width": 640,
+        "size": 52056,
+        "url": "/images/expungement-fair-volunteers-640w.webp"
+      },
+      {
+        "format": "avif",
+        "width": 640,
+        "size": 62714,
+        "url": "/images/expungement-fair-volunteers-640w.avif"
+      },
+      {
+        "format": "jpeg",
+        "width": 640,
+        "size": 64699,
+        "url": "/images/expungement-fair-volunteers-640w.jpeg"
+      },
+      {
+        "format": "webp",
+        "width": 768,
+        "size": 74132,
+        "url": "/images/expungement-fair-volunteers-768w.webp"
+      },
+      {
+        "format": "avif",
+        "width": 768,
+        "size": 90081,
+        "url": "/images/expungement-fair-volunteers-768w.avif"
+      },
+      {
+        "format": "jpeg",
+        "width": 768,
+        "size": 91933,
+        "url": "/images/expungement-fair-volunteers-768w.jpeg"
+      },
+      {
+        "format": "webp",
+        "width": 1024,
+        "size": 132940,
+        "url": "/images/expungement-fair-volunteers-1024w.webp"
+      },
+      {
+        "format": "avif",
+        "width": 1024,
+        "size": 153650,
+        "url": "/images/expungement-fair-volunteers-1024w.avif"
+      },
+      {
+        "format": "jpeg",
+        "width": 1024,
+        "size": 161540,
+        "url": "/images/expungement-fair-volunteers-1024w.jpeg"
+      },
+      {
+        "format": "webp",
+        "width": 1280,
+        "size": 215600,
+        "url": "/images/expungement-fair-volunteers-1280w.webp"
+      },
+      {
+        "format": "avif",
+        "width": 1280,
+        "size": 246299,
+        "url": "/images/expungement-fair-volunteers-1280w.avif"
+      },
+      {
+        "format": "jpeg",
+        "width": 1280,
+        "size": 257348,
+        "url": "/images/expungement-fair-volunteers-1280w.jpeg"
+      },
+      {
+        "format": "webp",
+        "width": 1920,
+        "size": 463804,
+        "url": "/images/expungement-fair-volunteers-1920w.webp"
+      },
+      {
+        "format": "avif",
+        "width": 1920,
+        "size": 510386,
+        "url": "/images/expungement-fair-volunteers-1920w.avif"
+      },
+      {
+        "format": "jpeg",
+        "width": 1920,
+        "size": 557038,
+        "url": "/images/expungement-fair-volunteers-1920w.jpeg"
+      }
+    ]
+  },
+  "Ottawa-County-Courthouse": {
+    "original": "Ottawa-County-Courthouse.jpg",
+    "variants": [
+      {
+        "format": "webp",
+        "width": 320,
+        "size": 12800,
+        "url": "/images/Ottawa-County-Courthouse-320w.webp"
+      },
+      {
+        "format": "avif",
+        "width": 320,
+        "size": 15644,
+        "url": "/images/Ottawa-County-Courthouse-320w.avif"
+      },
+      {
+        "format": "jpeg",
+        "width": 320,
+        "size": 16233,
+        "url": "/images/Ottawa-County-Courthouse-320w.jpeg"
+      },
+      {
+        "format": "webp",
+        "width": 640,
+        "size": 43554,
+        "url": "/images/Ottawa-County-Courthouse-640w.webp"
+      },
+      {
+        "format": "avif",
+        "width": 640,
+        "size": 50345,
+        "url": "/images/Ottawa-County-Courthouse-640w.avif"
+      },
+      {
+        "format": "jpeg",
+        "width": 640,
+        "size": 56885,
+        "url": "/images/Ottawa-County-Courthouse-640w.jpeg"
+      },
+      {
+        "format": "webp",
+        "width": 768,
+        "size": 56968,
+        "url": "/images/Ottawa-County-Courthouse-768w.webp"
+      },
+      {
+        "format": "avif",
+        "width": 768,
+        "size": 64099,
+        "url": "/images/Ottawa-County-Courthouse-768w.avif"
+      },
+      {
+        "format": "jpeg",
+        "width": 768,
+        "size": 76784,
+        "url": "/images/Ottawa-County-Courthouse-768w.jpeg"
+      },
+      {
+        "format": "webp",
+        "width": 1024,
+        "size": 86286,
+        "url": "/images/Ottawa-County-Courthouse-1024w.webp"
+      },
+      {
+        "format": "avif",
+        "width": 1024,
+        "size": 93457,
+        "url": "/images/Ottawa-County-Courthouse-1024w.avif"
+      },
+      {
+        "format": "jpeg",
+        "width": 1024,
+        "size": 123814,
+        "url": "/images/Ottawa-County-Courthouse-1024w.jpeg"
+      },
+      {
+        "format": "webp",
+        "width": 1280,
+        "size": 111484,
+        "url": "/images/Ottawa-County-Courthouse-1280w.webp"
+      },
+      {
+        "format": "avif",
+        "width": 1280,
+        "size": 117766,
+        "url": "/images/Ottawa-County-Courthouse-1280w.avif"
+      },
+      {
+        "format": "jpeg",
+        "width": 1280,
+        "size": 173134,
+        "url": "/images/Ottawa-County-Courthouse-1280w.jpeg"
+      },
+      {
+        "format": "webp",
+        "width": 1920,
+        "size": 180132,
+        "url": "/images/Ottawa-County-Courthouse-1920w.webp"
+      },
+      {
+        "format": "avif",
+        "width": 1920,
+        "size": 173857,
+        "url": "/images/Ottawa-County-Courthouse-1920w.avif"
+      },
+      {
+        "format": "jpeg",
+        "width": 1920,
+        "size": 310808,
+        "url": "/images/Ottawa-County-Courthouse-1920w.jpeg"
+      }
+    ]
+  },
+  "parking_guide": {
+    "original": "parking_guide.png",
+    "variants": [
+      {
+        "format": "webp",
+        "width": 320,
+        "size": 32332,
+        "url": "/images/parking_guide-320w.webp"
+      },
+      {
+        "format": "avif",
+        "width": 320,
+        "size": 41031,
+        "url": "/images/parking_guide-320w.avif"
+      },
+      {
+        "format": "png",
+        "width": 320,
+        "size": 76601,
+        "url": "/images/parking_guide-320w.png"
+      },
+      {
+        "format": "webp",
+        "width": 640,
+        "size": 101392,
+        "url": "/images/parking_guide-640w.webp"
+      },
+      {
+        "format": "avif",
+        "width": 640,
+        "size": 121968,
+        "url": "/images/parking_guide-640w.avif"
+      },
+      {
+        "format": "png",
+        "width": 640,
+        "size": 272832,
+        "url": "/images/parking_guide-640w.png"
+      },
+      {
+        "format": "webp",
+        "width": 768,
+        "size": 134526,
+        "url": "/images/parking_guide-768w.webp"
+      },
+      {
+        "format": "avif",
+        "width": 768,
+        "size": 155944,
+        "url": "/images/parking_guide-768w.avif"
+      },
+      {
+        "format": "png",
+        "width": 768,
+        "size": 385358,
+        "url": "/images/parking_guide-768w.png"
+      },
+      {
+        "format": "webp",
+        "width": 1024,
+        "size": 202018,
+        "url": "/images/parking_guide-1024w.webp"
+      },
+      {
+        "format": "avif",
+        "width": 1024,
+        "size": 221182,
+        "url": "/images/parking_guide-1024w.avif"
+      },
+      {
+        "format": "png",
+        "width": 1024,
+        "size": 647047,
+        "url": "/images/parking_guide-1024w.png"
+      },
+      {
+        "format": "webp",
+        "width": 1280,
+        "size": 261858,
+        "url": "/images/parking_guide-1280w.webp"
+      },
+      {
+        "format": "avif",
+        "width": 1280,
+        "size": 285980,
+        "url": "/images/parking_guide-1280w.avif"
+      },
+      {
+        "format": "png",
+        "width": 1280,
+        "size": 934991,
+        "url": "/images/parking_guide-1280w.png"
+      }
+    ]
+  },
+  "parking_guide_preview": {
+    "original": "parking_guide_preview.jpg",
+    "variants": [
+      {
+        "format": "webp",
+        "width": 320,
+        "size": 32658,
+        "url": "/images/parking_guide_preview-320w.webp"
+      },
+      {
+        "format": "avif",
+        "width": 320,
+        "size": 40927,
+        "url": "/images/parking_guide_preview-320w.avif"
+      },
+      {
+        "format": "jpeg",
+        "width": 320,
+        "size": 35097,
+        "url": "/images/parking_guide_preview-320w.jpeg"
+      },
+      {
+        "format": "webp",
+        "width": 640,
+        "size": 101254,
+        "url": "/images/parking_guide_preview-640w.webp"
+      },
+      {
+        "format": "avif",
+        "width": 640,
+        "size": 119972,
+        "url": "/images/parking_guide_preview-640w.avif"
+      },
+      {
+        "format": "jpeg",
+        "width": 640,
+        "size": 117590,
+        "url": "/images/parking_guide_preview-640w.jpeg"
+      },
+      {
+        "format": "webp",
+        "width": 768,
+        "size": 134824,
+        "url": "/images/parking_guide_preview-768w.webp"
+      },
+      {
+        "format": "avif",
+        "width": 768,
+        "size": 153608,
+        "url": "/images/parking_guide_preview-768w.avif"
+      },
+      {
+        "format": "jpeg",
+        "width": 768,
+        "size": 156752,
+        "url": "/images/parking_guide_preview-768w.jpeg"
+      }
+    ]
+  },
+  "Sorin & Pyle Business Card Front": {
+    "original": "Sorin & Pyle Business Card Front.png",
+    "variants": [
+      {
+        "format": "webp",
+        "width": 320,
+        "size": 2656,
+        "url": "/images/Sorin & Pyle Business Card Front-320w.webp"
+      },
+      {
+        "format": "avif",
+        "width": 320,
+        "size": 3300,
+        "url": "/images/Sorin & Pyle Business Card Front-320w.avif"
+      },
+      {
+        "format": "png",
+        "width": 320,
+        "size": 2968,
+        "url": "/images/Sorin & Pyle Business Card Front-320w.png"
+      },
+      {
+        "format": "webp",
+        "width": 640,
+        "size": 6216,
+        "url": "/images/Sorin & Pyle Business Card Front-640w.webp"
+      },
+      {
+        "format": "avif",
+        "width": 640,
+        "size": 6989,
+        "url": "/images/Sorin & Pyle Business Card Front-640w.avif"
+      },
+      {
+        "format": "png",
+        "width": 640,
+        "size": 6245,
+        "url": "/images/Sorin & Pyle Business Card Front-640w.png"
+      },
+      {
+        "format": "webp",
+        "width": 768,
+        "size": 7682,
+        "url": "/images/Sorin & Pyle Business Card Front-768w.webp"
+      },
+      {
+        "format": "avif",
+        "width": 768,
+        "size": 8429,
+        "url": "/images/Sorin & Pyle Business Card Front-768w.avif"
+      },
+      {
+        "format": "png",
+        "width": 768,
+        "size": 8028,
+        "url": "/images/Sorin & Pyle Business Card Front-768w.png"
+      },
+      {
+        "format": "webp",
+        "width": 1024,
+        "size": 10678,
+        "url": "/images/Sorin & Pyle Business Card Front-1024w.webp"
+      },
+      {
+        "format": "avif",
+        "width": 1024,
+        "size": 10436,
+        "url": "/images/Sorin & Pyle Business Card Front-1024w.avif"
+      },
+      {
+        "format": "png",
+        "width": 1024,
+        "size": 11271,
+        "url": "/images/Sorin & Pyle Business Card Front-1024w.png"
+      }
+    ]
+  },
+  "Sorin&Pyle-Primary-Color": {
+    "original": "Sorin&Pyle-Primary-Color.png",
+    "variants": [
+      {
+        "format": "webp",
+        "width": 320,
+        "size": 4752,
+        "url": "/images/Sorin&Pyle-Primary-Color-320w.webp"
+      },
+      {
+        "format": "avif",
+        "width": 320,
+        "size": 4811,
+        "url": "/images/Sorin&Pyle-Primary-Color-320w.avif"
+      },
+      {
+        "format": "png",
+        "width": 320,
+        "size": 5612,
+        "url": "/images/Sorin&Pyle-Primary-Color-320w.png"
+      },
+      {
+        "format": "webp",
+        "width": 640,
+        "size": 11424,
+        "url": "/images/Sorin&Pyle-Primary-Color-640w.webp"
+      },
+      {
+        "format": "avif",
+        "width": 640,
+        "size": 11609,
+        "url": "/images/Sorin&Pyle-Primary-Color-640w.avif"
+      },
+      {
+        "format": "png",
+        "width": 640,
+        "size": 16779,
+        "url": "/images/Sorin&Pyle-Primary-Color-640w.png"
+      },
+      {
+        "format": "webp",
+        "width": 768,
+        "size": 14166,
+        "url": "/images/Sorin&Pyle-Primary-Color-768w.webp"
+      },
+      {
+        "format": "avif",
+        "width": 768,
+        "size": 14301,
+        "url": "/images/Sorin&Pyle-Primary-Color-768w.avif"
+      },
+      {
+        "format": "png",
+        "width": 768,
+        "size": 20568,
+        "url": "/images/Sorin&Pyle-Primary-Color-768w.png"
+      },
+      {
+        "format": "webp",
+        "width": 1024,
+        "size": 19984,
+        "url": "/images/Sorin&Pyle-Primary-Color-1024w.webp"
+      },
+      {
+        "format": "avif",
+        "width": 1024,
+        "size": 20794,
+        "url": "/images/Sorin&Pyle-Primary-Color-1024w.avif"
+      },
+      {
+        "format": "png",
+        "width": 1024,
+        "size": 35944,
+        "url": "/images/Sorin&Pyle-Primary-Color-1024w.png"
+      },
+      {
+        "format": "webp",
+        "width": 1280,
+        "size": 27042,
+        "url": "/images/Sorin&Pyle-Primary-Color-1280w.webp"
+      },
+      {
+        "format": "avif",
+        "width": 1280,
+        "size": 27225,
+        "url": "/images/Sorin&Pyle-Primary-Color-1280w.avif"
+      },
+      {
+        "format": "png",
+        "width": 1280,
+        "size": 49014,
+        "url": "/images/Sorin&Pyle-Primary-Color-1280w.png"
+      }
+    ]
+  },
+  "Sorin&Pyle-Stacked-Color": {
+    "original": "Sorin&Pyle-Stacked-Color.png",
+    "variants": [
+      {
+        "format": "webp",
+        "width": 320,
+        "size": 10118,
+        "url": "/images/Sorin&Pyle-Stacked-Color-320w.webp"
+      },
+      {
+        "format": "avif",
+        "width": 320,
+        "size": 10733,
+        "url": "/images/Sorin&Pyle-Stacked-Color-320w.avif"
+      },
+      {
+        "format": "png",
+        "width": 320,
+        "size": 13701,
+        "url": "/images/Sorin&Pyle-Stacked-Color-320w.png"
+      },
+      {
+        "format": "webp",
+        "width": 640,
+        "size": 24094,
+        "url": "/images/Sorin&Pyle-Stacked-Color-640w.webp"
+      },
+      {
+        "format": "avif",
+        "width": 640,
+        "size": 26532,
+        "url": "/images/Sorin&Pyle-Stacked-Color-640w.avif"
+      },
+      {
+        "format": "png",
+        "width": 640,
+        "size": 52454,
+        "url": "/images/Sorin&Pyle-Stacked-Color-640w.png"
+      },
+      {
+        "format": "webp",
+        "width": 768,
+        "size": 30194,
+        "url": "/images/Sorin&Pyle-Stacked-Color-768w.webp"
+      },
+      {
+        "format": "avif",
+        "width": 768,
+        "size": 34195,
+        "url": "/images/Sorin&Pyle-Stacked-Color-768w.avif"
+      },
+      {
+        "format": "png",
+        "width": 768,
+        "size": 73375,
+        "url": "/images/Sorin&Pyle-Stacked-Color-768w.png"
+      },
+      {
+        "format": "webp",
+        "width": 1024,
+        "size": 44080,
+        "url": "/images/Sorin&Pyle-Stacked-Color-1024w.webp"
+      },
+      {
+        "format": "avif",
+        "width": 1024,
+        "size": 51198,
+        "url": "/images/Sorin&Pyle-Stacked-Color-1024w.avif"
+      },
+      {
+        "format": "png",
+        "width": 1024,
+        "size": 108270,
+        "url": "/images/Sorin&Pyle-Stacked-Color-1024w.png"
+      }
+    ]
+  }
+}
