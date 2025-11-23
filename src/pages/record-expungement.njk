@@ -160,3 +160,109 @@ permalink: /record-expungement.html
                 </div>
             </div>
         </section>
+
+{% block schema %}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "LegalService",
+    "name": "Michigan Record Expungement Services",
+    "description": "Petition-based criminal record expungement in Michigan. Clear felonies, misdemeanors, and DUI convictions to improve employment and housing opportunities.",
+    "provider": {
+        "@type": "LegalService",
+        "@id": "{{ site.url }}/#organization"
+    },
+    "url": "{{ site.url }}/record-expungement.html",
+    "areaServed": [
+        {
+            "@type": "State",
+            "name": "Michigan"
+        },
+        {
+            "@type": "AdministrativeArea",
+            "name": "Ottawa County",
+            "containedInPlace": {"@type": "State", "name": "Michigan"}
+        },
+        {
+            "@type": "AdministrativeArea",
+            "name": "Kent County",
+            "containedInPlace": {"@type": "State", "name": "Michigan"}
+        },
+        {
+            "@type": "AdministrativeArea",
+            "name": "Allegan County",
+            "containedInPlace": {"@type": "State", "name": "Michigan"}
+        },
+        {
+            "@type": "AdministrativeArea",
+            "name": "Kalamazoo County",
+            "containedInPlace": {"@type": "State", "name": "Michigan"}
+        },
+        {
+            "@type": "AdministrativeArea",
+            "name": "Muskegon County",
+            "containedInPlace": {"@type": "State", "name": "Michigan"}
+        },
+        {
+            "@type": "AdministrativeArea",
+            "name": "Van Buren County",
+            "containedInPlace": {"@type": "State", "name": "Michigan"}
+        },
+        {
+            "@type": "AdministrativeArea",
+            "name": "Newaygo County",
+            "containedInPlace": {"@type": "State", "name": "Michigan"}
+        },
+        {
+            "@type": "City",
+            "name": "Holland",
+            "containedInPlace": {"@type": "State", "name": "Michigan"}
+        },
+        {
+            "@type": "City",
+            "name": "Grand Rapids",
+            "containedInPlace": {"@type": "State", "name": "Michigan"}
+        },
+        {
+            "@type": "City",
+            "name": "Grand Haven",
+            "containedInPlace": {"@type": "State", "name": "Michigan"}
+        }
+    ],
+    "serviceType": [
+        "Criminal Record Expungement",
+        "Felony Expungement",
+        "Misdemeanor Expungement",
+        "DUI Expungement",
+        "OWI Expungement",
+        "Record Sealing",
+        "Conviction Set-Aside"
+    ],
+    "termsOfService": "Free consultation. Petition-based expungement services for eligible Michigan convictions.",
+    "offers": {
+        "@type": "Offer",
+        "description": "Free expungement consultation to review eligibility"
+    }
+}
+</script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "{{ site.url }}/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Record Expungement",
+            "item": "{{ site.url }}/record-expungement.html"
+        }
+    ]
+}
+</script>
+{% endblock %}
