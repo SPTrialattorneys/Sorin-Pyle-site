@@ -34,6 +34,34 @@ body { margin: 0; font-family: 'Inter', sans-serif; background-color: #FDFBF6; c
     opacity: 0;
     visibility: hidden;
 }
+
+/* Mobile viewport fixes - prevent horizontal overflow */
+@media (max-width: 767px) {
+    .container-large {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+    }
+    h1 {
+        font-size: 2rem;
+        line-height: 1.25;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 374px) {
+    .container-large {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    h1 {
+        font-size: 2rem;
+        line-height: 1.1;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+}
 </style>
 {% endblock %}
 
