@@ -1402,8 +1402,8 @@ textarea.form_field {
       padding-bottom: var(--spacing-lg);
   }
   .container-large {
-      padding-left: var(--spacing-sm);
-      padding-right: var(--spacing-sm);
+      padding-left: 1.25rem; /* 20px - increased for mobile overflow fix */
+      padding-right: 1.25rem;
   }
   .navbar_hamburger-button {
       right: var(--spacing-sm); /* Adjust position for smaller screens */
@@ -1439,8 +1439,8 @@ textarea.form_field {
 
   /* Container padding reduction for tiny screens */
   .container-large {
-    padding-left: var(--spacing-xs); /* Extra tight padding */
-    padding-right: var(--spacing-xs);
+    padding-left: 1rem; /* 16px - increased for overflow fix (was 8px) */
+    padding-right: 1rem;
   }
 
   /* Hero section adjustments */
