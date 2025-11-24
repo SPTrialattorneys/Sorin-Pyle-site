@@ -39,6 +39,89 @@ npm run build:html:prod  # Test production build locally
 - Editing `src/` files = changes permanent ✅
 - Cloudflare builds from `src/` on every push
 
+## ⚠️ CRITICAL: Critical CSS System - Dual Update Required
+
+**The site uses TWO separate CSS systems that must BOTH be updated for styling changes:**
+
+### 1. Main CSS (Deferred Loading)
+**Location:** `src/assets/styles/*.css`
+- `core-brand.css` - CSS variables, resets, brand colors
+- `style-core.css` - Core component styles
+- `style.css` - Page-specific styles
+- `style-blog.css`, `style-faq.css`, `style-card-pages.css` - Specialized pages
+
+**Build Process:**
+- All CSS files imported via `src/assets/styles/main.css`
+- Built with PostCSS: `npm run build:css`
+- Output: `dist/css/main.min.css`
+- Loaded deferred in HTML (does not block page render)
+
+### 2. Critical CSS (Inline in HTML Head)
+**Location:** `src/_data/critical-*.css`
+- `critical-homepage.css` - Homepage above-the-fold styles
+- `critical-attorneys.css` - Attorneys page critical styles
+- `critical-practice-areas.css` - Practice areas page critical styles
+
+**Build Process:**
+- Inlined directly in HTML `<head>` via Eleventy templates
+- Built with: `npm run build:html:prod`
+- Displays IMMEDIATELY on page load (before main.min.css loads)
+
+### ⚠️ IMPORTANT: When to Update Both
+
+**You MUST update BOTH locations when changing:**
+- Typography (h1, h2, h3 font sizes)
+- Mobile breakpoint styles (@media queries)
+- Layout styles (container padding, grid layouts)
+- Above-the-fold component styles (navbar, hero section)
+
+**Example: Changing Mobile h1 Font Size**
+```bash
+# Step 1: Update main CSS
+Edit: src/assets/styles/style-core.css
+Change: @media (max-width: 767px) { h1 { font-size: 2rem; } }
+
+# Step 2: Update critical CSS
+Edit: src/_data/critical-homepage.css
+Change: @media (max-width:767px){h1{font-size:2rem}}
+
+# Step 3: Rebuild and deploy
+npm run build:html:prod  # Rebuilds HTML with critical CSS
+git add src/assets/styles/style-core.css src/_data/critical-homepage.css
+git commit -m "Update mobile h1 font size"
+git push
+```
+
+### Critical CSS Files Explained
+
+**critical-homepage.css:**
+- Inlined in: `src/pages/index.njk`
+- Covers: Hero section, attorney cards, navbar, mobile nav
+- Size: ~4KB (minified)
+
+**critical-attorneys.css:**
+- Inlined in: `src/pages/attorneys.njk`
+- Covers: Attorney grid layout, bio sections
+
+**critical-practice-areas.css:**
+- Inlined in: `src/pages/practice-areas.njk`
+- Covers: Practice area cards, charges grid
+
+### Why Critical CSS Exists
+- **Performance:** Above-the-fold styles load instantly (no render blocking)
+- **Core Web Vitals:** Improves LCP (Largest Contentful Paint)
+- **User Experience:** No "flash of unstyled content" (FOUC)
+
+### Common Mistake
+❌ **Wrong:** Only updating `src/assets/styles/style-core.css`
+- Main CSS loads deferred → Change not visible immediately
+- Critical CSS still has old values → Page loads with old styles
+- Results in "fix didn't work" confusion
+
+✅ **Correct:** Update both locations
+- Critical CSS updated → Immediate render correct
+- Main CSS updated → Consistency after full page load
+
 ## Project Structure
 
 ### Core Page Templates (Source: src/pages/*.njk)
@@ -329,6 +412,71 @@ npx serve .
 - 📋 **CANONICAL_URL_CONSISTENCY_FIXED.md** - SEO URL format standardization
 
 ## Recent Changes Log
+
+### November 24, 2025 - Mobile Horizontal Overflow Fix (Critical CSS System)
+
+**Type:** Performance & UX Fix - Mobile Responsive Design
+**Goal:** Eliminate horizontal scrolling on mobile devices caused by oversized h1 headings
+**Impact:** Proper text wrapping on all mobile viewports (iPhone, Android, tablets)
+
+**Problem Identified:**
+- Mobile screenshots showed h1 headings overflowing viewport on 375px-767px devices
+- Headings like "Meet Your West Michigan Advocates" and "Our Practice Areas" cut off mid-word
+- Initial fix only updated main CSS (`style-core.css`) but not critical CSS
+- Critical CSS loads inline in `<head>` and displays FIRST - fix appeared not to work
+
+**Root Cause:**
+- Site uses dual CSS system: main CSS (deferred) + critical CSS (inline)
+- Text-wrapping properties (`word-wrap`, `overflow-wrap`, `hyphens`) were only in 374px breakpoint
+- Standard mobile devices (375px-767px) fell outside this range
+- Critical CSS files (`src/_data/critical-*.css`) are separate from main CSS build
+
+**Solution Implemented:**
+
+**1. Updated Main CSS** (`src/assets/styles/style-core.css`)
+- Added text-wrapping properties to `@media (max-width: 767px)` breakpoint:
+  - `word-wrap: break-word` - Allow words to wrap
+  - `overflow-wrap: break-word` - Modern browser support
+  - `-webkit-hyphens: auto` and `hyphens: auto` - Enable hyphenation
+
+**2. Updated Critical CSS** (`src/_data/critical-homepage.css`) - **THE KEY FIX**
+- Changed h1 `font-size: 2.5rem` → `2rem` at 767px breakpoint
+- Added `line-height: 1.25` for better spacing
+- Added `-webkit-hyphens: auto` and `hyphens: auto`
+- Fixed `container-large` padding to `1.25rem` (consistency)
+
+**Files Modified:**
+- [src/assets/styles/style-core.css](src/assets/styles/style-core.css) (lines 1285-1291)
+- [src/_data/critical-homepage.css](src/_data/critical-homepage.css) (mobile breakpoint)
+
+**Build Commands Used:**
+```bash
+npm run build:css          # Build main CSS
+npm run build:html:prod    # Rebuild HTML with critical CSS
+git push                   # Deploy to Cloudflare
+```
+
+**Key Learning - Dual CSS System:**
+- **Main CSS** (`src/assets/styles/*.css`) → compiled to `dist/css/main.min.css` (deferred load)
+- **Critical CSS** (`src/_data/critical-*.css`) → inlined in HTML `<head>` (immediate render)
+- **BOTH must be updated** for above-the-fold styling changes
+- Critical CSS displays FIRST, main CSS loads after
+
+**Documentation Updated:**
+- Added comprehensive "Critical CSS System" section to CLAUDE.md
+- Explains when/why to update both CSS locations
+- Includes step-by-step example for future updates
+- Prevents "fix didn't work" confusion
+
+**Result:**
+- h1 headings now wrap properly on all mobile devices (375px-767px)
+- No horizontal scrolling on iPhone, Android, or tablets
+- Text properly hyphenates and wraps to multiple lines
+- Fix visible immediately (critical CSS) and consistent after load (main CSS)
+
+**Status:** ✅ Complete - Mobile overflow eliminated, documentation updated
+
+---
 
 ### November 23, 2025 - PageSpeed Optimization & Security Headers (Production Ready)
 
