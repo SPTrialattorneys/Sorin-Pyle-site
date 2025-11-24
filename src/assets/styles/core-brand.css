@@ -194,6 +194,10 @@
 /* BASE TYPOGRAPHY */
 /* =============== */
 
+html {
+  overflow-x: hidden; /* Prevent horizontal scrolling on mobile */
+}
+
 body {
   background-color: var(--background-color);
   color: var(--text-color);
@@ -202,6 +206,7 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden; /* Prevent horizontal scrolling on mobile */
 }
 
 h1, h2, h3, h4, h5, h6 {

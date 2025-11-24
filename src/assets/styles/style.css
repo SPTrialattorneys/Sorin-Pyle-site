@@ -1291,6 +1291,7 @@ textarea.form_field {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    overflow-x: hidden; /* Prevent horizontal scrolling from fixed element */
 }
 
 .mobile-nav_menu.is-open {
