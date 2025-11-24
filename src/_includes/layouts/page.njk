@@ -1,71 +1,11 @@
 {% extends "layouts/base.njk" %}
 
 {# Standard page layout - extends base template #}
+{# Uses extracted critical CSS from critical-page-layout.css #}
 
 {% block criticalCSS %}
 <style>
-/* Critical above-the-fold styles */
-body { margin: 0; font-family: 'Inter', sans-serif; background-color: #FDFBF6; color: #212529; line-height: 1.6; }
-
-/* Responsive Images - Prevent horizontal overflow on mobile */
-img { max-width: 100%; height: auto; display: block; }
-
-.navbar_component { position: sticky; top: 0; background-color: #FDFBF6; border-bottom: 1px solid #dee2e6; padding: 1rem 0; z-index: 1002; }
-.container-large { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
-.navbar_container { display: flex; justify-content: space-between; align-items: center; }
-.navbar_logo-link { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
-.logo-icon { width: 70px; height: 70px; }
-.logo-text-container { display: flex; flex-direction: column; }
-.logo-text-main { font-family: 'Merriweather', serif; font-size: 1.5rem; font-weight: 700; color: #4076B4; line-height: 1.2; }
-.logo-text-sub { font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 600; color: #6c757d; letter-spacing: 0.1em; text-transform: uppercase; }
-.skip-link { position: absolute; left: -9999px; z-index: 9999; padding: 1rem; background: #4076B4; color: white; text-decoration: none; }
-.skip-link:focus { left: 50%; transform: translateX(-50%); top: 1rem; }
-
-/* Prevent mobile menu FOUC on desktop */
-@media (min-width: 992px) {
-    .mobile-nav_menu { display: none !important; }
-    .navbar_hamburger-button { display: none !important; }
-}
-
-/* Prevent desktop menu FOUC on mobile/tablet */
-@media (max-width: 991px) {
-    .navbar_menu { display: none !important; }
-    .navbar_hamburger-button { display: block; }
-}
-
-/* CRITICAL: Hide dropdown menu by default to prevent flash */
-.navbar_dropdown-menu {
-    opacity: 0;
-    visibility: hidden;
-}
-
-/* Mobile viewport fixes - prevent horizontal overflow */
-@media (max-width: 767px) {
-    .container-large {
-        padding-left: 1.25rem;
-        padding-right: 1.25rem;
-    }
-    h1 {
-        font-size: 2rem;
-        line-height: 1.25;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-        max-width: 100%;
-    }
-}
-
-@media (max-width: 374px) {
-    .container-large {
-        padding-left: 1rem;
-        padding-right: 1rem;
-    }
-    h1 {
-        font-size: 2rem;
-        line-height: 1.1;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-    }
-}
+{{ 'critical-page-layout.css' | criticalCSS | safe }}
 </style>
 {% endblock %}
 

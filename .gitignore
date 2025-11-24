@@ -72,8 +72,8 @@ blog/.eleventy.js
 go/*.md
 go/_*.html
 
-# Include/template files (development only)
-_includes/
+# Include/template files (legacy root-level only, not src/_includes)
+/_includes/
 
 # Source design files (too large for web)
 images/*.ai
