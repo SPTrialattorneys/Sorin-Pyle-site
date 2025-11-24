@@ -81,16 +81,26 @@ npm run build:html:prod  # Test production build locally
 Edit: src/assets/styles/style-core.css
 Change: @media (max-width: 767px) { h1 { font-size: 2rem; } }
 
-# Step 2: Update critical CSS
+# Step 2: Update ALL 3 critical CSS files
 Edit: src/_data/critical-homepage.css
+Change: @media (max-width:767px){h1{font-size:2rem}}
+
+Edit: src/_data/critical-attorneys.css
+Change: @media (max-width:767px){h1{font-size:2rem}}
+
+Edit: src/_data/critical-practice-areas.css
 Change: @media (max-width:767px){h1{font-size:2rem}}
 
 # Step 3: Rebuild and deploy
 npm run build:html:prod  # Rebuilds HTML with critical CSS
-git add src/assets/styles/style-core.css src/_data/critical-homepage.css
-git commit -m "Update mobile h1 font size"
+git add src/assets/styles/style-core.css src/_data/critical-*.css
+git commit -m "Update mobile h1 font size across all pages"
 git push
 ```
+
+**⚠️ CRITICAL: Must update ALL 3 critical CSS files!**
+- Updating only `critical-homepage.css` leaves attorneys.html and practice-areas.html broken
+- All 3 files must have matching mobile styles for consistency
 
 ### Critical CSS Files Explained
 
@@ -439,15 +449,23 @@ npx serve .
   - `overflow-wrap: break-word` - Modern browser support
   - `-webkit-hyphens: auto` and `hyphens: auto` - Enable hyphenation
 
-**2. Updated Critical CSS** (`src/_data/critical-homepage.css`) - **THE KEY FIX**
+**2. Updated Critical CSS** (ALL 3 FILES) - **THE KEY FIX**
 - Changed h1 `font-size: 2.5rem` → `2rem` at 767px breakpoint
 - Added `line-height: 1.25` for better spacing
-- Added `-webkit-hyphens: auto` and `hyphens: auto`
+- Removed hyphenation (`hyphens: auto`) after user feedback - full word wrapping looks better
 - Fixed `container-large` padding to `1.25rem` (consistency)
 
 **Files Modified:**
 - [src/assets/styles/style-core.css](src/assets/styles/style-core.css) (lines 1285-1291)
 - [src/_data/critical-homepage.css](src/_data/critical-homepage.css) (mobile breakpoint)
+- [src/_data/critical-attorneys.css](src/_data/critical-attorneys.css) (mobile breakpoint) - **Fixed later**
+- [src/_data/critical-practice-areas.css](src/_data/critical-practice-areas.css) (mobile breakpoint) - **Fixed later**
+
+**⚠️ IMPORTANT DISCOVERY:**
+Initial fix only updated `critical-homepage.css` but missed the other 2 critical CSS files!
+- Site has **3 critical CSS files** (homepage, attorneys, practice-areas)
+- Only updating homepage left attorneys.html and practice-areas.html broken
+- All 3 files were updated in follow-up commit to ensure site-wide consistency
 
 **Build Commands Used:**
 ```bash
