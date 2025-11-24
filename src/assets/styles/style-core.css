@@ -1273,14 +1273,17 @@ textarea.form_field {
       padding-bottom: var(--spacing-lg);
   }
   .container-large {
-      padding-left: var(--spacing-sm);
-      padding-right: var(--spacing-sm);
+      padding-left: 1.25rem; /* 20px - increased for mobile overflow fix */
+      padding-right: 1.25rem;
   }
   .navbar_hamburger-button {
       right: var(--spacing-sm); /* Adjust position for smaller screens */
   }
-  h1 { font-size: 2.5rem; }
-  h2 { font-size: 2rem; }
+  h1 {
+      font-size: 2rem; /* 32px - reduced from 40px for mobile overflow fix */
+      line-height: 1.25; /* Better spacing for wrapped text */
+  }
+  h2 { font-size: 1.75rem; } /* 28px - proportionally reduced */
 
   .grid_2-col.grid-align-start {
     align-items: initial;
