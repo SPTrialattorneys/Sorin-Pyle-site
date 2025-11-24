@@ -459,7 +459,10 @@ button.navbar_dropdown-toggle {
   border: 2px solid transparent;
   cursor: pointer;
   box-sizing: border-box;
-  white-space: nowrap;
+  /* white-space: nowrap; REMOVED - was causing mobile overflow */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
 }
 
 .button-primary {
