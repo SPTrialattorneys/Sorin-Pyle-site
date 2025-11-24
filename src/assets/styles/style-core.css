@@ -1285,6 +1285,9 @@ textarea.form_field {
   h1 {
       font-size: 2rem; /* 32px - reduced from 40px for mobile overflow fix */
       line-height: 1.25; /* Better spacing for wrapped text */
+      word-wrap: break-word; /* Allow words to wrap to prevent overflow */
+      overflow-wrap: break-word; /* Modern alternative to word-wrap */
+      hyphens: auto; /* Enable hyphenation for better text flow */
   }
   h2 { font-size: 1.75rem; } /* 28px - proportionally reduced */
 
