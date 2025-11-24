@@ -132,6 +132,52 @@ git push
 - Critical CSS updated → Immediate render correct
 - Main CSS updated → Consistency after full page load
 
+### ⚠️ CRITICAL: page.njk Layout Mobile Fixes (November 2025)
+
+**IMPORTANT:** Not all pages use dedicated critical CSS files!
+
+**Pages using page.njk layout** (sorin-panainte.html, jonathan-pyle.html, etc.):
+- Do NOT have dedicated critical CSS files
+- Get critical CSS from `src/_includes/layouts/page.njk` hardcoded styles
+- MUST include mobile breakpoint fixes inline
+
+**Required mobile styles in page.njk:**
+```css
+/* Mobile viewport fixes - prevent horizontal overflow */
+@media (max-width: 767px) {
+    .container-large {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+    }
+    h1 {
+        font-size: 2rem;
+        line-height: 1.25;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 374px) {
+    .container-large {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    h1 {
+        font-size: 2rem;
+        line-height: 1.1;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+}
+```
+
+**Why this matters:**
+- page.njk is extended by MANY pages (all attorney profiles, service pages using page layout)
+- Without mobile breakpoints in page.njk → horizontal overflow on mobile
+- Main CSS (main.min.css) loads deferred → too late to prevent initial overflow
+- Critical CSS MUST include mobile fixes for instant render
+
 ## Project Structure
 
 ### Core Page Templates (Source: src/pages/*.njk)
