@@ -15,6 +15,9 @@
 
 # Utility scripts (development tools)
 utilities/
+!utilities/docs/*.md
+!utilities/validate-schema.js
+!utilities/pre-commit-check.js
 
 # Backup files
 *.backup
@@ -36,6 +39,10 @@ utilities/
 
 # Claude Code settings
 .claude/
+
+# AI task context system (working files)
+.ai/
+!.ai/README.md
 
 # OS generated files
 .DS_Store
