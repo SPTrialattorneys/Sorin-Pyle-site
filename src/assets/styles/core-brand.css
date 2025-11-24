@@ -209,6 +209,13 @@ body {
   overflow-x: hidden; /* Prevent horizontal scrolling on mobile */
 }
 
+/* Responsive Images - Prevent horizontal overflow on mobile */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-headings);
   color: var(--primary-blue);

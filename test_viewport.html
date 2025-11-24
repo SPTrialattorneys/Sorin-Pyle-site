@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+html, body { overflow-x: hidden; margin: 0; padding: 0; }
+.test { 
+    background: red; 
+    width: 100%; 
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+.test h1 {
+    background: yellow;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+</style>
+</head>
+<body>
+<div class="test">
+    <h1>Serving West Michigan</h1>
+    <p>Our office is based in Holland, but our fight takes us to courtrooms all across West Michigan. We are proud to defend clients in the following counties and statewide.</p>
+</div>
+<script>
+document.write('<p>Viewport width: ' + window.innerWidth + 'px</p>');
+document.write('<p>Document width: ' + document.documentElement.scrollWidth + 'px</p>');
+document.write('<p>Can scroll horizontally: ' + (document.documentElement.scrollWidth > window.innerWidth) + '</p>');
+</script>
+</body>
+</html>
