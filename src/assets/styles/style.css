@@ -1426,7 +1426,6 @@ textarea.form_field {
     line-height: 1.1;
     word-wrap: break-word;
     overflow-wrap: break-word;
-    hyphens: auto;
   }
 
   h2 {
