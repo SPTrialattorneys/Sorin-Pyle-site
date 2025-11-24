@@ -18,6 +18,7 @@ utilities/
 !utilities/docs/*.md
 !utilities/validate-schema.js
 !utilities/pre-commit-check.js
+!utilities/extract-critical-css.mjs
 
 # Backup files
 *.backup
