@@ -1,5 +1,11 @@
 # Sorin & Pyle Law Firm Website - Claude Code Reference
 
+> **⚡ Quick Start:** First time? Read [QUICK_START.md](QUICK_START.md) (5-minute read).
+> **Full Technical Docs:** [AI_CONTEXT.md](AI_CONTEXT.md) (~16,000 words).
+
+> **📚 Task-Focused Guides:** Use these for specific tasks:
+> [CSS](utilities/docs/CSS_GUIDE.md) | [Schema](utilities/docs/SCHEMA_GUIDE.md) | [Content](utilities/docs/CONTENT_GUIDE.md) | [Troubleshooting](utilities/docs/TROUBLESHOOTING.md)
+
 ## Project Overview
 **Purpose**: Professional criminal defense law firm website for Sorin & Pyle, PC
 **Location**: Holland, Michigan (serving West Michigan)
@@ -39,9 +45,9 @@ npm run build:html:prod  # Test production build locally
 - Editing `src/` files = changes permanent ✅
 - Cloudflare builds from `src/` on every push
 
-## ⚠️ CRITICAL: Critical CSS System - Dual Update Required
+## ✅ CRITICAL CSS SYSTEM - AUTOMATED (November 24, 2025)
 
-**The site uses TWO separate CSS systems that must BOTH be updated for styling changes:**
+**The site uses TWO separate CSS systems with AUTOMATED synchronization:**
 
 ### 1. Main CSS (Deferred Loading)
 **Location:** `src/assets/styles/*.css`
@@ -56,127 +62,108 @@ npm run build:html:prod  # Test production build locally
 - Output: `dist/css/main.min.css`
 - Loaded deferred in HTML (does not block page render)
 
-### 2. Critical CSS (Inline in HTML Head)
-**Location:** `src/_data/critical-*.css`
+### 2. Critical CSS (Inline in HTML Head) - AUTO-EXTRACTED
+
+**Location:** `src/_data/critical-*.css` (auto-generated from dist/ folder)
 - `critical-homepage.css` - Homepage above-the-fold styles
 - `critical-attorneys.css` - Attorneys page critical styles
 - `critical-practice-areas.css` - Practice areas page critical styles
+- `critical-page-layout.css` - Generic page layout critical styles (25+ pages)
 
-**Build Process:**
-- Inlined directly in HTML `<head>` via Eleventy templates
-- Built with: `npm run build:html:prod`
+**Build Process (AUTOMATED):**
+- Extracted automatically via `npm run build:critical`
+- Uses `critical` npm package to analyze rendered HTML in `dist/` folder
+- Analyzes 3 viewports: Mobile (375px), Tablet (768px), Desktop (1920px)
+- Writes extracted CSS to `src/_data/critical-*.css`
+- Integrated into `npm run build:cloudflare` (runs automatically on deployment)
 - Displays IMMEDIATELY on page load (before main.min.css loads)
 
-### ⚠️ IMPORTANT: When to Update Both
+### ✅ SIMPLIFIED WORKFLOW: Update Main CSS Only
 
-**You MUST update BOTH locations when changing:**
-- Typography (h1, h2, h3 font sizes)
-- Mobile breakpoint styles (@media queries)
-- Layout styles (container padding, grid layouts)
-- Above-the-fold component styles (navbar, hero section)
+**When changing above-the-fold styles (typography, mobile breakpoints, layout):**
 
-**Example: Changing Mobile h1 Font Size**
 ```bash
-# Step 1: Update main CSS
+# Step 1: Update main CSS ONLY (single source of truth)
 Edit: src/assets/styles/style-core.css
 Change: @media (max-width: 767px) { h1 { font-size: 2rem; } }
 
-# Step 2: Update ALL 3 critical CSS files
-Edit: src/_data/critical-homepage.css
-Change: @media (max-width:767px){h1{font-size:2rem}}
+# Step 2: Run automated build (critical CSS extracted automatically)
+npm run build:cloudflare
 
-Edit: src/_data/critical-attorneys.css
-Change: @media (max-width:767px){h1{font-size:2rem}}
+# OR for local testing:
+npm run build:css           # Build main CSS
+npm run build:html:prod     # Build HTML to dist/
+npm run build:critical      # Auto-extract critical CSS from dist/
+npm run build:html:prod     # Rebuild HTML with new critical CSS
 
-Edit: src/_data/critical-practice-areas.css
-Change: @media (max-width:767px){h1{font-size:2rem}}
-
-# Step 3: Rebuild and deploy
-npm run build:html:prod  # Rebuilds HTML with critical CSS
+# Step 3: Commit and deploy
 git add src/assets/styles/style-core.css src/_data/critical-*.css
-git commit -m "Update mobile h1 font size across all pages"
+git commit -m "Update mobile h1 font size"
 git push
 ```
 
-**⚠️ CRITICAL: Must update ALL 3 critical CSS files!**
-- Updating only `critical-homepage.css` leaves attorneys.html and practice-areas.html broken
-- All 3 files must have matching mobile styles for consistency
+**✨ Benefits of Automation:**
+- Update 1 file instead of 5 files
+- No risk of forgetting to sync critical CSS files
+- Consistent critical CSS across all pages
+- Eliminates manual editing of minified CSS
+- Prevents incidents like November 24 multi-commit fix
 
 ### Critical CSS Files Explained
 
-**critical-homepage.css:**
+**critical-homepage.css:** (auto-extracted from dist/index.html)
 - Inlined in: `src/pages/index.njk`
 - Covers: Hero section, attorney cards, navbar, mobile nav
-- Size: ~4KB (minified)
+- Size: ~15KB (minified, auto-generated)
 
-**critical-attorneys.css:**
+**critical-attorneys.css:** (auto-extracted from dist/attorneys.html)
 - Inlined in: `src/pages/attorneys.njk`
 - Covers: Attorney grid layout, bio sections
+- Size: ~12KB (minified, auto-generated)
 
-**critical-practice-areas.css:**
+**critical-practice-areas.css:** (auto-extracted from dist/practice-areas.html)
 - Inlined in: `src/pages/practice-areas.njk`
 - Covers: Practice area cards, charges grid
+- Size: ~11KB (minified, auto-generated)
+
+**critical-page-layout.css:** (auto-extracted from dist/dui-defense.html)
+- Inlined in: `src/_includes/layouts/page.njk`
+- Covers: Generic page layout, navbar, mobile viewport fixes
+- Used by: 25+ pages (attorney profiles, service pages, location pages)
+- Size: ~10KB (minified, auto-generated)
 
 ### Why Critical CSS Exists
 - **Performance:** Above-the-fold styles load instantly (no render blocking)
 - **Core Web Vitals:** Improves LCP (Largest Contentful Paint)
 - **User Experience:** No "flash of unstyled content" (FOUC)
 
-### Common Mistake
-❌ **Wrong:** Only updating `src/assets/styles/style-core.css`
-- Main CSS loads deferred → Change not visible immediately
-- Critical CSS still has old values → Page loads with old styles
-- Results in "fix didn't work" confusion
+### Automation Details
 
-✅ **Correct:** Update both locations
-- Critical CSS updated → Immediate render correct
-- Main CSS updated → Consistency after full page load
+**Extraction Script:** `utilities/extract-critical-css.mjs`
+- Uses `critical` npm package v7.2.1
+- Reads rendered HTML from `dist/` folder (no localhost server needed)
+- Analyzes above-the-fold content for 3 viewport sizes
+- Writes minified critical CSS to `src/_data/`
+- Integrated into Cloudflare deployment build
 
-### ⚠️ CRITICAL: page.njk Layout Mobile Fixes (November 2025)
+**When Critical CSS is Re-extracted:**
+- Automatically on every `npm run build:cloudflare` (production deployment)
+- Automatically on every `npm run build` (local development build)
+- Manually via `npm run build:critical` (for testing)
 
-**IMPORTANT:** Not all pages use dedicated critical CSS files!
+### Previous Manual Workflow (Deprecated)
 
-**Pages using page.njk layout** (sorin-panainte.html, jonathan-pyle.html, etc.):
-- Do NOT have dedicated critical CSS files
-- Get critical CSS from `src/_includes/layouts/page.njk` hardcoded styles
-- MUST include mobile breakpoint fixes inline
+**❌ OLD METHOD (Before November 24, 2025):**
+- Manually edit 5 files for every above-the-fold CSS change
+- Risk of forgetting files → inconsistent critical CSS → style "flashing"
+- Difficult to edit minified single-line CSS files
+- November 24 mobile overflow fix required multiple commits to sync all files
 
-**Required mobile styles in page.njk:**
-```css
-/* Mobile viewport fixes - prevent horizontal overflow */
-@media (max-width: 767px) {
-    .container-large {
-        padding-left: 1.25rem;
-        padding-right: 1.25rem;
-    }
-    h1 {
-        font-size: 2rem;
-        line-height: 1.25;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-        max-width: 100%;
-    }
-}
-
-@media (max-width: 374px) {
-    .container-large {
-        padding-left: 1rem;
-        padding-right: 1rem;
-    }
-    h1 {
-        font-size: 2rem;
-        line-height: 1.1;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-    }
-}
-```
-
-**Why this matters:**
-- page.njk is extended by MANY pages (all attorney profiles, service pages using page layout)
-- Without mobile breakpoints in page.njk → horizontal overflow on mobile
-- Main CSS (main.min.css) loads deferred → too late to prevent initial overflow
-- Critical CSS MUST include mobile fixes for instant render
+**✅ NEW METHOD (After November 24, 2025):**
+- Edit 1 source file (main CSS)
+- Run automated build
+- Critical CSS extracted automatically from rendered HTML
+- Single commit, consistent across all pages
 
 ## Project Structure
 
