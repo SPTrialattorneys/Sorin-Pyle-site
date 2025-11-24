@@ -6,12 +6,12 @@
 
 ---
 
-## 📑 Table of Contents
+## Table of Contents
 
 **Jump to:**
-- [🚀 Quick Start](#-quick-start-read-this-first) - Essential commands, file locations, critical rules
-- [⚠️ Critical Systems](#-critical-systems-most-important) - Eleventy build, Critical CSS, Navigation
-- [📖 Project Overview](#-project-overview) - What we're building
+- [🚀 Quick Start](#quick-start-read-this-first) - Essential commands, file locations, critical rules
+- [⚠️ Critical Systems](#critical-systems-most-important) - Eleventy build, Critical CSS, Navigation
+- [📖 Project Overview](#project-overview) - What we're building
 - [🏗️ Project Structure](#project-structure) - File organization
 - [🔧 Development Commands](#development-commands) - Build and deploy
 - [📝 File Modification Patterns](#file-modification-patterns) - How to edit safely
@@ -19,7 +19,7 @@
 
 ---
 
-## 🚀 Quick Start (Read This First)
+## Quick Start (Read This First)
 
 ### Essential Commands
 ```bash
@@ -53,7 +53,7 @@ npm run docs                 # Show documentation index
 
 ---
 
-## ⚠️ Critical Systems (Most Important)
+## Critical Systems (Most Important)
 
 ### 1. Eleventy Build System - Source vs Built Files
 
@@ -178,7 +178,7 @@ git push
 
 ---
 
-## 📖 Project Overview
+## Project Overview
 
 **Purpose**: Professional criminal defense law firm website for Sorin & Pyle, PC
 **Location**: Holland, Michigan (serving West Michigan)
@@ -187,7 +187,7 @@ git push
 
 ---
 
-## 🏗️ Project Structure
+## Project Structure
 
 ### Core Page Templates (Source: src/pages/*.njk)
 - `src/pages/index.njk` - Homepage with hero, attorney cards, philosophy, results
