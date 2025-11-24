@@ -1,0 +1,24 @@
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.sorinpyle.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "{{PARENT_PAGE}}",
+      "item": "https://www.sorinpyle.com/{{PARENT_URL}}"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "{{CURRENT_PAGE}}",
+      "item": "https://www.sorinpyle.com/{{CURRENT_URL}}"
+    }
+  ]
+}

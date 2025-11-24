@@ -1,0 +1,74 @@
+{
+  "@context": "https://schema.org",
+  "@type": "LegalService",
+  "name": "{{SERVICE_NAME}}",
+  "description": "{{DESCRIPTION}}",
+  "provider": {
+    "@id": "#sorin-pyle-firm"
+  },
+  "serviceType": [
+    "{{SERVICE_TYPE_1}}",
+    "{{SERVICE_TYPE_2}}",
+    "{{SERVICE_TYPE_3}}"
+  ],
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "Holland",
+      "containedInPlace": {
+        "@type": "State",
+        "name": "Michigan"
+      }
+    },
+    {
+      "@type": "City",
+      "name": "Grand Rapids",
+      "containedInPlace": {
+        "@type": "State",
+        "name": "Michigan"
+      }
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Ottawa County",
+      "containedInPlace": {
+        "@type": "State",
+        "name": "Michigan"
+      }
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Kent County",
+      "containedInPlace": {
+        "@type": "State",
+        "name": "Michigan"
+      }
+    }
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "217 E 24th St Ste 107",
+    "addressLocality": "Holland",
+    "addressRegion": "MI",
+    "postalCode": "49423",
+    "addressCountry": "US"
+  },
+  "telephone": "+16162273303",
+  "image": "{{IMAGE_URL}}",
+  "priceRange": "Free Consultation",
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "opens": "00:00",
+    "closes": "23:59",
+    "description": "Phone consultations and messages 24/7. Office visits Mon-Fri 9 AM - 5 PM."
+  }
+}

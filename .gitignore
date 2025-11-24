@@ -7,6 +7,7 @@
 *.md
 !README.md
 !CLAUDE.md
+!DECISIONS.md
 !IMAGE_OPTIMIZATION_WORKFLOW.md
 !BUILD_SYSTEM_GUIDE.md
 !CLOUDFLARE_DEPLOYMENT.md
@@ -19,6 +20,8 @@ utilities/
 !utilities/validate-schema.js
 !utilities/pre-commit-check.js
 !utilities/extract-critical-css.mjs
+!utilities/generate-schema.js
+!utilities/templates/
 
 # Backup files
 *.backup
