@@ -978,7 +978,7 @@ textarea.form_field {
 .charge-list li::before {
     content: '✓';
     position: absolute;
-    left: 0;
+    left: calc(-1 * var(--spacing-sm)); /* Align with inner edge of orange border */
     color: var(--accent-orange);
     font-weight: 700;
     font-size: 1rem;
