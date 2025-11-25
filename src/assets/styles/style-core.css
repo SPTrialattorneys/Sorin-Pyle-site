@@ -939,7 +939,7 @@ textarea.form_field {
 .charges-grid {
     display: grid;
     gap: var(--spacing-sm);
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
 }
 
 .charge-category {
