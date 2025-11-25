@@ -906,10 +906,10 @@ textarea.form_field {
     font-weight: 700;
 }
 
-/* Add padding back to content areas */
+/* Parent controls vertical padding only - children control their own horizontal padding */
 .card_practice-area-enhanced > *:not(h3) {
-    padding-left: var(--spacing-lg);
-    padding-right: var(--spacing-lg);
+    padding-left: 0;
+    padding-right: 0;
 }
 
 .card_practice-area-enhanced > *:first-of-type:not(h3) {
@@ -925,6 +925,9 @@ textarea.form_field {
     font-style: italic;
     margin-bottom: var(--spacing-md);
     text-align: center;
+    /* Add horizontal padding for intro paragraph (no visual container) */
+    padding-left: var(--spacing-md);
+    padding-right: var(--spacing-md);
 }
 
 .charges-grid {
@@ -991,7 +994,7 @@ textarea.form_field {
 
 .service-item {
     background: rgba(255, 138, 40, 0.03);
-    padding: var(--spacing-md);
+    padding: var(--spacing-sm);
     border-radius: var(--border-radius-md);
     border-left: 4px solid var(--accent-orange);
     transition: all 0.3s ease;
@@ -1000,7 +1003,7 @@ textarea.form_field {
 .service-item:hover {
     background: rgba(255, 138, 40, 0.06);
     border-left-width: 6px;
-    padding-left: calc(var(--spacing-md) + 4px);
+    padding-left: calc(var(--spacing-sm) + 4px);
 }
 
 .service-item h4 {
