@@ -27,10 +27,13 @@
 npm run dev                  # Start dev server with live reload
 
 # Build for production
-npm run build:cloudflare     # Full automated build (CSS → HTML → Critical → HTML → JS)
+npm run build:cloudflare     # Full automated build (CSS → HTML → JS)
+                             # Note: Critical CSS extraction runs LOCALLY only
 
 # Validation
 npm run validate:schema      # Validate JSON-LD schema markup
+npm run validate:html        # Validate HTML (broken links, missing alt text, etc.)
+npm run validate:all         # Run all validation checks
 npm run pre-commit-check     # Run all pre-commit checks manually
 
 # Documentation
@@ -119,12 +122,13 @@ npm run build:html:prod  # Test production build locally
 - `critical-practice-areas.css` - Practice areas page critical styles (~11KB)
 - `critical-page-layout.css` - Generic page layout (25+ pages, ~10KB)
 
-**Build Process (AUTOMATED):**
-- Extracted automatically via `npm run build:critical`
+**Build Process (LOCAL EXTRACTION ONLY):**
+- ⚠️ **IMPORTANT:** Critical CSS extraction runs LOCALLY only (not on Cloudflare)
+- Extracted via `npm run build:critical` (developer must run manually)
 - Uses `critical` npm package to analyze rendered HTML in `dist/` folder
 - Analyzes 3 viewports: Mobile (375px), Tablet (768px), Desktop (1920px)
 - Writes extracted CSS to `src/_data/critical-*.css`
-- Integrated into `npm run build:cloudflare` (runs automatically on deployment)
+- **Must commit** extracted files to git - Cloudflare uses committed versions
 - Displays IMMEDIATELY on page load (before main.min.css loads)
 
 #### ✅ SIMPLIFIED WORKFLOW: Update Main CSS Only
@@ -136,19 +140,21 @@ npm run build:html:prod  # Test production build locally
 Edit: src/assets/styles/style-core.css
 Change: @media (max-width: 767px) { h1 { font-size: 2rem; } }
 
-# Step 2: Run automated build (critical CSS extracted automatically)
-npm run build:cloudflare
-
-# OR for local testing:
+# Step 2: Build CSS and extract critical CSS (LOCAL ONLY)
 npm run build:css           # Build main CSS
 npm run build:html:prod     # Build HTML to dist/
-npm run build:critical      # Auto-extract critical CSS from dist/
+npm run build:critical      # Extract critical CSS from dist/
 npm run build:html:prod     # Rebuild HTML with new critical CSS
 
-# Step 3: Commit and deploy
+# OR use the local full build (includes critical CSS extraction):
+npm run build:prod          # Runs all steps including build:critical
+
+# Step 3: Commit BOTH main CSS and critical CSS files
 git add src/assets/styles/style-core.css src/_data/critical-*.css
 git commit -m "Update mobile h1 font size"
 git push
+
+# Cloudflare will build (CSS → HTML → JS) using committed critical CSS files
 ```
 
 **✨ Benefits of Automation:**
@@ -169,12 +175,18 @@ git push
 - Reads rendered HTML from `dist/` folder (no localhost server needed)
 - Analyzes above-the-fold content for 3 viewport sizes
 - Writes minified critical CSS to `src/_data/`
-- Integrated into Cloudflare deployment build
+- **Local only** - Not run during Cloudflare deployment (see below)
 
 **When Critical CSS is Re-extracted:**
-- Automatically on every `npm run build:cloudflare` (production deployment)
-- Automatically on every `npm run build` (local development build)
-- Manually via `npm run build:critical` (for testing)
+- ⚠️ **NOT extracted on Cloudflare deployment** (Puppeteer requires X11 libraries)
+- Automatically on every `npm run build` or `npm run build:prod` (local development)
+- Manually via `npm run build:critical` (run this after CSS changes)
+- **You must commit** extracted files - Cloudflare uses the committed versions
+
+**Why Cloudflare Doesn't Extract:**
+- Cloudflare Pages build environment lacks X11 libraries needed for Puppeteer
+- Critical CSS files are committed to git and used during deployment
+- This is intentional and faster (no need to regenerate on every deploy)
 
 ---
 
@@ -401,6 +413,42 @@ npx serve .
 - **Current Status**: Multiple modified files, recent AVIF image optimizations
 - **Recent Commits**: v1.1 revisions, blog post additions, live version updates
 
+### HTML Validation System
+
+**Implemented:** November 24, 2025
+
+**Purpose:** Automatically validate HTML files for broken links, missing alt text, and other common issues before commits
+
+**Documentation:** See [HTML_VALIDATION_GUIDE.md](HTML_VALIDATION_GUIDE.md) for comprehensive guide
+
+**Quick Commands:**
+```bash
+# Manual validation
+npm run validate:html        # Validate all HTML files in dist/
+npm run validate:all          # Validate schema + HTML together
+
+# Validation runs automatically on git commit when HTML/template files are staged
+```
+
+**What It Checks:**
+1. ✅ Broken internal links (href, src attributes)
+2. ✅ Missing alt text on images
+3. ✅ Duplicate HTML IDs
+4. ✅ Missing/empty meta descriptions
+5. ⚠️ Meta description length (warning only, 150-160 chars recommended)
+6. ✅ Canonical URL consistency with sitemap.xml
+
+**Pre-Commit Integration:**
+- Runs automatically when committing changes to `*.njk`, `*.html`, or `src/` files
+- Blocks commits if errors are found (warnings don't block)
+- Can be skipped with `git commit --no-verify` (not recommended)
+
+**Common Fixes:**
+- Broken links: Check paths are correct (relative vs absolute)
+- Missing files: Add passthrough copy to `.eleventy.js` for static files
+- Alt text: Add descriptive `alt` attributes to all `<img>` tags
+- Meta descriptions: Add to all pages, keep 150-160 characters
+
 ## File Modification Patterns
 
 ### When updating HTML files:
@@ -477,6 +525,147 @@ npx serve .
 - 📋 **CANONICAL_URL_CONSISTENCY_FIXED.md** - SEO URL format standardization
 
 ## Recent Changes Log
+
+### November 24, 2025 - Mobile Horizontal Overflow Fix & Cloudflare Build Update
+
+**Type:** Performance & UX Fix + Build Process Optimization
+**Goal:** Eliminate horizontal scrolling on mobile devices and optimize Cloudflare deployment
+**Impact:** Proper responsive behavior on small screens (iPhone SE, Android) + faster deployments
+
+**Mobile Overflow Fixes:**
+
+1. **Dropdown Menu Mobile Optimization**
+   - Reduced `min-width` from 250px → 200px (style-core.css:233)
+   - Added `max-width: calc(100vw - 2rem)` to prevent overflow (style-core.css:234)
+   - Added mobile-specific override at 767px breakpoint (style-core.css:1298-1304)
+   - Right-aligns dropdown on mobile for better UX
+
+2. **Services List Overflow Containment**
+   - Added `overflow-x: hidden` to `.services-list` (style.css:3297)
+   - Added `padding: 0.25rem` to prevent clipping (style.css:3294)
+   - Negative margin hover effects now properly contained
+
+3. **Critical CSS Updated**
+   - Regenerated all 4 critical CSS files with mobile fixes included
+   - Files: critical-homepage.css, critical-attorneys.css, critical-practice-areas.css, critical-page-layout.css
+
+**Cloudflare Build Process Change:**
+
+**Problem:** Puppeteer (used by critical CSS extraction) requires X11 libraries not available in Cloudflare Pages build environment
+
+**Solution:**
+- Updated `build:cloudflare` script to skip critical CSS extraction
+- Before: `npm run clean && npm run build:css && npm run build:html:prod && npm run build:critical && npm run build:html:prod && npm run build:js`
+- After: `npm run clean && npm run build:css && npm run build:html:prod && npm run build:js`
+
+**New Workflow:**
+- Critical CSS extraction runs **locally only** via `npm run build:critical`
+- Developers must commit extracted critical CSS files to git
+- Cloudflare uses committed critical CSS files during deployment
+- Benefits: Faster deployments, no Puppeteer dependency issues
+
+**Files Modified:**
+- `src/assets/styles/style-core.css` - Dropdown menu fixes
+- `src/assets/styles/style.css` - Services list overflow fix
+- `src/_data/critical-*.css` - All 4 critical CSS files regenerated
+- `package.json` - Updated build:cloudflare script
+- `CLAUDE.md` - Updated Critical CSS System documentation
+
+**Documentation Updated:**
+- Created `MOBILE_OVERFLOW_AUDIT_2025-11-24.md` - Comprehensive audit report
+- Created `MOBILE_OVERFLOW_FIXES_SUMMARY.md` - Implementation summary
+- Updated CLAUDE.md Critical CSS section with new workflow
+
+**Testing Checklist:**
+- [ ] iPhone SE (375px) - No horizontal scroll on dropdown
+- [ ] Android Small (360px) - No horizontal scroll on dropdown
+- [ ] Card pages - Hover effects don't cause overflow
+- [ ] Desktop experience unchanged
+
+**Status:** ✅ Complete - Deployed to production
+
+---
+
+### November 24, 2025 - HTML Validation System & Pre-Commit Integration
+
+**Type:** Quality Assurance - Automated HTML Validation
+**Goal:** Prevent broken links, missing alt text, and other HTML issues from being deployed
+**Impact:** Comprehensive pre-commit validation catching 6 types of HTML issues
+
+**Implementation Summary:**
+
+**Files Created:**
+- `utilities/validate-html.js` - Comprehensive HTML validation script (400+ lines)
+- `utilities/fix-county-links.py` - Python automation to fix 13 broken county page links
+- `HTML_VALIDATION_GUIDE.md` - Complete documentation (7,000+ words)
+
+**Files Modified:**
+- `utilities/pre-commit-check.js` - Added Check 5 for HTML validation
+- `package.json` - Added `validate:html` and `validate:all` npm scripts
+- `.eleventy.js` - Added vcard passthrough copy
+- `src/pages/card.njk` - Fixed schema error (added logo and image fields)
+- `postcss.config.js` - Re-enabled cssnano minification
+- 13 location page files - Fixed broken county links
+
+**Dependencies Added:**
+- `node-html-parser@^7.0.1` - HTML parsing library
+
+**Validation Checks Implemented:**
+1. ✅ Broken internal links (href, src attributes with query string stripping)
+2. ✅ Missing alt text on images
+3. ✅ Duplicate HTML IDs
+4. ✅ Missing/empty meta descriptions
+5. ⚠️ Meta description length (warning only, 150-160 chars recommended)
+6. ✅ Canonical URL consistency with sitemap.xml
+
+**Issues Fixed:**
+- 13 broken county page links (changed from `/locations/county.html` to `county.html` for relative paths)
+- 1 missing vcard file (added passthrough copy to .eleventy.js)
+- card.html schema error (added required logo and image fields)
+- CSS minification re-enabled (184 KB → 67 KB, 63.6% reduction)
+
+**Key Technical Solutions:**
+
+**Problem 1: Query String Breaking Validation**
+- Fixed: Strip query strings from URLs before validation (e.g., `main.min.css?v=20251123`)
+- Implementation: `linkPath.split('?')[0]` in validate-html.js lines 122-123
+
+**Problem 2: Relative vs Absolute Paths**
+- Issue: Files in `src/pages/locations/*.njk` compile to `dist/locations/*.html`
+- Solution: Use relative paths (`ottawa-county.html`) instead of absolute (`/locations/ottawa-county.html`)
+- Prevents double `/locations/locations/` paths after Eleventy compilation
+
+**Problem 3: Python Unicode Encoding (Windows)**
+- Issue: `cp1252` encoding doesn't support Unicode checkmarks (✓) and arrows (→)
+- Solution: Replaced with ASCII equivalents (`FIXED:`, `->`)
+
+**Pre-Commit Integration:**
+- Runs automatically when committing .njk, .html, or src/ files
+- Skips if dist/ doesn't exist or no HTML files staged
+- Blocks commits if errors found (warnings don't block)
+- Can be bypassed with `git commit --no-verify` (not recommended)
+
+**Verification:**
+- Initial validation: 67 errors (all query strings)
+- After query string fix: 14 errors (real issues)
+- After link fixes: 0 errors, 13 warnings (meta descriptions)
+- HTML comments already stripped (confirmed via grep, html-minifier-terser active)
+
+**Build Commands:**
+```bash
+npm run validate:html        # Validate HTML manually
+npm run validate:all         # Validate schema + HTML
+npm run build:html:prod      # Rebuild HTML after fixes
+```
+
+**Documentation:**
+- HTML_VALIDATION_GUIDE.md covers all validation checks with examples
+- Explains common issues, solutions, and troubleshooting
+- Updated CLAUDE.md with HTML validation quick reference
+
+**Status:** ✅ Complete - HTML validation system integrated into pre-commit workflow
+
+---
 
 ### November 24, 2025 - Mobile Horizontal Overflow Fix (Critical CSS System)
 
