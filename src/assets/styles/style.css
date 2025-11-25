@@ -1230,6 +1230,35 @@ textarea.form_field {
     margin: 0 auto var(--spacing-md);
     display: block;
 }
+
+/* Smaller images for accordion-style blog archive */
+.blog-image-small {
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+}
+
+/* Blog post accordion hover effect */
+.blog-post_header {
+    transition: background-color 0.2s ease, padding 0.2s ease;
+}
+
+.blog-post_header:hover {
+    background-color: rgba(64, 118, 180, 0.03);
+    border-radius: 8px;
+}
+
+/* Expand/collapse icon */
+.expand-icon {
+    font-size: 0.8em;
+    transition: transform 0.3s ease;
+    display: inline-block;
+    color: var(--primary-blue);
+    min-width: 1em;
+}
+
 .blog-post ul {
     list-style: disc;
     padding-left: 40px;
