@@ -5,6 +5,8 @@ description: "Sorin & Pyle attorneys attended the 2025 CDAM Fall Conference in B
 date: 2025-11-11
 author: "firm"
 category: "legal"
+featuredImage: "/images/cdam-conference-michigan-criminal-defense.avif"
+featuredImageAlt: "CDAM Criminal Defense Attorneys of Michigan logo - professional organization for Michigan criminal defense lawyers"
 tags:
   - CDAM
   - criminal defense
