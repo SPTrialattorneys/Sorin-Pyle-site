@@ -526,6 +526,71 @@ npm run validate:all          # Validate schema + HTML together
 
 ## Recent Changes Log
 
+### November 25, 2025 - Practice Areas Alignment & Spacing Optimization
+
+**Type:** UI/UX Enhancement - Visual Alignment & Spacing
+**Goal:** Fix horizontal alignment offset and optimize spacing between content types in practice areas section
+**Impact:** Perfect visual alignment, improved spacing hierarchy following modern design principles
+
+**Problem Identified:**
+- Orange left borders on practice area boxes appeared misaligned
+- "Probation Violations" and "Appeals" boxes shifted right compared to charge category boxes above
+- Insufficient spacing between different content types (charge lists vs service boxes)
+
+**Root Cause Analysis:**
+1. **CSS Cascade Conflict:** General `.services-list` rule in style.css was applying `max-width: 500px` and `margin: auto`, causing centering
+2. **Insufficient Specificity:** Practice area styles were being overridden by global rules
+3. **Spacing Not Differentiated:** All gaps were 16px, not distinguishing between related vs different content types
+
+**Solution Implemented:**
+
+**Phase 1: Border Standardization (Commit 5146d1a)**
+- Changed `.charge-category` border-left from 3px → 4px
+- Now matches `.service-item` border-left (4px)
+- Creates consistent visual alignment of all orange decorative elements
+- Updated cache version to v=20251125-6
+
+**Phase 2: Services List Alignment Fix (Commit c97e2e0)**
+- Scoped `.services-list` rule to `.card_practice-area-enhanced .services-list`
+- Added explicit overrides: `max-width: none; margin: 0; padding: 0;`
+- Higher specificity ensures practice areas override general rule
+- Reverted checkmark position back to `left: 0` (was correct all along)
+- Updated cache version to v=20251125-9
+
+**Phase 3: Spacing Hierarchy Improvement (Commit 712d56f)**
+- Changed `.charges-grid` margin-bottom from 16px → 32px
+- Follows design principle: "things that belong together are closer, things that are different are farther apart"
+- Gap within charge categories: 16px (visual grouping maintained)
+- Gap within service items: 16px (visual grouping maintained)
+- Gap between charges-grid and services-list: 32px (clear separation added)
+- Updated cache version to v=20251125-10
+
+**CSS Architecture Verified:**
+- Confirmed single source of truth: style-core.css contains all practice area rules
+- Previous duplication cleanup (191 lines) still in place from earlier session
+- Only legitimate mobile override (font-size at 374px) remains in style.css
+- Built CSS contains no conflicts or duplicates
+
+**Files Modified:**
+- `src/assets/styles/style-core.css` (lines 942, 949, 994-1001)
+- `src/_includes/layouts/base.njk` (cache versions 6, 9, 10)
+
+**Design Principles Applied:**
+- **8px Grid System:** 16px for related items, 32px for different sections
+- **Visual Grouping:** Related content closer together
+- **Visual Separation:** Different content types farther apart
+- **Specificity Management:** Scoped rules override global rules appropriately
+
+**Result:**
+- Orange borders perfectly aligned across all boxes ✓
+- Service boxes no longer offset to the right ✓
+- Better visual hierarchy with improved breathing room ✓
+- Follows modern web design best practices ✓
+
+**Status:** ✅ Complete - Visual alignment and spacing optimized, deployed to production
+
+---
+
 ### November 24, 2025 - Eleventy Blog System Implementation (Markdown Posts + RSS Feed)
 
 **Type:** Content Management System - Full Blog Platform
