@@ -39,7 +39,7 @@ console.log('🔧 Processing...');
 sharp(inputFile)
     .resize(800, 600, {
         fit: 'cover',           // Crop to fill 800x600
-        position: 'center'      // Center crop
+        position: 'north'       // Crop from top - keeps head in frame
     })
     .avif({
         quality: 85,            // Good quality/size balance
