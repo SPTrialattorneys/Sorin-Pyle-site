@@ -526,6 +526,94 @@ npm run validate:all          # Validate schema + HTML together
 
 ## Recent Changes Log
 
+### November 25, 2025 - Blog Post: Three Acquittals, One Week (Production Deployment)
+
+**Type:** Content Publishing - Blog Post with Image Optimization
+**Goal:** Publish blog post about Sorin's 3 jury trial victories with optimized featured image
+**Impact:** High-quality legal content showcasing trial success, SEO-optimized attorney profile
+
+**Content Summary:**
+- Article by Jonathan Alan Pyle documenting Sorin Panainte's 3 jury acquittals in one week
+- Trials spanned Allegan County (assault, 2x domestic violence) and Cheboygan County (felony DV)
+- Highlighted firm's trial preparation philosophy and commitment to defending clients
+- Category: Legal | Date: November 20, 2025
+
+**Image Optimization Challenge:**
+- Source: IMG_2786.jpg (9.41 MB, 3405x4488 pixels)
+- Target: 800x600 AVIF for blog featured image
+- **Primary Issue:** Featured image consistently cutting off subject's head in blog preview cards
+- **Iterative Solutions Tested:**
+  1. Sharp 'attention' smart crop → FAILED (head still cut off)
+  2. Sharp 'north' position → FAILED (head still cut off)
+  3. Manual extract top:800px → FAILED (worse cropping)
+  4. Manual extract top:300px → PARTIAL (full article fixed, preview still cut off)
+  5. CSS object-position: top → FAILED (no improvement)
+  6. Changed to 800x400 (2:1 ratio) → Changed both views (user questioned approach)
+  7. Multiple CSS tweaks (object-position: center 15%, 30%, 22%) → FAILED (no visible changes)
+  8. **User feedback:** "stop trying to make small worthless adjustments when clearly there is a different issue going on"
+  9. Changed to top:200px → Better but "still a little tight to the top"
+  10. **FINAL SOLUTION:** top:50px extraction → User confirmed "Looks good"
+
+**Final Image Optimization (optimize-blog-image.js):**
+```javascript
+sharp(inputFile)
+    .extract({
+        left: 0,
+        top: 50,               // Start 50px from top - maximum headroom
+        width: 3405,           // Full width
+        height: 2554           // 4:3 ratio (3405 * 0.75)
+    })
+    .resize(800, 600, {
+        fit: 'cover'
+    })
+    .avif({
+        quality: 85,
+        effort: 6
+    })
+```
+
+**Results:**
+- Output: sorin-panainte-trial-attorney.avif (55.44 KB)
+- Compression: 99.4% reduction from original (9.41 MB → 55 KB)
+- Dimensions: 800x600 pixels
+- Perfect framing in both full article and blog preview cards
+
+**Files Created:**
+- `images/sorin-panainte-trial-attorney.avif` - Optimized featured image
+
+**Files Modified:**
+- `src/blog/posts/2025-11-20-three-acquittals-one-week.md` - Blog post markdown
+  - Updated author from 'firm' to 'jonathan-pyle'
+  - Updated featuredImage to final filename
+- `src/_data/authors.json` - Changed "Jonathan Pyle" to "Jonathan Alan Pyle"
+- `optimize-blog-image.js` - Updated output filename and extraction parameters
+- `src/assets/styles/style-blog.css` - Blog card image positioning (ultimately kept at center)
+
+**Schema Markup:**
+- BlogPosting schema with author, publisher, dates
+- Breadcrumb navigation schema
+- aboutPerson: Sorin Panainte attorney profile reference
+
+**Deployment:**
+- Built for production: `npm run build:cloudflare`
+- Validation: 0 errors, 4 warnings (meta description length)
+- Committed to main branch (commit b0e2253)
+- Pushed to origin/main (triggers Cloudflare Pages auto-deploy)
+
+**Live URLs:**
+- Blog archive: https://www.sorinpyle.com/blog.html
+- Full article: https://www.sorinpyle.com/blog/three-acquittals-one-week.html
+- RSS feed: https://www.sorinpyle.com/feed.xml (auto-updated)
+
+**Key Learning:**
+- Image cropping issues require adjusting source extraction, not CSS positioning
+- Browser caching can mask changes (renamed file to bypass cache)
+- User feedback critical for identifying when approach isn't working
+
+**Status:** ✅ Complete - Blog post live on production with perfectly cropped featured image
+
+---
+
 ### November 25, 2025 - Practice Areas Alignment & Spacing Optimization
 
 **Type:** UI/UX Enhancement - Visual Alignment & Spacing
