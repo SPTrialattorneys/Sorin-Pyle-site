@@ -918,7 +918,7 @@ textarea.form_field {
     padding-right: 0;
 }
 
-.card_practice-area-enhanced > *:first-of-type:not(h3) {
+.card_practice-area-enhanced > *:first-of-type:not(h3):not(.practice-area-intro) {
     padding-top: var(--spacing-md);
 }
 
@@ -929,11 +929,13 @@ textarea.form_field {
 .practice-area-intro {
     color: var(--text-secondary);
     font-style: italic;
+    margin-top: 0;
     margin-bottom: var(--spacing-md);
-    /* Orange left border accent to match other sections */
+    /* Match service-item styling */
+    background: rgba(255, 138, 40, 0.03);
+    padding: var(--spacing-sm);
+    border-radius: var(--border-radius-md);
     border-left: 4px solid var(--accent-orange);
-    padding-left: var(--spacing-md);
-    padding-right: var(--spacing-md);
 }
 
 .charges-grid {
@@ -1084,13 +1086,6 @@ textarea.form_field {
     /* Override desktop last-child bottom padding */
     .card_practice-area-enhanced > *:last-child {
         padding-bottom: var(--spacing-sm);
-    }
-
-    /* Reduce intro paragraph padding for mobile */
-    .practice-area-intro {
-        margin-bottom: var(--spacing-sm);
-        padding-left: var(--spacing-sm);
-        padding-right: var(--spacing-sm);
     }
 
     /* Children maintain consistent padding at mobile - no overrides needed */
