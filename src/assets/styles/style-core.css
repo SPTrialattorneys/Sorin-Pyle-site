@@ -1098,6 +1098,14 @@ textarea.form_field {
     .card_practice-area-enhanced > *:last-child {
         padding-bottom: var(--spacing-sm);
     }
+
+    /* Remove horizontal padding from layout containers - they should be full width */
+    /* Their children (.charge-category, .service-item) have their own padding */
+    .card_practice-area-enhanced > .charges-grid,
+    .card_practice-area-enhanced > .services-list {
+        padding-left: 0;
+        padding-right: 0;
+    }
 }
 
 
