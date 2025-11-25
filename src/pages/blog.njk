@@ -34,17 +34,27 @@ permalink: /blog.html
             <button class="category-filter-btn" data-category="case" style="padding: 0.5rem 1rem; border: 2px solid #fd7e14; background: transparent; color: #fd7e14; border-radius: 20px; cursor: pointer; font-weight: 500;">Case Analysis</button>
         </div>
 
-        {# Blog Posts #}
+        {# Blog Posts Grid #}
         {% if collections.posts.length > 0 %}
+        <div class="blog-grid">
             {% for post in collections.posts %}
-            <article class="blog-post margin-bottom-xl" data-category="{{ post.data.category | lower }}" data-post-id="post-{{ loop.index }}">
-                <div class="blog-post_header" style="cursor: pointer;" onclick="togglePost('post-{{ loop.index }}')">
-                    <h2 style="display: flex; align-items: center; gap: 0.5rem;">
-                        <span class="expand-icon" id="icon-post-{{ loop.index }}">▶</span>
-                        {{ post.data.title }}
-                    </h2>
+            <a href="{{ post.url }}" class="blog-card" data-category="{{ post.data.category | lower }}">
+                {% if post.data.featuredImage %}
+                <picture>
+                    <source srcset="{{ post.data.featuredImage }}" type="image/avif">
+                    <img src="{{ post.data.featuredImage }}"
+                         alt="{{ post.data.featuredImageAlt | default(post.data.title) }}"
+                         class="blog-card_image"
+                         width="400"
+                         height="300"
+                         loading="lazy">
+                </picture>
+                {% endif %}
 
-                    <p class="blog-date">
+                <div class="blog-card_content">
+                    <h2 class="blog-card_title">{{ post.data.title }}</h2>
+
+                    <p class="blog-card_meta">
                         <time datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
                         {% if post.data.category %}
                             <span class="blog-category blog-category-{{ post.data.category | lower }}">{{ post.data.category }}</span>
@@ -52,55 +62,24 @@ permalink: /blog.html
                     </p>
 
                     {% if authors[post.data.author] %}
-                    <p class="blog-byline">
-                        By
-                        {% if authors[post.data.author].schemaType == "Person" %}
-                            <a href="{{ authors[post.data.author].profileUrl }}" onclick="event.stopPropagation();">{{ authors[post.data.author].name }}</a>
-                        {% else %}
-                            {{ authors[post.data.author].name }}
-                        {% endif %}
+                    <p class="blog-card_byline">
+                        By {% if authors[post.data.author].schemaType == "Person" %}{{ authors[post.data.author].name }}{% else %}{{ authors[post.data.author].name }}{% endif %}
                     </p>
                     {% endif %}
 
-                    {% if post.data.featuredImage %}
-                    <picture>
-                        <source srcset="{{ post.data.featuredImage }}" type="image/avif">
-                        <img src="{{ post.data.featuredImage }}"
-                             alt="{{ post.data.featuredImageAlt | default(post.data.title) }}"
-                             class="blog-image-small"
-                             width="400"
-                             height="300"
-                             loading="lazy"
-                             style="margin-top: 1rem; border-radius: 8px;">
-                    </picture>
-                    {% endif %}
-
-                    <div class="blog-excerpt margin-top-md">
+                    <p class="blog-card_excerpt">
                         {% if post.data.description %}
-                            <p>{{ post.data.description }}</p>
+                            {{ post.data.description }}
                         {% else %}
                             {{ post.templateContent | striptags | truncate(200) }}
                         {% endif %}
-                    </div>
+                    </p>
+
+                    <span class="blog-card_readmore">Read Full Article</span>
                 </div>
-
-                <div class="blog-post_content" id="content-post-{{ loop.index }}" style="display: none; margin-top: 1.5rem;">
-                    <div class="prose">
-                        {{ post.templateContent | safe }}
-                    </div>
-
-                    <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid #e0e0e0;">
-                        <button onclick="togglePost('post-{{ loop.index }}')" class="btn-secondary" style="border: none; cursor: pointer;">
-                            ▲ Collapse Article
-                        </button>
-                    </div>
-                </div>
-
-                {% if not loop.last %}
-                <hr style="margin: 3rem 0; border: none; border-top: 1px solid rgba(0,0,0,0.1);">
-                {% endif %}
-            </article>
+            </a>
             {% endfor %}
+        </div>
         {% else %}
             <div class="text-align-center margin-top-xl margin-bottom-xl">
                 <p style="font-size: 1.2rem; color: #666;">No posts yet. Check back soon for updates!</p>
@@ -123,35 +102,11 @@ permalink: /blog.html
     </div>
 </section>
 
-{# Blog Post Toggle & Filter JavaScript #}
+{# Category Filter JavaScript #}
 <script>
-// Toggle post expand/collapse
-function togglePost(postId) {
-    const content = document.getElementById('content-' + postId);
-    const icon = document.getElementById('icon-' + postId);
-
-    if (content.style.display === 'none' || content.style.display === '') {
-        // Expand
-        content.style.display = 'block';
-        icon.textContent = '▼';
-        icon.style.transform = 'rotate(0deg)';
-
-        // Smooth scroll to post
-        const article = document.querySelector('[data-post-id="' + postId + '"]');
-        if (article) {
-            article.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-    } else {
-        // Collapse
-        content.style.display = 'none';
-        icon.textContent = '▶';
-    }
-}
-
-// Category filter
 document.addEventListener('DOMContentLoaded', function() {
     const filterButtons = document.querySelectorAll('.category-filter-btn');
-    const posts = document.querySelectorAll('.blog-post');
+    const cards = document.querySelectorAll('.blog-card');
 
     filterButtons.forEach(button => {
         button.addEventListener('click', function() {
@@ -177,21 +132,14 @@ document.addEventListener('DOMContentLoaded', function() {
             this.style.background = activeColor;
             this.style.color = 'white';
 
-            // Filter posts (and collapse any expanded posts)
-            posts.forEach(post => {
-                const postCategory = post.dataset.category;
-                const postId = post.dataset.postId;
+            // Filter cards
+            cards.forEach(card => {
+                const cardCategory = card.dataset.category;
 
-                if (category === 'all' || postCategory === category) {
-                    post.style.display = 'block';
+                if (category === 'all' || cardCategory === category) {
+                    card.style.display = 'block';
                 } else {
-                    post.style.display = 'none';
-
-                    // Collapse if hidden by filter
-                    const content = document.getElementById('content-' + postId);
-                    const icon = document.getElementById('icon-' + postId);
-                    if (content) content.style.display = 'none';
-                    if (icon) icon.textContent = '▶';
+                    card.style.display = 'none';
                 }
             });
         });

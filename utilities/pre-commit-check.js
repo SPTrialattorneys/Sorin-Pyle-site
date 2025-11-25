@@ -8,6 +8,7 @@
  * 2. Check for console.log in production JS
  * 3. Check for TODO comments in .njk templates
  * 4. Validate schema markup
+ * 5. Validate HTML (broken links, missing alt text, duplicate IDs)
  *
  * Usage: npm run pre-commit-check
  * Or: Automatically runs via husky pre-commit hook
@@ -207,6 +208,49 @@ function validateSchema() {
 }
 
 /**
+ * Check 5: Validate HTML
+ */
+function validateHtml() {
+  console.log(`${colors.blue}5. Validating HTML...${colors.reset}`);
+
+  // Check if dist/ directory exists
+  const distDir = path.join(__dirname, '..', 'dist');
+  if (!fs.existsSync(distDir)) {
+    console.log(`${colors.gray}○ Skipped (dist/ not found - run build first)${colors.reset}\n`);
+    return true;
+  }
+
+  // Check if any HTML-related files are staged
+  try {
+    const stagedFiles = execSync('git diff --cached --name-only', { encoding: 'utf8' });
+    const hasHtmlFiles = stagedFiles.split('\n').some(file =>
+      file.endsWith('.njk') || file.endsWith('.html') || file.startsWith('src/')
+    );
+
+    if (!hasHtmlFiles) {
+      console.log(`${colors.gray}○ Skipped (no template/HTML files staged)${colors.reset}\n`);
+      return true;
+    }
+  } catch (error) {
+    // Continue with validation if can't check staged files
+  }
+
+  // Run HTML validation
+  try {
+    execSync('node utilities/validate-html.js', {
+      stdio: 'inherit',
+      encoding: 'utf8'
+    });
+    console.log(); // Add blank line after validation output
+    return true;
+  } catch (error) {
+    // HTML validation failed - error already printed by validate-html.js
+    hasErrors = true;
+    return false;
+  }
+}
+
+/**
  * Main function
  */
 function main() {
@@ -214,6 +258,7 @@ function main() {
   const check2 = checkConsoleLogs();
   const check3 = checkTodoComments();
   const check4 = validateSchema();
+  const check5 = validateHtml();
 
   // Summary
   console.log('─'.repeat(60));

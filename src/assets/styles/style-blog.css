@@ -5,6 +5,98 @@
    Requires: core-brand.css (loaded first)
    =============================================== */
 
+/* Blog Card Grid Layout */
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+@media (max-width: 767px) {
+    .blog-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.blog-card {
+    background: var(--white);
+    border-radius: var(--border-radius-card);
+    box-shadow: var(--shadow-soft);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    color: var(--text-color);
+    display: block;
+}
+
+.blog-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+}
+
+.blog-card_image {
+    width: 100%;
+    height: 225px;
+    object-fit: cover;
+    display: block;
+}
+
+.blog-card_content {
+    padding: 1.5rem;
+}
+
+.blog-card_title {
+    font-size: 1.5rem;
+    color: var(--primary-blue);
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+}
+
+.blog-card_meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+.blog-card_byline {
+    font-size: 0.95rem;
+    color: #6c757d;
+    margin-bottom: 0.75rem;
+}
+
+.blog-card_byline a {
+    color: var(--primary-blue);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.blog-card_byline a:hover {
+    text-decoration: underline;
+}
+
+.blog-card_excerpt {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+}
+
+.blog-card_readmore {
+    color: var(--accent-orange);
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.blog-card_readmore::after {
+    content: " →";
+}
+
+/* Legacy blog post styles (for individual post pages) */
 .blog-post {
     text-align: left;
 }

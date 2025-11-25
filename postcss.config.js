@@ -17,8 +17,7 @@ module.exports = {
       ]
     }),
 
-    // Minify and optimize CSS - TEMPORARILY DISABLED FOR TESTING
-    /*
+    // Minify and optimize CSS for production
     require('cssnano')({
       preset: ['default', {
         discardComments: {
@@ -34,6 +33,5 @@ module.exports = {
         zindex: false               // Don't modify z-index values
       }]
     })
-    */
   ]
 };
