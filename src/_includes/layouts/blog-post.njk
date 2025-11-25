@@ -42,7 +42,7 @@ permalink: "/blog/{{ title | slugify }}.html"
     "@id": "{{ site.url }}{{ page.url }}"
   },
   "articleSection": "{{ category }}",
-  "keywords": {{ tags | dump if tags else '[]' }},
+  "keywords": {{ tags | dump | safe if tags else '[]' }},
   {% if aboutPerson %}
   "about": {
     "@type": "Person",

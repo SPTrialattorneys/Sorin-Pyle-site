@@ -577,15 +577,40 @@ npm run validate:all          # Validate schema + HTML together
   - HTML validation: 15 warnings (meta description length only)
   - Build successful: 56 files generated
 
-**Phase 6: CSS Styling**
-- Added blog-specific CSS to `src/assets/styles/style.css`:
+**Phase 6: UI/UX Design - Professional Card Grid**
+- **Initial Attempt:** Accordion-style expand/collapse (REJECTED by user)
+  - Users explicitly disliked accordion pattern for blog
+- **Research:** Analyzed professional law firm blog designs
+  - Finding: 100% use card grid with separate pages (not accordions)
+  - Accordion pattern has SEO, sharing, and professionalism issues
+- **Final Design:** Professional 2-column card grid with left border accent
+  - Each card links to separate post page (`/blog/post-slug.html`)
+  - Card hover effects (lift + shadow)
+  - 4px solid blue left border accent (Option 1 - user selected)
+  - Alternative options tested: subtle blue background, top gradient strip
+  - Responsive: 2 columns desktop, 1 column mobile
+
+**Phase 7: CSS Styling**
+- Created `src/assets/styles/style-blog.css` with dedicated blog styles:
+  - `.blog-grid` - 2-column responsive grid (gap: 2rem)
+  - `.blog-card` - Card container with left border accent
+  - `.blog-card:hover` - Lift and shadow animation
+  - `.blog-card_image` - Fixed height (225px) with object-fit
+  - `.blog-card_content` - Content padding (1.5rem)
+  - `.blog-card_title` - Blue heading (1.5rem)
+  - `.blog-card_meta` - Date + category flexbox
+  - `.blog-card_byline` - Author attribution
+  - `.blog-card_excerpt` - Post preview text
+  - `.blog-card_readmore` - Orange CTA with arrow
+  - `.blog-category*` - Color-coded category tags
   - `.breadcrumb` - Simple text navigation
-  - `.prose` - Blog content typography (headings, paragraphs, lists, links)
-  - `.social-share*` - Social sharing button styles (Facebook blue, Twitter blue, LinkedIn blue)
-  - `.related-posts*` - Related articles section (gray background, card-style)
+  - `.prose` - Blog content typography
+  - `.social-share*` - Social sharing buttons
+  - `.related-posts*` - Related articles section
+- Total: ~190 lines of blog-specific CSS
 - All styles responsive and consistent with site branding
 
-**Phase 7: Documentation**
+**Phase 8: Documentation**
 - Created `BLOG_WRITING_GUIDE.md` - Comprehensive 450+ line guide including:
   - Quick start for creating posts
   - Front matter template and field explanations
@@ -609,8 +634,9 @@ npm run validate:all          # Validate schema + HTML together
 
 **Files Modified:**
 - `.eleventy.js` - Added RSS plugin, collections, date filters
-- `src/pages/blog.njk` - Complete rewrite to dynamic archive page
-- `src/assets/styles/style.css` - Added blog CSS (~140 lines)
+- `src/pages/blog.njk` - Complete rewrite to card grid archive page with category filter
+- `src/assets/styles/style-blog.css` - New file with dedicated blog styles (~190 lines)
+- `src/assets/styles/main.css` - Import style-blog.css
 
 **URL Structure:**
 - Archive page: `/blog.html`
@@ -624,6 +650,15 @@ npm run validate:all          # Validate schema + HTML together
 | Legal | Blue | Attorney opinions, commentary |
 | Michigan Law | Purple | New laws, court rulings |
 | Case Analysis | Orange | High-profile case breakdowns |
+
+**UI/UX Features:**
+- **Professional Card Grid:** 2-column responsive layout (industry standard for law firms)
+- **Left Border Accent:** 4px solid blue border ties cards to brand color
+- **Hover Effects:** Cards lift and show enhanced shadow on hover
+- **Category Filtering:** Client-side JavaScript filter with color-coded buttons
+- **Responsive Images:** Optimized 400x300 featured images with lazy loading
+- **Interactive CTAs:** Orange "Read Full Article →" links with arrow
+- **Mobile-First:** Single column stack on mobile devices (<768px)
 
 **Author System:**
 - `sorin-panainte` - Sorin's voice/achievements (Person schema)

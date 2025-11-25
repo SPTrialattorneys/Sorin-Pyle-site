@@ -16,7 +16,10 @@
 !MAINTENANCE.md
 !TESTING.md
 !BLOG_WRITING_GUIDE.md
+!AI_CONTEXT.md
+!QUICK_START.md
 !src/posts/*.md
+!src/blog/posts/*.md
 
 # Utility scripts (development tools)
 utilities/

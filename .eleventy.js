@@ -44,14 +44,14 @@ module.exports = function(eleventyConfig) {
 
   // Blog posts collection
   eleventyConfig.addCollection("posts", function(collectionApi) {
-    return collectionApi.getFilteredByGlob("src/posts/*.md")
+    return collectionApi.getFilteredByGlob("src/blog/posts/*.md")
       .filter(post => !post.data.draft)
       .sort((a, b) => b.date - a.date);
   });
 
   // Posts by category collection
   eleventyConfig.addCollection("postsByCategory", function(collectionApi) {
-    const posts = collectionApi.getFilteredByGlob("src/posts/*.md")
+    const posts = collectionApi.getFilteredByGlob("src/blog/posts/*.md")
       .filter(post => !post.data.draft);
     const categories = {};
 
