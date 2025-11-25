@@ -679,6 +679,197 @@ sharp(inputFile)
 
 ---
 
+### November 25, 2025 - RSS Feed XML Parsing Errors Fixed
+
+**Type:** Bug Fix - RSS/Atom Feed Validation
+**Goal:** Fix XML parsing errors preventing RSS feed from displaying correctly
+**Impact:** Working RSS feed for blog syndication across all RSS readers
+
+**Problem Identified:**
+- Feed displayed XML error: "xmlParseEntityRef: no name" on line 3
+- Two separate issues discovered through iterative testing
+
+**Issue 1: Empty Feed (No Blog Entries)**
+- **Symptom:** feed.xml only had 13 lines (header only), no `<entry>` elements
+- **Root Cause:** `{%- for post in collections.posts | reverse | slice(0, 15) %}` - the `slice` filter after `reverse` wasn't working in Nunjucks
+- **RSS plugin filters failing silently:** `getNewestCollectionItemDate`, `dateToRfc3339`, `htmlToAbsoluteUrls`
+- **Fix:**
+  - Removed problematic filter combination, used simple loop: `{%- for post in collections.posts %}`
+  - Replaced RSS plugin filters with native JavaScript: `.toISOString()`
+  - Wrapped content in `<![CDATA[{{ post.templateContent }}]]>` blocks
+  - Added `| escape` filter for titles and summaries
+- **Result:** Feed now generated 159 lines with all 4 blog posts
+
+**Issue 2: XML Parsing Error "xmlParseEntityRef: no name"**
+- **Symptom:** Browser displayed "error on line 3 at column 44: xmlParseEntityRef: no name"
+- **Root Cause:** Unescaped ampersand characters in XML:
+  - "Sorin & Pyle, PC" (company name)
+  - "Firm News & Updates" (feed title)
+- **In XML/Atom, all ampersands must be escaped as `&amp;`**
+- **Fix:**
+  - Added `| escape` filter to `{{ site.title }}` (2 instances)
+  - Added `| escape` filter to `{{ site.description }}`
+  - Changed literal text "Firm News & Updates" to "Firm News &amp; Updates"
+- **Commit:** 901dee6
+
+**Files Modified:**
+- `src/feed.njk` - Fixed Nunjucks filters and XML escaping
+
+**Validation:**
+- User confirmed feed displays correctly in browser (raw XML is expected behavior)
+- All 4 blog posts present in feed
+- Feed validates as proper Atom XML
+
+**Status:** ✅ Complete - RSS feed working correctly at https://www.sorinpyle.com/feed.xml
+
+---
+
+### November 25, 2025 - Practice Area Intro Styling Enhancement
+
+**Type:** UI/UX - Visual Consistency
+**Goal:** Match intro text styling to service boxes on right side
+**Impact:** Professional, consistent design across both practice area cards
+
+**Problem Identified:**
+- Intro text "From misdemeanors to serious felonies..." had only orange left border
+- Lacked background color and padding of service boxes
+- Visual inconsistency between left and right columns
+
+**Solution Implemented:**
+- Added light orange background: `rgba(255, 138, 40, 0.03)`
+- Applied uniform padding: `var(--spacing-sm)` (16px)
+- Added border-radius for rounded corners
+- Removed vertical padding overrides causing white space issues
+
+**CSS Changes (style-core.css):**
+```css
+.practice-area-intro {
+    /* Match service-item styling */
+    background: rgba(255, 138, 40, 0.03);
+    padding: var(--spacing-sm);
+    border-radius: var(--border-radius-md);
+    border-left: 4px solid var(--accent-orange);
+}
+```
+
+**Challenges Resolved:**
+- **Issue:** Parent container adding excessive padding-top
+- **Fix:** Excluded `.practice-area-intro` from parent padding rule
+- **Issue:** Browser cache preventing visibility of changes
+- **Fix:** Cache version bumped from v=20251125-11 → v=20251125-13
+
+**Files Modified:**
+- `src/assets/styles/style-core.css` (lines 929-939, 921-923)
+- `src/_includes/layouts/base.njk` (cache version v=20251125-13)
+
+**Commits:**
+- f7f7b95 - Initial orange border addition
+- 2770be9 - Cache version bump
+- d747f7b - Vertical spacing fix
+- 6e58fe4 - Final styling match
+
+**Status:** ✅ Complete - Intro text now matches service-item appearance exactly
+
+---
+
+### November 25, 2025 - Practice Areas Spacing Standardization (3-Tier Hierarchy)
+
+**Type:** UI/UX - Comprehensive Spacing System
+**Goal:** Implement consistent, professional spacing rhythm across both practice area cards
+**Impact:** Balanced visual hierarchy with clear separation between content types
+
+**Problem Analysis:**
+**LEFT (Criminal Charges):**
+```
+h3 heading
+↓ 0px (cramped - no breathing room)
+practice-area-intro
+↓ 32px (excessive gap)
+charges-grid
+↓ 32px (excessive gap)
+services-list
+```
+
+**RIGHT (Specialized Legal Services):**
+```
+h3 heading
+↓ 32px (good breathing room)
+services-list (all 5 items)
+```
+
+**Issues Identified:**
+1. Left card had 0px between h3 and intro text (too cramped)
+2. Right card had 32px between h3 and first service-item (well-spaced)
+3. Visual hierarchy unclear - all gaps either 16px or 32px with no middle ground
+
+**Solution: 3-Tier Spacing Hierarchy**
+- **Tier 1 (8px):** Tight connection between h3 heading and first content
+- **Tier 2 (16px):** Visual grouping of similar items (within grids)
+- **Tier 3 (24px):** Clear separation between different content types
+
+**CSS Changes Implemented (style-core.css):**
+
+**Change 1: Standardize top spacing (line 921)**
+```css
+/* BEFORE */
+.card_practice-area-enhanced > *:first-of-type:not(h3):not(.practice-area-intro) {
+    padding-top: var(--spacing-md);  /* 32px */
+}
+
+/* AFTER */
+.card_practice-area-enhanced > *:first-of-type:not(h3) {
+    padding-top: var(--spacing-xs);  /* 8px - applies to intro AND services-list */
+}
+```
+
+**Change 2: Reduce intro bottom margin (line 933)**
+```css
+/* BEFORE: 32px */
+margin-bottom: var(--spacing-md);
+
+/* AFTER: 24px */
+margin-bottom: 1.5rem;
+```
+
+**Change 3: Reduce charges-grid bottom margin (line 944)**
+```css
+/* BEFORE: 32px */
+margin-bottom: var(--spacing-md);
+
+/* AFTER: 24px */
+margin-bottom: 1.5rem;
+```
+
+**Final Spacing Rhythm (Both Columns):**
+```
+h3 heading
+↓ 8px (consistent tight connection)
+Content block 1
+↓ 24px (consistent clear separation)
+Content block 2
+  ↓ 16px gap between items (visual grouping)
+↓ 24px (consistent clear separation)
+Content block 3
+  ↓ 16px gap between items (visual grouping)
+```
+
+**Files Modified:**
+- `src/assets/styles/style-core.css` (3 spacing changes)
+- `src/_includes/layouts/base.njk` (cache version v=20251125-14)
+
+**Benefits Achieved:**
+✅ Left and right sides visually balanced
+✅ Clear 3-tier spacing hierarchy (8px / 16px / 24px)
+✅ Professional, consistent design rhythm
+✅ Intro text no longer cramped against heading
+✅ Better visual grouping of related items
+
+**Commit:** 7a1cba6 - "Standardize practice areas spacing with 3-tier hierarchy"
+
+**Status:** ✅ Complete - Professional spacing system deployed to production
+
+---
+
 ### November 24, 2025 - Eleventy Blog System Implementation (Markdown Posts + RSS Feed)
 
 **Type:** Content Management System - Full Blog Platform
