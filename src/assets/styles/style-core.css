@@ -1063,8 +1063,35 @@ textarea.form_field {
         gap: var(--spacing-sm);
     }
 
+    /* Reduce card base padding for mobile - better content width */
     .card_practice-area-enhanced {
-        padding: var(--spacing-lg) var(--spacing-md);
+        padding: 0;
+    }
+
+    /* Tighter content horizontal padding */
+    .card_practice-area-enhanced > *:not(h3) {
+        padding-left: var(--spacing-sm);
+        padding-right: var(--spacing-sm);
+    }
+
+    /* Reduce first element top padding */
+    .card_practice-area-enhanced > *:first-of-type:not(h3) {
+        padding-top: var(--spacing-sm);
+    }
+
+    /* Reduce intro text bottom margin */
+    .practice-area-intro {
+        margin-bottom: var(--spacing-sm);
+    }
+
+    /* Tighten service item padding */
+    .service-item {
+        padding: 1rem;
+    }
+
+    /* Reduce charge category padding */
+    .charge-category {
+        padding: var(--spacing-xs) var(--spacing-sm);
     }
 }
 
