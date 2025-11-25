@@ -946,7 +946,7 @@ textarea.form_field {
     background: rgba(255, 138, 40, 0.03);
     padding: var(--spacing-sm);
     border-radius: 8px;
-    border-left: 3px solid var(--accent-orange);
+    border-left: 4px solid var(--accent-orange);
 }
 
 .charge-category h4 {
