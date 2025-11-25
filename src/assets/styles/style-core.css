@@ -912,10 +912,10 @@ textarea.form_field {
     font-weight: 700;
 }
 
-/* Add padding back to content areas */
+/* Parent controls vertical padding only - children control their own horizontal padding */
 .card_practice-area-enhanced > *:not(h3) {
-    padding-left: var(--spacing-lg);
-    padding-right: var(--spacing-lg);
+    padding-left: 0;
+    padding-right: 0;
 }
 
 .card_practice-area-enhanced > *:first-of-type:not(h3) {
@@ -926,19 +926,14 @@ textarea.form_field {
     padding-bottom: var(--spacing-lg);
 }
 
-/* Remove horizontal padding from grid containers to fix alignment */
-/* Child items (.charge-category, .service-item) have their own padding */
-.card_practice-area-enhanced > .charges-grid,
-.card_practice-area-enhanced > .services-list {
-    padding-left: 0;
-    padding-right: 0;
-}
-
 .practice-area-intro {
     color: var(--text-secondary);
     font-style: italic;
     margin-bottom: var(--spacing-md);
     text-align: center;
+    /* Add horizontal padding for intro paragraph (no visual container) */
+    padding-left: var(--spacing-md);
+    padding-right: var(--spacing-md);
 }
 
 .charges-grid {
@@ -1005,7 +1000,7 @@ textarea.form_field {
 
 .service-item {
     background: rgba(255, 138, 40, 0.03);
-    padding: var(--spacing-md);
+    padding: var(--spacing-sm);
     border-radius: var(--border-radius-md);
     border-left: 4px solid var(--accent-orange);
     transition: all 0.3s ease;
@@ -1014,7 +1009,7 @@ textarea.form_field {
 .service-item:hover {
     background: rgba(255, 138, 40, 0.06);
     border-left-width: 6px;
-    padding-left: calc(var(--spacing-md) + 4px);
+    padding-left: calc(var(--spacing-sm) + 4px);
 }
 
 .service-item h4 {
@@ -1076,30 +1071,9 @@ textarea.form_field {
         padding: 0;
     }
 
-    /* Tighter content horizontal padding */
-    .card_practice-area-enhanced > *:not(h3) {
-        padding-left: var(--spacing-sm);
-        padding-right: var(--spacing-sm);
-    }
-
     /* Reduce first element top padding */
     .card_practice-area-enhanced > *:first-of-type:not(h3) {
         padding-top: var(--spacing-sm);
-    }
-
-    /* Reduce intro text bottom margin */
-    .practice-area-intro {
-        margin-bottom: var(--spacing-sm);
-    }
-
-    /* Tighten service item padding */
-    .service-item {
-        padding: 1rem;
-    }
-
-    /* Reduce charge category padding */
-    .charge-category {
-        padding: var(--spacing-xs) var(--spacing-sm);
     }
 
     /* Override desktop last-child bottom padding */
@@ -1107,13 +1081,15 @@ textarea.form_field {
         padding-bottom: var(--spacing-sm);
     }
 
-    /* Remove horizontal padding from layout containers - they should be full width */
-    /* Their children (.charge-category, .service-item) have their own padding */
-    .card_practice-area-enhanced > .charges-grid,
-    .card_practice-area-enhanced > .services-list {
-        padding-left: 0;
-        padding-right: 0;
+    /* Reduce intro paragraph padding for mobile */
+    .practice-area-intro {
+        margin-bottom: var(--spacing-sm);
+        padding-left: var(--spacing-sm);
+        padding-right: var(--spacing-sm);
     }
+
+    /* Children maintain consistent padding at mobile - no overrides needed */
+    /* .service-item and .charge-category use desktop values (var(--spacing-sm) = 16px) */
 }
 
 
