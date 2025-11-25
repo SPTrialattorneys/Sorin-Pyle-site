@@ -8,7 +8,7 @@
  *
  * Target specs:
  * - Format: AVIF (best compression)
- * - Size: 800x600 (blog featured image standard)
+ * - Size: 800x600 (4:3 ratio for full article, CSS crops for preview)
  * - Quality: 85 (good balance)
  */
 
@@ -37,9 +37,14 @@ console.log(`📊 Original size: ${(inputStats.size / 1024 / 1024).toFixed(2)} M
 console.log('🔧 Processing...');
 
 sharp(inputFile)
+    .extract({
+        left: 0,
+        top: 50,               // Start 50px from top - maximum headroom
+        width: 3405,           // Full width
+        height: 2554           // 4:3 ratio (3405 * 0.75)
+    })
     .resize(800, 600, {
-        fit: 'cover',           // Crop to fill 800x600
-        position: 'north'       // Crop from top - keeps head in frame
+        fit: 'cover'
     })
     .avif({
         quality: 85,            // Good quality/size balance
