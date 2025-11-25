@@ -526,6 +526,87 @@ npm run validate:all          # Validate schema + HTML together
 
 ## Recent Changes Log
 
+### November 24, 2025 - Business Hours Update (24/7 Phone Availability Only)
+
+**Type:** Google Business Profile Optimization
+**Goal:** Remove all office hours from website to prevent Google from auto-adjusting GBP hours to non-24/7
+**Impact:** Consistent 24/7 messaging across all 50+ pages, improved Google Business Profile accuracy
+
+**Problem Identified:**
+- Website showed mixed messaging: "Office: Mon-Fri 9 AM - 5 PM / Phone: 24/7 for messages & scheduling"
+- Google's algorithm scans website content (especially schema markup) to validate GBP information
+- When website shows office hours, Google automatically adjusts GBP hours to match, overriding 24/7 setting
+- Client reported GBP hours being changed from 24/7 to office hours repeatedly
+
+**Solution Implemented:**
+
+**1. Central Data File** (`src/_data/site.json`)
+- Removed `office` and `full` fields from hours object
+- Kept only `phone: "24/7 for messages & scheduling"`
+- Automatically updates footer on all 50+ pages via template
+
+**2. Footer Template** (`src/_includes/partials/footer.njk`)
+- Simplified hours column to show only phone availability
+- Removed separate office hours line
+
+**3. Digital Business Card** (`src/pages/card.njk`)
+Updated 3 instances:
+- Header hours (line 53): "Office: Mon-Fri 9-5 • Phone: 24/7" → "24/7 phone availability"
+- Form note (line 238): "Office: Mon-Fri 9 AM - 5 PM • Phone: 24/7 for messages & scheduling" → "24/7 phone availability for messages & scheduling"
+- Firm info (line 280): "Office: Mon-Fri 9-5 • Phone: 24/7" → "24/7 phone availability"
+
+**4. Contact Page** (`src/pages/contact.njk`)
+- Changed heading from "Hours" to "Availability"
+- Removed office hours line
+- Added note: "We respond promptly to all inquiries"
+
+**5. Schema Markup (13 pages)**
+Updated `openingHoursSpecification` description:
+- Before: "Phone consultations and messages 24/7. Office visits Mon-Fri 9 AM - 5 PM."
+- After: "Phone consultations and messages 24/7."
+
+Files updated:
+- src/pages/index.njk
+- src/pages/attorneys.njk
+- src/pages/domestic-violence-defense.njk
+- src/pages/cdl-owi-defense.njk
+- src/pages/first-offense-owi.njk
+- src/pages/dui-defense.njk
+- src/pages/super-drunk-high-bac.njk
+- src/pages/repeat-offense-owi.njk
+- src/pages/drivers-license-restoration.njk
+- src/pages/record-expungement.njk
+- src/pages/privacy-policy.njk
+- src/pages/404.njk
+- src/pages/500.njk
+
+**Files Modified:** 18 source files total
+- 1 data file: `src/_data/site.json`
+- 2 templates: `src/_includes/partials/footer.njk`, `src/pages/card.njk`
+- 1 page: `src/pages/contact.njk`
+- 13 schema files with LegalService markup
+
+**Verification:**
+- ✅ Zero references to "Mon-Fri" or "9 AM - 5 PM" in source files
+- ✅ Schema validation: 0 errors, 4 minor warnings (non-blocking)
+- ✅ HTML validation: 0 errors, 13 meta description length warnings (non-blocking)
+- ✅ Build successful: 53 files built, 92 schema instances validated
+
+**Google Business Profile Impact:**
+- Website now shows consistent 24/7 messaging in schema markup, footer, and all content
+- No conflicting office hours information for Google to detect
+- Reinforces GBP 24/7 setting instead of triggering automatic adjustment
+- Client can now maintain 24/7 GBP hours without website conflicts
+
+**Deployment:**
+- Committed to git: `fe09285`
+- Pushed to GitHub main branch
+- Cloudflare Pages auto-deployed
+
+**Status:** ✅ Complete - All office hours removed, 24/7 messaging consistent site-wide
+
+---
+
 ### November 24, 2025 - Mobile Horizontal Overflow Fix & Cloudflare Build Update
 
 **Type:** Performance & UX Fix + Build Process Optimization
