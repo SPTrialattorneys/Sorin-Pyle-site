@@ -4,14 +4,14 @@ eleventyExcludeFromCollections: true
 ---
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>{{ site.title }} - Firm News & Updates</title>
-  <subtitle>{{ site.description }} - Legal blog covering criminal defense insights, community involvement, and pro bono work in West Michigan.</subtitle>
+  <title>{{ site.title | escape }} - Firm News &amp; Updates</title>
+  <subtitle>{{ site.description | escape }} - Legal blog covering criminal defense insights, community involvement, and pro bono work in West Michigan.</subtitle>
   <link href="{{ site.url }}/feed.xml" rel="self"/>
   <link href="{{ site.url }}/"/>
   <updated>{{ collections.posts[0].date.toISOString() }}</updated>
   <id>{{ site.url }}/blog.html</id>
   <author>
-    <name>{{ site.title }}</name>
+    <name>{{ site.title | escape }}</name>
     <email>{{ site.email }}</email>
   </author>
   {%- for post in collections.posts %}
