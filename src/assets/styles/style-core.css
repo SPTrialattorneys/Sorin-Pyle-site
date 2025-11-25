@@ -918,8 +918,8 @@ textarea.form_field {
     padding-right: 0;
 }
 
-.card_practice-area-enhanced > *:first-of-type:not(h3):not(.practice-area-intro) {
-    padding-top: var(--spacing-md);
+.card_practice-area-enhanced > *:first-of-type:not(h3) {
+    padding-top: var(--spacing-xs);  /* 8px - tight connection between heading and first content */
 }
 
 .card_practice-area-enhanced > *:last-child {
@@ -930,7 +930,7 @@ textarea.form_field {
     color: var(--text-secondary);
     font-style: italic;
     margin-top: 0;
-    margin-bottom: var(--spacing-md);
+    margin-bottom: 1.5rem;  /* 24px - mid-tier spacing between different content types */
     /* Match service-item styling */
     background: rgba(255, 138, 40, 0.03);
     padding: var(--spacing-sm);
@@ -941,7 +941,7 @@ textarea.form_field {
 .charges-grid {
     display: grid;
     gap: var(--spacing-sm);
-    margin-bottom: var(--spacing-md);
+    margin-bottom: 1.5rem;  /* 24px - mid-tier spacing between different content types */
 }
 
 .charge-category {
