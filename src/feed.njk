@@ -1,0 +1,37 @@
+---
+permalink: /feed.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>{{ site.title }} - Firm News & Updates</title>
+  <subtitle>{{ site.description }} - Legal blog covering criminal defense insights, community involvement, and pro bono work in West Michigan.</subtitle>
+  <link href="{{ site.url }}/feed.xml" rel="self"/>
+  <link href="{{ site.url }}/"/>
+  <updated>{{ collections.posts | getNewestCollectionItemDate | dateToRfc3339 }}</updated>
+  <id>{{ site.url }}/blog.html</id>
+  <author>
+    <name>{{ site.title }}</name>
+    <email>{{ site.email }}</email>
+  </author>
+  {%- for post in collections.posts | slice(0, 15) %}
+  <entry>
+    <title>{{ post.data.title }}</title>
+    <link href="{{ site.url }}{{ post.url }}"/>
+    <updated>{{ post.date | dateToRfc3339 }}</updated>
+    <id>{{ site.url }}{{ post.url }}</id>
+    <content type="html">{{ post.templateContent | htmlToAbsoluteUrls(site.url) }}</content>
+    {% if post.data.description %}
+    <summary>{{ post.data.description }}</summary>
+    {% endif %}
+    {% if authors[post.data.author] %}
+    <author>
+      <name>{{ authors[post.data.author].name }}</name>
+    </author>
+    {% endif %}
+    {% if post.data.category %}
+    <category term="{{ post.data.category }}"/>
+    {% endif %}
+  </entry>
+  {%- endfor %}
+</feed>

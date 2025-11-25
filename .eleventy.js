@@ -1,6 +1,10 @@
 const htmlmin = require('html-minifier-terser');
+const pluginRss = require("@11ty/eleventy-plugin-rss");
 
 module.exports = function(eleventyConfig) {
+
+  // Add RSS plugin for feed generation
+  eleventyConfig.addPlugin(pluginRss);
 
   // HTML Minification Transform (production only)
   if (process.env.NODE_ENV === 'production') {
@@ -32,8 +36,40 @@ module.exports = function(eleventyConfig) {
   // Copy fonts if they exist
   eleventyConfig.addPassthroughCopy({"fonts": "fonts"});
 
+  // Copy vcard files for digital business cards
+  eleventyConfig.addPassthroughCopy({"vcards": "vcards"});
+
   // Copy Cloudflare Pages configuration files
   eleventyConfig.addPassthroughCopy({"_headers": "_headers"});
+
+  // Blog posts collection
+  eleventyConfig.addCollection("posts", function(collectionApi) {
+    return collectionApi.getFilteredByGlob("src/posts/*.md")
+      .filter(post => !post.data.draft)
+      .sort((a, b) => b.date - a.date);
+  });
+
+  // Posts by category collection
+  eleventyConfig.addCollection("postsByCategory", function(collectionApi) {
+    const posts = collectionApi.getFilteredByGlob("src/posts/*.md")
+      .filter(post => !post.data.draft);
+    const categories = {};
+
+    posts.forEach(post => {
+      const category = post.data.category || "uncategorized";
+      if (!categories[category]) {
+        categories[category] = [];
+      }
+      categories[category].push(post);
+    });
+
+    // Sort posts within each category
+    Object.keys(categories).forEach(category => {
+      categories[category].sort((a, b) => b.date - a.date);
+    });
+
+    return categories;
+  });
 
   // Date filter for footer copyright
   eleventyConfig.addFilter("date", function(date, format) {
@@ -42,6 +78,23 @@ module.exports = function(eleventyConfig) {
       return d.getFullYear();
     }
     return d.toISOString();
+  });
+
+  // Blog date filters
+  eleventyConfig.addFilter("readableDate", function(date) {
+    return new Date(date).toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+  });
+
+  eleventyConfig.addFilter("isoDate", function(date) {
+    return new Date(date).toISOString().split('T')[0];
+  });
+
+  eleventyConfig.addFilter("htmlDateString", function(date) {
+    return new Date(date).toISOString();
   });
 
   // Replace filter for image srcset

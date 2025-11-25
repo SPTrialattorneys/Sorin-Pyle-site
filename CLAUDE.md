@@ -526,6 +526,142 @@ npm run validate:all          # Validate schema + HTML together
 
 ## Recent Changes Log
 
+### November 24, 2025 - Eleventy Blog System Implementation (Markdown Posts + RSS Feed)
+
+**Type:** Content Management System - Full Blog Platform
+**Goal:** Implement professional blog system for 3-8 posts/month with Markdown authoring and RSS syndication
+**Impact:** Scalable publishing workflow, SEO-optimized blog posts, multi-author support, automatic RSS feed
+
+**Implementation Summary:**
+
+**Phase 1: Foundation Setup**
+- Created `src/_data/authors.json` with 3 authors (Sorin Panainte, Jonathan Pyle, Firm)
+- Configured Eleventy collections for blog posts (`collections.posts`, `collections.postsByCategory`)
+- Added date filters (`readableDate`, `isoDate`, `htmlDateString`) for consistent formatting
+- Installed `@11ty/eleventy-plugin-rss` v2.0.0 for RSS/Atom feed generation
+- Created `src/posts/` directory for Markdown blog posts
+
+**Phase 2: Template Creation**
+- Created `src/_includes/layouts/blog-post.njk` - Individual post layout with:
+  - BlogPosting schema markup (Google Rich Results eligible)
+  - Breadcrumb navigation (visual + schema)
+  - Featured image support (800x600 optimized)
+  - Social sharing buttons (Facebook, Twitter, LinkedIn)
+  - Related posts section (same category, up to 3)
+  - Back to blog link
+- Updated `src/pages/blog.njk` to dynamic archive page:
+  - Displays all posts from `collections.posts` in loop
+  - Category filter buttons (All, Community, Legal, Michigan Law, Case Analysis)
+  - Client-side JavaScript filtering
+  - Excerpt, metadata, featured image for each post
+
+**Phase 3: RSS Feed**
+- Created `src/feed.njk` - Atom feed template
+- Lists 15 most recent posts with full content
+- Includes author, category, publish date, description
+- Auto-updates on every build
+
+**Phase 4: Content Migration**
+- Migrated 2 existing posts to Markdown:
+  - `src/posts/2025-10-04-gun-lake-expungement-fair.md`
+  - `src/posts/2025-08-15-plainwell-expungement-fair.md`
+- Front matter includes: title, description, date, author, category, featuredImage, aboutPerson
+- Both posts use `author: firm` and `category: Community`
+
+**Phase 5: Validation & Testing**
+- Fixed RSS feed template (changed `limit(15)` to `slice(0, 15)` for Nunjucks compatibility)
+- Fixed blog-post template (simplified Related Posts logic to avoid `reject` filter issue)
+- Fixed breadcrumb schema (added `item` URL to final breadcrumb position)
+- All tests passing:
+  - Schema validation: 0 errors, 4 warnings (expected)
+  - HTML validation: 15 warnings (meta description length only)
+  - Build successful: 56 files generated
+
+**Phase 6: CSS Styling**
+- Added blog-specific CSS to `src/assets/styles/style.css`:
+  - `.breadcrumb` - Simple text navigation
+  - `.prose` - Blog content typography (headings, paragraphs, lists, links)
+  - `.social-share*` - Social sharing button styles (Facebook blue, Twitter blue, LinkedIn blue)
+  - `.related-posts*` - Related articles section (gray background, card-style)
+- All styles responsive and consistent with site branding
+
+**Phase 7: Documentation**
+- Created `BLOG_WRITING_GUIDE.md` - Comprehensive 450+ line guide including:
+  - Quick start for creating posts
+  - Front matter template and field explanations
+  - Markdown formatting reference
+  - Author and category options
+  - SEO best practices (title, description, keywords)
+  - Image guidelines (AVIF, optimization, alt text)
+  - Build and preview workflow
+  - Publishing workflow (direct to prod vs test branch)
+  - Troubleshooting common issues
+  - MRPC 7.1 compliance guidelines
+  - Content ideas for all 4 categories
+
+**Files Created:**
+- `src/_data/authors.json` - Author data structure
+- `src/_includes/layouts/blog-post.njk` - Individual post template
+- `src/feed.njk` - RSS/Atom feed template
+- `src/posts/2025-10-04-gun-lake-expungement-fair.md` - Migrated post 1
+- `src/posts/2025-08-15-plainwell-expungement-fair.md` - Migrated post 2
+- `BLOG_WRITING_GUIDE.md` - Complete authoring guide
+
+**Files Modified:**
+- `.eleventy.js` - Added RSS plugin, collections, date filters
+- `src/pages/blog.njk` - Complete rewrite to dynamic archive page
+- `src/assets/styles/style.css` - Added blog CSS (~140 lines)
+
+**URL Structure:**
+- Archive page: `/blog.html`
+- Individual posts: `/blog/post-title-slug.html`
+- RSS feed: `/feed.xml`
+
+**Category System:**
+| Category | Color | Use For |
+|----------|-------|---------|
+| Community | Green | Pro bono, volunteering, events |
+| Legal | Blue | Attorney opinions, commentary |
+| Michigan Law | Purple | New laws, court rulings |
+| Case Analysis | Orange | High-profile case breakdowns |
+
+**Author System:**
+- `sorin-panainte` - Sorin's voice/achievements (Person schema)
+- `jonathan-pyle` - Jonathan's voice/achievements (Person schema)
+- `firm` - General firm updates (Organization schema)
+
+**SEO Features:**
+- BlogPosting schema with author, publisher, dates
+- Breadcrumb schema for navigation
+- Featured images with alt text
+- Meta descriptions (title, description, og:image)
+- Automatic RSS feed for syndication
+- Category taxonomy for organization
+
+**Performance:**
+- Markdown compiles to static HTML (no database queries)
+- Images optimized (AVIF format recommended)
+- Minified HTML output (htmlmin transform)
+- Cacheable RSS feed
+
+**Next Steps for Users:**
+1. Write new posts in `src/posts/YYYY-MM-DD-title.md`
+2. Follow `BLOG_WRITING_GUIDE.md` for format and SEO
+3. Test locally (`npm run dev`)
+4. Deploy to test branch for preview
+5. Merge to main for production
+
+**Technical Notes:**
+- Collections filtered by `!draft` status (set `draft: true` to hide post)
+- Posts sorted by date descending (newest first)
+- Related posts limited to 3 per post (same category only)
+- RSS feed limited to 15 most recent posts
+- All dates in ISO 8601 format (YYYY-MM-DD)
+
+**Status:** ✅ Complete - Blog system ready for production deployment
+
+---
+
 ### November 24, 2025 - Business Hours Update (24/7 Phone Availability Only)
 
 **Type:** Google Business Profile Optimization

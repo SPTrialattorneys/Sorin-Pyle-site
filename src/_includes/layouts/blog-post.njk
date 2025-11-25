@@ -1,0 +1,185 @@
+---
+layout: layouts/page.njk
+permalink: "/blog/{{ title | slugify }}.html"
+---
+
+{% block schema %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "{{ title }}",
+  "description": "{{ description }}",
+  "image": "{{ site.url }}{{ featuredImage }}",
+  "author": {
+    {% if authors[author].schemaType == "Person" %}
+    "@type": "Person",
+    "name": "{{ authors[author].name }}",
+    "url": "{{ site.url }}{{ authors[author].profileUrl }}",
+    "jobTitle": "{{ authors[author].title }}",
+    "worksFor": {
+      "@type": "LegalService",
+      "name": "{{ site.title }}"
+    }
+    {% else %}
+    "@type": "Organization",
+    "name": "{{ authors[author].name }}",
+    "url": "{{ site.url }}{{ authors[author].profileUrl }}"
+    {% endif %}
+  },
+  "publisher": {
+    "@type": "LegalService",
+    "name": "{{ site.title }}",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ site.url }}/images/sorin-pyle-stacked-color.avif"
+    }
+  },
+  "datePublished": "{{ date | htmlDateString }}",
+  "dateModified": "{{ updated | htmlDateString if updated else date | htmlDateString }}",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ site.url }}{{ page.url }}"
+  },
+  "articleSection": "{{ category }}",
+  "keywords": {{ tags | dump if tags else '[]' }},
+  {% if aboutPerson %}
+  "about": {
+    "@type": "Person",
+    "@id": "{{ site.url }}{{ aboutPerson }}"
+  },
+  {% endif %}
+  "url": "{{ site.url }}{{ page.url }}"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Home",
+    "item": "{{ site.url }}/"
+  }, {
+    "@type": "ListItem",
+    "position": 2,
+    "name": "Firm News",
+    "item": "{{ site.url }}/blog.html"
+  }, {
+    "@type": "ListItem",
+    "position": 3,
+    "name": "{{ title }}",
+    "item": "{{ site.url }}{{ page.url }}"
+  }]
+}
+</script>
+{% endblock %}
+
+<article class="blog-post container-large margin-top-lg">
+
+  {# Breadcrumb Navigation #}
+  <nav class="breadcrumb margin-bottom-md" aria-label="Breadcrumb">
+    <a href="/">Home</a> /
+    <a href="/blog.html">Firm News</a> /
+    <span aria-current="page">{{ title }}</span>
+  </nav>
+
+  {# Post Header #}
+  <header class="blog-post_header margin-bottom-lg">
+    <h1>{{ title }}</h1>
+
+    {# Post Metadata #}
+    <div class="blog-date margin-top-sm">
+      <time datetime="{{ date | htmlDateString }}">{{ date | readableDate }}</time>
+      {% if category %}
+        <span class="blog-category blog-category-{{ category | lower }}">{{ category }}</span>
+      {% endif %}
+    </div>
+
+    {% if authors[author] %}
+    <p class="blog-byline margin-top-sm">
+      By
+      {% if authors[author].schemaType == "Person" %}
+        <a href="{{ authors[author].profileUrl }}">{{ authors[author].name }}</a>
+      {% else %}
+        {{ authors[author].name }}
+      {% endif %}
+    </p>
+    {% endif %}
+  </header>
+
+  {# Featured Image #}
+  {% if featuredImage %}
+  <figure class="blog-image margin-bottom-lg">
+    <img src="{{ featuredImage }}"
+         alt="{{ featuredImageAlt | default(title) }}"
+         width="800"
+         height="600"
+         loading="eager">
+  </figure>
+  {% endif %}
+
+  {# Post Content #}
+  <div class="blog-content prose">
+    {{ content | safe }}
+  </div>
+
+  {# Social Sharing #}
+  <div class="social-share margin-top-xl margin-bottom-xl">
+    <p class="social-share_label"><strong>Share this article:</strong></p>
+    <div class="social-share_buttons">
+      <a href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ page.url }}"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="social-share_button social-share_button--facebook"
+         aria-label="Share on Facebook">
+        Facebook
+      </a>
+      <a href="https://twitter.com/intent/tweet?url={{ site.url }}{{ page.url }}&text={{ title | urlencode }}"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="social-share_button social-share_button--twitter"
+         aria-label="Share on Twitter">
+        Twitter
+      </a>
+      <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ site.url }}{{ page.url }}"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="social-share_button social-share_button--linkedin"
+         aria-label="Share on LinkedIn">
+        LinkedIn
+      </a>
+    </div>
+  </div>
+
+  {# Related Posts #}
+  {% set relatedPosts = [] %}
+  {% for post in collections.posts %}
+    {% if post.url != page.url and post.data.category == category and relatedPosts.length < 3 %}
+      {% set relatedPosts = (relatedPosts.push(post), relatedPosts) %}
+    {% endif %}
+  {% endfor %}
+  {% if relatedPosts.length > 0 %}
+  <aside class="related-posts margin-top-xl">
+    <h2>Related Articles</h2>
+    <ul class="related-posts_list">
+    {% for post in relatedPosts %}
+      <li>
+        <a href="{{ post.url }}">
+          <strong>{{ post.data.title }}</strong>
+          <span class="blog-date">{{ post.date | readableDate }}</span>
+        </a>
+      </li>
+    {% endfor %}
+    </ul>
+  </aside>
+  {% endif %}
+
+  {# Back to Blog Link #}
+  <div class="margin-top-xl">
+    <a href="/blog.html" class="btn-secondary">&larr; Back to All News & Updates</a>
+  </div>
+
+</article>

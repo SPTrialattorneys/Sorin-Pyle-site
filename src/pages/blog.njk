@@ -8,154 +8,153 @@ jurisdiction: "Michigan, Ottawa County, Kent County, Allegan County"
 ogImage: "https://www.sorinpyle.com/images/sorin-panainte-gun-lake-tribe-expungement-fair.avif"
 permalink: /blog.html
 ---
+
 <section class="section">
-            <div class="container-large max-width-xl">
-                <!-- Breadcrumbs -->
-                <nav aria-label="Breadcrumb" class="margin-bottom-sm">
-                    <ol style="list-style: none; padding: 0; display: flex; gap: 0.5rem; font-size: 0.9rem;">
-                        <li><a href="/index.html" style="color: var(--primary-blue); text-decoration: none;">Home</a></li>
-                        <li aria-hidden="true">›</li>
-                        <li><a href="/faq.html" style="color: var(--primary-blue); text-decoration: none;">Client Resources</a></li>
-                        <li aria-hidden="true">›</li>
-                        <li aria-current="page" style="color: var(--text-color);">Firm News</li>
-                    </ol>
-                </nav>
+    <div class="container-large max-width-xl">
+        <!-- Breadcrumbs -->
+        <nav aria-label="Breadcrumb" class="margin-bottom-sm">
+            <ol style="list-style: none; padding: 0; display: flex; gap: 0.5rem; font-size: 0.9rem;">
+                <li><a href="/index.html" style="color: var(--primary-blue); text-decoration: none;">Home</a></li>
+                <li aria-hidden="true">›</li>
+                <li><a href="/faq.html" style="color: var(--primary-blue); text-decoration: none;">Client Resources</a></li>
+                <li aria-hidden="true">›</li>
+                <li aria-current="page" style="color: var(--text-color);">Firm News</li>
+            </ol>
+        </nav>
 
-                <h1 class="text-align-center margin-bottom-md">Firm News & Updates</h1>
-                <p class="text-align-center sub-headline margin-bottom-lg">Stay informed about Sorin & Pyle community involvement, pro bono work, and legal updates.</p>
+        <h1 class="text-align-center margin-bottom-md">Firm News & Updates</h1>
+        <p class="text-align-center sub-headline margin-bottom-lg">Stay informed about Sorin & Pyle community involvement, pro bono work, and legal updates.</p>
 
-                <article class="blog-post" itemscope itemtype="https://schema.org/BlogPosting">
-                    <meta itemprop="mainEntityOfPage" content="https://www.sorinpyle.com/blog.html">
-                    <h2 itemprop="headline">Second Chances & Strong Communities: Sorin Panainte Volunteers at Gun Lake Tribe Expungement Fair</h2>
-                    <p class="blog-date">
-                        <time itemprop="datePublished" datetime="2025-10-04">October 4, 2025</time> | Shelbyville, MI
-                        <span class="blog-category blog-category-community">Community</span>
-                    </p>
-                    <p class="blog-byline">By Sorin & Pyle, Trial Lawyers</p>
-                    <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
-                        <meta itemprop="name" content="Sorin & Pyle, PC">
-                        <div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
-                            <meta itemprop="url" content="https://www.sorinpyle.com/images/logo-icon.svg">
-                        </div>
-                    </div>
-                    <div itemprop="author" itemscope itemtype="https://schema.org/Organization">
-                        <meta itemprop="name" content="Sorin & Pyle, PC">
-                        <meta itemprop="url" content="https://www.sorinpyle.com/">
-                    </div>
-                    <div itemprop="about" itemscope itemtype="https://schema.org/Person">
-                        <meta itemprop="name" content="Sorin Panainte">
-                        <meta itemprop="url" content="https://www.sorinpyle.com/sorin-panainte.html">
-                    </div>
-                    <div itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
-                        <meta itemprop="url" content="https://www.sorinpyle.com/images/sorin-panainte-gun-lake-tribe-expungement-fair.avif">
-                        <meta itemprop="width" content="800">
-                        <meta itemprop="height" content="600">
-                    </div>
+        {# Category Filter #}
+        <div class="blog-category-filter margin-bottom-lg text-align-center" style="display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;">
+            <button class="category-filter-btn active" data-category="all" style="padding: 0.5rem 1rem; border: 2px solid var(--primary-blue); background: var(--primary-blue); color: white; border-radius: 20px; cursor: pointer; font-weight: 500;">All</button>
+            <button class="category-filter-btn" data-category="community" style="padding: 0.5rem 1rem; border: 2px solid #28a745; background: transparent; color: #28a745; border-radius: 20px; cursor: pointer; font-weight: 500;">Community</button>
+            <button class="category-filter-btn" data-category="legal" style="padding: 0.5rem 1rem; border: 2px solid var(--primary-blue); background: transparent; color: var(--primary-blue); border-radius: 20px; cursor: pointer; font-weight: 500;">Legal</button>
+            <button class="category-filter-btn" data-category="michigan" style="padding: 0.5rem 1rem; border: 2px solid #6f42c1; background: transparent; color: #6f42c1; border-radius: 20px; cursor: pointer; font-weight: 500;">Michigan Law</button>
+            <button class="category-filter-btn" data-category="case" style="padding: 0.5rem 1rem; border: 2px solid #fd7e14; background: transparent; color: #fd7e14; border-radius: 20px; cursor: pointer; font-weight: 500;">Case Analysis</button>
+        </div>
 
+        {# Blog Posts #}
+        {% if collections.posts.length > 0 %}
+            {% for post in collections.posts %}
+            <article class="blog-post margin-bottom-xl" data-category="{{ post.data.category | lower }}">
+                <h2>
+                    <a href="{{ post.url }}" style="color: inherit; text-decoration: none;">
+                        {{ post.data.title }}
+                    </a>
+                </h2>
+
+                <p class="blog-date">
+                    <time datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
+                    {% if post.data.category %}
+                        <span class="blog-category blog-category-{{ post.data.category | lower }}">{{ post.data.category }}</span>
+                    {% endif %}
+                </p>
+
+                {% if authors[post.data.author] %}
+                <p class="blog-byline">
+                    By
+                    {% if authors[post.data.author].schemaType == "Person" %}
+                        <a href="{{ authors[post.data.author].profileUrl }}">{{ authors[post.data.author].name }}</a>
+                    {% else %}
+                        {{ authors[post.data.author].name }}
+                    {% endif %}
+                </p>
+                {% endif %}
+
+                {% if post.data.featuredImage %}
+                <a href="{{ post.url }}">
                     <picture>
-                        <source srcset="/images/sorin-panainte-gun-lake-tribe-expungement-fair.avif" type="image/avif">
-                        <img src="/images/sorin-panainte-gun-lake-tribe-expungement-fair.avif" alt="Sorin Panainte at Gun Lake Tribe Free Expungement Fair in Shelbyville, Michigan" class="blog-image" width="800" height="600" loading="lazy">
+                        <source srcset="{{ post.data.featuredImage }}" type="image/avif">
+                        <img src="{{ post.data.featuredImage }}"
+                             alt="{{ post.data.featuredImageAlt | default(post.data.title) }}"
+                             class="blog-image"
+                             width="800"
+                             height="600"
+                             loading="lazy">
                     </picture>
+                </a>
+                {% endif %}
 
-                    <div itemprop="articleBody">
-                        <p>At <strong>Sorin & Pyle</strong>, we believe that justice isn't just found inside a courtroom—it's built in the community. We also know that a past mistake shouldn't define a person's entire future.</p>
-                        <p>That is why we are proud to highlight <strong>Attorney Sorin Panainte's</strong> recent pro bono work at the <strong>Free Expungement Fair</strong> hosted by the <strong>Gun Lake Tribe</strong> in Shelbyville, Michigan.</p>
-                        <h3>Rolling Up Our Sleeves for a Fresh Start</h3>
-                        <p>The event, held at the GLT Administration Building, was dedicated to helping community members clear their records and move forward with their lives. For many, a criminal record acts as an invisible barrier, blocking access to better jobs, housing, and educational opportunities.</p>
-                        <p>Sorin Panainte joined other legal professionals to provide free assistance to the public, regardless of tribal affiliation. While the goal was clear, the path to expungement can often be confusing without guidance.</p>
-                        <p>"What stood out to me is a lot of people had applied before or started the process but didn't go through all the way or had missing documents," Sorin noted after the event.</p>
-                        <p>This observation highlights exactly why events like these are critical. The day was filled with hands-on work to bridge that gap between starting the process and actually crossing the finish line, including:</p>
-                        <ul>
-                            <li><strong>Eligibility Checks:</strong> Determining if specific convictions qualified for removal under Michigan's "Clean Slate" laws.</li>
-                            <li><strong>Application Assistance:</strong> Helping attendees navigate the complex paperwork that often stalls their progress.</li>
-                            <li><strong>Next Steps Guidance:</strong> Explaining the legal path forward after the fair.</li>
-                        </ul>
-                        <h3>Why Events Like This Matter (And How Expungement Helps)</h3>
-                        <p><em>You might be asking: "What exactly does an expungement do?"</em></p>
-                        <p>In the world of law, <strong>expungement</strong> is the process of sealing a criminal record so it is no longer accessible to the public. This is often referred to as a "Clean Slate."</p>
-                        <p>When our attorneys volunteer at events like the Gun Lake Tribe Expungement Fair, we aren't just filing paperwork; we are helping restore dignity. This was especially evident in the demographics of the attendees.</p>
-                        <p>"What also stood out to me is the amount of elderly people that want to clean up their 'wild teenage years' convictions," Sorin shared.</p>
-                        <p>This serves as a powerful reminder that expungement isn't just about utility—it's about legacy.</p>
-                        <p><strong>Here is why this work is vital for our Michigan neighbors:</strong></p>
-                        <ol>
-                            <li><strong>Employment:</strong> Many employers overlook applicants with records. Expungement opens doors to careers that were previously closed.</li>
-                            <li><strong>Housing:</strong> Landlords frequently run background checks. A clean record makes it easier to find a safe place to live.</li>
-                            <li><strong>Peace of Mind:</strong> Perhaps most importantly, it lifts the weight of the past, allowing individuals—whether they are young adults or grandparents—to walk into the future with confidence.</li>
-                        </ol>
-                        <h3>A Commitment to Service</h3>
-                        <p>We want to extend a thank you to the <strong>Gun Lake Tribe</strong> for hosting such an impactful event and allowing us the opportunity to serve. Their dedication to the community—providing everything from fingerprinting to legal aid—is inspiring.</p>
-                        <p>To learn more about the Gun Lake Tribe's community events and services, you can <a href="https://gunlaketribe-nsn.gov/glt-events/" target="_blank" rel="noopener noreferrer">visit their website here</a>.</p>
-                        <p>At <strong>Sorin & Pyle</strong>, we fight for our clients every day, whether that's in a high-stakes trial or at a community table helping someone start over. If you have questions about your legal rights, we are here to listen.</p>
-                        <p><em>Disclaimer: The information in this blog post is for general informational purposes only and does not constitute legal advice.</em></p>
-                    </div>
-                </article>
+                <div class="blog-excerpt margin-top-md">
+                    {% if post.data.description %}
+                        <p>{{ post.data.description }}</p>
+                    {% else %}
+                        {{ post.templateContent | striptags | truncate(200) }}
+                    {% endif %}
+                </div>
 
+                <a href="{{ post.url }}" class="btn-secondary margin-top-md" style="display: inline-block;">
+                    Read Full Article &rarr;
+                </a>
+
+                {% if not loop.last %}
                 <hr style="margin: 3rem 0; border: none; border-top: 1px solid rgba(0,0,0,0.1);">
-
-                <article class="blog-post" itemscope itemtype="https://schema.org/BlogPosting">
-                    <meta itemprop="mainEntityOfPage" content="https://www.sorinpyle.com/blog.html">
-                    <h2 itemprop="headline">Attorney Sorin Volunteers at Expungement Fair to Support Michigan Residents</h2>
-                    <p class="blog-date">
-                        <time itemprop="datePublished" datetime="2025-08-15">August 15, 2025</time> | Plainwell, MI
-                        <span class="blog-category blog-category-community">Community</span>
-                    </p>
-                    <p class="blog-byline">By Sorin & Pyle, Trial Lawyers</p>
-                    <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
-                        <meta itemprop="name" content="Sorin & Pyle, PC">
-                        <div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
-                            <meta itemprop="url" content="https://www.sorinpyle.com/images/logo-icon.svg">
-                        </div>
-                    </div>
-                    <div itemprop="author" itemscope itemtype="https://schema.org/Organization">
-                        <meta itemprop="name" content="Sorin & Pyle, PC">
-                        <meta itemprop="url" content="https://www.sorinpyle.com/">
-                    </div>
-                    <div itemprop="about" itemscope itemtype="https://schema.org/Person">
-                        <meta itemprop="name" content="Sorin Panainte">
-                        <meta itemprop="url" content="https://www.sorinpyle.com/sorin-panainte.html">
-                    </div>
-                    <div itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
-                        <meta itemprop="url" content="https://www.sorinpyle.com/images/expungement-fair-volunteers.avif">
-                        <meta itemprop="width" content="800">
-                        <meta itemprop="height" content="600">
-                    </div>
-
-                    <picture>
-                        <source srcset="/images/expungement-fair-volunteers.avif" type="image/avif">
-                        <img src="/images/expungement-fair-volunteers.jpg" alt="Sorin Panainte and Legal Volunteers at Free Expungement Fair in Plainwell, Michigan" class="blog-image" width="800" height="600" loading="lazy">
-                    </picture>
-
-                    <div itemprop="articleBody">
-                        <p>On August 15, 2025, one of our attorneys proudly joined fellow legal professionals in volunteering at the Free Expungement Fair & Resource Clinic hosted by Christian Neighbors in Plainwell, Michigan. The clinic was presented in partnership with the Allegan Public Defender's Office, the Michigan Attorney General's Office, Safe & Just Michigan, and several community organizations.</p>
-                        <p>The event offered Michigan residents a chance to begin clearing their criminal records of Misdemeanor and Felony convictions—an important step toward greater opportunities in employment, housing, and education. Expungement can be life-changing, and Attorney Sorin is honored to have been part of an effort that directly supports second chances.</p>
-                        <h3>How the Clinic Helped</h3>
-                        <p>Volunteer attorneys, including our own, worked alongside community partners to:</p>
-                        <ul>
-                            <li>Assist eligible attendees with completing expungement paperwork</li>
-                            <li>Provide access to volunteer notaries</li>
-                            <li>Conduct fingerprint scans</li>
-                            <li>Offer guidance on the next steps after applications were mailed</li>
-                        </ul>
-                        <p>The event was free to all Michigan residents and drew many individuals seeking a fresh start.</p>
-                        <h3>Why This Work Matters</h3>
-                        <p>At Sorin & Pyle, Trial Lawyers, we believe that access to justice shouldn't depend on income. Expungement clinics like this one remove barriers for people who deserve the opportunity to rebuild their lives. By giving back through pro bono work, our attorneys reaffirm the firm's commitment to ensuring fairness and equity in the legal system.</p>
-                        <h3>Looking Ahead</h3>
-                        <p>We are proud of the impact that events like the Plainwell clinic have on individuals and families across Michigan. Our firm remains dedicated to supporting community initiatives that empower people to move forward with dignity and confidence.</p>
-                    </div>
-                </article>
-
-                <!-- CTA Section -->
-                <div class="text-align-center margin-top-xl padding-top-lg" style="background: linear-gradient(135deg, rgba(64, 118, 180, 0.05) 0%, rgba(64, 118, 180, 0.02) 100%); border-radius: var(--border-radius-card); padding: var(--spacing-lg);">
-                    <h2 class="margin-bottom-sm">Need Legal Assistance?</h2>
-                    <p class="margin-bottom-md">Contact us for a free consultation to discuss your criminal defense needs.</p>
-                    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                        <a href="/contact.html" class="button-primary">Get Free Consultation</a>
-                        <a href="tel:+16162273303" class="button-secondary track-phone-click" data-event-label="blog_cta">(616) 227-3303</a>
-                    </div>
-                </div>
-
-                <div class="legal-disclaimer margin-top-lg text-align-center" style="font-size: 0.9rem; opacity: 0.8;">
-                    <p><strong>Legal Disclaimer:</strong> The information on this website is for general information purposes only and is not a substitute for professional legal advice. Reading this information does not create an attorney-client relationship.</p>
-                </div>
+                {% endif %}
+            </article>
+            {% endfor %}
+        {% else %}
+            <div class="text-align-center margin-top-xl margin-bottom-xl">
+                <p style="font-size: 1.2rem; color: #666;">No posts yet. Check back soon for updates!</p>
             </div>
-        </section>
+        {% endif %}
+
+        <!-- CTA Section -->
+        <div class="text-align-center margin-top-xl padding-top-lg" style="background: linear-gradient(135deg, rgba(64, 118, 180, 0.05) 0%, rgba(64, 118, 180, 0.02) 100%); border-radius: var(--border-radius-card); padding: var(--spacing-lg);">
+            <h2 class="margin-bottom-sm">Need Legal Assistance?</h2>
+            <p class="margin-bottom-md">Contact us for a free consultation to discuss your criminal defense needs.</p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="/contact.html" class="button-primary">Get Free Consultation</a>
+                <a href="tel:+16162273303" class="button-secondary track-phone-click" data-event-label="blog_cta">(616) 227-3303</a>
+            </div>
+        </div>
+
+        <div class="legal-disclaimer margin-top-lg text-align-center" style="font-size: 0.9rem; opacity: 0.8;">
+            <p><strong>Legal Disclaimer:</strong> The information on this website is for general information purposes only and is not a substitute for professional legal advice. Reading this information does not create an attorney-client relationship.</p>
+        </div>
+    </div>
+</section>
+
+{# Category Filter JavaScript #}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.category-filter-btn');
+    const posts = document.querySelectorAll('.blog-post');
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const category = this.dataset.category;
+
+            // Update active button
+            filterButtons.forEach(btn => {
+                btn.classList.remove('active');
+                const btnCategory = btn.dataset.category;
+                const colors = {
+                    'all': 'var(--primary-blue)',
+                    'community': '#28a745',
+                    'legal': 'var(--primary-blue)',
+                    'michigan': '#6f42c1',
+                    'case': '#fd7e14'
+                };
+                btn.style.background = 'transparent';
+                btn.style.color = colors[btnCategory];
+            });
+
+            this.classList.add('active');
+            const activeColor = this.style.borderColor;
+            this.style.background = activeColor;
+            this.style.color = 'white';
+
+            // Filter posts
+            posts.forEach(post => {
+                const postCategory = post.dataset.category;
+                if (category === 'all' || postCategory === category) {
+                    post.style.display = 'block';
+                } else {
+                    post.style.display = 'none';
+                }
+            });
+        });
+    });
+});
+</script>
