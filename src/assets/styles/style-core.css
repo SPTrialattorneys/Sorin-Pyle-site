@@ -978,7 +978,7 @@ textarea.form_field {
 .charge-list li::before {
     content: '✓';
     position: absolute;
-    left: calc(-1 * var(--spacing-sm)); /* Align with inner edge of orange border */
+    left: 0;
     color: var(--accent-orange);
     font-weight: 700;
     font-size: 1rem;
@@ -993,9 +993,14 @@ textarea.form_field {
     border-bottom: none;
 }
 
-.services-list {
+/* Practice areas services list - scope to card context to override general .services-list */
+.card_practice-area-enhanced .services-list {
     display: grid;
     gap: var(--spacing-sm);
+    /* Reset conflicting styles from other contexts */
+    max-width: none;
+    margin: 0;
+    padding: 0;
 }
 
 .service-item {
