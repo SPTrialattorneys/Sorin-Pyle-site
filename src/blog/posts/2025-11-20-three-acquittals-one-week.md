@@ -2,7 +2,7 @@
 title: "Three Acquittals, One Week"
 description: "Holland criminal defense attorney Sorin Panainte wins 3 jury trials in one week across Allegan and Cheboygan counties. Learn about our trial preparation philosophy."
 date: 2025-11-20
-author: firm
+author: jonathan-pyle
 category: Legal
 featuredImage: /images/sorin-panainte-trial-attorney.avif
 featuredImageAlt: "Attorney Sorin Panainte, Criminal Defense Attorney at Sorin & Pyle in Holland, Michigan"
