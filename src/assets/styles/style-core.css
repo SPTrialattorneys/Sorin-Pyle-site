@@ -1093,6 +1093,11 @@ textarea.form_field {
     .charge-category {
         padding: var(--spacing-xs) var(--spacing-sm);
     }
+
+    /* Override desktop last-child bottom padding */
+    .card_practice-area-enhanced > *:last-child {
+        padding-bottom: var(--spacing-sm);
+    }
 }
 
 
