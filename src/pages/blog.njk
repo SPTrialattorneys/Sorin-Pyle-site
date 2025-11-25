@@ -34,18 +34,11 @@ permalink: /blog.html
             <button class="category-filter-btn" data-category="case" style="padding: 0.5rem 1rem; border: 2px solid #fd7e14; background: transparent; color: #fd7e14; border-radius: 20px; cursor: pointer; font-weight: 500;">Case Analysis</button>
         </div>
 
-        {# Blog Posts Grid - TEMPORARY: Showing 3 style options for comparison #}
+        {# Blog Posts Grid #}
         {% if collections.posts.length > 0 %}
-        <p style="text-align: center; margin-bottom: 1.5rem; font-weight: 600; color: var(--primary-blue); font-size: 1.1rem;">
-            📋 Style Comparison Demo
-        </p>
-        <p style="text-align: center; margin-bottom: 1.5rem; font-size: 0.95rem; color: #6c757d;">
-            Option 1: Left Border • Option 2: Blue Background • Option 3: Top Gradient
-        </p>
-        <div class="blog-grid blog-grid--demo">
-            {# Card 1: Option 1 - Left Border #}
-            {% set post = collections.posts[0] %}
-            <a href="{{ post.url }}" class="blog-card blog-card--option1" data-category="{{ post.data.category | lower }}">
+        <div class="blog-grid">
+            {% for post in collections.posts %}
+            <a href="{{ post.url }}" class="blog-card" data-category="{{ post.data.category | lower }}">
                 {% if post.data.featuredImage %}
                 <picture>
                     <source srcset="{{ post.data.featuredImage }}" type="image/avif">
@@ -85,90 +78,7 @@ permalink: /blog.html
                     <span class="blog-card_readmore">Read Full Article</span>
                 </div>
             </a>
-
-            {# Card 2: Option 2 - Blue Background #}
-            <a href="{{ post.url }}" class="blog-card blog-card--option2" data-category="{{ post.data.category | lower }}">
-                {% if post.data.featuredImage %}
-                <picture>
-                    <source srcset="{{ post.data.featuredImage }}" type="image/avif">
-                    <img src="{{ post.data.featuredImage }}"
-                         alt="{{ post.data.featuredImageAlt | default(post.data.title) }}"
-                         class="blog-card_image"
-                         width="400"
-                         height="300"
-                         loading="lazy">
-                </picture>
-                {% endif %}
-
-                <div class="blog-card_content">
-                    <h2 class="blog-card_title">{{ post.data.title }}</h2>
-
-                    <p class="blog-card_meta">
-                        <time datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
-                        {% if post.data.category %}
-                            <span class="blog-category blog-category-{{ post.data.category | lower }}">{{ post.data.category }}</span>
-                        {% endif %}
-                    </p>
-
-                    {% if authors[post.data.author] %}
-                    <p class="blog-card_byline">
-                        By {% if authors[post.data.author].schemaType == "Person" %}{{ authors[post.data.author].name }}{% else %}{{ authors[post.data.author].name }}{% endif %}
-                    </p>
-                    {% endif %}
-
-                    <p class="blog-card_excerpt">
-                        {% if post.data.description %}
-                            {{ post.data.description }}
-                        {% else %}
-                            {{ post.templateContent | striptags | truncate(200) }}
-                        {% endif %}
-                    </p>
-
-                    <span class="blog-card_readmore">Read Full Article</span>
-                </div>
-            </a>
-
-            {# Card 3: Option 3 - Top Gradient Strip #}
-            <a href="{{ post.url }}" class="blog-card blog-card--option3" data-category="{{ post.data.category | lower }}">
-                {% if post.data.featuredImage %}
-                <picture>
-                    <source srcset="{{ post.data.featuredImage }}" type="image/avif">
-                    <img src="{{ post.data.featuredImage }}"
-                         alt="{{ post.data.featuredImageAlt | default(post.data.title) }}"
-                         class="blog-card_image"
-                         width="400"
-                         height="300"
-                         loading="lazy">
-                </picture>
-                {% endif %}
-
-                <div class="blog-card_content">
-                    <h2 class="blog-card_title">{{ post.data.title }}</h2>
-
-                    <p class="blog-card_meta">
-                        <time datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
-                        {% if post.data.category %}
-                            <span class="blog-category blog-category-{{ post.data.category | lower }}">{{ post.data.category }}</span>
-                        {% endif %}
-                    </p>
-
-                    {% if authors[post.data.author] %}
-                    <p class="blog-card_byline">
-                        By {% if authors[post.data.author].schemaType == "Person" %}{{ authors[post.data.author].name }}{% else %}{{ authors[post.data.author].name }}{% endif %}
-                    </p>
-                    {% endif %}
-
-                    <p class="blog-card_excerpt">
-                        {% if post.data.description %}
-                            {{ post.data.description }}
-                        {% else %}
-                            {{ post.templateContent | striptags | truncate(200) }}
-                        {% endif %}
-                    </p>
-
-                    <span class="blog-card_readmore">Read Full Article</span>
-                </div>
-            </a>
+            {% endfor %}
         </div>
         {% else %}
             <div class="text-align-center margin-top-xl margin-bottom-xl">

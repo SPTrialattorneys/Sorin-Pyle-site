@@ -13,17 +13,6 @@
     margin-bottom: 3rem;
 }
 
-/* Demo grid for style comparison - 3 columns */
-.blog-grid--demo {
-    grid-template-columns: repeat(3, 1fr);
-}
-
-@media (max-width: 991px) {
-    .blog-grid--demo {
-        grid-template-columns: 1fr;
-    }
-}
-
 @media (max-width: 767px) {
     .blog-grid {
         grid-template-columns: 1fr;
@@ -34,6 +23,7 @@
     background: var(--white);
     border-radius: var(--border-radius-card);
     box-shadow: var(--shadow-soft);
+    border-left: 4px solid var(--primary-blue);
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-decoration: none;
@@ -44,35 +34,6 @@
 .blog-card:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-hover);
-}
-
-/* STYLE COMPARISON - Temporary variants for user review */
-
-/* Option 1: Left Border Accent (Professional & Clean) */
-.blog-card--option1 {
-    border-left: 4px solid var(--primary-blue);
-}
-
-/* Option 2: Subtle Blue Background (Soft & Welcoming) */
-.blog-card--option2 {
-    background: var(--primary-blue-50); /* #E8F0F8 */
-}
-
-/* Option 3: Top Gradient Strip (Eye-Catching & Modern) */
-.blog-card--option3 {
-    position: relative;
-}
-
-.blog-card--option3::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--primary-blue) 0%, var(--accent-orange) 100%);
-    border-radius: var(--border-radius-card) var(--border-radius-card) 0 0;
-    z-index: 1;
 }
 
 .blog-card_image {
