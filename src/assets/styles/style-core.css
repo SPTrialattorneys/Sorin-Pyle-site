@@ -926,6 +926,14 @@ textarea.form_field {
     padding-bottom: var(--spacing-lg);
 }
 
+/* Remove horizontal padding from grid containers to fix alignment */
+/* Child items (.charge-category, .service-item) have their own padding */
+.card_practice-area-enhanced > .charges-grid,
+.card_practice-area-enhanced > .services-list {
+    padding-left: 0;
+    padding-right: 0;
+}
+
 .practice-area-intro {
     color: var(--text-secondary);
     font-style: italic;
