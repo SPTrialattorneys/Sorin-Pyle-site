@@ -230,7 +230,8 @@ button.navbar_dropdown-toggle {
   list-style: none;
   margin: 0.5rem 0 0 0;
   padding: 0.5rem 0;
-  min-width: 250px;
+  min-width: 200px; /* Reduced from 250px to prevent overflow on small screens */
+  max-width: calc(100vw - 2rem); /* Prevent horizontal overflow on narrow viewports */
   opacity: 0;
   visibility: hidden;
   transform: translateY(-10px);
@@ -1292,6 +1293,15 @@ textarea.form_field {
 
   .grid_2-col.grid-align-start {
     align-items: initial;
+  }
+
+  /* Dropdown menu mobile optimization - prevent horizontal overflow */
+  .navbar_dropdown-menu {
+    min-width: auto; /* Remove min-width constraint on mobile */
+    width: auto; /* Let content determine width */
+    max-width: calc(100vw - 2rem); /* Ensure dropdown never exceeds viewport width */
+    left: auto; /* Reset positioning */
+    right: 0; /* Align to right edge for better mobile UX */
   }
 
 }

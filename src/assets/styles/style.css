@@ -3291,9 +3291,10 @@ textarea.form_field {
 
 .card-page .card-services-enhanced .services-list {
   list-style: none;
-  padding: 0;
+  padding: 0.25rem; /* Prevent clipping of hover effect with negative margins */
   margin: 0;
   max-width: 100%;
+  overflow-x: hidden; /* Contain negative margin expansion on hover - prevents horizontal scroll */
 }
 
 .card-page .card-services-enhanced .services-list li {
