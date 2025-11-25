@@ -934,8 +934,6 @@ textarea.form_field {
     border-left: 4px solid var(--accent-orange);
     padding-left: var(--spacing-md);
     padding-right: var(--spacing-md);
-    padding-top: var(--spacing-sm);
-    padding-bottom: var(--spacing-sm);
 }
 
 .charges-grid {
