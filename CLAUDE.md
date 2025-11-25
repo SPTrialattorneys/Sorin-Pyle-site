@@ -697,6 +697,134 @@ npm run validate:all          # Validate schema + HTML together
 
 ---
 
+### November 25, 2025 - Blog System Documentation & First Production Post (CDAM Conference)
+
+**Type:** Content Publishing - Documentation Update + Blog Post Launch
+**Goal:** Comprehensive documentation of blog system for AI agents and create first production blog post
+**Impact:** Complete AI_CONTEXT.md documentation (~230 new lines), QUICK_START.md workflow guide, production-ready CDAM conference post
+
+**Problem Identified:**
+- Blog system was implemented but not documented in AI context files
+- No comprehensive guide for future AI agents to understand blog architecture
+- First production post needed (CDAM 2025 Fall Conference)
+- Blog posts scattered across two directories (`src/posts/` and `src/blog/posts/`)
+- Glob pattern in `.eleventy.js` pointing to wrong directory
+- Schema validation failing due to HTML entity escaping in JSON-LD
+
+**Documentation Updates:**
+
+**1. AI_CONTEXT.md Updates** (comprehensive ~230-line blog section added):
+- Updated Section 1 (Project Overview) - Added blog to key features
+- Updated Section 2.1 (Eleventy Configuration) - Documented RSS plugin, blog filters, collections
+- Updated Section 3.1 (Directory Tree) - Added blog/ folder structure
+- Added NEW Section 4.4 "Blog System (Eleventy 11ty)" with complete architecture documentation:
+  - Card grid layout code examples
+  - Category filtering JavaScript implementation
+  - CSS styling details with color codes
+  - BlogPosting schema markup reference
+  - RSS feed implementation
+  - Individual post features (breadcrumbs, social sharing, related posts)
+  - Authors data structure
+  - UI/UX features and SEO optimizations
+- Added NEW Section 7.7 "Add a Blog Post" with dual workflows (Markdown + manual HTML)
+
+**2. QUICK_START.md Updates** (5-minute reference guide):
+- Added "Add a Blog Post" workflow section with Markdown example
+- Updated project structure diagram to show blog/ directory
+- Added blog posts to Key Takeaways section
+
+**First Production Post:**
+
+**3. Created CDAM Conference Blog Post** (`src/blog/posts/2025-11-11-cdam-michigan-defense-strategies.md`):
+- Title: "Inside the 2025 CDAM Conference: Evolving Defense Strategies for Michigan"
+- SEO slug: `cdam-michigan-defense-strategies` (32 chars, includes location + topic keywords)
+- Author: "firm" (Organization schema type)
+- Category: "legal" (displays blue tag)
+- Date: November 11, 2025
+- Content: 4 paragraphs covering Jerome Buting keynote, forensic/DNA sessions, firearms defense (*Bruen*/*Rahimi* SCOTUS cases), networking with county public defenders
+- Tags: CDAM, criminal defense, continuing legal education, forensic evidence, firearms defense, Michigan law
+- No featured image (avoided licensing issues per user request)
+
+**SEO Slug Best Practices Applied:**
+- Length: 3-5 words, max 60 characters
+- Keywords: Include 1-2 primary keywords (Michigan, defense)
+- Descriptive: Clearly indicates conference topic
+- Stop words removed: No "the", "and", "of" (except where needed for clarity)
+
+**Critical Fixes:**
+
+**4. Fixed Eleventy Collections Glob Pattern** (`.eleventy.js` lines 45-54):
+- **Problem**: Collections looking in `src/posts/*.md` instead of `src/blog/posts/*.md`
+- **Symptom**: New CDAM post not appearing on blog archive page after build
+- **Fix**: Updated both `posts` and `postsByCategory` collections to use correct path
+- **Result**: All 3 blog posts now display correctly in chronological order
+
+**5. Fixed BlogPosting Schema Validation** (`src/_includes/layouts/blog-post.njk` line 45):
+- **Problem**: Nunjucks `dump` filter HTML-escapes output (`"` → `&quot;`), breaking JSON-LD
+- **Error**: "Invalid JSON: Unexpected token '&', ..."ywords": [&quot;CDAM"... is not valid JSON"
+- **Fix**: Added `| safe` filter to prevent HTML entity escaping in JSON
+- **Before**: `"keywords": {{ tags | dump if tags else '[]' }},`
+- **After**: `"keywords": {{ tags | dump | safe if tags else '[]' }},`
+- **Result**: Pre-commit validation passes (0 errors, 4 warnings)
+
+**6. Blog Post Consolidation:**
+- Moved 2 older posts from `src/posts/` to `src/blog/posts/`:
+  - `2025-08-15-plainwell-expungement-fair.md`
+  - `2025-10-04-gun-lake-expungement-fair.md`
+- Removed empty `src/posts/` directory
+- Git automatically tracked as rename operations (preserving file history)
+
+**7. Gitignore Updates** (`.gitignore` lines 19-22):
+- **Problem**: Global `*.md` rule blocking all Markdown files including blog posts
+- **Fix**: Added exceptions for critical files:
+  - `!AI_CONTEXT.md` - AI documentation
+  - `!QUICK_START.md` - Quick reference guide
+  - `!src/blog/posts/*.md` - Blog posts in new location
+- **Result**: Blog posts and documentation now properly tracked in git
+
+**Files Created:**
+- `src/blog/posts/2025-11-11-cdam-michigan-defense-strategies.md` - Production blog post
+- `AI_CONTEXT.md` - Comprehensive technical documentation (1,864 lines)
+- `QUICK_START.md` - 5-minute quick reference guide (227 lines)
+
+**Files Modified:**
+- `.eleventy.js` - Fixed collections glob pattern (lines 47, 54)
+- `src/_includes/layouts/blog-post.njk` - Added `| safe` filter to keywords (line 45)
+- `.gitignore` - Added Markdown file exceptions (lines 19-22)
+
+**Files Moved:**
+- `src/posts/2025-08-15-plainwell-expungement-fair.md` → `src/blog/posts/`
+- `src/posts/2025-10-04-gun-lake-expungement-fair.md` → `src/blog/posts/`
+
+**Blog Posts Now Live (3 total):**
+1. Inside the 2025 CDAM Conference (Nov 11, 2025) - NEW
+2. Gun Lake Tribe Expungement Fair (Oct 4, 2025)
+3. Plainwell Expungement Fair (Aug 15, 2025)
+
+**Deployment:**
+- Committed to `blog-system-eleventy` branch
+- Merged to `main` branch (fast-forward merge)
+- Pushed to `origin/main` (triggers Cloudflare Pages auto-deploy)
+- Build command: `npm run build:cloudflare`
+- Live URL: https://www.sorinpyle.com/blog.html
+
+**Technical Notes:**
+- Pre-commit validation: 0 errors, 4 warnings (meta description length - non-blocking)
+- Build output: 57 files written to dist/
+- All blog posts use BlogPosting schema (Google Rich Results eligible)
+- RSS feed auto-updates with new posts: https://www.sorinpyle.com/feed.xml
+
+**Documentation Impact:**
+- Future AI agents now have complete blog system context
+- QUICK_START.md provides fast 5-minute onboarding
+- Blog authoring workflow documented with examples
+- SEO best practices codified for future posts
+- Troubleshooting section covers common issues (glob patterns, schema validation)
+
+**Status:** ✅ Complete - Comprehensive blog documentation + first production post deployed live
+
+---
+
 ### November 24, 2025 - Business Hours Update (24/7 Phone Availability Only)
 
 **Type:** Google Business Profile Optimization
