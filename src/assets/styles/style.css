@@ -1057,9 +1057,7 @@ textarea.form_field {
         gap: var(--spacing-sm);
     }
 
-    .card_practice-area-enhanced {
-        padding: var(--spacing-lg) var(--spacing-md);
-    }
+    /* Card padding handled in style-core.css mobile breakpoint - removed here to avoid conflicts */
 }
 
 
