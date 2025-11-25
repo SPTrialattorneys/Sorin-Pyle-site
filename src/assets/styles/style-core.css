@@ -930,10 +930,12 @@ textarea.form_field {
     color: var(--text-secondary);
     font-style: italic;
     margin-bottom: var(--spacing-md);
-    text-align: center;
-    /* Add horizontal padding for intro paragraph (no visual container) */
+    /* Orange left border accent to match other sections */
+    border-left: 4px solid var(--accent-orange);
     padding-left: var(--spacing-md);
     padding-right: var(--spacing-md);
+    padding-top: var(--spacing-sm);
+    padding-bottom: var(--spacing-sm);
 }
 
 .charges-grid {
