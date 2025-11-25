@@ -8,21 +8,21 @@ eleventyExcludeFromCollections: true
   <subtitle>{{ site.description }} - Legal blog covering criminal defense insights, community involvement, and pro bono work in West Michigan.</subtitle>
   <link href="{{ site.url }}/feed.xml" rel="self"/>
   <link href="{{ site.url }}/"/>
-  <updated>{{ collections.posts | getNewestCollectionItemDate | dateToRfc3339 }}</updated>
+  <updated>{{ collections.posts[0].date.toISOString() }}</updated>
   <id>{{ site.url }}/blog.html</id>
   <author>
     <name>{{ site.title }}</name>
     <email>{{ site.email }}</email>
   </author>
-  {%- for post in collections.posts | slice(0, 15) %}
+  {%- for post in collections.posts %}
   <entry>
-    <title>{{ post.data.title }}</title>
+    <title>{{ post.data.title | escape }}</title>
     <link href="{{ site.url }}{{ post.url }}"/>
-    <updated>{{ post.date | dateToRfc3339 }}</updated>
+    <updated>{{ post.date.toISOString() }}</updated>
     <id>{{ site.url }}{{ post.url }}</id>
-    <content type="html">{{ post.templateContent | htmlToAbsoluteUrls(site.url) }}</content>
+    <content type="html"><![CDATA[{{ post.templateContent }}]]></content>
     {% if post.data.description %}
-    <summary>{{ post.data.description }}</summary>
+    <summary>{{ post.data.description | escape }}</summary>
     {% endif %}
     {% if authors[post.data.author] %}
     <author>
