@@ -736,6 +736,59 @@ utilities/
 
 ---
 
+#### HIGH-005 Extension: All Client Resources Pages Breadcrumbs - ✅ RESOLVED
+
+**Problem:** After fixing blog.njk breadcrumb, user identified same issue existed on all 3 other Client Resources pages:
+- **faq.njk**: `Home › Client Resources (→/faq.html) › FAQ` (circular reference!)
+- **your-rights.njk**: `Home › Client Resources (→/faq.html) › Know Your Rights`
+- **community-resources.njk**: `Home › Client Resources (→/faq.html) › Community Resources`
+
+**Issues Identified:**
+- FAQ page linked to itself as parent (circular reference)
+- False hierarchy - these are sibling pages under dropdown menu, not parent-child relationships
+- All pages incorrectly linked to /faq.html as intermediate level
+- Inconsistent with blog.njk fix (already simplified to 2-level)
+
+**Resolution Applied:**
+Simplified all 3 remaining pages from 3-level to 2-level breadcrumbs:
+```html
+<!-- BEFORE (3-level with false hierarchy) -->
+Home › Client Resources (→/faq.html) › [Page Name]
+
+<!-- AFTER (2-level, accurate) -->
+Home › [Page Name]
+```
+
+**New Breadcrumbs:**
+- **faq.njk**: `Home › FAQ`
+- **your-rights.njk**: `Home › Know Your Rights`
+- **community-resources.njk**: `Home › Community Resources`
+- **blog.njk**: `Home › Firm News` (already fixed earlier)
+
+**Files Modified:**
+- src/pages/faq.njk (lines 95-103)
+- src/pages/your-rights.njk (lines 42-50)
+- src/pages/community-resources.njk (lines 14-22)
+
+**Rationale:**
+- Matches actual navigation hierarchy (these are top-level pages under dropdown menu)
+- Consistent breadcrumb pattern across all 4 sibling pages
+- Google prefers shallow breadcrumb hierarchies for SEO
+- Eliminates circular reference and false parent-child relationships
+
+**Validation:**
+- Pre-commit checks: ✅ 0 errors, 17 warnings (non-blocking)
+- Schema validation: ✅ 108 schemas validated successfully
+- Deployed to production (commit ccce11c)
+
+**Site Health Improvement:**
+- Overall Score: 91/100 → 92/100 (+1 point)
+- ALL 5 HIGH priority issues now resolved (100% complete)
+
+**Impact:** Consistent, accurate breadcrumb navigation across all Client Resources pages, improved SEO, eliminated circular reference
+
+---
+
 ### November 25, 2025 - Blog Post: Three Acquittals, One Week (Production Deployment)
 
 **Type:** Content Publishing - Blog Post with Image Optimization
