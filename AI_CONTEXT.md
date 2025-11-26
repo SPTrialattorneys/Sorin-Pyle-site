@@ -302,6 +302,17 @@ sorin-pyle-site-html/
 │   └── static/               # Static assets (copied as-is)
 ├── images/                   # Image assets (copied to dist/)
 ├── fonts/                    # Web fonts (copied to dist/)
+├── utilities/                # Development tools and scripts
+│   ├── README.md             # Comprehensive utilities documentation
+│   ├── docs/                 # Task-focused guides (CSS, Schema, Content, Troubleshooting)
+│   ├── templates/            # Schema markup templates + README
+│   ├── legacy/               # 66 archived Python/Node scripts (reference only)
+│   ├── validate-schema.js    # Schema validation script (pre-commit)
+│   ├── validate-html.js      # HTML validation script (pre-commit)
+│   ├── pre-commit-check.js   # Pre-commit hook runner
+│   ├── extract-critical-css.mjs # Critical CSS extraction (local only)
+│   ├── process-images.mjs    # Image optimization with Sharp
+│   └── generate-schema.js    # Schema template generator
 └── dist/                     # ⛔ BUILD OUTPUT (NEVER EDIT)
     ├── (all .html files)     # Built from src/pages/*.njk
     ├── locations/            # Built location pages

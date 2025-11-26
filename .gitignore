@@ -23,10 +23,13 @@
 
 # Utility scripts (development tools)
 utilities/
+!utilities/README.md
 !utilities/docs/*.md
 !utilities/validate-schema.js
+!utilities/validate-html.js
 !utilities/pre-commit-check.js
 !utilities/extract-critical-css.mjs
+!utilities/process-images.mjs
 !utilities/generate-schema.js
 !utilities/templates/
 

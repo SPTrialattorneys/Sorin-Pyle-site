@@ -207,9 +207,6 @@ module.exports = function(eleventyConfig) {
     markdownTemplateEngine: "njk",
 
     // Performance: Use more efficient template compiler
-    pathPrefix: "/",
-
-    // Performance: Enable incremental builds
-    markdownTemplateEngine: "njk"
+    pathPrefix: "/"
   };
 };
