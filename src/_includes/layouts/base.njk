@@ -37,6 +37,10 @@
     {# Favicon #}
     <link rel="icon" type="image/svg+xml" href="/images/logo-icon.svg">
 
+    {# Preconnect to external domains for faster resource loading #}
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="preconnect" href="https://www.google-analytics.com">
+
     {# Critical CSS - Inlined for above-the-fold rendering #}
     {% if criticalCSSFile %}
     <style>
