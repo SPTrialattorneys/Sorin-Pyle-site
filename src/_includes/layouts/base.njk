@@ -37,9 +37,16 @@
     {# Favicon #}
     <link rel="icon" type="image/svg+xml" href="/images/logo-icon.svg">
 
-    {# Preconnect to external domains for faster resource loading #}
-    <link rel="preconnect" href="https://www.googletagmanager.com">
-    <link rel="preconnect" href="https://www.google-analytics.com">
+    {# DNS prefetch for early DNS resolution (50-300ms savings on slow connections) #}
+    <link rel="dns-prefetch" href="//www.googletagmanager.com">
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+    <link rel="dns-prefetch" href="//www.gstatic.com">
+    <link rel="dns-prefetch" href="//static.cloudflareinsights.com">
+    <link rel="dns-prefetch" href="//analytics.google.com">
+
+    {# Preconnect to external domains for faster resource loading (DNS + TCP + TLS) #}
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+    <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
 
     {# Critical CSS - Inlined for above-the-fold rendering #}
     {% if criticalCSSFile %}
