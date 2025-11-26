@@ -877,6 +877,57 @@ textarea.form_field {
     margin-bottom: var(--spacing-xs);
 }
 
+/* Practice area list links - black text with prominent blue arrow */
+.practice-area-list a {
+    color: var(--text-color); /* Black like other list items */
+    font-weight: 400; /* Match non-link weight */
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.practice-area-list a::after {
+    content: ' →';
+    color: var(--primary-blue); /* Blue arrow for affordance */
+    font-size: 1em; /* Slightly larger */
+    margin-left: 0.5rem; /* More spacing */
+    opacity: 0.8; /* More visible by default */
+    transition: all 0.3s ease;
+}
+
+.practice-area-list a:hover {
+    color: var(--primary-blue); /* Text turns blue on hover */
+}
+
+.practice-area-list a:hover::after {
+    opacity: 1;
+    transform: translateX(4px); /* Slides further right */
+}
+
+/* Practice area heading links - inherit heading color with prominent blue arrow */
+.card_practice-area h3 a {
+    color: inherit; /* Inherit blue from h3 */
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.card_practice-area h3 a::after {
+    content: ' →';
+    color: var(--primary-blue); /* Blue arrow */
+    font-size: 0.9em; /* Slightly larger */
+    margin-left: 0.5rem; /* More spacing */
+    opacity: 0.8; /* More visible */
+    transition: all 0.3s ease;
+}
+
+.card_practice-area h3 a:hover {
+    color: var(--primary-blue-dark);
+}
+
+.card_practice-area h3 a:hover::after {
+    opacity: 1;
+    transform: translateX(4px);
+}
+
 /* Enhanced Practice Area Cards */
 .grid_2-col.practice-areas-grid {
     gap: var(--spacing-lg);
@@ -995,6 +1046,32 @@ textarea.form_field {
     border-bottom: none;
 }
 
+/* Charge list links - black text with prominent blue arrow */
+.charge-list a {
+    color: var(--text-color); /* Black like other list items */
+    font-weight: 400; /* Match non-link weight */
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.charge-list a::after {
+    content: ' →';
+    color: var(--primary-blue); /* Blue arrow for affordance */
+    font-size: 1em; /* Slightly larger */
+    margin-left: 0.5rem; /* More spacing */
+    opacity: 0.8; /* More visible by default */
+    transition: all 0.3s ease;
+}
+
+.charge-list a:hover {
+    color: var(--primary-blue); /* Text turns blue on hover */
+}
+
+.charge-list a:hover::after {
+    opacity: 1;
+    transform: translateX(4px); /* Slides further right */
+}
+
 /* Practice areas services list - scope to card context to override general .services-list */
 .card_practice-area-enhanced .services-list {
     display: grid;
@@ -1024,6 +1101,31 @@ textarea.form_field {
     font-size: 1.15rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
+}
+
+/* Service item heading links - blue with prominent arrow for clickability */
+.service-item h4 a {
+    color: var(--primary-blue);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.service-item h4 a::after {
+    content: ' →';
+    color: var(--primary-blue); /* Blue arrow */
+    font-size: 0.9em; /* Slightly larger */
+    margin-left: 0.5rem; /* More spacing */
+    opacity: 0.8; /* More visible by default */
+    transition: all 0.3s ease;
+}
+
+.service-item h4 a:hover {
+    color: var(--primary-blue-dark);
+}
+
+.service-item h4 a:hover::after {
+    opacity: 1;
+    transform: translateX(4px); /* Slides further right */
 }
 
 .service-item p {
