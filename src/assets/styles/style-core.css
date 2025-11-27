@@ -404,6 +404,14 @@ button.navbar_dropdown-toggle {
   line-height: 1.8; /* Increased from 1.7 for slight improvement */
 }
 
+.footer_schedule-note {
+  display: block;
+  font-size: 0.9rem;
+  margin-top: 0.75rem;
+  opacity: 0.85;
+  font-style: italic;
+}
+
 /* Footer Column Heading Underlines */
 .footer_component h3 {
   position: relative;
