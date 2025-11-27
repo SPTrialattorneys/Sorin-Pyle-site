@@ -15,12 +15,22 @@
                 </p>
             </div>
 
-            {# Column 2: Hours #}
+            {# Column 2: Service Areas #}
             <div class="footer_column">
-                <h3>Hours</h3>
-                <p>
-                    {{ site.hours.phone }}
-                </p>
+                <h3>Service Areas</h3>
+                <ul class="footer_list">
+                    {% for item in navigation.footer.locations %}
+                        <li>
+                            <a href="{{ item.url }}"
+                               class="track-click"
+                               data-event-category="navigation"
+                               data-event-label="footer_service_areas"
+                               data-event-action="{{ item.text | slugify }}">
+                                {{ item.text }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
             </div>
 
             {# Column 3: Practice Areas #}
