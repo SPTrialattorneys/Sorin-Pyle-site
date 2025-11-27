@@ -6,7 +6,12 @@ aiSummary: "Firm news and updates from Sorin & Pyle criminal defense attorneys i
 expertise: "criminal defense news, pro bono legal services, expungement clinics, community involvement, legal updates"
 jurisdiction: "Michigan, Ottawa County, Kent County, Allegan County"
 ogImage: "https://www.sorinpyle.com/images/sorin-panainte-gun-lake-tribe-expungement-fair.avif"
-permalink: /blog.html
+pagination:
+  data: collections.posts
+  size: 10
+  alias: paginatedPosts
+  reverse: true
+permalink: "blog{% if pagination.pageNumber > 0 %}/page-{{ pagination.pageNumber + 1 }}{% endif %}.html"
 ---
 
 <section class="section">
@@ -23,19 +28,20 @@ permalink: /blog.html
         <h1 class="text-align-center margin-bottom-md">Firm News & Updates</h1>
         <p class="text-align-center sub-headline margin-bottom-lg">Stay informed about Sorin & Pyle community involvement, pro bono work, and legal updates.</p>
 
-        {# Category Filter #}
-        <div class="blog-category-filter margin-bottom-lg text-align-center" style="display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;">
+        {# Category Filter - filters current page only #}
+        <div class="blog-category-filter margin-bottom-sm text-align-center" style="display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;">
             <button class="category-filter-btn active" data-category="all" style="padding: 0.5rem 1rem; border: 2px solid var(--primary-blue); background: var(--primary-blue); color: white; border-radius: 20px; cursor: pointer; font-weight: 500;">All</button>
             <button class="category-filter-btn" data-category="community" style="padding: 0.5rem 1rem; border: 2px solid #28a745; background: transparent; color: #28a745; border-radius: 20px; cursor: pointer; font-weight: 500;">Community</button>
             <button class="category-filter-btn" data-category="legal" style="padding: 0.5rem 1rem; border: 2px solid var(--primary-blue); background: transparent; color: var(--primary-blue); border-radius: 20px; cursor: pointer; font-weight: 500;">Legal</button>
             <button class="category-filter-btn" data-category="michigan" style="padding: 0.5rem 1rem; border: 2px solid #6f42c1; background: transparent; color: #6f42c1; border-radius: 20px; cursor: pointer; font-weight: 500;">Michigan Law</button>
             <button class="category-filter-btn" data-category="case" style="padding: 0.5rem 1rem; border: 2px solid #fd7e14; background: transparent; color: #fd7e14; border-radius: 20px; cursor: pointer; font-weight: 500;">Case Analysis</button>
         </div>
+        <p class="text-align-center margin-bottom-lg" style="font-size: 0.85rem; color: #666;">Showing {{ paginatedPosts.length }} {% if paginatedPosts.length == 1 %}post{% else %}posts{% endif %} on this page</p>
 
         {# Blog Posts Grid #}
-        {% if collections.posts.length > 0 %}
+        {% if paginatedPosts.length > 0 %}
         <div class="blog-grid">
-            {% for post in collections.posts %}
+            {% for post in paginatedPosts %}
             <a href="{{ post.url }}" class="blog-card" data-category="{{ post.data.category | lower }}">
                 {% if post.data.featuredImage %}
                 <picture>
@@ -82,6 +88,53 @@ permalink: /blog.html
             <div class="text-align-center margin-top-xl margin-bottom-xl">
                 <p style="font-size: 1.2rem; color: #666;">No posts yet. Check back soon for updates!</p>
             </div>
+        {% endif %}
+
+        {# Pagination Navigation #}
+        {% if pagination.hrefs.length > 1 %}
+        <nav aria-label="Blog pagination" class="pagination-nav margin-top-xl margin-bottom-lg">
+            <div class="pagination-container">
+                {# Previous Page Link #}
+                {% if pagination.href.previous %}
+                <a href="{{ pagination.href.previous }}" class="pagination-link pagination-prev" rel="prev">
+                    ← Previous
+                </a>
+                {% else %}
+                <span class="pagination-link pagination-prev pagination-disabled">
+                    ← Previous
+                </span>
+                {% endif %}
+
+                {# Page Numbers #}
+                <div class="pagination-pages">
+                    {% for pageHref in pagination.hrefs %}
+                    {% if loop.index0 == pagination.pageNumber %}
+                    <span class="pagination-link pagination-current" aria-current="page">{{ loop.index }}</span>
+                    {% else %}
+                    <a href="{{ pageHref }}" class="pagination-link">{{ loop.index }}</a>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+
+                {# Next Page Link #}
+                {% if pagination.href.next %}
+                <a href="{{ pagination.href.next }}" class="pagination-link pagination-next" rel="next">
+                    Next →
+                </a>
+                {% else %}
+                <span class="pagination-link pagination-next pagination-disabled">
+                    Next →
+                </span>
+                {% endif %}
+            </div>
+
+            {# Page Info #}
+            <p class="pagination-info text-align-center margin-top-sm" style="font-size: 0.9rem; color: #666;">
+                Page {{ pagination.pageNumber + 1 }} of {{ pagination.hrefs.length }}
+                <span style="margin: 0 0.5rem;">•</span>
+                {{ collections.posts.length }} total {% if collections.posts.length == 1 %}post{% else %}posts{% endif %}
+            </p>
+        </nav>
         {% endif %}
 
         <!-- CTA Section -->
