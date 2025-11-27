@@ -534,6 +534,30 @@ npm run validate:all          # Validate schema + HTML together
 
 ## Recent Changes Log
 
+### November 27, 2025 - FAQ Accordion Spacing Fix
+
+**Type:** UI/UX Fix - Visual Consistency
+**Goal:** Fix inconsistent + symbol spacing on main FAQ page accordion
+**Impact:** Consistent spacing across all FAQ accordions site-wide
+**Time Investment:** 5 minutes
+
+**Problem Identified:**
+- Main FAQ page had + symbols flush against right edge (right: 0)
+- Domestic Violence FAQ page had proper spacing (right: 1.5rem)
+- Visual inconsistency between pages
+
+**Solution Implemented:**
+- Updated `.faq_question::after` in [style-faq.css:44](src/assets/styles/style-faq.css#L44)
+- Changed `right: 0` to `right: 1.5rem`
+- Now matches spacing on all other FAQ sections
+
+**Files Modified:**
+- [src/assets/styles/style-faq.css](src/assets/styles/style-faq.css) - Line 44
+
+**Result:** ✅ All FAQ accordions now have consistent 1.5rem right padding on + symbols
+
+---
+
 ### November 26, 2025 - LOW Priority Cleanup: Blog Order Fix + Documentation + Code Quality
 
 **Type:** Bug Fix + Documentation + Code Quality - Final Cleanup Tasks
