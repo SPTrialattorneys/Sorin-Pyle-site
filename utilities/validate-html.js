@@ -106,6 +106,7 @@ function checkInternalLinks(htmlFile, root) {
     if (
       link.startsWith('http://') ||
       link.startsWith('https://') ||
+      link.startsWith('//') ||        // Protocol-relative URLs (e.g., //cdn.example.com)
       link.startsWith('mailto:') ||
       link.startsWith('tel:') ||
       link.startsWith('javascript:') ||

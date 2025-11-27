@@ -534,6 +534,53 @@ npm run validate:all          # Validate schema + HTML together
 
 ## Recent Changes Log
 
+### November 27, 2025 - HTML Validator Fix: Protocol-Relative URL False Positives
+
+**Type:** Bug Fix - Development Tools
+**Goal:** Eliminate false positive errors for protocol-relative URLs in HTML validation
+**Impact:** Pre-commit hooks now pass without `--no-verify`, cleaner validation output
+**Time Investment:** 15 minutes
+
+**Problem Identified:**
+- HTML validator flagged dns-prefetch links as broken (e.g., `//www.googletagmanager.com`)
+- 290 false positive errors across all pages (5 per page × 58 pages)
+- Required using `git commit --no-verify` to bypass pre-commit checks
+- Root cause: Validator didn't recognize `//` as external URL prefix
+
+**Solution Implemented:**
+- Added protocol-relative URL check to external link skip logic
+- Updated [utilities/validate-html.js:109](utilities/validate-html.js#L109)
+- Added `link.startsWith('//')` to the external URL filter
+
+**Technical Details:**
+```javascript
+// BEFORE: Protocol-relative URLs treated as relative file paths
+if (
+  link.startsWith('http://') ||
+  link.startsWith('https://') ||
+  // ... other checks
+)
+
+// AFTER: Protocol-relative URLs properly skipped
+if (
+  link.startsWith('http://') ||
+  link.startsWith('https://') ||
+  link.startsWith('//') ||        // ← Added this line
+  // ... other checks
+)
+```
+
+**Files Modified:**
+- [utilities/validate-html.js](utilities/validate-html.js) - Line 109
+
+**Result:**
+- ✅ 0 errors (down from 290 false positives)
+- ✅ 17 warnings (meta description length only - non-blocking)
+- ✅ Pre-commit hooks pass without `--no-verify`
+- ✅ Real broken links still detected correctly
+
+---
+
 ### November 27, 2025 - FAQ Accordion Spacing Fix
 
 **Type:** UI/UX Fix - Visual Consistency
