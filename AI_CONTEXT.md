@@ -629,9 +629,18 @@ git push
 
 **Blog Archive Page Features:**
 ```njk
+{# Pagination Configuration (Front Matter) #}
+---
+pagination:
+  data: collections.posts  # Source: all blog posts sorted newest-first
+  size: 10                 # Posts per page
+  alias: paginatedPosts    # Variable name in template
+permalink: "blog{% if pagination.pageNumber > 0 %}/page-{{ pagination.pageNumber + 1 }}{% endif %}.html"
+---
+
 {# Card Grid Layout #}
 <div class="blog-grid">  <!-- 2 columns desktop, 1 column mobile -->
-  {% for post in collections.posts %}
+  {% for post in paginatedPosts %}  <!-- Uses pagination alias, NOT collections.posts -->
     <a href="{{ post.url }}" class="blog-card" data-category="{{ post.data.category | lower }}">
       <picture>
         <img src="{{ post.data.featuredImage }}" alt="{{ post.data.featuredImageAlt }}"
@@ -652,6 +661,50 @@ git push
     </a>
   {% endfor %}
 </div>
+
+{# Pagination Navigation #}
+{% if pagination.hrefs.length > 1 %}
+<nav aria-label="Blog pagination" class="pagination-nav">
+  <div class="pagination-container">
+    {# Previous Page #}
+    {% if pagination.href.previous %}
+    <a href="{{ pagination.href.previous }}" class="pagination-link pagination-prev" rel="prev">← Previous</a>
+    {% endif %}
+
+    {# Page Numbers #}
+    <div class="pagination-pages">
+      {% for pageHref in pagination.hrefs %}
+      {% if loop.index0 == pagination.pageNumber %}
+      <span class="pagination-link pagination-current" aria-current="page">{{ loop.index }}</span>
+      {% else %}
+      <a href="{{ pageHref }}" class="pagination-link">{{ loop.index }}</a>
+      {% endif %}
+      {% endfor %}
+    </div>
+
+    {# Next Page #}
+    {% if pagination.href.next %}
+    <a href="{{ pagination.href.next }}" class="pagination-link pagination-next" rel="next">Next →</a>
+    {% endif %}
+  </div>
+
+  <p class="pagination-info">
+    Page {{ pagination.pageNumber + 1 }} of {{ pagination.hrefs.length }}
+    • {{ collections.posts.length }} total posts
+  </p>
+</nav>
+{% endif %}
+```
+
+**Pagination URL Structure:**
+- Page 1: `/blog.html`
+- Page 2: `/blog/page-2.html`
+- Page 3: `/blog/page-3.html`
+
+**CRITICAL: Avoid Double Reversal Bug**
+- ✅ Collection already sorted newest-first in `.eleventy.js`: `b.date - a.date`
+- ❌ DO NOT add `reverse: true` to pagination config (causes double reversal)
+- ❌ DO NOT use `collections.posts | reverse` in loop (already sorted)
 
 {# Category Filter Buttons #}
 <button class="category-filter-btn active" data-category="all">All</button>
