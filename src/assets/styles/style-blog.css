@@ -157,6 +157,80 @@
 .blog-byline a:hover {
     text-decoration: underline;
 }
+
+/* Blog Category Filter Buttons */
+.blog-category-filter {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.category-filter-btn {
+    padding: 0.5rem 1rem;
+    border: 2px solid;
+    background: transparent;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.category-filter-btn[data-category="all"] {
+    border-color: var(--primary-blue);
+    color: var(--primary-blue);
+}
+
+.category-filter-btn[data-category="all"].active {
+    background: var(--primary-blue);
+    color: white;
+}
+
+.category-filter-btn[data-category="community"] {
+    border-color: #28a745;
+    color: #28a745;
+}
+
+.category-filter-btn[data-category="community"].active {
+    background: #28a745;
+    color: white;
+}
+
+.category-filter-btn[data-category="legal"] {
+    border-color: var(--primary-blue);
+    color: var(--primary-blue);
+}
+
+.category-filter-btn[data-category="legal"].active {
+    background: var(--primary-blue);
+    color: white;
+}
+
+.category-filter-btn[data-category="michigan"] {
+    border-color: #6f42c1;
+    color: #6f42c1;
+}
+
+.category-filter-btn[data-category="michigan"].active {
+    background: #6f42c1;
+    color: white;
+}
+
+.category-filter-btn[data-category="case"] {
+    border-color: #fd7e14;
+    color: #fd7e14;
+}
+
+.category-filter-btn[data-category="case"].active {
+    background: #fd7e14;
+    color: white;
+}
+
+.blog-post-count {
+    font-size: 0.85rem;
+    color: #666;
+}
+
 .blog-image {
     width: 100%;
     max-width: 600px;

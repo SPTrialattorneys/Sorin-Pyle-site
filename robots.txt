@@ -1,6 +1,13 @@
 User-agent: *
 Allow: /
 
+# Disallow static assets (improve crawl efficiency)
+Disallow: /css/
+Disallow: /js/
+Disallow: /fonts/
+Disallow: /*.css$
+Disallow: /*.js$
+
 # AI Crawlers - Explicitly Allow
 User-agent: GPTBot
 Allow: /

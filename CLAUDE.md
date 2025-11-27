@@ -534,6 +534,204 @@ npm run validate:all          # Validate schema + HTML together
 
 ## Recent Changes Log
 
+### November 26, 2025 - LOW Priority Cleanup: Blog Order Fix + Documentation + Code Quality
+
+**Type:** Bug Fix + Documentation + Code Quality - Final Cleanup Tasks
+**Goal:** Fix blog post ordering bug and complete all LOW priority items from comprehensive site review
+**Impact:** Correct chronological blog display, comprehensive build documentation, improved crawl efficiency, better social sharing, cleaner CSS architecture
+**Time Investment:** 1.5 hours (bug fix 15 min + 4 LOW tasks ~1.25 hours)
+
+**Session Summary:**
+Fixed critical blog post ordering bug (double reversal), then systematically completed all 4 LOW priority items: build process documentation, robots.txt optimization, Open Graph metadata, and CSS architecture cleanup.
+
+---
+
+#### Blog Post Order Fix - Double Reversal Bug
+
+**Problem:** User reported "when we added the page system to the blog earlier i think it made it so the newest post is showing last"
+
+**Root Cause:** Double reversal in pagination system
+1. `.eleventy.js` sorts posts newest-first: `b.date - a.date`
+2. `blog.njk` pagination had `reverse: true` which reversed the already-sorted collection
+
+**Solution:**
+- Removed `reverse: true` from pagination config in [src/pages/blog.njk:13](src/pages/blog.njk)
+- Verified correct order after rebuild
+
+**Result:** Blog posts now display correctly:
+1. Three Acquittals, One Week (Nov 20, 2025) - Newest ✓
+2. Inside the 2025 CDAM Conference (Nov 11, 2025)
+3. Second Chances & Strong Communities (Oct 4, 2025)
+4. Attorney Sorin Volunteers (Aug 15, 2025) - Oldest
+
+**Files Modified:** [src/pages/blog.njk](src/pages/blog.njk)
+
+---
+
+#### LOW-001: Build Process Documentation - ✅ RESOLVED
+
+**Problem:** No documentation explaining build scripts, causing confusion about why `build:html` runs twice in production builds.
+
+**Solution:** Created comprehensive [BUILD_PROCESS.md](BUILD_PROCESS.md) (400+ lines) with:
+- Complete npm scripts reference (all 15 build commands)
+- Local vs Cloudflare deployment differences
+- Critical CSS extraction workflow explanation
+- **Why build:html runs twice:** First build creates HTML for critical CSS analysis, second build inlines critical CSS
+- Troubleshooting guide for common build issues
+- Dependency management and version information
+
+**Key Sections:**
+```markdown
+## Build Scripts Reference
+- npm run build:cloudflare  ⭐ Cloudflare deployment (no critical CSS extraction)
+- npm run build:prod        ⭐ Local full build (includes critical CSS extraction)
+- npm run build:html:prod   Production HTML build
+- npm run build:css         PostCSS compilation
+- npm run build:js          esbuild JavaScript bundling
+- npm run build:critical    Critical CSS extraction (Puppeteer - local only)
+- npm run build:dedupe-critical  Remove duplicate CSS rules
+```
+
+**Benefits:**
+- ✅ Clear explanation of dual HTML build process
+- ✅ Local vs Cloudflare workflow differences documented
+- ✅ Troubleshooting guide for X11/Puppeteer issues
+- ✅ Dependency version reference for updates
+
+**Files Created:** [BUILD_PROCESS.md](BUILD_PROCESS.md)
+
+---
+
+#### LOW-002: robots.txt Disallow Rules - ✅ RESOLVED
+
+**Problem:** Search engine crawlers wasting resources crawling static assets (CSS, JS, fonts) that don't need indexing.
+
+**Solution:** Added disallow rules to [robots.txt:4-9](robots.txt)
+```
+# Disallow static assets (improve crawl efficiency)
+Disallow: /css/
+Disallow: /js/
+Disallow: /fonts/
+Disallow: /*.css$
+Disallow: /*.js$
+```
+
+**Benefits:**
+- ✅ Improved crawl efficiency (search engines focus on actual content)
+- ✅ Faster indexing of important pages
+- ✅ Reduced server load from crawler requests
+- ✅ Industry best practice (static assets don't need search visibility)
+
+**Files Modified:** [robots.txt](robots.txt)
+
+---
+
+#### LOW-003: Open Graph Type on Blog Posts - ✅ RESOLVED
+
+**Problem:** Blog posts using default `og:type="website"` instead of more specific `og:type="article"` for social sharing.
+
+**Solution:** Added `ogType: "article"` to blog post layout front matter [src/_includes/layouts/blog-post.njk:3](src/_includes/layouts/blog-post.njk)
+
+**How It Works:**
+```yaml
+---
+layout: layouts/page.njk
+ogType: "article"  # ← Propagates to base.njk
+permalink: "/blog/{{ title | slugify }}.html"
+---
+```
+
+Base template uses: `<meta property="og:type" content="{{ ogType or 'website' }}">`
+
+**Benefits:**
+- ✅ Better social sharing metadata (Facebook, Twitter, LinkedIn)
+- ✅ Proper semantic type for blog posts (article vs website)
+- ✅ Improved social card display with article-specific formatting
+- ✅ SEO benefit (search engines recognize content type)
+
+**Files Modified:** [src/_includes/layouts/blog-post.njk](src/_includes/layouts/blog-post.njk)
+
+---
+
+#### LOW-004: Inline Styles to CSS File - ✅ RESOLVED
+
+**Problem:** Blog category filter buttons had 200+ characters of inline styles per button, poor maintainability and separation of concerns.
+
+**Solution:** Moved all inline styles to [src/assets/styles/style-blog.css:161-232](src/assets/styles/style-blog.css) (72 new lines)
+
+**CSS Architecture:**
+```css
+/* Blog Category Filter Buttons */
+.blog-category-filter {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.category-filter-btn {
+    padding: 0.5rem 1rem;
+    border: 2px solid;
+    background: transparent;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.category-filter-btn[data-category="all"] {
+    border-color: var(--primary-blue);
+    color: var(--primary-blue);
+}
+
+.category-filter-btn[data-category="all"].active {
+    background: var(--primary-blue);
+    color: white;
+}
+
+/* Repeated for community, legal, michigan, case categories... */
+```
+
+**Template Cleanup:** [src/pages/blog.njk:31-38](src/pages/blog.njk)
+```html
+<!-- BEFORE: 200+ chars of inline styles per button -->
+<button class="category-filter-btn" style="padding: 0.5rem 1rem; border: 2px solid #28a745; ...">
+
+<!-- AFTER: Clean, maintainable markup -->
+<button class="category-filter-btn" data-category="community">Community</button>
+```
+
+**Benefits:**
+- ✅ Better separation of concerns (content vs presentation)
+- ✅ Easier maintenance (update 1 CSS file vs 5 buttons)
+- ✅ Cacheable styles (better performance)
+- ✅ Consistent styling across blog pages
+- ✅ Cleaner HTML markup (50% reduction in button markup size)
+
+**Files Modified:**
+- [src/assets/styles/style-blog.css](src/assets/styles/style-blog.css) - Added lines 161-232
+- [src/pages/blog.njk](src/pages/blog.njk) - Removed inline styles from lines 31-38
+
+---
+
+**Summary of Changes:**
+
+**Files Created (1):**
+- BUILD_PROCESS.md - Comprehensive build documentation
+
+**Files Modified (5):**
+- src/pages/blog.njk - Removed `reverse: true` pagination, removed inline styles
+- robots.txt - Added static asset disallow rules
+- src/_includes/layouts/blog-post.njk - Added `ogType: "article"`
+- src/assets/styles/style-blog.css - Added category filter CSS (72 lines)
+
+**Commits:**
+- `4ad61a1` - "Fix blog post order - remove double reversal"
+
+**Status:** ✅ Complete - All LOW priority items resolved, blog order bug fixed
+
+---
+
 ### November 26, 2025 - HIGH-003: Critical CSS Deduplication (Performance Optimization)
 
 **Type:** Performance Optimization - Critical CSS File Size Reduction

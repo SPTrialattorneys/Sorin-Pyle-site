@@ -28,14 +28,14 @@ permalink: "blog{% if pagination.pageNumber > 0 %}/page-{{ pagination.pageNumber
         <p class="text-align-center sub-headline margin-bottom-lg">Stay informed about Sorin & Pyle community involvement, pro bono work, and legal updates.</p>
 
         {# Category Filter - filters current page only #}
-        <div class="blog-category-filter margin-bottom-sm text-align-center" style="display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;">
-            <button class="category-filter-btn active" data-category="all" style="padding: 0.5rem 1rem; border: 2px solid var(--primary-blue); background: var(--primary-blue); color: white; border-radius: 20px; cursor: pointer; font-weight: 500;">All</button>
-            <button class="category-filter-btn" data-category="community" style="padding: 0.5rem 1rem; border: 2px solid #28a745; background: transparent; color: #28a745; border-radius: 20px; cursor: pointer; font-weight: 500;">Community</button>
-            <button class="category-filter-btn" data-category="legal" style="padding: 0.5rem 1rem; border: 2px solid var(--primary-blue); background: transparent; color: var(--primary-blue); border-radius: 20px; cursor: pointer; font-weight: 500;">Legal</button>
-            <button class="category-filter-btn" data-category="michigan" style="padding: 0.5rem 1rem; border: 2px solid #6f42c1; background: transparent; color: #6f42c1; border-radius: 20px; cursor: pointer; font-weight: 500;">Michigan Law</button>
-            <button class="category-filter-btn" data-category="case" style="padding: 0.5rem 1rem; border: 2px solid #fd7e14; background: transparent; color: #fd7e14; border-radius: 20px; cursor: pointer; font-weight: 500;">Case Analysis</button>
+        <div class="blog-category-filter margin-bottom-sm text-align-center">
+            <button class="category-filter-btn active" data-category="all">All</button>
+            <button class="category-filter-btn" data-category="community">Community</button>
+            <button class="category-filter-btn" data-category="legal">Legal</button>
+            <button class="category-filter-btn" data-category="michigan">Michigan Law</button>
+            <button class="category-filter-btn" data-category="case">Case Analysis</button>
         </div>
-        <p class="text-align-center margin-bottom-lg" style="font-size: 0.85rem; color: #666;">Showing {{ paginatedPosts.length }} {% if paginatedPosts.length == 1 %}post{% else %}posts{% endif %} on this page</p>
+        <p class="blog-post-count text-align-center margin-bottom-lg">Showing {{ paginatedPosts.length }} {% if paginatedPosts.length == 1 %}post{% else %}posts{% endif %} on this page</p>
 
         {# Blog Posts Grid #}
         {% if paginatedPosts.length > 0 %}
