@@ -1,6 +1,6 @@
 # Quick Start - Sorin & Pyle Website
 
-**⏱️ 5-minute read** | For full documentation, see [AI_CONTEXT.md](AI_CONTEXT.md) and [CLAUDE.md](CLAUDE.md)
+**⏱️ 5-minute read** | Full docs: [AI_CONTEXT.md](AI_CONTEXT.md) • [CLAUDE.md](CLAUDE.md) • [BUILD_PROCESS.md](BUILD_PROCESS.md)
 
 ---
 
@@ -11,7 +11,8 @@
 npm run dev                    # http://localhost:8080
 
 # Production build (use this for deployment)
-npm run build:cloudflare       # Full build with critical CSS extraction
+npm run build:cloudflare       # Full automated build (CSS → HTML → JS)
+                                # Note: Critical CSS extraction runs LOCALLY only
 
 # Individual steps (for troubleshooting)
 npm run build:css              # Build CSS from src/assets/styles/
@@ -54,14 +55,17 @@ src/_data/critical-*.css     → Critical CSS (auto-extracted)
 - **Don't manually edit** `src/_data/critical-*.css`
 
 ### **3. Build Order Matters**
-For CSS changes to appear:
+For above-the-fold CSS changes (critical CSS):
 ```bash
 npm run build:css              # 1. Build main CSS
 npm run build:html:prod        # 2. Build HTML to dist/
-npm run build:critical         # 3. Extract critical CSS
-npm run build:html:prod        # 4. Rebuild HTML with new critical CSS
+npm run build:critical         # 3. Extract critical CSS (LOCAL ONLY)
+npm run build:dedupe-critical  # 4. Remove duplicate CSS rules
+npm run build:html:prod        # 5. Rebuild HTML with new critical CSS
 ```
-Or use `npm run build:cloudflare` (does all 4 steps automatically)
+Or use `npm run build:prod` (includes critical CSS extraction, local only)
+
+**Note:** `npm run build:cloudflare` does NOT extract critical CSS (Puppeteer unavailable). Use locally extracted critical CSS (committed to git).
 
 ---
 
@@ -84,13 +88,15 @@ npm run build:html:prod
 # 1. Edit main CSS only
 src/assets/styles/style-core.css
 
-# 2. Run full build (extracts critical CSS automatically)
-npm run build:cloudflare
+# 2. Run local build with critical CSS extraction
+npm run build:prod
 
 # 3. Commit both main CSS and auto-generated critical CSS
 git add src/assets/styles/style-core.css src/_data/critical-*.css
 git commit -m "Update styling"
 git push
+
+# Cloudflare auto-deploys using committed critical CSS files
 ```
 
 ### **Fix a Typo on a Page**
@@ -173,8 +179,9 @@ sorin-pyle-site-html/
 
 ### **Issue: CSS changes not showing up**
 ```bash
-# Solution: Run full build (ensures critical CSS extracted)
-npm run build:cloudflare
+# Solution: Run local build with critical CSS extraction
+npm run build:prod  # Extracts critical CSS from dist/ folder
+# Then commit and push critical CSS files to deploy
 ```
 
 ### **Issue: "Cannot find dist/ directory"**
@@ -210,6 +217,7 @@ Cmd + Shift + R   (Mac)
 
 - **Full Documentation:** [AI_CONTEXT.md](AI_CONTEXT.md) (~16,000 words)
 - **Project Instructions:** [CLAUDE.md](CLAUDE.md) (critical systems + recent changes)
+- **Build System Guide:** [BUILD_PROCESS.md](BUILD_PROCESS.md) (all npm scripts explained)
 - **Schema Guide:** See AI_CONTEXT.md Section 5.3 (Schema Markup)
 - **Troubleshooting:** See AI_CONTEXT.md Section 10 (Common Issues)
 
@@ -218,10 +226,10 @@ Cmd + Shift + R   (Mac)
 ## 🎯 Key Takeaways
 
 1. **Edit `.njk` files**, never `.html` files in `dist/`
-2. **Update CSS once**, critical CSS auto-extracts
-3. **Build twice for CSS changes**: CSS → HTML → Critical → HTML
-4. **Use `npm run build:cloudflare`** for complete production build
-5. **Push to GitHub** triggers automatic deployment
+2. **Update CSS once**, critical CSS auto-extracts (local builds only)
+3. **For above-the-fold CSS**: Use `npm run build:prod` locally, commit critical CSS files
+4. **For deployment**: `npm run build:cloudflare` (uses committed critical CSS)
+5. **Push to GitHub** triggers automatic Cloudflare deployment
 6. **Blog posts**: Use Markdown in `src/blog/posts/` for easy authoring + RSS feed
 
-**Questions?** Check [AI_CONTEXT.md](AI_CONTEXT.md) or [CLAUDE.md](CLAUDE.md) for detailed explanations.
+**Questions?** Check [BUILD_PROCESS.md](BUILD_PROCESS.md), [AI_CONTEXT.md](AI_CONTEXT.md), or [CLAUDE.md](CLAUDE.md) for detailed explanations.
