@@ -534,6 +534,150 @@ npm run validate:all          # Validate schema + HTML together
 
 ## Recent Changes Log
 
+### November 27, 2025 - Footer Service Areas Column Implementation
+
+**Type:** UX/SEO Enhancement - Footer Navigation Update
+**Goal:** Replace sparse "Hours" column with valuable "Service Areas" navigation links
+**Impact:** Strengthened local SEO across all 58 pages, improved footer visual balance
+**Time Investment:** 1 hour (analysis + planning + implementation)
+
+**Problem Identified:**
+- Footer Column 2 displayed only "Hours" heading with single line of text ("24/7 for messages & scheduling")
+- Visual imbalance compared to other columns with 4-5 links each
+- Wasted opportunity for internal linking and local SEO
+
+**Solution Implemented:**
+- Replaced "Hours" column with "Service Areas" column
+- Added 4 location links from existing `navigation.footer.locations` data:
+  - Ottawa County → `/locations/ottawa-county.html`
+  - Kent County → `/locations/kent-county.html`
+  - Allegan County → `/locations/allegan-county.html`
+  - All Service Areas → `/locations.html`
+- Implemented Google Analytics event tracking on all 4 links
+  - Event category: "navigation"
+  - Event label: "footer_service_areas"
+  - Event action: Dynamic per link (e.g., "ottawa-county")
+
+**Technical Implementation:**
+- Modified `src/_includes/partials/footer.njk` (15 lines added, 5 removed)
+- Uses existing `.footer_list` CSS styling (no CSS changes needed)
+- Analytics tracking via existing `.track-click` event handler in `tracking.js`
+- Zero breaking changes - fully backward compatible
+
+**SEO Impact:**
+- All 58 pages now link to 4 key location pages from footer
+- Strengthens local SEO signals for Ottawa, Kent, and Allegan counties
+- Supports 40% of site content (21 location pages across 7 counties)
+- Industry best practice for law firm websites
+
+**UX Impact:**
+- Better visual balance in footer (4 clickable links vs 1 line of static text)
+- More navigational value for visitors seeking service area information
+- Equal visual weight for all counties (no preference shown)
+- Responsive design maintained (4 → 2 → 1 column layout on mobile)
+
+**Validation Results:**
+- Build: ✅ 58 files generated in 1.15 seconds, 0 errors
+- Schema validation: ✅ 0 errors, 4 warnings (pre-existing)
+- HTML validation: ✅ 0 errors, 17 warnings (pre-existing meta description length)
+- Pre-commit checks: ✅ All passed
+
+**Files Modified:**
+- [src/_includes/partials/footer.njk](src/_includes/partials/footer.njk) - Replaced Hours column with Service Areas
+
+**Optional Future Cleanup:**
+- Remove `site.hours` from [src/_data/site.json](src/_data/site.json) (lines 17-19) - no longer used
+- Remove `.footer_hours-weekday` and `.footer_hours-weekend` CSS from [src/assets/styles/style-core.css](src/assets/styles/style-core.css) (lines 382-389) - no longer referenced
+
+**Deployment:**
+- Committed: `501b306`
+- Pushed to origin/main: Triggers Cloudflare Pages auto-deployment
+- Build command: `npm run build:cloudflare`
+- Live URL: https://www.sorinpyle.com
+
+**Status:** ✅ Complete - Service Areas column live on all 58 pages, analytics tracking active
+
+---
+
+### November 27, 2025 - Footer 24/7 Consultation Scheduling Message
+
+**Type:** UX Enhancement - Call-to-Action Messaging
+**Goal:** Communicate 24/7 availability for consultation scheduling after removing Hours column
+**Impact:** Clear messaging about round-the-clock scheduling without crowding footer
+**Time Investment:** 30 minutes (planning + implementation + validation)
+
+**Problem Identified:**
+- After removing "Hours" column, no clear indication of 24/7 availability for consultation scheduling
+- User wanted to add messaging but avoid crowding footer with full 3-line CTA section
+- Message must clarify availability is for **scheduling** consultations, not immediate consultations
+
+**Solution Implemented:**
+- Added single line of text in footer Column 1 (Firm Info) below email address
+- Message: "Call 24/7 to schedule your free consultation"
+- Minimal visual impact with subtle styling (italic, smaller font, reduced opacity)
+- **Critical wording:** "to schedule" makes clear expectation (not immediate consultation)
+
+**Technical Implementation:**
+
+**1. Template Update** (`src/_includes/partials/footer.njk` line 15):
+```html
+<span class="footer_schedule-note">Call 24/7 to schedule your free consultation</span>
+```
+
+**2. CSS Styling** (`src/assets/styles/style-core.css` lines 407-413):
+```css
+.footer_schedule-note {
+  display: block;
+  font-size: 0.9rem;
+  margin-top: 0.75rem;
+  opacity: 0.85;
+  font-style: italic;
+}
+```
+
+**UX Impact:**
+- ✅ Clarifies 24/7 phone availability without dedicated column
+- ✅ Sets proper expectation (scheduling vs immediate consultation)
+- ✅ Minimal visual footprint (single line, subtle styling)
+- ✅ Positioned logically with contact information
+- ✅ Includes "24/7" prominently as requested
+
+**Responsive Behavior:**
+- Desktop: Displays below email in Column 1
+- Tablet: Displays below email in Column 1 (2-column grid)
+- Mobile: Displays below email in stacked layout (1-column grid)
+
+**Validation Results:**
+- Build: ✅ 58 files generated in 2.11 seconds, 0 errors
+- CSS build: ✅ PostCSS compiled successfully
+- Schema validation: ✅ 0 errors, 4 warnings (pre-existing)
+- HTML validation: ✅ 0 errors, 17 warnings (pre-existing meta description length)
+- Pre-commit checks: ✅ All passed
+
+**Files Modified:**
+- [src/_includes/partials/footer.njk](src/_includes/partials/footer.njk) - Line 15: Added scheduling message
+- [src/assets/styles/style-core.css](src/assets/styles/style-core.css) - Lines 407-413: Added `.footer_schedule-note` class
+
+**Design Decisions:**
+- **Rejected:** Full 3-line CTA bar between grid and disclaimer (too crowded)
+- **Rejected:** Placement in bottom bar with legal links (wrong context)
+- **Selected:** Minimal single line in Column 1 below email (logical, unobtrusive)
+
+**Messaging Iterations:**
+- ❌ "Call anytime to schedule your free consultation" (lacks "24/7")
+- ❌ "Available 24/7 for messages and scheduling" (too generic)
+- ✅ "Call 24/7 to schedule your free consultation" (clear, includes "24/7", sets expectation)
+
+**Deployment:**
+- Committed: `7de6015`
+- Pushed to origin/main: Triggers Cloudflare Pages auto-deployment
+- Build command: `npm run build:cloudflare`
+- Live URL: https://www.sorinpyle.com
+
+**Status:** ✅ Complete - 24/7 scheduling message live on all 58 pages
+
+---
+
 ### November 26, 2025 - CRITICAL-001 Security Investigation & Resolution
 
 **Type:** Security Analysis - CSP 'unsafe-inline' Vulnerability Assessment
