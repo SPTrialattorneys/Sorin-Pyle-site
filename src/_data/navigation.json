@@ -121,12 +121,12 @@
     "clientPortal": [
       {
         "text": "Pay Invoice Online",
-        "url": "https://app.clio.com/nc/#/public_portal/invoice/CkEn4iXUe8s1PEpWW4vFPw",
+        "url": "https://app.clio.com/link/v2/2/2/81d5d84d1d449d617bc5b8d5ff9658fb?hmac=e9a2a8e1fbd96a550ff5212173791d674bb93c42d08b7eb7564e8cee53e54ab9",
         "external": true
       },
       {
         "text": "Client Portal Login",
-        "url": "https://app.clio.com/client_portals/oRBbEm1HGacnwxrsBwFcrA",
+        "url": "https://www.clio.com/clients/",
         "external": true
       }
     ],
