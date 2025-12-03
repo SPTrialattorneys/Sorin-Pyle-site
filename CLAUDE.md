@@ -678,6 +678,66 @@ npm run validate:all          # Validate schema + HTML together
 
 ---
 
+### December 3, 2025 - Client Portal Footer Links Fix (Clio URL Migration)
+
+**Type:** Bug Fix - External Link Updates
+**Goal:** Update non-working Client Portal links to new Clio URL structure
+**Impact:** All 58 pages now have working Clio payment and portal links
+**Time Investment:** 15 minutes (investigation + implementation + validation)
+
+**Problem Identified:**
+- "Pay Invoice Online" link using legacy Clio URL path (`/nc/#/public_portal/invoice/...`) that no longer works
+- "Client Portal Login" link using old Clio URL path (`/client_portals/...`) that redirects incorrectly
+- User reported both links in footer "Client Portal" section were broken
+
+**Root Cause:**
+- Clio updated their URL structure from legacy paths to new authentication system
+- Old URLs:
+  - Pay Invoice: `https://app.clio.com/nc/#/public_portal/invoice/CkEn4iXUe8s1PEpWW4vFPw`
+  - Portal Login: `https://app.clio.com/client_portals/oRBbEm1HGacnwxrsBwFcrA`
+- New URLs:
+  - Pay Invoice: `https://app.clio.com/link/v2/2/2/81d5d84d1d449d617bc5b8d5ff9658fb?hmac=...` (HMAC authentication)
+  - Portal Login: `https://www.clio.com/clients/` (simplified universal login)
+
+**Solution Implemented:**
+- Updated `src/_data/navigation.json` with correct Clio URLs
+- Changed Pay Invoice URL to new `/link/v2/2/2/` path with HMAC parameter
+- Changed Client Portal Login to `https://www.clio.com/clients/`
+- Kept `"external": true` flags (opens in new tab with security attributes)
+
+**Technical Details:**
+- Data file: `src/_data/navigation.json` (lines 123-124, 128-129)
+- Template: `src/_includes/partials/footer.njk` (no changes needed - already handles external links correctly)
+- Footer template automatically applies `target="_blank" rel="noopener noreferrer"` to external links
+- All 58 HTML pages regenerated via Eleventy build system
+
+**Validation Results:**
+- Build: ✅ 58 files generated in 2.35 seconds, 0 errors
+- Schema validation: ✅ 0 errors, 4 warnings (pre-existing)
+- HTML validation: ✅ 0 errors, 17 warnings (pre-existing meta description length)
+- Link verification: ✅ Both URLs render correctly in built HTML with proper attributes
+- Pre-commit checks: ✅ All passed
+
+**Files Modified:**
+- [src/_data/navigation.json](src/_data/navigation.json) - Updated clientPortal URLs (lines 123-124, 128-129)
+
+**Impact:**
+- ✅ Pay Invoice Online link now works (secure HMAC-authenticated URL)
+- ✅ Client Portal Login link now works (universal Clio client login page)
+- ✅ All 58 pages updated site-wide (consistent footer across entire site)
+- ✅ Security attributes maintained (`target="_blank" rel="noopener noreferrer"`)
+- ✅ Zero visual changes (same link text, same styling)
+
+**Deployment:**
+- Committed: `d881441`
+- Pushed to origin/main: Triggers Cloudflare Pages auto-deployment
+- Build command: `npm run build:cloudflare`
+- Live URL: https://www.sorinpyle.com
+
+**Status:** ✅ Complete - Working Client Portal links deployed to production
+
+---
+
 ### November 26, 2025 - CRITICAL-001 Security Investigation & Resolution
 
 **Type:** Security Analysis - CSP 'unsafe-inline' Vulnerability Assessment
