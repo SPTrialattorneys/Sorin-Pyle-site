@@ -390,12 +390,16 @@ src/_data/navigation.json
 - **Specialties**: Pre-charge investigations, trial representation
 
 ### Recent Results Highlighted
+- Assault with Intent to do Great Bodily Harm less than Murder: Dismissed
+- Felony Domestic Violence: Not Guilty
+- Attempt CSC 4th: Dismissed
 - Felonious Assault: Dismissed
-- CCW: Dismissed
-- Domestic Violence: Not Guilty
-- OWI: Dismissed
-- Resisting and Opposing: Not Guilty
 - Aggravated Assault: Not Guilty
+- Resisting and Opposing a Police Officer: Not Guilty
+- Assault and Battery: Not Guilty
+- Domestic Violence: Not Guilty
+- CCW (Carrying a Concealed Weapon): Dismissed
+- Operating While Intoxicated: Dismissed
 
 ## Development Commands
 
@@ -533,6 +537,48 @@ npm run validate:all          # Validate schema + HTML together
 - 📋 **CANONICAL_URL_CONSISTENCY_FIXED.md** - SEO URL format standardization
 
 ## Recent Changes Log
+
+### December 3, 2025 - Attorney Credentials & Trial Results Update
+
+**Type:** Content Update - Professional Achievements
+**Goal:** Update Sorin Panainte's credentials and recent trial victories across site
+**Impact:** Strengthened credibility signals, current trial success showcase
+
+**Credentials Added:**
+- Elected Vice President of Allegan County Bar Association (December 3, 2025)
+- Added to Person schema affiliation and memberOf arrays
+- Updated author bio in authors.json and site.json
+- Updated VCard NOTE field
+
+**Bar Association Standardization:**
+- Both Sorin Panainte and Jonathan Pyle now list Ottawa County Bar Association and Allegan County Bar Association memberships
+- Sorin's schema includes roleName: "Vice President" for Allegan County Bar
+- Ensures consistency across all Person schema instances
+
+**Trial Results Added (4 new victories):**
+1. Assault with Intent to do Great Bodily Harm less than Murder - Dismissed
+2. Felony Domestic Violence - Not Guilty (jury verdict)
+3. Domestic Violence - Not Guilty (jury verdict)
+4. Assault and Battery - Not Guilty (jury verdict)
+
+**Files Modified:**
+- `src/_data/authors.json` - Added VP credential to Sorin's bio
+- `src/_data/site.json` - Added VP credential to Sorin's bio
+- `src/pages/sorin-panainte.njk` - Updated affiliation schema (array), memberOf schema (array with 3 bar associations), results list (10 results)
+- `src/pages/jonathan-pyle.njk` - Added Allegan County Bar to memberOf array
+- `src/pages/index.njk` - Updated results grid to 9 cards (3×3 layout with 5 "Not Guilty" verdicts), updated Sorin employee schema
+- `src/pages/attorneys.njk` - Updated both attorneys' memberOf schemas with Ottawa + Allegan County bars
+- `vcards/sorin-panainte.vcf` - Added VP credential to NOTE field
+- `CLAUDE.md` - Updated Recent Results section (10 results), added changelog entry
+
+**Homepage Results Grid:**
+- Expanded from 6 to 9 cards in 3×3 grid layout
+- Emphasizes trial victories: 5 "Not Guilty" verdicts + 4 dismissals
+- Shows range of practice areas: violent crimes, sex crimes, DUI, weapons
+
+**Status:** ✅ Complete - Credentials and results updated site-wide
+
+---
 
 ### November 27, 2025 - Footer Service Areas Column Implementation
 

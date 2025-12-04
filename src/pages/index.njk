@@ -179,12 +179,15 @@ criticalCSSFile: critical-homepage.css
      <div class="container-large fade-up-on-scroll">
         <h2 class="text-align-center margin-bottom-md">Recent Results That Speak for Themselves</h2>
         <div class="grid_3-col">
-            <div class="card_results"><p><span class="charge">Felonious Assault:</span><br><span class="result">Dismissed</span></p></div>
-            <div class="card_results"><p><span class="charge">CCW (carrying a concealed weapon):</span><br><span class="result">Dismissed</span></p></div>
-            <div class="card_results"><p><span class="charge">Domestic Violence:</span><br><span class="result">Not Guilty</span></p></div>
-            <div class="card_results"><p><span class="charge">Operating While Intoxicated:</span><br><span class="result">Dismissed</span></p></div>
-            <div class="card_results"><p><span class="charge">Resisting and Opposing:</span><br><span class="result">Not Guilty</span></p></div>
+            <div class="card_results"><p><span class="charge">Assault with Intent to do GBH:</span><br><span class="result">Dismissed</span></p></div>
+            <div class="card_results"><p><span class="charge">Felony Domestic Violence:</span><br><span class="result">Not Guilty</span></p></div>
+            <div class="card_results"><p><span class="charge">Attempt CSC 4th:</span><br><span class="result">Dismissed</span></p></div>
             <div class="card_results"><p><span class="charge">Aggravated Assault:</span><br><span class="result">Not Guilty</span></p></div>
+            <div class="card_results"><p><span class="charge">Assault and Battery:</span><br><span class="result">Not Guilty</span></p></div>
+            <div class="card_results"><p><span class="charge">Domestic Violence:</span><br><span class="result">Not Guilty</span></p></div>
+            <div class="card_results"><p><span class="charge">Resisting and Opposing:</span><br><span class="result">Not Guilty</span></p></div>
+            <div class="card_results"><p><span class="charge">Felonious Assault:</span><br><span class="result">Dismissed</span></p></div>
+            <div class="card_results"><p><span class="charge">Operating While Intoxicated:</span><br><span class="result">Dismissed</span></p></div>
         </div>
     </div>
 </section>
@@ -395,7 +398,22 @@ criticalCSSFile: critical-homepage.css
             "@id": "{{ site.url }}/sorin-panainte.html#attorney",
             "name": "Sorin Panainte",
             "jobTitle": "Criminal Defense Attorney",
-            "url": "{{ site.url }}/sorin-panainte.html"
+            "url": "{{ site.url }}/sorin-panainte.html",
+            "memberOf": [
+                {
+                    "@type": "Organization",
+                    "name": "State Bar of Michigan"
+                },
+                {
+                    "@type": "Organization",
+                    "name": "Ottawa County Bar Association"
+                },
+                {
+                    "@type": "Organization",
+                    "name": "Allegan County Bar Association",
+                    "roleName": "Vice President"
+                }
+            ]
         },
         {
             "@type": "Person",
