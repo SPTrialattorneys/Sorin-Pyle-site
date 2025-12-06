@@ -538,6 +538,98 @@ npm run validate:all          # Validate schema + HTML together
 
 ## Recent Changes Log
 
+### December 4, 2025 - Blog Post: Sorin Elected Vice President of Allegan County Bar Association
+
+**Type:** Content Publishing - Professional Achievement Announcement
+**Goal:** Publish blog post announcing Sorin's election to Allegan County Bar Association VP
+**Impact:** Community engagement, professional credibility showcase, SEO content
+**Time Investment:** 45 minutes (research + writing + optimization + deployment)
+
+**Blog Post Details:**
+- **Title:** "Sorin Panainte Elected Vice President of Allegan County Bar Association"
+- **Published:** December 4, 2025 (day after election event)
+- **Author:** Sorin & Pyle, Trial Lawyers (firm)
+- **Category:** Community (green tag)
+- **Word Count:** ~370 words (brief, factual announcement)
+- **SEO Slug:** `sorin-elected-vice-president-allegan-bar`
+
+**Content Highlights:**
+- Sorin elected VP for one-year term at December 3, 2025 meeting
+- Replaces Michael Becker (promoted to President)
+- Also announced: Alice Bernal elected Treasurer
+- Nomination by local judge, confirmed unanimously via voice vote
+- Personal anecdote: "Death by Lightning" miniseries parallel (unexpected VP nomination)
+- Professional background: former public defender, Case Western JD cum laude, U of M BA
+
+**Featured Image:**
+- Created: `images/allegan-county-bar-association-logo.avif` (10 KB)
+- Source: `samples/acba.png` (784x768, 22.6 KB)
+- Optimization: Sharp (Node.js) - 800x600 AVIF at quality 85
+- Alt text: "Allegan County Bar Association logo - legal professional organization in Allegan County, Michigan"
+
+**SEO Optimization:**
+- Meta description: 146 characters (optimized from 178)
+- Keywords: Sorin Panainte, Vice President, Allegan County Bar Association, Holland Michigan attorney
+- Links to Sorin's profile page (`aboutPerson` schema reference)
+- BlogPosting schema with full structured data
+- BreadcrumbList schema for navigation
+
+**Technical Implementation:**
+- Used sharp for image optimization (better than ImageMagick for this project)
+- Created optimization script: `optimize-acba-logo.mjs`
+- Followed BLOG_WRITING_GUIDE.md requirements
+- All front matter fields present and validated
+
+**Compliance Review:**
+- ✅ MRPC 7.1 (no false/misleading claims)
+- ✅ MRPC 7.2 (proper disclaimers)
+- ✅ MRPC 7.4 (no specialization claims)
+- ✅ MRPC 1.6 (no confidential information)
+- ✅ Factual accuracy verified (bar election is public record)
+- ✅ Professional tone with appropriate humility
+
+**Files Created:**
+- `src/blog/posts/2025-12-03-sorin-elected-vice-president-allegan-bar.md` - Blog post source
+- `images/allegan-county-bar-association-logo.avif` - Featured image (10 KB)
+- `optimize-acba-logo.mjs` - Image optimization script (temporary)
+
+**Files Modified:**
+- None (standalone blog post, no schema updates needed - VP credential already added Dec 3)
+
+**Validation Results:**
+- Schema validation: ✅ 0 errors, 4 warnings (pre-existing)
+- HTML validation: ✅ 0 errors, 17 warnings (pre-existing meta description length)
+- Pre-commit checks: ✅ All passed
+- Build: ✅ 59 files in 1.37 seconds
+
+**Deployment:**
+- Committed: `e0983ce` - "Add blog post: Sorin elected Vice President of Allegan County Bar Association"
+- Pushed to origin/main: Triggers Cloudflare Pages auto-deployment
+- Build command: `npm run build:cloudflare`
+- Live URL: https://www.sorinpyle.com/blog.html
+
+**Blog Archive Status:**
+- Total posts: 5 (was 4, now 5)
+- Latest: Sorin VP election (Dec 4, 2025)
+- Previous: Three Acquittals (Nov 20), CDAM Conference (Nov 11), Gun Lake Fair (Oct 4), Plainwell Fair (Aug 15)
+
+**RSS Feed:**
+- Auto-updated at https://www.sorinpyle.com/feed.xml
+- Includes all 5 posts with full content
+- Proper Atom format with BlogPosting schema
+
+**Writing Process Notes:**
+- Initial draft: Professional milestone announcement (factual only)
+- Enhancement: Added "Death by Lightning" anecdote for personality
+- Editorial review: Fixed grammar (comma splice on line 29)
+- Date change: Dec 3 → Dec 4 (posted day after event, not same day)
+- Judge anonymization: Removed specific name, used "local judge" instead
+- Context added: Michael Becker and Alice Bernal elections
+
+**Status:** ✅ Complete - Blog post live on production, 5th blog post published
+
+---
+
 ### December 3, 2025 - Attorney Credentials & Trial Results Update
 
 **Type:** Content Update - Professional Achievements
