@@ -672,6 +672,93 @@ npm run validate:all          # Validate schema + HTML together
 
 ---
 
+### December 5, 2025 - Anna White Judicial Endorsement Blog Post
+
+**Type:** Content Publishing - Political Endorsement
+**Goal:** Publish Sorin Panainte's personal endorsement of Anna White for Ottawa County District Judge
+**Impact:** High-quality legal content with authentic voice, MRPC-compliant political endorsement
+**Time Investment:** 2 hours (research + image optimization + content rewrite + deployment)
+
+**Content Summary:**
+- Personal endorsement by Sorin Panainte of Anna White's judicial campaign
+- Event: December 5, 2025 announcement outside Holland District Court
+- Category: Legal | Author: sorin-panainte
+- Highlights Anna's experience as public defender and social worker
+- Emphasizes fairness, dignity, and community involvement
+
+**Image Optimization:**
+- Created `optimize-anna-white-photos.mjs` for batch photo processing
+- Optimized 3 campaign photos with sharp:
+  - `anna-white-judicial-announcement-speaking.avif` (3.16 MB → 140 KB, 96% reduction)
+  - `robert-hamilton-introducing-anna-white-judge.avif` (2.54 MB → 113 KB, 96% reduction)
+  - `anna-white-campaign-announcement-crowd-holland.avif` (3.95 MB → 163 KB, 96% reduction)
+- Total: 9.65 MB → 416 KB (96% file size reduction)
+
+**Content Development Process:**
+1. **Initial Draft:** Used Sorin's notes from samples/aw.txt
+2. **Research:** Attempted to fetch annawhiteforjudge.com content but encountered Wix JavaScript rendering limitations
+3. **User Feedback:** "Make it sound more human/real" - removed AI/marketing tone
+4. **Major Rewrite:**
+   - Removed formal section headings (## A Mentor's Introduction, ## Who Is Anna White?, etc.)
+   - Simplified title: "Why I'm Endorsing..." → "I'm Endorsing..."
+   - Used conversational language from Sorin's authentic voice
+   - Kept personal phrases: "fancy camera he'd recently splurged on," "unfortunately, they ran out of signs"
+   - Reduced from structured marketing article to conversational personal account
+
+**MRPC Compliance:**
+- Researched MRPC 8.2 (statements about judicial candidates)
+- Confirmed attorney endorsements of judicial candidates are permitted
+- Prohibition only covers false or reckless statements
+- All claims substantiated by firsthand account
+
+**Key Content Elements:**
+- Bob Hamilton (mentor) introduction and endorsement
+- Anna's background: public defender, social worker, community board service
+- Quote: "The justice system has a significant impact... every person deserves to be treated with dignity"
+- Link to campaign website: www.annawhiteforjudge.com
+- Context: Judge Bradley Knoll retirement (age limitation), November 2026 election, 6-year term
+
+**Files Created:**
+- `src/blog/posts/2025-12-05-endorsing-anna-white-ottawa-county-district-judge.md` - Blog post
+- `optimize-anna-white-photos.mjs` - Photo optimization script
+- `images/anna-white-judicial-announcement-speaking.avif` - Featured image
+- `images/robert-hamilton-introducing-anna-white-judge.avif` - Gallery photo
+- `images/anna-white-campaign-announcement-crowd-holland.avif` - Gallery photo
+
+**SEO Optimization:**
+- Meta description: "Why I'm supporting Anna White's campaign for Ottawa County District Judge—fairness, experience, and a commitment to treating everyone with dignity." (149 chars)
+- SEO slug: `endorsing-anna-white-ottawa-county-district-judge`
+- Featured image alt text: "Attorney Anna White speaking at her judicial campaign announcement outside Holland District Court"
+- BlogPosting schema markup with author, publisher, dates
+
+**Writing Approach:**
+- Authentic conversational tone (removed AI/marketing style)
+- Personal account format (firsthand observations)
+- Natural paragraph flow (no formal section structure)
+- Short sentences and accessible language
+- Personality details (Abraham Gonzales' camera anecdote, Death by Lightning reference from earlier post)
+
+**Validation Results:**
+- Schema validation: ✅ 0 errors, 4 warnings (expected)
+- HTML validation: ✅ 0 errors, 17 warnings (non-blocking meta description length)
+- Pre-commit checks: ✅ All passed
+
+**Deployment:**
+- Committed: `3777cfe`
+- Pushed to origin/main: Triggers Cloudflare Pages auto-deployment
+- Build command: `npm run build:cloudflare`
+- Live URL: https://www.sorinpyle.com/blog.html
+
+**Key Learning:**
+- Website scraping not always reliable (Wix JavaScript rendering)
+- Authentic voice from firsthand notes more valuable than formal article structure
+- User feedback critical for tone calibration
+- MRPC 8.2 allows truthful endorsements of judicial candidates
+
+**Status:** ✅ Complete - Blog post live on production with optimized photos and authentic voice
+
+---
+
 ### November 27, 2025 - Footer Service Areas Column Implementation
 
 **Type:** UX/SEO Enhancement - Footer Navigation Update
