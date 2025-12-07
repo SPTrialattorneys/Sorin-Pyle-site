@@ -5,16 +5,19 @@ const photos = [
     {
         input: 'samples/aw.jpg',
         output: 'images/anna-white-judicial-announcement-speaking.avif',
+        width: 800,  // Hero image - full width
         alt: 'Attorney Anna White speaking at her judicial campaign announcement outside Holland District Court'
     },
     {
         input: 'samples/bh.jpg',
         output: 'images/robert-hamilton-introducing-anna-white-judge.avif',
+        width: 600,  // Secondary image - smaller for better hierarchy
         alt: 'Attorney Robert Hamilton introducing Anna White at judicial campaign announcement'
     },
     {
         input: 'samples/aw4j.jpg',
         output: 'images/anna-white-campaign-announcement-crowd-holland.avif',
+        width: 600,  // Secondary image - smaller for better hierarchy
         alt: 'Crowd gathered outside Holland District Court for Anna White judicial campaign announcement'
     }
 ];
@@ -24,7 +27,7 @@ console.log('🖼️  Optimizing Anna White campaign announcement photos...\n');
 for (const photo of photos) {
     try {
         const info = await sharp(photo.input)
-            .resize(800, null, {
+            .resize(photo.width, null, {
                 fit: 'inside',
                 withoutEnlargement: true
             })
