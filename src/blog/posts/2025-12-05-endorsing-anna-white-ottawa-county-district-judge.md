@@ -9,7 +9,7 @@ featuredImageAlt: "Attorney Anna White speaking at her judicial campaign announc
 layout: layouts/blog-post.njk
 ---
 
-There were so many people outside the Holland District Court on Thursday morning that I started wondering if the local Department of Public Safety might be concerned. We were all congregated right outside their doors—people of all colors, races, and backgrounds, but with one thing in common: we were there to support Attorney Anna White's decision to run for Ottawa County District Judge.
+There were so many people outside the Holland District Court on Friday morning that I started wondering if the local Department of Public Safety might be concerned. We were all congregated right outside their doors—people of all colors, races, and backgrounds, but with one thing in common: we were there to support Attorney Anna White's decision to run for Ottawa County District Judge.
 
 ![Attorney Robert Hamilton introducing Anna White at judicial campaign announcement](/images/robert-hamilton-introducing-anna-white-judge.avif)
 
