@@ -538,6 +538,56 @@ npm run validate:all          # Validate schema + HTML together
 
 ## Recent Changes Log
 
+### December 5-6, 2025 - Blog Post: Endorsing Anna White for Ottawa County District Judge
+
+**Type:** Content Publishing - Political Endorsement (MRPC 8.2 Compliant)
+**Goal:** Publish Sorin Panainte's personal endorsement of Anna White's judicial campaign
+**Impact:** High-quality legal content, authentic voice, optimized image hierarchy
+**Time Investment:** 3 hours (research + drafting + image optimization + CSS debugging + deployment)
+
+**Summary:**
+Personal endorsement blog post by Sorin Panainte supporting Anna White's campaign for Ottawa County District Judge. Featured event coverage from December 5, 2025 announcement outside Holland District Court, including Bob Hamilton's introduction and Anna's background as public defender and social worker.
+
+**Key Stats:**
+- **Word Count:** ~620 words
+- **Photos:** 3 optimized AVIF images (314 KB total, down from 9.65 MB originals - 97% reduction)
+- **Author:** sorin-panainte
+- **Category:** Legal (blue tag)
+- **SEO Slug:** `endorsing-anna-white-ottawa-county-district-judge`
+
+**Critical Issues Resolved:**
+1. **AI/Marketing Tone** - Complete rewrite after user feedback: "make it sound more human/real"
+   - Removed formal headings, used conversational flow from Sorin's authentic voice
+2. **Plagiarism Risk** - Paraphrased Holland Sentinel quote to avoid exact duplication
+3. **Strange Content** - Removed Abraham Gonzales camera anecdote per user feedback
+4. **Image Sizing Bug** - Fixed CSS constraining hero image to 600px instead of 800px
+   - User correctly identified: "photo of Bob may be wider than the photo of Anna"
+   - Root cause: `.blog-image { max-width: 600px }` limiting hero
+   - Fix: Changed to 800px, added `.prose img { max-width: 600px }` for secondary images
+
+**Final Image Specifications:**
+- Hero: `anna-white-judicial-announcement-speaking.avif` - 800x600, 140 KB
+- Secondary: `robert-hamilton-introducing-anna-white-judge.avif` - 600x450, 71 KB
+- Secondary: `anna-white-campaign-announcement-crowd-holland.avif` - 600x450, 103 KB
+- Visual hierarchy: Hero 33% larger than supporting images
+
+**Files Created:**
+- `src/blog/posts/2025-12-05-endorsing-anna-white-ottawa-county-district-judge.md`
+- `optimize-anna-white-photos.mjs` - Batch photo processing script
+- 3 optimized AVIF images
+
+**Files Modified:**
+- `src/assets/styles/style-blog.css` - Fixed image hierarchy CSS
+
+**Deployment:**
+- Preview branch testing (Dec 5-6)
+- Merged to main: Dec 6, 2025
+- Live: https://www.sorinpyle.com/blog/i-m-endorsing-anna-white-for-district-judge.html
+
+**Status:** ✅ Complete - Blog post #6 live on production
+
+---
+
 ### December 4, 2025 - Blog Post: Sorin Elected Vice President of Allegan County Bar Association
 
 **Type:** Content Publishing - Professional Achievement Announcement
@@ -755,11 +805,13 @@ npm run validate:all          # Validate schema + HTML together
 - Pre-commit checks: ✅ All passed
 
 **Deployment:**
-- **Preview Branch:** `preview/anna-white-endorsement`
+- **Preview Branch:** `preview/anna-white-endorsement` (Dec 5-6, 2025)
 - Initial commit: `af4f0a0` - Blog post with 800px images
 - Image optimization commit: `e4bd1b2` - Secondary images resized to 600px
-- Deployed to Cloudflare Pages preview: https://a2b74bba.sorin-pyle-site.pages.dev/blog/i-m-endorsing-anna-white-for-district-judge.html
-- Awaiting user approval before merging to main
+- CSS fix commit: `2ab8522` - Fixed hero image sizing (.blog-image max-width 600px → 800px)
+- Documentation commit: `0ebad93` - Updated CLAUDE.md with CSS bug details
+- **Merged to main:** `0ebad93` (Dec 6, 2025) - Fast-forward merge
+- **Deployed to production:** https://www.sorinpyle.com/blog/i-m-endorsing-anna-white-for-district-judge.html
 
 **Image Sizing Decision:**
 - **Problem:** User reported images looked too large in test.pdf
@@ -783,7 +835,7 @@ npm run validate:all          # Validate schema + HTML together
 - Use preview branches for content requiring editorial review
 - Check both HTML source AND CSS styling when debugging layout issues
 
-**Status:** ⏳ In Preview - CSS fix deployed, awaiting final user approval before production
+**Status:** ✅ Complete - Live on production at sorinpyle.com with proper image hierarchy (hero 800px, secondary 600px)
 
 ---
 
