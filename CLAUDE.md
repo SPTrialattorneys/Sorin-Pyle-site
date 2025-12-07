@@ -687,23 +687,34 @@ npm run validate:all          # Validate schema + HTML together
 - Emphasizes fairness, dignity, and community involvement
 
 **Image Optimization:**
-- Created `optimize-anna-white-photos.mjs` for batch photo processing
-- Optimized 3 campaign photos with sharp:
-  - `anna-white-judicial-announcement-speaking.avif` (3.16 MB → 140 KB, 96% reduction)
-  - `robert-hamilton-introducing-anna-white-judge.avif` (2.54 MB → 113 KB, 96% reduction)
-  - `anna-white-campaign-announcement-crowd-holland.avif` (3.95 MB → 163 KB, 96% reduction)
-- Total: 9.65 MB → 416 KB (96% file size reduction)
+- Created `optimize-anna-white-photos.mjs` for batch photo processing with sharp
+- **Phase 1:** Initial optimization (3.16 MB, 2.54 MB, 3.95 MB originals)
+  - All images resized to 800x600 AVIF at quality 85
+  - Total: 9.65 MB → 416 KB (96% file size reduction)
+- **Phase 2:** Visual hierarchy improvement (December 6, 2025)
+  - **Issue:** Secondary images at 800px competed with hero image
+  - **Solution:** Resized secondary images to 600px while keeping hero at 800px
+  - Hero image: `anna-white-judicial-announcement-speaking.avif` - 800x600, 140 KB (unchanged)
+  - Bob Hamilton: `robert-hamilton-introducing-anna-white-judge.avif` - 800x600 → 600x450, 113 KB → 71 KB (37% reduction)
+  - Crowd photo: `anna-white-campaign-announcement-crowd-holland.avif` - 800x600 → 600x450, 163 KB → 103 KB (37% reduction)
+  - **Final total:** 416 KB → 314 KB (102 KB additional savings, 25% further reduction)
+  - **Result:** Better visual hierarchy with hero image prominently larger than supporting images
 
 **Content Development Process:**
 1. **Initial Draft:** Used Sorin's notes from samples/aw.txt
 2. **Research:** Attempted to fetch annawhiteforjudge.com content but encountered Wix JavaScript rendering limitations
-3. **User Feedback:** "Make it sound more human/real" - removed AI/marketing tone
+3. **User Feedback Round 1:** "Make it sound more human/real" - removed AI/marketing tone
 4. **Major Rewrite:**
    - Removed formal section headings (## A Mentor's Introduction, ## Who Is Anna White?, etc.)
    - Simplified title: "Why I'm Endorsing..." → "I'm Endorsing..."
    - Used conversational language from Sorin's authentic voice
-   - Kept personal phrases: "fancy camera he'd recently splurged on," "unfortunately, they ran out of signs"
    - Reduced from structured marketing article to conversational personal account
+5. **User Feedback Round 2:** "Quote being exact one as the only other publicly news article is suspiciously stolen looking. Also the part about Abraham is a bit strange"
+6. **Final Revisions:**
+   - Removed Abraham Gonzales camera anecdote (felt forced/strange)
+   - Paraphrased Anna's speech content to avoid exact Sentinel quote plagiarism
+   - Changed "Thursday" → "Friday" (correct day of announcement)
+   - Kept authentic phrases: "unfortunately, they ran out of signs," "so many people," Bob Hamilton introduction
 
 **MRPC Compliance:**
 - Researched MRPC 8.2 (statements about judicial candidates)
@@ -744,18 +755,27 @@ npm run validate:all          # Validate schema + HTML together
 - Pre-commit checks: ✅ All passed
 
 **Deployment:**
-- Committed: `3777cfe`
-- Pushed to origin/main: Triggers Cloudflare Pages auto-deployment
-- Build command: `npm run build:cloudflare`
-- Live URL: https://www.sorinpyle.com/blog.html
+- **Preview Branch:** `preview/anna-white-endorsement`
+- Initial commit: `af4f0a0` - Blog post with 800px images
+- Image optimization commit: `e4bd1b2` - Secondary images resized to 600px
+- Deployed to Cloudflare Pages preview: https://a2b74bba.sorin-pyle-site.pages.dev/blog/i-m-endorsing-anna-white-for-district-judge.html
+- Awaiting user approval before merging to main
+
+**Image Sizing Decision:**
+- **Problem:** User reported images looked too large in test.pdf
+- **Solution:** Maintained hero at 800px, reduced secondary to 600px for better visual hierarchy
+- **Verification:** HTML structure confirmed - hero has explicit width="800" height="600", secondary images render at natural 600x450
+- **Result:** Hero prominently larger, supporting images appropriately subordinate
 
 **Key Learning:**
 - Website scraping not always reliable (Wix JavaScript rendering)
 - Authentic voice from firsthand notes more valuable than formal article structure
-- User feedback critical for tone calibration
+- User feedback critical for tone calibration (removed AI tone, paraphrased Sentinel quote, deleted Abraham anecdote)
 - MRPC 8.2 allows truthful endorsements of judicial candidates
+- Visual hierarchy matters: secondary images should be smaller than hero to guide reader's eye
+- Use preview branches for content requiring editorial review
 
-**Status:** ✅ Complete - Blog post live on production with optimized photos and authentic voice
+**Status:** ⏳ In Preview - Awaiting user approval on image sizing before production deployment
 
 ---
 
