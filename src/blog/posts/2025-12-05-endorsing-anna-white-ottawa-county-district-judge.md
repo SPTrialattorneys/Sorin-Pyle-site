@@ -11,8 +11,6 @@ layout: layouts/blog-post.njk
 
 There were so many people outside the Holland District Court on Thursday morning that I started wondering if the local Department of Public Safety might be concerned. We were all congregated right outside their doors—people of all colors, races, and backgrounds, but with one thing in common: we were there to support Attorney Anna White's decision to run for Ottawa County District Judge.
 
-The Holland Sentinel reporter said they wouldn't be able to take photographs. Luckily, a mentor of ours and close friend, Abraham Gonzales, happened to bring along a fancy camera he'd recently splurged on. "Could be for business purposes too," he told me with a grin, "but mostly I use it for family photos." With his camera ready, the speeches began.
-
 ![Attorney Robert Hamilton introducing Anna White at judicial campaign announcement](/images/robert-hamilton-introducing-anna-white-judge.avif)
 
 Bob Hamilton went first. He's the former Ottawa County Public Defender who hired both me and my law partner Jonathan when we were fresh out of law school. Bob doesn't give endorsements lightly. He told the crowd that Anna would bring fairness to the bench and how proud he was to be standing there supporting her.
@@ -25,7 +23,7 @@ Anna worked as a public defender alongside many of us in the criminal defense co
 
 Her involvement in the community goes beyond her legal work. She's served on the board of directors for the Fearless Family of Churches, currently serves on the advisory team for Ridge Point Community Church, and sits on the Ottawa County Community Corrections Advisory Board. For the past two years, she's been board president of Compassion Heart Ministries.
 
-In her speech, Anna said something that stuck with me: "The justice system has a significant impact on the lives of individuals and families. I believe every person deserves to be treated with dignity and to have their case considered carefully and fairly. My goal is to bring both expertise and empathy to every decision."
+In her speech, Anna talked about what drives her to seek this position. She spoke about bringing fairness and empathy to the bench, about treating every person with dignity regardless of their circumstances. She emphasized that each case represents someone's life, someone's family, someone's future—and deserves careful consideration.
 
 That's not a campaign line. That's who she is.
 
