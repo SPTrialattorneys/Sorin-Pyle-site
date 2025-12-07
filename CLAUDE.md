@@ -764,18 +764,26 @@ npm run validate:all          # Validate schema + HTML together
 **Image Sizing Decision:**
 - **Problem:** User reported images looked too large in test.pdf
 - **Solution:** Maintained hero at 800px, reduced secondary to 600px for better visual hierarchy
-- **Verification:** HTML structure confirmed - hero has explicit width="800" height="600", secondary images render at natural 600x450
-- **Result:** Hero prominently larger, supporting images appropriately subordinate
+- **Critical CSS Bug Found (Dec 6):** `.blog-image` class had `max-width: 600px`, limiting hero to same size as secondary images!
+  - User correctly identified: "I believe the photo of Bob may be wider than the photo of Anna"
+  - Root cause: Hero image constrained by CSS despite 800px file size
+  - Initial verification was incomplete - only checked HTML source, not rendered CSS
+  - **Fix (commit 2ab8522):** Updated `src/assets/styles/style-blog.css`:
+    - Changed `.blog-image` max-width from 600px → 800px (hero container)
+    - Added `.prose img { max-width: 600px }` to constrain secondary images
+- **Result:** Hero now displays at full 800px (33% larger than 600px secondary images), proper visual hierarchy achieved
 
 **Key Learning:**
 - Website scraping not always reliable (Wix JavaScript rendering)
 - Authentic voice from firsthand notes more valuable than formal article structure
 - User feedback critical for tone calibration (removed AI tone, paraphrased Sentinel quote, deleted Abraham anecdote)
+- User visual inspection catches issues AI analysis misses - always trust user feedback on rendered output
 - MRPC 8.2 allows truthful endorsements of judicial candidates
-- Visual hierarchy matters: secondary images should be smaller than hero to guide reader's eye
+- Visual hierarchy requires both file size AND CSS constraints working together
 - Use preview branches for content requiring editorial review
+- Check both HTML source AND CSS styling when debugging layout issues
 
-**Status:** ⏳ In Preview - Awaiting user approval on image sizing before production deployment
+**Status:** ⏳ In Preview - CSS fix deployed, awaiting final user approval before production
 
 ---
 
