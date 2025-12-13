@@ -6,6 +6,24 @@
 
 ---
 
+### December 13, 2025 - Homepage Practice Areas Reorganization
+
+**Type**: Content Organization
+
+**Summary**: Moved Appeals service from Criminal Charges section to Specialized Legal Services section for better categorization.
+
+**Changes**:
+- Removed Appeals from Criminal Charges (left column)
+- Added Appeals to Specialized Legal Services (right column) after Pre-Charge Investigations
+- Better reflects Appeals as a post-conviction specialized service
+
+**Files Modified**:
+- src/pages/index.njk
+
+**Validation**: Schema ✅ | HTML ✅ | Build ✅
+
+---
+
 ### December 13, 2025 - Service Discontinuation: Personal Protection Orders (PPO)
 
 **Type**: Service Offering Update

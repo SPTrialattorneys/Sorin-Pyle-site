@@ -538,6 +538,44 @@ npm run validate:all          # Validate schema + HTML together
 
 ## Recent Changes Log
 
+### December 13, 2025 - Homepage Practice Areas Reorganization: Appeals Moved to Specialized Services
+
+**Type:** Content Organization - Service Categorization
+**Goal:** Improve service categorization by moving Appeals to more appropriate section
+**Impact:** Better UX organization, clearer service groupings on homepage
+**Time Investment:** 5 minutes (quick reorganization + rebuild + deploy)
+
+**Summary:**
+Moved Appeals service from Criminal Charges section (left column) to Specialized Legal Services section (right column) on homepage for more accurate categorization as a post-conviction specialized service.
+
+**Changes Made:**
+- **Removed:** Appeals from Criminal Charges services list (previously after Probation Violations)
+- **Added:** Appeals to Specialized Legal Services (positioned after Pre-Charge Investigations)
+
+**New Service Order in Specialized Legal Services:**
+1. Pre-Charge Investigations
+2. **Appeals** ← newly moved
+3. Record Expungement
+4. Driver License Restoration
+5. Juvenile Defense
+
+**Files Modified:**
+- [src/pages/index.njk](src/pages/index.njk) - Lines 129-134 (removed from left column), Lines 147-150 (added to right column)
+
+**Rationale:**
+- Appeals is a specialized post-conviction service (not a criminal charge)
+- Better categorization alongside other specialized legal services
+- Improves logical flow for users seeking post-conviction relief
+
+**Validation Results:**
+- ✅ Build successful: 60 files in 1.43 seconds
+- ✅ Schema validation: 0 errors, 4 warnings (pre-existing)
+- ✅ HTML validation: 0 errors, 17 warnings (meta description length only)
+
+**Status:** ✅ Complete - Appeals reorganized, deployed to production
+
+---
+
 ### December 13, 2025 - Service Discontinuation: Personal Protection Orders (PPO)
 
 **Type:** Service Offering Update - PPO Service Removal
