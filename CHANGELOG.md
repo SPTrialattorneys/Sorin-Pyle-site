@@ -1,8 +1,33 @@
 # Changelog - Sorin & Pyle Law Firm Website
 
 > Historical record of all changes, improvements, and features added to the website.
-> 
+>
 > **For recent changes (November 2025 onward), see [CLAUDE.md - Recent Changes Log](CLAUDE.md#recent-changes-log)**
+
+---
+
+### December 13, 2025 - Service Discontinuation: Personal Protection Orders (PPO)
+
+**Type**: Service Offering Update
+
+**Summary**: Comprehensive removal of Personal Protection Order (PPO) services from website per firm decision.
+
+**Scope**:
+- 12+ references removed across 4 source files
+- Homepage service card removed
+- Domestic Violence page updated (6 references: meta, charge type, consequences, FAQ, schema)
+- Site configuration updated (practiceAreas array)
+- QR campaign page updated (3 references: emergency box, accordion, form)
+
+**Files Modified**:
+- src/pages/index.njk
+- src/pages/domestic-violence-defense.njk
+- src/_data/site.json
+- go/domestic-violence.html
+
+**Validation**: Schema validation ✅ | HTML validation ✅ | Build test ✅
+
+**Documentation**: Full details in [CLAUDE.md - Recent Changes Log](CLAUDE.md#recent-changes-log)
 
 ---
 

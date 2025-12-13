@@ -538,6 +538,76 @@ npm run validate:all          # Validate schema + HTML together
 
 ## Recent Changes Log
 
+### December 13, 2025 - Service Discontinuation: Personal Protection Orders (PPO)
+
+**Type:** Service Offering Update - PPO Service Removal
+**Goal:** Remove all references to Personal Protection Order (PPO) services from website
+**Impact:** Clean removal of discontinued service, updated SEO metadata, streamlined service offerings
+**Time Investment:** 50 minutes (comprehensive search + systematic removal + validation + documentation)
+
+**Summary:**
+Conducted comprehensive removal of Personal Protection Order (PPO) service references across the entire website. PPO services discontinued by firm; all 12+ references removed from content, metadata, schema markup, and forms.
+
+**Scope of Changes:**
+- **12+ References Removed** across 4 source files
+- **6 PPO Mentions** on Domestic Violence page (meta, charge type, consequences, FAQ, schema)
+- **1 Service Card** removed from homepage
+- **3 QR Campaign References** (emergency box, accordion, form option)
+- **Site Configuration** updated (practiceAreas array)
+
+**Files Modified:**
+1. **src/pages/index.njk** - Removed PPO service card from homepage practice areas section
+2. **src/pages/domestic-violence-defense.njk** - Comprehensive PPO removal:
+   - Meta description: Removed "PPO violations"
+   - Keywords: Removed "PPO attorney, restraining order defense"
+   - aiSummary: Removed "and PPO violations"
+   - Expertise: Removed "PPO violations, restraining order defense"
+   - Charge type section: Deleted "Violation of Personal Protection Order (PPO)" box
+   - Consequences section: Deleted PPO list item
+   - FAQ section: Removed PPO note paragraph
+   - Schema serviceType: Removed "PPO Defense" and "Personal Protection Order Violation Defense"
+3. **src/_data/site.json** - Removed "Personal Protection Orders" from practiceAreas array
+4. **go/domestic-violence.html** - QR campaign page updates:
+   - Emergency box: Changed from PPO-specific to DV arrest messaging
+   - Accordion: Renamed from "No Contact Orders & PPOs" to "No Contact Orders"
+   - Form dropdown: Removed "There's a PPO against me" option
+
+**Validation Results:**
+- ✅ Schema validation: 0 errors (LegalService schema intact with 8 remaining service types)
+- ✅ HTML validation: 0 errors (no broken links or orphaned content)
+- ✅ Build test: 58 files generated successfully
+- ✅ SEO review: Meta descriptions optimized for remaining DV defense services
+
+**SEO Impact:**
+- Updated meta descriptions remain under 160 character limit
+- Keywords refocused on core DV defense services
+- Schema markup maintains Google Rich Results eligibility
+- No negative SEO impact - focused service offerings
+
+**Business Rationale:**
+- Service discontinuation per firm decision
+- Maintains domestic violence defense focus
+- Cleaner service messaging without civil PPO matters
+- Criminal no-contact order defense retained (still relevant to DV cases)
+
+**Context Window Management:**
+- Used 4 parallel specialized exploration agents for comprehensive search
+- Each agent given minimal targeted context
+- Systematic file-by-file removal with focused edits
+- Zero missed references confirmed via multi-agent validation
+
+**Best Practices Applied:**
+- ✅ Comprehensive multi-agent search before any changes
+- ✅ Systematic file-by-file removal tracking
+- ✅ Multi-layer validation (schema, HTML, build, manual review)
+- ✅ Documentation updated (CLAUDE.md + CHANGELOG.md)
+- ✅ SEO metadata reviewed and optimized
+- ✅ Todo list tracking for all 11 tasks
+
+**Status:** ✅ Complete - PPO service completely removed from website, all validation passed
+
+---
+
 ### December 5-6, 2025 - Blog Post: Endorsing Anna White for Ottawa County District Judge
 
 **Type:** Content Publishing - Political Endorsement (MRPC 8.2 Compliant)
