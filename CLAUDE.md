@@ -538,6 +538,42 @@ npm run validate:all          # Validate schema + HTML together
 
 ## Recent Changes Log
 
+### December 19, 2025 - MRPC Compliance Fix: Probation Violations Description
+
+**Type:** Legal Ethics Compliance - Bar Rules Correction
+**Goal:** Remove prohibited "expert" language from probation violations service description
+**Impact:** Full MRPC 7.1/7.4 compliance on homepage service offerings
+**Time Investment:** 5 minutes (text update + validation + deployment)
+
+**Summary:**
+Fixed Michigan Bar Rules violation by removing "expert" language from Probation Violations service description on homepage. "Expert" implies specialization/superiority that cannot be substantiated and violates MRPC advertising rules.
+
+**Changes Made:**
+- **Before:** "Expert defense when facing violations of probation terms."
+- **After:** "Aggressive defense when facing probation violations. We fight to protect your freedom and prevent jail time."
+
+**Legal Compliance:**
+- **MRPC 7.1:** Removed unverifiable claim of superiority ("expert")
+- **MRPC 7.4:** No longer implies specialization without certification
+- **Compliant alternative:** "Aggressive" describes approach (factual), not credentials
+
+**Additional Benefits:**
+- Expanded description to emphasize client stakes (freedom, jail time)
+- Matches approved language on practice-areas.njk
+- More action-oriented and client-focused
+
+**Files Modified:**
+- [src/pages/index.njk](src/pages/index.njk) - Line 144: Updated probation violations description
+
+**Validation Results:**
+- ✅ Schema validation: 0 errors, 4 warnings (pre-existing)
+- ✅ HTML validation: 0 errors, 17 warnings (meta description length only)
+- ✅ Build successful: 60 files in 1.61 seconds
+
+**Status:** ✅ Complete - MRPC compliance restored, deployed to production
+
+---
+
 ### December 19, 2025 - Appeals Service Removal & Practice Areas Spacing Fix
 
 **Type:** Content Removal + UI/UX Fix - Service Discontinuation + Visual Consistency
