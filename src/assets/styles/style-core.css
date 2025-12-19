@@ -1001,7 +1001,7 @@ textarea.form_field {
 .charges-grid {
     display: grid;
     gap: var(--spacing-sm);
-    margin-bottom: 1.5rem;  /* 24px - mid-tier spacing between different content types */
+    margin-bottom: 0;  /* No margin - :last-child padding-bottom handles bottom spacing */
 }
 
 .charge-category {
