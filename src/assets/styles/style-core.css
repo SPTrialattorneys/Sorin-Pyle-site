@@ -1011,6 +1011,11 @@ textarea.form_field {
     border-left: 4px solid var(--accent-orange);
 }
 
+/* Remove bottom padding from last charge category to eliminate extra white space */
+.charges-grid > .charge-category:last-child {
+    padding-bottom: 0;
+}
+
 .charge-category h4 {
     color: var(--primary-blue);
     font-size: 1.1rem;
@@ -1098,6 +1103,11 @@ textarea.form_field {
     border-radius: var(--border-radius-md);
     border-left: 4px solid var(--accent-orange);
     transition: all 0.3s ease;
+}
+
+/* Remove bottom padding from last service item to match charge-category spacing */
+.services-list > .service-item:last-child {
+    padding-bottom: 0;
 }
 
 .service-item:hover {
