@@ -538,6 +538,58 @@ npm run validate:all          # Validate schema + HTML together
 
 ## Recent Changes Log
 
+### December 19, 2025 - Appeals Service Removal & Practice Areas Spacing Fix
+
+**Type:** Content Removal + UI/UX Fix - Service Discontinuation + Visual Consistency
+**Goal:** Remove discontinued Appeals service and fix white space inconsistency between practice area columns
+**Impact:** Streamlined service offerings, perfectly balanced homepage practice areas layout
+**Time Investment:** 45 minutes (content removal + systematic spacing debugging + documentation)
+
+**Summary:**
+Removed all references to Appeals service from website per firm decision to discontinue this practice area. Fixed persistent white space issue at bottom of Criminal Charges column that created visual imbalance with Specialized Services column.
+
+**Changes Made:**
+
+**1. Appeals Service Removal:**
+- Removed Appeals from Specialized Legal Services section on homepage
+- Updated practice-areas.njk to remove Appeals card (lines 93-97)
+- Removed from site navigation and all references
+
+**2. Spacing Fix (Multi-Attempt Debugging):**
+- **Problem:** Left column (Criminal Charges) had excessive bottom white space compared to right column
+- **Root Cause:** Generic `:last-child` rule applying 64px bottom padding to `.charges-grid`
+- **Failed Approaches:**
+  1. Adding `!important` with 64px → Made BOTH columns too spaced
+  2. Removing box padding only → Fixed right, left still broken
+  3. Enforcing 64px on both → Wrong goal (adding instead of removing)
+- **Final Solution:** Reduced both containers to `var(--spacing-sm)` (16px)
+
+**Files Modified:**
+- [src/pages/index.njk](src/pages/index.njk) - Removed Appeals service item (lines 142-145)
+- [src/pages/practice-areas.njk](src/pages/practice-areas.njk) - Removed Appeals card (lines 93-97)
+- [src/assets/styles/style-core.css](src/assets/styles/style-core.css) - Spacing fixes:
+  - `.charges-grid:last-child` → `padding-bottom: var(--spacing-sm)` (line 1007)
+  - `.services-list:last-child` → `padding-bottom: var(--spacing-sm)` (line 1102)
+- [src/_includes/layouts/base.njk](src/_includes/layouts/base.njk) - Cache buster v=20251219-6
+
+**Documentation Created:**
+- SPACING_ANALYSIS.md - Comprehensive debugging documentation with box model calculations and fix history
+
+**Validation Results:**
+- ✅ Schema validation: 0 errors, 4 warnings (pre-existing)
+- ✅ HTML validation: 0 errors, 17 warnings (meta description length only)
+- ✅ Build successful: 60 files in 1.45 seconds
+- ✅ Visual confirmation: Both columns now have identical minimal bottom spacing
+
+**Key Learning:**
+- Right column's minimal spacing was the correct visual target
+- Goal was to REMOVE excessive padding, not enforce uniform large padding
+- Multiple fix attempts taught the importance of identifying the correct baseline
+
+**Status:** ✅ Complete - Appeals removed, spacing balanced, deployed to production
+
+---
+
 ### December 13, 2025 - Homepage Practice Areas Reorganization: Appeals Moved to Specialized Services
 
 **Type:** Content Organization - Service Categorization
