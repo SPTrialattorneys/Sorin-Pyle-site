@@ -1001,7 +1001,8 @@ textarea.form_field {
 .charges-grid {
     display: grid;
     gap: var(--spacing-sm);
-    margin-bottom: 0;  /* No margin - :last-child padding-bottom handles bottom spacing */
+    margin-bottom: 0;
+    padding-bottom: var(--spacing-lg) !important;  /* Force exact 64px bottom spacing */
 }
 
 .charge-category {
@@ -1095,6 +1096,7 @@ textarea.form_field {
     max-width: none;
     margin: 0;
     padding: 0;
+    padding-bottom: var(--spacing-lg) !important;  /* Force exact 64px bottom spacing to match charges-grid */
 }
 
 .service-item {
