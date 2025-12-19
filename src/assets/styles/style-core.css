@@ -1001,20 +1001,14 @@ textarea.form_field {
 .charges-grid {
     display: grid;
     gap: var(--spacing-sm);
-    margin-bottom: 0;
-    padding-bottom: var(--spacing-lg) !important;  /* Force exact 64px bottom spacing */
 }
 
 .charge-category {
     background: rgba(255, 138, 40, 0.03);
     padding: var(--spacing-sm);
+    padding-bottom: 0;
     border-radius: 8px;
     border-left: 4px solid var(--accent-orange);
-}
-
-/* Remove bottom padding from last charge category to eliminate extra white space */
-.charges-grid > .charge-category:last-child {
-    padding-bottom: 0;
 }
 
 .charge-category h4 {
@@ -1096,20 +1090,15 @@ textarea.form_field {
     max-width: none;
     margin: 0;
     padding: 0;
-    padding-bottom: var(--spacing-lg) !important;  /* Force exact 64px bottom spacing to match charges-grid */
 }
 
 .service-item {
     background: rgba(255, 138, 40, 0.03);
     padding: var(--spacing-sm);
+    padding-bottom: 0;
     border-radius: var(--border-radius-md);
     border-left: 4px solid var(--accent-orange);
     transition: all 0.3s ease;
-}
-
-/* Remove bottom padding from last service item to match charge-category spacing */
-.services-list > .service-item:last-child {
-    padding-bottom: 0;
 }
 
 .service-item:hover {
