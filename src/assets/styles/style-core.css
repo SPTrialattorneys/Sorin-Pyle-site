@@ -1003,9 +1003,9 @@ textarea.form_field {
     gap: var(--spacing-sm);
 }
 
-/* Force bottom padding on charges-grid when it's the last child */
+/* Remove the generic bottom padding for charges-grid */
 .card_practice-area-enhanced > .charges-grid:last-child {
-    padding-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-sm);  /* Match services-list spacing (16px) */
 }
 
 .charge-category {
@@ -1097,9 +1097,9 @@ textarea.form_field {
     padding: 0;
 }
 
-/* Force bottom padding on services-list when it's the last child */
+/* Match charges-grid minimal spacing */
 .card_practice-area-enhanced > .services-list:last-child {
-    padding-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-sm);  /* 16px - matches left column for consistency */
 }
 
 .service-item {
