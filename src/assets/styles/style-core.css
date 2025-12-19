@@ -939,7 +939,7 @@ textarea.form_field {
 /* Enhanced Practice Area Cards */
 .grid_2-col.practice-areas-grid {
     gap: var(--spacing-lg);
-    align-items: stretch;
+    align-items: start;
 }
 
 .card_practice-area-enhanced {
