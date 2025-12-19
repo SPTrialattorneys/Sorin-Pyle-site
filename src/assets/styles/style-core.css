@@ -1003,6 +1003,11 @@ textarea.form_field {
     gap: var(--spacing-sm);
 }
 
+/* Force bottom padding on charges-grid when it's the last child */
+.card_practice-area-enhanced > .charges-grid:last-child {
+    padding-bottom: var(--spacing-lg);
+}
+
 .charge-category {
     background: rgba(255, 138, 40, 0.03);
     padding: var(--spacing-sm);
@@ -1090,6 +1095,11 @@ textarea.form_field {
     max-width: none;
     margin: 0;
     padding: 0;
+}
+
+/* Force bottom padding on services-list when it's the last child */
+.card_practice-area-enhanced > .services-list:last-child {
+    padding-bottom: var(--spacing-lg);
 }
 
 .service-item {
